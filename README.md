@@ -2,10 +2,10 @@
 
 ## 멤버소개
 
-1. 신은선 : PM(Project Manager)
-2. 김보라 :
-3. 민지연 :
-4. 서수연 : README 작성
+1. 신은선 : PM(Project Manager), Pick 페이지 작업
+2. 김보라 : Main 페이지 작업
+3. 민지연 : 로그인/회원가입 페이지 작업
+4. 서수연 : README 작성, Nav바/footer 
 5. 김지훈 : ✨유일무이 백엔드✨
 
 ## 각자의 목표
