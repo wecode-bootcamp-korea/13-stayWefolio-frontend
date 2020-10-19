@@ -1,68 +1,57 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# stayWefolio
 
-## Available Scripts
+## 멤버소개
 
-In the project directory, you can run:
+1. 신은선 : PM(Project Manager)
+2. 김보라 :
+3. 민지연 :
+4. 서수연 : README 작성
+5. 김지훈 : ✨유일무이 백엔드✨
 
-### `npm start`
+## 각자의 목표
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. 신은선
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- 예약, 결제 시스템 구현해보기
 
-### `npm test`
+2. 김보라
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- 레이아웃 만들면서 htm, css 개념 확실히 잡기
+- 리액트 익숙해지기
+- 팀작업 프로세스(git 등) 완벽하게 익히기
+- 백과 여러가지 API 붙여보는 과정 이해하기
 
-### `npm run build`
+3. 민지연
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- 사전 convention 익히기
+- 팀 작업 익히기
+- 그동안 배운 css/html/react 적용해보기
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+4. 서수연
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- CRA 초기세팅 및 완벽히 익히기
+- 팀 convention 꼼꼼하게 세우고 철저히 지키기
+- 팀으로 할 때 적정 수준의 업무 분담을 어떻게 하는게 좋은지 파악하기
 
-### `npm run eject`
+5. 김지훈
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- 로그인/회원가입API 복습,데이터 모델링 완벽하게 하기
+- 예약 시스템 구현해보기
+- 지도 API 사용해서 지도 불러오기
+- 결제시스템 적용하기
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 우리의 만남😍
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+![]()
+[20/10/19] 스테위폴리오 첫 만남.
+우리팀만 딱 5명이다. 오붓하니 딱 좋다😁😁
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- PM 및 team이름 정하기
+  **stayWefolio** : 뭘 하는지 직관적으로 알 수 있어 모두 좋았지만 강렬하지는 않은 이름! 좀 더 강렬한 이름이 있다면 언제든지 바꾸어봅시다. 😂
+- Trello 생성하기!
+  처음으로 써보는 Trello라 은선님이 초대하시는데 고생하셨다. 한 번 써보면 굉장히 좋다는데... 적극적으로 써보자.
+- stayfolio 탐방하기
+  stayfolio의 여러 기능을 명확하게 알지 못 하는 상태에서 시작하기에 홈페이지가 어떻게 구성되어 있는지, 어떻게 연결되는지, 어떤 기능은 꼭 하고 싶은지를 확인하는 시간을 가졌다.
+- 역할 분담하기 : trello ticket 만들기
+  팀 프로젝트가 처음이라 정확히 어떻게 역할 분담이 있어야 할지 막막한 부분이 있어 우선 구현하고 싶은 것들을 위주로 ticket 작성을 한 후 멘토님께 여쭤보기로 했다.
+- backend와 스케줄 상의하기 : backend이신 지훈님이 모델링에 시간을 투자하고 싶다고 하셨다. 이전 기수의 후기 중 모델링에서 1주일 투자하고 시작해도 좋았다는 후기를 생각하면 백엔드에서 모델링에서 충분한 시간을 가졌으면 좋겠어서 5일~1주일 정도의 시간을 가질 수 있도록 조정했다.
