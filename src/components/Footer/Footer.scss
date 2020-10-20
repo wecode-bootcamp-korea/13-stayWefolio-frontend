@@ -1,1 +1,90 @@
-*
+@import "./../../styles/common.scss";
+
+$color-line: rgb(71, 71, 71);
+
+@mixin infoStyle {
+  color: rgb(153, 153, 153);
+  font-size: 14px;
+  line-height: 20px;
+}
+@mixin descriptionStyle {
+  padding: 2px 0;
+  color: rgb(71, 71, 71);
+  font-size: 12px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+.Footer {
+  padding: 40px 0;
+  background-color: rgb(34, 34, 34);
+  @include flex-center;
+  flex-direction: column;
+  .menus {
+    width: 100%;
+    @include flex-center;
+    li {
+      padding: 0 10px;
+      @include infoStyle;
+    }
+  }
+
+  .footerInfos {
+    width: 1170px;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-top: 1px solid rgb(71, 71, 71);
+    .personalInfos {
+      margin-bottom: 10px;
+      @include flex-center;
+
+      .personalInfo {
+        color: rgb(102, 102, 102);
+        font-size: 12px;
+      }
+
+      .termInfo {
+        color: rgb(102, 102, 102);
+        font-size: 12px;
+      }
+    }
+
+    .officeInfos {
+      @include flex-center;
+      flex-direction: column;
+      span {
+        @include descriptionStyle;
+      }
+    }
+
+    .copyRightInfos {
+      @include flex-center;
+      flex-direction: column;
+      span {
+        @include descriptionStyle;
+      }
+      .copyRightInfo {
+        padding: 10px 0;
+        font-size: 14px;
+      }
+    }
+  }
+}
