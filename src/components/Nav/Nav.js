@@ -2,8 +2,42 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./Nav.scss";
 
+const API = "http://localhost:3000/data/dataSSY/data.json";
+
 class Nav extends Component {
+  constructor() {
+    super();
+    this.state = {
+      searchValue: "",
+      hotelList: [],
+    };
+  }
+
+  componentDidMount() {
+    fetch(API, {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        this.setState({
+          hotelList: res.hotels,
+          // place: res.hotelList.place, // fetch에서 어떻게 받아 와야 할지...?
+          // type: res.hotelList.type,
+        });
+      });
+  }
+
+  handleSearchBar = (event) => {
+    this.setState = {
+      searchValue: event.target.value,
+    };
+  };
+
+  searchHotel = (e) => {};
+
   render() {
+    const { hotelList, searchValue } = this.state;
+
     return (
       <nav className="Nav">
         <div className="container">
@@ -13,9 +47,15 @@ class Nav extends Component {
           <div className="navContainer">
             <div className="topLineWrap">
               <form className="searchBarWrap">
-                <input className="searchBar" type="text" placeholder="Search" />
-                <button className="searchBarBtn">
-                  <i class="fas fa-search"></i>
+                <input
+                  className="searchBar"
+                  type="text"
+                  placeholder="Search"
+                  value={searchValue}
+                  onChange={this.handleSearchBar}
+                />
+                <button className="searchBarBtn" onClick={this.searchHotel}>
+                  <i className="fas fa-search"></i>
                 </button>
               </form>
               <div className="mediaIconsWrap">
@@ -27,14 +67,14 @@ class Nav extends Component {
                   </li>
                   <li className="instagram">
                     <a href="https://www.instagram.com/">
-                      <i class="fab fa-instagram"></i>
+                      <i className="fab fa-instagram"></i>
                     </a>
                   </li>
                   <li className="naver"></li>
                   <li className="branch"></li>
                   <li className="youtube">
                     <a href="https://www.youtube.com/">
-                      <i class="fab fa-youtube"></i>
+                      <i className="fab fa-youtube"></i>
                     </a>
                   </li>
                 </ul>
