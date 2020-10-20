@@ -1,1 +1,94 @@
-*
+@import url("https://fonts.googleapis.com/css2?family=Quantico&display=swap");
+@import "../../styles/common.scss";
+// @import "./fontawesome/scss/fontawesome.scss";
+// @import "./fontawesome/scss/solid.scss";
+// @import "./fontawesome/scss/brands.scss";
+
+// * {
+//   font-family: "Quantico", sans-serif;
+// }
+$border-gray: rgb(229, 229, 229);
+
+@mixin navTopStyle {
+  width: 100%;
+  height: 100%;
+  border: 1px solid red;
+}
+
+.Nav {
+  width: 100%;
+  height: 102px;
+  border: 1px solid red;
+  @include flex-center;
+  .container {
+    width: 1140px;
+    display: flex;
+    .logoWrap {
+      width: 100%;
+      height: 102px;
+      padding: 0 15px;
+      border-right: 1px solid $border-gray;
+      display: flex;
+      align-items: center;
+      .logo {
+        width: 90px;
+        height: 37.8px;
+      }
+    }
+    .navContainer {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      .topLineWrap {
+        width: 100%;
+        height: 100%;
+        @include flex-center;
+        .searchBarWrap {
+          padding: 20px 20px 20px 35px;
+          display: flex;
+          .searchBar {
+          }
+          .searchBarBtn {
+            .searchBarIcon {
+            }
+          }
+        }
+        .mediaIconsWrap {
+          @include navTopStyle;
+          .mediaIcons {
+            @include flex-center;
+            li {
+              a {
+              }
+            }
+          }
+        }
+        .loginWrap {
+          @include navTopStyle;
+          .loginLink {
+            color: red;
+          }
+          .loginAnd {
+          }
+          .signupLink {
+            color: red;
+          }
+        }
+      }
+      .navbarList {
+        width: 100%;
+        height: 100%;
+        border: 1px solid red;
+        @include flex-center;
+        li {
+          .pickLink {
+            color: pink;
+          }
+          span {
+            color: pink;
+          }
+        }
+      }
+    }
+  }
+}
