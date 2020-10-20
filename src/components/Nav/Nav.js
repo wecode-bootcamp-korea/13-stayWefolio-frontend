@@ -15,7 +15,7 @@ class Nav extends Component {
               <form className="searchBarWrap">
                 <input className="searchBar" type="text" placeholder="Search" />
                 <button className="searchBarBtn">
-                  <i class="fas fa-search"></i>
+                  <i className="fas fa-search"></i>
                 </button>
               </form>
               <div className="mediaIconsWrap">
@@ -27,14 +27,14 @@ class Nav extends Component {
                   </li>
                   <li className="instagram">
                     <a href="https://www.instagram.com/">
-                      <i class="fab fa-instagram"></i>
+                      <i className="fab fa-instagram"></i>
                     </a>
                   </li>
                   <li className="naver"></li>
                   <li className="branch"></li>
                   <li className="youtube">
                     <a href="https://www.youtube.com/">
-                      <i class="fab fa-youtube"></i>
+                      <i className="fab fa-youtube"></i>
                     </a>
                   </li>
                 </ul>
