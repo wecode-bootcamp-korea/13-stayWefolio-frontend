@@ -6,7 +6,6 @@ class Nav extends Component {
   render() {
     return (
       <nav className="Nav">
-        {/* <div className="lowerSide"> */}
         <div className="container">
           <div className="logoWrap">
             <img src="./images/logo.png" alt="logo" className="logo" />
@@ -74,7 +73,6 @@ class Nav extends Component {
             </ul>
           </div>
         </div>
-        {/* </div> */}
       </nav>
     );
   }
