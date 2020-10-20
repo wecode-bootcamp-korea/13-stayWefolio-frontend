@@ -1,33 +1,38 @@
-@import url("https://fonts.googleapis.com/css2?family=Quantico&display=swap");
 @import "../../styles/common.scss";
-// @import "./fontawesome/scss/fontawesome.scss";
-// @import "./fontawesome/scss/solid.scss";
-// @import "./fontawesome/scss/brands.scss";
 
-// * {
-//   font-family: "Quantico", sans-serif;
-// }
+* {
+  font-family: "Apple SD Gothic Neo", "Nanum Gothic", "나눔고딕",
+    "Malgun Gothic", "맑은고딕", Dotum, "돋움", Gulim, "굴림", "Helvetica Neue",
+    Helvetica, Arial, sans-serif;
+}
+
 $border-gray: rgb(229, 229, 229);
+$icon-gray: rgb(138, 138, 138);
 
 @mixin navTopStyle {
   width: 100%;
   height: 100%;
-  border: 1px solid red;
+  border: 1px solid $border-gray;
 }
 
 .Nav {
   width: 100%;
   height: 102px;
-  border: 1px solid red;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
   @include flex-center;
   .container {
-    width: 1140px;
-    display: flex;
+    width: 1170px;
+    height: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
+    @include flex-center;
     .logoWrap {
       width: 100%;
-      height: 102px;
-      padding: 0 15px;
-      border-right: 1px solid $border-gray;
+      height: 100px;
       display: flex;
       align-items: center;
       .logo {
@@ -37,56 +42,117 @@ $border-gray: rgb(229, 229, 229);
     }
     .navContainer {
       width: 100%;
+      height: 100%;
       display: flex;
       flex-direction: column;
       .topLineWrap {
-        width: 100%;
-        height: 100%;
+        height: 51px;
         @include flex-center;
         .searchBarWrap {
-          padding: 20px 20px 20px 35px;
+          width: 100%;
+          height: 100%;
+          padding: 0 20px 0 35px;
+          border-left: 1px solid $border-gray;
           display: flex;
           .searchBar {
+            border: none;
+            line-height: 25px;
+            &:focus {
+              outline: none;
+            }
+          }
+          .searchBar[placeholder] {
+            font-size: 13px;
           }
           .searchBarBtn {
-            .searchBarIcon {
+            margin-left: -25px;
+            background-color: $color-white;
+            .fa-search {
+              background-color: $color-white;
+              color: $icon-gray;
+              position: relative;
             }
           }
         }
         .mediaIconsWrap {
-          @include navTopStyle;
+          width: 100%;
+          height: 100%;
+          border-left: 1px solid $border-gray;
+          border-right: 1px solid $border-gray;
+
           .mediaIcons {
+            width: 100%;
+            height: 100%;
+            // display: flex;
             @include flex-center;
             li {
+              width: 100%;
+              height: 100%;
+              @include flex-center;
               a {
+                .fa-facebook-f {
+                  width: 7px;
+                  height: 12px;
+                  color: $icon-gray;
+                }
+                .fa-instagram {
+                  width: 12px;
+                  height: 12px;
+                  color: $icon-gray;
+                }
+                .fa-youtube {
+                  width: 20px;
+                  height: 15px;
+                  color: $icon-gray;
+                }
               }
             }
           }
         }
         .loginWrap {
-          @include navTopStyle;
+          width: 100%;
+          height: 100%;
+          border-right: 1px solid $border-gray;
+          @include flex-center;
+          .loginLink,
+          .loginAnd,
+          .signupLink {
+            margin: 0 2px;
+            color: $color-title-black;
+            font-size: 10px;
+          }
           .loginLink {
-            color: red;
           }
           .loginAnd {
           }
           .signupLink {
-            color: red;
           }
         }
       }
-      .navbarList {
-        width: 100%;
+      .bottomLineWrap {
         height: 100%;
-        border: 1px solid red;
-        @include flex-center;
+        padding: 0 2px;
+        border: 1px solid $border-gray;
+        display: flex;
+        justify-content: space-around;
         li {
-          .pickLink {
-            color: pink;
-          }
+          // width: 20%;
+          height: 100%;
+          @include flex-center;
+          .pickLink,
           span {
-            color: pink;
+            color: $color-title-black;
+            font-size: 12px;
+            font-weight: 700;
           }
+          .bookingLink {
+            padding: 7px 8px;
+            background-color: $color-title-black;
+            color: $color-white;
+          }
+          // span {
+          //   color: pink;
+          // }
         }
       }
     }
