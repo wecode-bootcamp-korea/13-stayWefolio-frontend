@@ -32,9 +32,12 @@ class Nav extends Component {
     });
   };
 
-  searchHotel = (e) => {
+  searchHotel = (event) => {
     const { searchValue, hotelList } = this.state;
     // 일단 console에 나오도록
+    this.setState({
+      searchValue: "",
+    });
     let count = 0;
     for (const hotel of hotelList) {
       if (
@@ -50,11 +53,19 @@ class Nav extends Component {
     } else {
       return console.log(`${searchValue}이(가) ${count}개 있습니다.`);
     }
-    // e.preventDefault();
   };
 
+  enterSearchHotel = (e) => {
+    if (e.key === "Enter") {
+      this.searchHotel();
+    }
+  };
+
+  resetSubmit(event) {
+    event.preventDefault();
+  }
+
   render() {
-    // console.log(this.state.hotelList);
     const { hotelList, searchValue } = this.state;
 
     return (
@@ -65,13 +76,14 @@ class Nav extends Component {
           </div>
           <div className="navContainer">
             <div className="topLineWrap">
-              <form className="searchBarWrap">
+              <form className="searchBarWrap" onSubmit={this.resetSubmit}>
                 <input
                   className="searchBar"
                   type="text"
                   placeholder="Search"
                   value={searchValue}
                   onChange={this.handleSearchBar}
+                  onKeyUp={this.enterSearchHotel}
                 />
                 <button
                   className="searchBarBtn"
