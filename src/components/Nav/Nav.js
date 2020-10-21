@@ -11,7 +11,6 @@ class Nav extends Component {
       searchValue: "",
       hotelList: [],
       result: [],
-      // resultCount: 0,
     };
   }
 
@@ -61,16 +60,13 @@ class Nav extends Component {
   }
 
   render() {
-    const { searchValue, result } = this.state;
+    const { searchValue } = this.state;
     console.log("result: ", this.state.result);
     return (
       <nav className="Nav">
         <div className="container">
           <div className="logoWrap">
             <img src="./images/logo.png" alt="logo" className="logo" />
-            <span>
-              {searchValue}이(가) {result.length}개 있습니다.
-            </span>
           </div>
           <div className="navContainer">
             <div className="topLineWrap">
