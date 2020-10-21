@@ -1,5 +1,6 @@
-// Login font
+// signup font
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@200&family=Roboto:wght@100;300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200;300;400;500;600;700&family=Nanum+Gothic:wght@400;700&display=swap");
 @import "../../styles/common.scss";
 
 // main
@@ -27,6 +28,7 @@ $color-info-gray: rgb(149, 149, 160);
   width: 100vw;
   position: relative;
   background-color: rgb(244, 244, 244);
+  font-family: "Gothic A1", sans-serif;
   .navWrap {
     width: inherit;
     nav {
@@ -104,10 +106,8 @@ $color-info-gray: rgb(149, 149, 160);
               .infoTitle {
                 font-size: 15px;
                 font-weight: 700;
-                span {
-                  display: flex;
-                  justify-content: space-between;
-                }
+                display: flex;
+                justify-content: space-between;
               }
             }
             .firstAgreement {
@@ -116,14 +116,23 @@ $color-info-gray: rgb(149, 149, 160);
               display: flex;
               justify-content: space-between;
               font-size: 14px;
-              font-weight: 700;
+              font-weight: 600;
               border-bottom: 1px solid rgb(244, 244, 244);
               .keyAgreement {
                 padding-top: 30px;
               }
               .valueAgreement {
-                padding-top: 25px;
+                padding-top: 30px;
                 span {
+                  bottom: 0;
+                  display: flex;
+                  align-items: center;
+                  input {
+                    outline: none;
+                    margin-top: 0;
+                    margin-bottom: 0;
+                    margin-left: 6px;
+                  }
                 }
               }
             }
@@ -132,10 +141,16 @@ $color-info-gray: rgb(149, 149, 160);
               height: 246px;
               font-size: 14px;
               border-bottom: 1px solid rgb(244, 244, 244);
-              line-height: 19px;
-              button {
-                background: none;
+              line-height: 20px;
+              .moreBtn {
                 padding: 0;
+                background: none;
+                cursor: pointer;
+                .moreTitle {
+                  background: none;
+                  padding: 0;
+                  margin-right: 4px;
+                }
               }
               .firstAgrInfo {
                 width: inherit;
@@ -143,6 +158,7 @@ $color-info-gray: rgb(149, 149, 160);
                 padding: 20px;
                 margin: 5px 0;
                 overflow-y: scroll;
+                font-size: 13px;
                 background-color: rgb(244, 244, 244);
                 p {
                   margin-bottom: 10px;
@@ -151,14 +167,25 @@ $color-info-gray: rgb(149, 149, 160);
               .secondAgreement {
                 display: flex;
                 justify-content: space-between;
+                align-items: center;
                 font-size: 14px;
-                font-weight: 700;
+                font-weight: 600;
                 .keyAgreement {
                   padding-top: 30px;
                 }
                 .valueAgreement {
-                  padding-top: 25px;
+                  padding-top: 30px;
                   span {
+                    bottom: 0;
+                    display: flex;
+                    align-items: center;
+
+                    input {
+                      outline: none;
+                      margin-top: 0;
+                      margin-bottom: 0;
+                      margin-left: 6px;
+                    }
                   }
                 }
               }
@@ -166,12 +193,18 @@ $color-info-gray: rgb(149, 149, 160);
             .secondAgrForm {
               padding-top: 10px;
               height: 246px;
-              font-size: 14px;
+              font-size: 13px;
               border-bottom: 1px solid rgb(244, 244, 244);
-              line-height: 19px;
-              button {
-                background: none;
+              line-height: 20px;
+              .moreBtn {
                 padding: 0;
+                background: none;
+                cursor: pointer;
+                .moreTitle {
+                  background: none;
+                  padding: 0;
+                  margin-right: 4px;
+                }
               }
               .secondAgrInfo {
                 width: inherit;
@@ -188,13 +221,22 @@ $color-info-gray: rgb(149, 149, 160);
                 display: flex;
                 justify-content: space-between;
                 font-size: 14px;
-                font-weight: 700;
+                font-weight: 600;
                 .keyAgreement {
                   padding-top: 30px;
                 }
                 .valueAgreement {
-                  padding-top: 25px;
+                  padding-top: 30px;
                   span {
+                    bottom: 0;
+                    display: flex;
+                    align-items: center;
+                    input {
+                      outline: none;
+                      margin-top: 0;
+                      margin-bottom: 0;
+                      margin-left: 6px;
+                    }
                   }
                 }
               }
@@ -202,11 +244,15 @@ $color-info-gray: rgb(149, 149, 160);
             .thirdAgrForm {
               padding-top: 10px;
               height: 190px;
-              // border: 1px solid purple;
-              font-size: 14px;
-              button {
+              .moreBtn {
                 background: none;
+                cursor: pointer;
                 padding: 0;
+                .moreTitle {
+                  background: none;
+                  padding: 0;
+                  margin-right: 4px;
+                }
               }
               .thirdAgrInfo {
                 width: inherit;
@@ -214,7 +260,11 @@ $color-info-gray: rgb(149, 149, 160);
                 padding: 20px;
                 margin: 5px 0;
                 background-color: rgb(244, 244, 244);
-                line-height: 19px;
+
+                p {
+                  font-size: 13px;
+                  line-height: 20px;
+                }
               }
             }
           }

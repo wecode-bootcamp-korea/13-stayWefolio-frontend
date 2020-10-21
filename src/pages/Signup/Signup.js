@@ -33,10 +33,12 @@ export class Signup extends Component {
                 <div className="joinInfoWrap">
                   <div className="joinInfoTitle">
                     <div className="infoTitle">
-                      <span>
-                        사용자 약관 전체 동의
-                        <input type="checkbox"></input>
-                      </span>
+                      <span>사용자 약관 전체 동의</span>
+                      <input
+                        className="checkBox"
+                        type="checkbox"
+                        name="전체동의"
+                      />
                     </div>
                   </div>
                   <div className="firstAgreement">
@@ -51,9 +53,9 @@ export class Signup extends Component {
                     </div>
                   </div>
                   <div className="firstAgrForm">
-                    <button>
-                      자세히보기
-                      <i class="fas fa-angle-down"></i>
+                    <button className="moreBtn">
+                      <span className="moreTitle clicked">자세히보기</span>
+                      <i className="fas fa-angle-down"></i>
                     </button>
                     <div className="firstAgrInfo">
                       <p>개인정보 수집 및 이용 동의</p>
@@ -96,9 +98,9 @@ export class Signup extends Component {
                   </div>
 
                   <div className="secondAgrForm">
-                    <button>
-                      자세히보기
-                      <i class="fas fa-angle-down"></i>
+                    <button className="moreBtn">
+                      <span className="moreTitle clicked">자세히보기</span>
+                      <i className="fas fa-angle-down"></i>
                     </button>
                     <div className="secondAgrInfo">
                       <p>제 1조 (총칙)</p>
@@ -145,9 +147,9 @@ export class Signup extends Component {
                     </div>
                   </div>
                   <div className="thirdAgrForm">
-                    <button>
-                      자세히보기
-                      <i class="fas fa-angle-down"></i>
+                    <button className="moreBtn">
+                      <span className="moreTitle clicked">자세히보기</span>
+                      <i className="fas fa-angle-down"></i>
                     </button>
                     <div className="thirdAgrInfo">
                       <p>
