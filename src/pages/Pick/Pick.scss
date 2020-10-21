@@ -1,1 +1,65 @@
-*
+@import "../../styles/common.scss";
+@import "../../styles/reset.scss";
+@include mQ;
+
+.Pick{
+  background-color: $color-background;
+  display: flex;
+  justify-content: center;
+
+  .container{
+    border: 1px solid red;
+    //width: 1140px;
+    margin: 150px auto;
+    padding: 0 15px 0 15px;
+
+    .styleLine {
+      border: 1px solid black;
+      height: 5px;
+      margin-bottom: 10px;
+    }
+
+    section {
+      display: flex;
+      justify-content: space-between;
+      height: 90px;
+      border: 1px solid black;
+      border-top: 7px solid black;
+      margin: 15px 0 10px 0;
+      padding:20px 0 20px 0;
+  
+      .searchContainer {
+        display: flex;
+    
+        div {
+          width: 150px;
+          height: 43px;
+          margin: auto 5px;
+          border: 1px solid #999;
+        }
+      }
+    }
+
+    .articleCon {
+      border: 1px solid yellowgreen;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin: 10 -15px 0 -15px;
+    }
+  }
+
+  /*
+  @media (min-width: 768px) {
+    .PickArticle {
+      width: 50%;
+    } 
+  }  
+
+  @media (min-width: 992px) {
+    .PickArticle {
+      width: 33.33333333%;
+    }
+  }  
+  */
+}
