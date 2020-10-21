@@ -1,1 +1,174 @@
-*
+// Login font
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@200&family=Roboto:wght@100;300&display=swap");
+@import "../../styles/common.scss";
+
+// main
+$color-background: rgb(238, 238, 238);
+$color-black: rgb(34, 34, 34);
+$color-white: rgb(255, 255, 255);
+// content font-color
+$color-title-black: rgb(51, 51, 51);
+$color-content-gray: rgb(119, 119, 119);
+$color-info-gray: rgb(149, 149, 160);
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin mQ($arg) {
+  @media only screen and (max-width: $arg) {
+    @content;
+  }
+}
+
+.loginWrap {
+  width: 100vw;
+  position: relative;
+  background-color: rgb(244, 244, 244);
+  .navWrap {
+    width: inherit;
+    nav {
+      height: 102px;
+      background-color: $color-white;
+    }
+  }
+  .loginContainer {
+    @include flex-center;
+    .loginBoard {
+      margin: 50px 0;
+      width: 555px;
+      height: 566px;
+      background-color: $color-white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      header {
+        padding: 0 20px;
+        width: 555px;
+        height: 114px;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: start;
+        align-items: center;
+        span {
+          font-size: 51px;
+          font-family: "Raleway", sans-serif;
+          color: rgb(193, 193, 193);
+          letter-spacing: -3px;
+        }
+      }
+      .btnSection {
+        padding: 30px 20px;
+        width: inherit;
+        height: 205px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-top: 2px solid rgb(244, 244, 244);
+        border-bottom: 2px solid rgb(244, 244, 244);
+        .naverLogin {
+          width: 515px;
+          height: 45px;
+          border-radius: 45px;
+          color: $color-white;
+          background-color: rgb(62, 175, 12);
+          font-size: 15px;
+          font-weight: 300;
+        }
+        .facebookLogin {
+          width: 515px;
+          height: 45px;
+          border-radius: 45px;
+          color: $color-white;
+          background-color: rgb(55, 104, 185);
+          font-size: 15px;
+          font-weight: 300;
+        }
+        .guestLogin {
+          width: 515px;
+          height: 45px;
+          border-radius: 45px;
+          color: $color-white;
+          background-color: rgb(128, 128, 128);
+          font-size: 15px;
+          font-weight: 300;
+        }
+        .facebookLogin,
+        .guestLogin {
+          margin-top: 5px;
+        }
+      }
+      .inputSection {
+        padding: 20px 20px 10px 20px;
+        width: 555px;
+        height: 195px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        .emailInput,
+        .passwordInput {
+          padding: 0 20px;
+          width: 515px;
+          height: 50px;
+          outline: none;
+          border: none;
+          background-color: rgb(239, 239, 239);
+        }
+        .passwordInput {
+          margin-top: 6px;
+        }
+        .loginBtn {
+          margin-top: 10px;
+          width: 515px;
+          height: 45px;
+          border-radius: 45px;
+          color: $color-white;
+          font-weight: bold;
+          font-size: 18px;
+          background-color: rgb(46, 48, 57);
+        }
+      }
+      .signupSection {
+        width: inherit;
+        height: 50px;
+        padding: 0 20px 10px 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .signupBtnWrap {
+          .signupBtn {
+            padding: 0 15px;
+            width: 100px;
+            outline: none;
+            background: none;
+            color: rgb(128, 128, 128);
+          }
+        }
+        .blockLine {
+          margin: 0 15px;
+          font-size: 14px;
+          color: $color-content-gray;
+        }
+        .searchPassBtnWrap {
+          .searchPassBtn {
+            padding: 0 15px;
+            width: 185px;
+            outline: none;
+            background: none;
+            color: rgb(128, 128, 128);
+          }
+        }
+      }
+    }
+  }
+  .footerWrap {
+    width: inherit;
+    footer {
+      height: 320px;
+      background-color: $color-black;
+    }
+  }
+}
