@@ -32,9 +32,8 @@ class Nav extends Component {
     });
   };
 
-  searchHotel = (event) => {
+  searchHotel = () => {
     const { searchValue, hotelList } = this.state;
-    // 일단 console에 나오도록
     this.setState({
       searchValue: "",
     });
@@ -66,7 +65,7 @@ class Nav extends Component {
   }
 
   render() {
-    const { hotelList, searchValue } = this.state;
+    const { searchValue } = this.state;
 
     return (
       <nav className="Nav">
