@@ -2,17 +2,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap");
 
 @media (min-width: 768px) {
-  .Main {
+  .contentContainer {
     width: 750px;
   }
 }
 @media (min-width: 992px) {
-  .Main {
+  .contentContainer {
     width: 970px;
   }
 }
 @media (min-width: 1200px) {
-  .Main {
+  .contentContainer {
     width: 1170px;
   }
 }
@@ -26,7 +26,7 @@
   }
 
   .contentContainer {
-    width: 1140px;
+    max-width: 1140px;
     border-top: 7px solid #222;
 
     .header {
@@ -94,15 +94,15 @@
       height: auto;
       display: inline-block;
       padding: 0 5px;
-      margin-left: -1.6px;
-      margin-right: -1.6px;
+      margin-left: -1.9px;
+      margin-right: -1.9px;
 
       button {
         text-indent: -9999px;
         color: #fff;
-        width: 11.5px;
-        height: 11.5px;
-        border-radius: 17.5%;
+        width: 11.7px;
+        height: 11.7px;
+        border-radius: 18%;
         background-color: white;
         opacity: 0.5;
 
@@ -126,7 +126,7 @@
     @include flex-center;
 
     .bannerImage {
-      width: 100%;
+      min-width: 100%;
       position: absolute;
       top: -9999px;
       bottom: -9999px;

@@ -22,29 +22,41 @@ export class MainMagazine extends Component {
   }
 
   render() {
+    const { magazineList } = this.state;
     return (
       <div className="mainMagazine">
         <div classname="magazineContainer">
-          {this.state.magazineList.map((el) => (
+          {magazineList.map((mag) => (
             <section className="magazineContainer">
               <div className="magazineLeft">
-                <img className="magazineImg" src={el.image} alt="magazine" />
+                <div className="imgLabel">
+                  <p className="labelTxt">
+                    20
+                    {"/ "}
+                    <span className="labelSpan">09W1</span>
+                  </p>
+                </div>
+                <img className="magazineImg" src={mag.image} alt="magazine" />
+                <button className="hoverView">
+                  <i className="fas fa-search"></i>
+                  <p className="viewTxt">VIEW</p>
+                </button>
               </div>
               <div className="magazineRight">
                 <div className="magazineTextContainer">
                   <div className="textTop">
-                    <a className="magHotelName">{el.hotelName}</a>
+                    <a className="magHotelName">{mag.hotelName}</a>
                     <p className="magTopTxt magType">
-                      {el.type}
+                      {mag.type}
                       <span className="magTopTxt magLocation">
                         {"ㅣ"}
-                        {el.location}
+                        {mag.location}
                       </span>
                     </p>
                   </div>
                   <div className="textBottom">
-                    <p className="descTitle">{el.descTitle}</p>
-                    <p className="desc">{el.desc}</p>
+                    <p className="descTitle">{mag.descTitle}</p>
+                    <p className="desc">{mag.desc}</p>
                     <p className="magBtn">SHOW MORE +</p>
                   </div>
                 </div>

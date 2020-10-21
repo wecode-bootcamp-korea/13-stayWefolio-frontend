@@ -14,14 +14,84 @@
     overflow: hidden;
     position: relative;
 
+    .imgLabel {
+      background-color: rgba(0, 0, 0, 0.8);
+      width: 96px;
+      height: 36px;
+      position: absolute;
+      z-index: 2;
+
+      .labelTxt {
+        width: 96px;
+        font-family: "Open Sans", sans-serif;
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 36px;
+        text-align: center;
+        color: #666666;
+        position: absolute;
+        z-index: 3;
+
+        .labelSpan {
+          color: #96aee1;
+        }
+      }
+    }
+
     .magazineImg {
       width: 100%;
+      min-width: 750px;
       position: absolute;
       top: -9999px;
       bottom: -9999px;
       left: -9999px;
       right: -9999px;
       margin: auto;
+      cursor: pointer;
+      transition: transform 0.3s;
+
+      &:hover {
+        transform: scale(1.15);
+        -webkit-filter: brightness(65%);
+        filter: brightness(65%);
+      }
+
+      &:hover + .hoverView {
+        display: flex;
+      }
+    }
+    .hoverView {
+      width: 80px;
+      height: 30px;
+      border: 2px solid white;
+      border-radius: 4.5px;
+      background: none;
+      position: absolute;
+      top: 47%;
+      left: 46%;
+      z-index: 10;
+      @include flex-center;
+      display: none;
+      cursor: pointer;
+      pointer-events: none;
+
+      .fa-search {
+        width: 11px;
+        height: 11px;
+        color: white;
+        margin-right: 3px;
+      }
+
+      .viewTxt {
+        color: white;
+        font-size: 11.5px;
+        font-family: "Open Sans", sans-serif;
+        font-weight: 600;
+        letter-spacing: -0.1px;
+      }
+      &:hover {
+        display: flex;
+      }
     }
   }
 
@@ -85,7 +155,6 @@
           font-weight: 600;
           color: #5a5a5a;
           line-height: 21px;
-
           cursor: pointer;
         }
       }

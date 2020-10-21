@@ -37,16 +37,18 @@ export class Main extends Component {
   }
 
   render() {
+    const { bannerList } = this.state;
+
     return (
       <div className="Main">
         <Slider {...bannerSettings} className="slick-container">
-          {this.state.bannerList.map((el) => (
+          {bannerList.map((banner) => (
             <div className="mainBanner">
-              <img className="bannerImage" src={el.image} alt="banner" />
+              <img className="bannerImage" src={banner.image} alt="banner" />
               <div className="bannerTextContainer">
-                <p className="bannerTopText">{el.topText}</p>
-                <p className="bannerTitle">{el.name}</p>
-                <p className="bannerDesc">{el.desc}</p>
+                <p className="bannerTopText">{banner.topText}</p>
+                <p className="bannerTitle">{banner.name}</p>
+                <p className="bannerDesc">{banner.desc}</p>
                 <button className="bannerBtn">SHOW NOW</button>
               </div>
             </div>
