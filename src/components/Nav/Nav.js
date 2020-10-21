@@ -74,8 +74,20 @@ class Nav extends Component {
                       <i className="fab fa-instagram"></i>
                     </a>
                   </li>
-                  <li className="naver"></li>
-                  <li className="branch"></li>
+                  <li className="naver">
+                    <img
+                      className="naverLogo"
+                      src="./images/naverimg.png"
+                      alt="naverlogo"
+                    />
+                  </li>
+                  <li className="branch">
+                    <img
+                      className="branchLogo"
+                      src="./images/branchimg.png"
+                      alt="branchlogo"
+                    />
+                  </li>
                   <li className="youtube">
                     <a href="https://www.youtube.com/">
                       <i className="fab fa-youtube"></i>
