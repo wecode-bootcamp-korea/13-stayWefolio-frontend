@@ -10,6 +10,8 @@ class Nav extends Component {
     this.state = {
       searchValue: "",
       hotelList: [],
+      result: [],
+      // resultCount: 0,
     };
   }
 
@@ -34,24 +36,18 @@ class Nav extends Component {
 
   searchHotel = () => {
     const { searchValue, hotelList } = this.state;
-    this.setState({
-      searchValue: "",
-    });
-    let count = 0;
-    for (const hotel of hotelList) {
-      if (
-        hotel.location.includes(searchValue) ||
-        hotel.tags.includes(searchValue)
-      ) {
-        count = count + 1;
-      }
-    }
 
-    if (count === 0 || searchValue === "") {
-      return console.log(`${searchValue} 검색결과가 없습니다.`);
-    } else {
-      return console.log(`${searchValue}이(가) ${count}개 있습니다.`);
-    }
+    let searchFilter = hotelList.filter((hotel) => {
+      const flattedArr = hotel.tags.flatMap((tag) => tag.split(" "));
+      const isIncludeLocation = hotel.location.includes(searchValue);
+      const isIncludeTag = flattedArr.includes(searchValue);
+
+      if (isIncludeLocation || isIncludeTag) {
+        return hotel;
+      }
+    });
+
+    this.setState({ result: searchFilter });
   };
 
   enterSearchHotel = (e) => {
@@ -65,19 +61,23 @@ class Nav extends Component {
   }
 
   render() {
-    const { searchValue } = this.state;
-
+    const { searchValue, result } = this.state;
+    console.log("result: ", this.state.result);
     return (
       <nav className="Nav">
         <div className="container">
           <div className="logoWrap">
             <img src="./images/logo.png" alt="logo" className="logo" />
+            <span>
+              {searchValue}이(가) {result.length}개 있습니다.
+            </span>
           </div>
           <div className="navContainer">
             <div className="topLineWrap">
               <form className="searchBarWrap" onSubmit={this.resetSubmit}>
                 <input
                   className="searchBar"
+                  name="searchKeyWord"
                   type="text"
                   placeholder="Search"
                   value={searchValue}
