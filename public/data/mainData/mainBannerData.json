@@ -1,0 +1,81 @@
+{
+  "data": [
+    {
+      "index": 1,
+      "topText": "LAUNCHING EVENT",
+      "name": "NAKSAN BALCONY",
+      "desc": "도시 서울이 가진 다층적 레이어",
+      "image": "https://images.unsplash.com/photo-1445019980597-93fa8acb246c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1953&q=80"
+    },
+    {
+      "index": 2,
+      "topText": "CARE BY",
+      "name": "메이슨 파타야",
+      "desc": "파타야 해변을 가장 가까이서 즐기는 법",
+      "image": "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+    },
+    {
+      "index": 3,
+      "topText": "LAUNCHING",
+      "name": "오소 한옥",
+      "desc": "경주 남산 자락의 품에 쉼을 위해 머물다",
+      "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
+    },
+    {
+      "index": 4,
+      "topText": "LAUNCHING",
+      "name": "어연스테이",
+      "desc": "산과 계곡, 자연과 함께 하는 온전한 휴식",
+      "image": "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMjF9&auto=format&fit=crop&w=1950&q=80"
+    },
+    {
+      "index": 5,
+      "topText": "LAUNCHING EVENT",
+      "name": "쉴틈",
+      "desc": "자연이 말을 걸어오는 곳",
+      "image": "https://images.unsplash.com/photo-1540541338287-41700207dee6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80"
+    },
+    {
+      "index": 6,
+      "topText": "LAUNCHING EVENT",
+      "name": "NAKSAN BALCONY",
+      "desc": "도시 서울이 가진 다층적 레이어",
+      "image": "https://images.unsplash.com/photo-1503003378590-66f89f543bc6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
+    },
+    {
+      "index": 7,
+      "topText": "LAUNCHING EVENT",
+      "name": "NAKSAN BALCONY",
+      "desc": "도시 서울이 가진 다층적 레이어",
+      "image": "https://images.unsplash.com/photo-1553653924-39b70295f8da?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+    },
+    {
+      "index": 8,
+      "topText": "LAUNCHING EVENT",
+      "name": "NAKSAN BALCONY",
+      "desc": "도시 서울이 가진 다층적 레이어",
+      "image": "https://images.unsplash.com/photo-1531003300514-1976481c521e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+    },
+    {
+      "index": 9,
+      "topText": "LAUNCHING EVENT",
+      "name": "NAKSAN BALCONY",
+      "desc": "도시 서울이 가진 다층적 레이어",
+      "image": "https://images.unsplash.com/photo-1585169595746-31a414233959?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2389&q=80"
+    },
+    {
+      "index": 10,
+      "topText": "LAUNCHING EVENT",
+      "name": "NAKSAN BALCONY",
+      "desc": "도시 서울이 가진 다층적 레이어",
+      "image": "https://images.unsplash.com/photo-1584954490709-3c000d2ec110?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1867&q=80"
+    },
+    {
+      "index": 11,
+      "topText": "LAUNCHING EVENT",
+      "name": "NAKSAN BALCONY",
+      "desc": "도시 서울이 가진 다층적 레이어",
+      "image": "https://images.unsplash.com/photo-1529290130-4ca3753253ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=1955&q=80"
+    }
+  ]
+}

@@ -1,8 +1,133 @@
 import React, { Component } from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import MainMagazine from "./MainComponent/MainMagazine/MainMagazine";
+
+import "./Main.scss";
+
+const bannerSettings = {
+  dots: true,
+  infinite: true,
+  speed: 0,
+  slidesToShow: 1,
+  autoplay: true,
+  autoplaySpeed: 2500,
+  arrows: false,
+};
 
 export class Main extends Component {
+  constructor() {
+    super();
+    this.state = {
+      bannerList: [],
+    };
+  }
+
+  componentDidMount() {
+    fetch("http://localhost:3000/data/mainData/mainBannerData.json", {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        this.setState({
+          bannerList: res.data,
+        });
+      });
+  }
+
   render() {
-    return <div className="Main">나오나?</div>;
+    return (
+      <div className="Main">
+        <Slider {...bannerSettings} className="slick-container">
+          {this.state.bannerList.map((el) => (
+            <div className="mainBanner">
+              <img className="bannerImage" src={el.image} alt="banner" />
+              <div className="bannerTextContainer">
+                <p className="bannerTopText">{el.topText}</p>
+                <p className="bannerTitle">{el.name}</p>
+                <p className="bannerDesc">{el.desc}</p>
+                <button className="bannerBtn">SHOW NOW</button>
+              </div>
+            </div>
+          ))}
+        </Slider>
+
+        <div className="mainContent">
+          <section className="magazine">
+            <div className="contentContainer">
+              <header className="header">
+                <div className="headerContainer">
+                  <h1 className="mainTitle">MAGAZINE</h1>
+                  <p className="mainDesc">
+                    매주 한번 스테이폴리오가 이야기하는 유니크한 공간!
+                  </p>
+                </div>
+                <button className="mainBtn">
+                  READ
+                  <br /> MORE MAGAZINE
+                </button>
+              </header>
+              <MainMagazine></MainMagazine>
+            </div>
+          </section>
+          <section className="pick">
+            <div className="contentContainer">
+              <header className="header">
+                <div className="headerContainer">
+                  <h1 className="mainTitle">PICK</h1>
+                  <p className="mainDesc">
+                    매일 하루 한번! 스테이폴리오가 추천합니다!
+                  </p>
+                </div>
+                <button className="mainBtn">
+                  READ
+                  <br /> MORE PICK
+                </button>
+              </header>
+            </div>
+          </section>
+          <section className="mainBottom">
+            <div className="cardBorderTop">
+              <div className="bottomCard">
+                <div className="cardBorder">
+                  <div className="cardLeft">
+                    <p className="cardTitle">
+                      유니크한 숙소 공간을
+                      <br />
+                      추천해주세요.
+                    </p>
+                    <p className="cardDesc">
+                      스테이폴리오는 여행자와 창작자 사이에서 <br />
+                      혁신적인 스테이 모델을 지속적으로 소개하고 있습니다.
+                    </p>
+                  </div>
+                  <button className="cardBtn">CONTACT US</button>
+                </div>
+              </div>
+              <div className="bottomCard">
+                <div className="cardBorder">
+                  <div className="cardLeft">
+                    <p className="cardTitle">
+                      FINE STAY AGENCY
+                      <br />
+                      STAYFOLIO
+                    </p>
+                    <p className="cardDesc">
+                      콘텐츠 제작, 마케팅 전략 수립, 예약 시스템
+                      <br />
+                      비즈니스 모델의 경쟁력을 높이는 호스트 솔루션을
+                      만나보세요.
+                    </p>
+                  </div>
+                  <button className="cardBtn">SHOP NOW</button>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    );
   }
 }
 

@@ -1,1 +1,271 @@
-*
+@import "../../styles/common.scss";
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap");
+
+@media (min-width: 768px) {
+  .Main {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .Main {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .Main {
+    width: 1170px;
+  }
+}
+
+.Main {
+  margin-top: 102px;
+  width: 100vw;
+
+  .mainContent {
+    background-color: $color-background;
+  }
+
+  .contentContainer {
+    width: 1140px;
+    border-top: 7px solid #222;
+
+    .header {
+      height: 130px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 7px;
+
+      .headerContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .mainTitle {
+        font-size: 32px;
+        font-weight: 700;
+        font-family: "Open Sans", sans-serif;
+        letter-spacing: -0.3px;
+        color: $color-title-black;
+        margin-bottom: 4px;
+      }
+
+      .mainDesc {
+        font-size: 14px;
+        font-weight: 500;
+        font-family: "Open Sans", sans-serif;
+        color: #797979;
+      }
+      .mainBtn {
+        background: none;
+        border: 1px solid #222;
+        padding: 10px 15px;
+        font-family: "Open Sans", sans-serif;
+        font-size: 12px;
+        color: #666666;
+        text-align: left;
+        line-height: 13.3px;
+        cursor: pointer;
+        &:hover {
+          color: #333333;
+        }
+      }
+    }
+  }
+
+  .slickContainer {
+    width: 100%;
+    position: relative;
+  }
+  .slick-slider {
+    line-height: 0;
+  }
+  .slick-dots {
+    list-style-type: none;
+    margin: 25px 0 0;
+    padding: 0;
+    position: absolute;
+    z-index: 10;
+    bottom: 18.5px;
+
+    li {
+      width: auto;
+      height: auto;
+      display: inline-block;
+      padding: 0 5px;
+      margin-left: -1.6px;
+      margin-right: -1.6px;
+
+      button {
+        text-indent: -9999px;
+        color: #fff;
+        width: 11.5px;
+        height: 11.5px;
+        border-radius: 17.5%;
+        background-color: white;
+        opacity: 0.5;
+
+        &:before {
+          content: none;
+        }
+      }
+      &.slick-active {
+        button {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .mainBanner {
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+    line-height: normal;
+    @include flex-center;
+
+    .bannerImage {
+      width: 100%;
+      position: absolute;
+      top: -9999px;
+      bottom: -9999px;
+      left: -9999px;
+      right: -9999px;
+      margin: auto;
+    }
+
+    .bannerTextContainer {
+      width: 550px;
+      height: 320px;
+      background-color: rgba(0, 0, 0, 0.65);
+      z-index: 999;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      margin: 0 auto;
+      margin-top: 40px;
+
+      .bannerTopText {
+        font-size: 18px;
+        font-weight: 700;
+        text-align: center;
+        color: #ffffff;
+        margin-top: 20px;
+        margin-bottom: 27px;
+        letter-spacing: 2px;
+      }
+
+      .bannerTitle {
+        font-size: 48px;
+        text-align: center;
+        font-weight: 800;
+        color: #ffffff;
+        margin-bottom: 20px;
+      }
+
+      .bannerDesc {
+        width: 150px;
+        height: 44px;
+        line-height: 138%;
+        font-size: 16px;
+        font-weight: 600;
+        text-align: center;
+        color: #ffffff;
+        word-break: keep-all;
+      }
+
+      .bannerBtn {
+        height: 35px;
+        background: none;
+        border: 1px solid #fff;
+        padding: 8px 30px;
+        margin-top: 34px;
+        color: #ffffff;
+        font-size: 13px;
+        letter-spacing: -0.1px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .magazine {
+    height: 1119px;
+    padding-top: 60px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .pick {
+    height: 1164px;
+    display: flex;
+    justify-content: center;
+
+    .pickContent {
+      width: 1140px;
+      border: 1px black solid;
+    }
+  }
+
+  .mainBottom {
+    height: 306px;
+    @include flex-center;
+
+    .cardBorderTop {
+      width: 1140px;
+      height: 306px;
+      border-top: 1px solid #d0d0d0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .bottomCard {
+      width: 555px;
+      height: 164px;
+      background-color: white;
+      @include flex-center;
+
+      .cardBorder {
+        width: 545px;
+        height: 154px;
+        border: 1px solid #e5e5e5;
+        padding: 30px 20px 20px;
+        display: flex;
+        justify-content: space-between;
+
+        .cardLeft {
+          width: 312px;
+          height: 102px;
+          margin: 0 15px;
+
+          .cardTitle {
+            color: $color-title-black;
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 120%;
+          }
+
+          .cardDesc {
+            margin: 10px 0;
+            color: #666666;
+            font-size: 12px;
+            font-weight: 500;
+            line-height: 140%;
+          }
+        }
+
+        .cardBtn {
+          width: 141px;
+          height: 45px;
+          color: white;
+          background-color: $color-black;
+          padding: 5px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
