@@ -28,12 +28,16 @@ class Nav extends Component {
   }
 
   handleSearchBar = (event) => {
-    this.setState = {
-      searchValue: event.target.value,
-    };
+    const { value } = event.target;
+    this.setState({
+      searchValue: value,
+    });
   };
 
-  searchHotel = (e) => {};
+  searchHotel = (e) => {
+    const { searchValue, searchHotel } = this.state;
+    // 일단 console에 나오도록
+  };
 
   render() {
     const { hotelList, searchValue } = this.state;
