@@ -13,29 +13,46 @@
     margin: 150px auto;
     padding: 0 15px 0 15px;
 
-    .styleLine {
-      border: 1px solid black;
-      height: 5px;
-      margin-bottom: 10px;
-    }
-
     section {
       display: flex;
       justify-content: space-between;
       height: 90px;
-      border: 1px solid black;
+      //border: 1px solid black;
       border-top: 7px solid black;
       margin: 15px 0 10px 0;
       padding:20px 0 20px 0;
+
+      .title {
+        font-size: 32px;
+        color: #333333;
+      }
+      
+      .titleInfo {
+        font-size: 14px;
+        color: #797979;
+      }
   
       .searchContainer {
         display: flex;
+        text-align: left;
     
-        div {
+        .searchfilter {
           width: 150px;
           height: 43px;
           margin: auto 5px;
+          padding: 12px;
           border: 1px solid #999;
+          background-color: #ffffff;
+
+          span {
+            font-size: 11px;
+            color: black;
+          }
+
+          .point {
+            background-color: black;
+            font-weight: 500;
+          }
         }
       }
     }
@@ -46,6 +63,32 @@
       justify-content: space-between;
       flex-wrap: wrap;
       margin: 10 -15px 0 -15px;
+    }
+
+    .pagination {
+      border: 1px solid red;
+      display: flex;
+      justify-content: center;
+
+      ul {
+        border: 1px solid yellow;
+        display: flex;
+        //width: 510px;
+        //height: 37px;
+        margin: 20px 0 60px;
+
+        li {
+          width: 35px;
+          height: 37px;
+          margin: 0 5px;
+          padding-top: 11px;
+          background-color: white;
+          box-shadow: 0 1px 1px rgba(100,100,100,.3);
+          text-align: center;
+          color: #333333;
+  
+        }
+      }
     }
   }
 
