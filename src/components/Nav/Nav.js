@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./Nav.scss";
 
-const API = "http://localhost:3000/data/dataSSY/data.json";
+const API = "http://localhost:3000/data/navdata/navdata.json";
 
 class Nav extends Component {
   constructor() {
@@ -20,9 +20,7 @@ class Nav extends Component {
       .then((res) => res.json())
       .then((res) => {
         this.setState({
-          hotelList: res.hotels,
-          // place: res.hotelList.place, // fetch에서 어떻게 받아 와야 할지...?
-          // type: res.hotelList.type,
+          hotelList: res.data,
         });
       });
   }
@@ -35,11 +33,28 @@ class Nav extends Component {
   };
 
   searchHotel = (e) => {
-    const { searchValue, searchHotel } = this.state;
+    const { searchValue, hotelList } = this.state;
     // 일단 console에 나오도록
+    let count = 0;
+    for (const hotel of hotelList) {
+      if (
+        hotel.location.includes(searchValue) ||
+        hotel.tags.includes(searchValue)
+      ) {
+        count = count + 1;
+      }
+    }
+
+    if (count === 0 || searchValue === "") {
+      return console.log(`${searchValue} 검색결과가 없습니다.`);
+    } else {
+      return console.log(`${searchValue}이(가) ${count}개 있습니다.`);
+    }
+    // e.preventDefault();
   };
 
   render() {
+    // console.log(this.state.hotelList);
     const { hotelList, searchValue } = this.state;
 
     return (
@@ -58,7 +73,11 @@ class Nav extends Component {
                   value={searchValue}
                   onChange={this.handleSearchBar}
                 />
-                <button className="searchBarBtn" onClick={this.searchHotel}>
+                <button
+                  className="searchBarBtn"
+                  type="button"
+                  onClick={this.searchHotel}
+                >
                   <i className="fas fa-search"></i>
                 </button>
               </form>
