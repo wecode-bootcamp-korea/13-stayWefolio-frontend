@@ -15,6 +15,22 @@ $icon-gray: rgb(138, 138, 138);
   border: 1px solid $border-gray;
 }
 
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
 .Nav {
   width: 100%;
   height: 102px;
@@ -24,36 +40,43 @@ $icon-gray: rgb(138, 138, 138);
   right: 0;
   z-index: 999;
   @include flex-center;
+
   .container {
     width: 1170px;
     height: 100%;
     padding: 0 15px;
     margin: 0 auto;
     @include flex-center;
+
     .logoWrap {
       width: 100%;
       height: 100px;
       display: flex;
       align-items: center;
+
       .logo {
         width: 90px;
         height: 37.8px;
       }
     }
+
     .navContainer {
       width: 100%;
       height: 100%;
       display: flex;
       flex-direction: column;
+
       .topLineWrap {
         height: 51px;
         @include flex-center;
+
         .searchBarWrap {
           width: 100%;
           height: 100%;
           padding: 0 20px 0 35px;
           border-left: 1px solid $border-gray;
           display: flex;
+
           .searchBar {
             border: none;
             line-height: 25px;
@@ -61,12 +84,15 @@ $icon-gray: rgb(138, 138, 138);
               outline: none;
             }
           }
+
           .searchBar[placeholder] {
             font-size: 13px;
           }
+
           .searchBarBtn {
             margin-left: -25px;
             background-color: $color-white;
+
             .fa-search {
               background-color: $color-white;
               color: $icon-gray;
@@ -74,6 +100,7 @@ $icon-gray: rgb(138, 138, 138);
             }
           }
         }
+
         .mediaIconsWrap {
           width: 100%;
           height: 100%;
@@ -83,37 +110,52 @@ $icon-gray: rgb(138, 138, 138);
           .mediaIcons {
             width: 100%;
             height: 100%;
-            // display: flex;
             @include flex-center;
+
             li {
               width: 100%;
               height: 100%;
               @include flex-center;
+
               a {
                 .fa-facebook-f {
                   width: 7px;
                   height: 12px;
                   color: $icon-gray;
                 }
+
                 .fa-instagram {
                   width: 12px;
                   height: 12px;
                   color: $icon-gray;
                 }
+
                 .fa-youtube {
                   width: 20px;
                   height: 15px;
                   color: $icon-gray;
                 }
+
+                .naverLogo {
+                  width: 12px;
+                  height: 10px;
+                }
+
+                .branchLogo {
+                  width: 9px;
+                  height: 13px;
+                }
               }
             }
           }
         }
+
         .loginWrap {
           width: 100%;
           height: 100%;
           border-right: 1px solid $border-gray;
           @include flex-center;
+
           .loginLink,
           .loginAnd,
           .signupLink {
@@ -121,34 +163,32 @@ $icon-gray: rgb(138, 138, 138);
             color: $color-title-black;
             font-size: 10px;
           }
-          .loginLink {
-          }
-          .loginAnd {
-          }
-          .signupLink {
-          }
         }
-      }
-      .bottomLineWrap {
-        height: 100%;
-        padding: 0 2px;
-        border: 1px solid $border-gray;
-        display: flex;
-        justify-content: space-around;
-        li {
-          // width: 20%;
+
+        .bottomLineWrap {
           height: 100%;
-          @include flex-center;
-          .pickLink,
-          span {
-            color: $color-title-black;
-            font-size: 12px;
-            font-weight: 700;
-          }
-          .bookingLink {
-            padding: 7px 8px;
-            background-color: $color-title-black;
-            color: $color-white;
+          padding: 0 2px;
+          border: 1px solid $border-gray;
+          display: flex;
+          justify-content: space-around;
+
+          li {
+            // width: 20%;
+            height: 100%;
+            @include flex-center;
+
+            .pickLink,
+            span {
+              color: $color-title-black;
+              font-size: 12px;
+              font-weight: 700;
+            }
+
+            .bookingLink {
+              padding: 7px 8px;
+              background-color: $color-title-black;
+              color: $color-white;
+            }
           }
         }
       }
