@@ -1,0 +1,145 @@
+@import "../../styles/common.scss";
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Roboto:wght@100;300;500;700&display=swap");
+
+.BookingDetail {
+  margin-top: 102px;
+
+  .banner {
+    min-width: 100%;
+    height: 797px;
+    position: relative;
+    overflow: hidden;
+
+    .bannerImg {
+      min-width: 100%;
+      position: absolute;
+      top: -9999px;
+      bottom: -9999px;
+      left: -9999px;
+      right: -9999px;
+      margin: auto;
+    }
+
+    .bannerTitle {
+      min-width: 100%;
+      height: 70px;
+      position: absolute;
+      bottom: 0;
+      padding: 0 20px;
+      background: rgba(255, 255, 255, 0.6);
+
+      .titleText {
+        max-width: 1140px;
+        margin: 0 auto;
+        font-family: "Noto Sans KR", sans-serif;
+        font-weight: 500;
+        font-size: 33px;
+        line-height: 70px;
+        letter-spacing: -0.5px;
+        opacity: 0.8;
+      }
+    }
+  }
+
+  .calender {
+    border: 2px solid purple;
+    height: 461px;
+  }
+
+  .container {
+    border: 1px solid cornflowerblue;
+    max-width: 1170px;
+    margin: 0 auto;
+
+    .rooms {
+      height: 1478px;
+
+      .roomsHeader {
+        height: 172px;
+        padding: 0 0 90px;
+
+        .roomsTitle {
+          font-family: "Helvetica Neue", "Roboto", sans-serif;
+          font-size: 60px;
+          font-weight: 600;
+          text-align: center;
+          letter-spacing: -1.5px;
+          word-spacing: -1px;
+          color: $color-title-black;
+          margin: 60px 20px 12px;
+
+          .titleSpan {
+            font-weight: 300;
+            color: #595959;
+          }
+        }
+        .titleBottom {
+          font-size: 14px;
+          text-align: center;
+        }
+      }
+
+      .roomsContainer {
+        border: 2px solid green;
+        height: 590px;
+      }
+
+      .roomsInfoContainer {
+        border-top: 4px solid #222;
+        border-bottom: 4px solid #222;
+        height: 576px;
+        margin: 30px 0;
+        padding: 20px 0;
+        display: flex;
+        justify-content: flex-start;
+
+        .infoLeft {
+          width: 292.5px;
+          border: 2px solid orange;
+
+          .roomTitle {
+            font-size: 24px;
+            font-weight: 500;
+            color: #363636;
+            line-height: 34px;
+            letter-spacing: -0.5;
+          }
+
+          .roomType {
+            font-size: 13px;
+            font-weight: 500;
+            line-height: 18.5px;
+            color: #7c7c7c;
+            margin-bottom: 20px;
+          }
+        }
+
+        .infoRight {
+          width: 877.5px;
+          border: 2px solid green;
+        }
+      }
+
+      .moreInfoBtn {
+        background: #f6f6f6;
+        width: 500px;
+        height: 50px;
+        border: 1px solid #e5e5e5;
+        font-family: "Noto Sans KR", sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+        margin: 0 auto;
+        cursor: pointer;
+        @include flex-center;
+
+        .fa-angle-down {
+          width: 11px;
+          height: 17px;
+          color: rgb(51, 51, 51);
+          margin-left: 3px;
+        }
+      }
+    }
+  }
+}
