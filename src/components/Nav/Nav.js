@@ -15,9 +15,7 @@ class Nav extends Component {
   }
 
   componentDidMount() {
-    fetch(API, {
-      method: "GET",
-    })
+    fetch(API)
       .then((res) => res.json())
       .then((res) => {
         this.setState({
@@ -33,25 +31,19 @@ class Nav extends Component {
     });
   };
 
-  searchHotel = () => {
+  searchHotel = (event) => {
     const { searchValue, hotelList } = this.state;
+    if (event.key === "Enter" || (event.target.name = "searchBtn")) {
+      let searchFilter = hotelList.filter((hotel) => {
+        const flattedArr = hotel.tags.flatMap((tag) => tag.split(" "));
+        const isIncludeLocation = hotel.location.includes(searchValue);
+        const isIncludeTag = flattedArr.includes(searchValue);
 
-    let searchFilter = hotelList.filter((hotel) => {
-      const flattedArr = hotel.tags.flatMap((tag) => tag.split(" "));
-      const isIncludeLocation = hotel.location.includes(searchValue);
-      const isIncludeTag = flattedArr.includes(searchValue);
-
-      if (isIncludeLocation || isIncludeTag) {
-        return hotel;
-      }
-    });
-
-    this.setState({ result: searchFilter });
-  };
-
-  enterSearchHotel = (e) => {
-    if (e.key === "Enter") {
-      this.searchHotel();
+        if (isIncludeLocation || isIncludeTag) {
+          return hotel;
+        }
+      });
+      this.setState({ result: searchFilter });
     }
   };
 
@@ -61,7 +53,7 @@ class Nav extends Component {
 
   render() {
     const { searchValue } = this.state;
-    console.log("result: ", this.state.result);
+    console.log(this.state.result);
     return (
       <nav className="Nav">
         <div className="container">
@@ -78,10 +70,11 @@ class Nav extends Component {
                   placeholder="Search"
                   value={searchValue}
                   onChange={this.handleSearchBar}
-                  onKeyUp={this.enterSearchHotel}
+                  onKeyUp={this.searchHotel}
                 />
                 <button
                   className="searchBarBtn"
+                  name="searchBtn"
                   type="button"
                   onClick={this.searchHotel}
                 >
