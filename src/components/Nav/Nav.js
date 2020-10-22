@@ -85,11 +85,9 @@ class Nav extends Component {
         const flattedArr = hotel.tags.flatMap((tag) => tag.split(" "));
         const isIncludeLocation = hotel.location.includes(searchValue);
         const isIncludeTag = flattedArr.includes(searchValue);
-
         if (isIncludeLocation || isIncludeTag) {
           return hotel;
         }
-
         return null;
       });
       this.setState({ result: searchFilter });
