@@ -8,6 +8,8 @@ import MainBottomCard from "./MainComponent/MainBottomCard/MainBottomCard";
 
 import "./Main.scss";
 
+const API = "http://10.58.1.45:8000/main/banner";
+
 const bannerSettings = {
   dots: true,
   infinite: true,
@@ -27,7 +29,7 @@ export class Main extends Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:3000/data/mainData/mainBannerData.json")
+    fetch(API)
       .then((res) => res.json())
       .then((res) => {
         this.setState({
@@ -47,7 +49,7 @@ export class Main extends Component {
               <img className="bannerImage" src={banner.image} alt="banner" />
               <div className="bannerTextContainer">
                 <p className="bannerTopText">LAUNCHING EVENT</p>
-                <p className="bannerTitle">{banner.name}</p>
+                <p className="bannerTitle">{banner.hotelName}</p>
                 <p className="bannerDesc">{banner.desc}</p>
                 <button className="bannerBtn">SHOW NOW</button>
               </div>

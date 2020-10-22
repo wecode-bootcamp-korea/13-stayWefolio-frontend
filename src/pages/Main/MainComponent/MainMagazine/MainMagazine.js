@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./MainMagazine.scss";
 
+const API = "http://10.58.1.45:8000/main/magazine";
+
 export class MainMagazine extends Component {
   constructor() {
     super();
@@ -10,7 +12,7 @@ export class MainMagazine extends Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:3000/data/mainData/mainMagazineData.json", {
+    fetch(API, {
       method: "GET",
     })
       .then((res) => res.json())
