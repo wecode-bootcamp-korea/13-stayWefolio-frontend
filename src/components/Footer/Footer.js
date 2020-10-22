@@ -53,8 +53,6 @@ class Footer extends Component {
             {personalInfos.map((infos) => {
               return <span key={infos.id}>{infos.content}</span>;
             })}
-            {/* <span className="personalInfo">개인정보취급방침</span>
-            <span className="termInfo">이용약관</span> */}
           </div>
           <div className="officeInfos">
             {officeInfos.map((Infos) => {
