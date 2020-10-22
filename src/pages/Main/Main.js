@@ -3,6 +3,9 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import MainMagazine from "./MainComponent/MainMagazine/MainMagazine";
+import MainHeader from "./MainComponent/MainHeader/MainHeader";
+import MainBottomCard from "./MainComponent/MainBottomCard/MainBottomCard";
+
 import "./Main.scss";
 
 const bannerSettings = {
@@ -24,9 +27,7 @@ export class Main extends Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:3000/data/mainData/mainBannerData.json", {
-      method: "GET",
-    })
+    fetch("http://localhost:3000/data/mainData/mainBannerData.json")
       .then((res) => res.json())
       .then((res) => {
         this.setState({
@@ -45,7 +46,7 @@ export class Main extends Component {
             <div className="mainBanner">
               <img className="bannerImage" src={banner.image} alt="banner" />
               <div className="bannerTextContainer">
-                <p className="bannerTopText">{banner.topText}</p>
+                <p className="bannerTopText">LAUNCHING EVENT</p>
                 <p className="bannerTitle">{banner.name}</p>
                 <p className="bannerDesc">{banner.desc}</p>
                 <button className="bannerBtn">SHOW NOW</button>
@@ -53,77 +54,42 @@ export class Main extends Component {
             </div>
           ))}
         </Slider>
-
         <div className="mainContent">
           <section className="magazine">
             <div className="contentContainer">
-              <header className="header">
-                <div className="headerContainer">
-                  <h1 className="mainTitle">MAGAZINE</h1>
-                  <p className="mainDesc">
-                    매주 한번 스테이폴리오가 이야기하는 유니크한 공간!
-                  </p>
-                </div>
-                <button className="mainBtn">
-                  READ
-                  <br /> MORE MAGAZINE
-                </button>
-              </header>
-              <MainMagazine></MainMagazine>
+              <MainHeader
+                headerTitle="MAGAZINE"
+                headerDesc="매주 한번 스테이폴리오가 이야기하는 유니크한 공간!"
+                btnText="MORE MAGAZINE"
+              />
+              <MainMagazine />
             </div>
           </section>
-          <section className="pick">
+          <section className="pickContainer">
             <div className="contentContainer">
-              <header className="header">
-                <div className="headerContainer">
-                  <h1 className="mainTitle">PICK</h1>
-                  <p className="mainDesc">
-                    매일 하루 한번! 스테이폴리오가 추천합니다!
-                  </p>
-                </div>
-                <button className="mainBtn">
-                  READ
-                  <br /> MORE PICK
-                </button>
-              </header>
+              <MainHeader
+                headerTitle="PICK"
+                headerDesc="매일 하루 한번! 스테이폴리오가 추천합니다!"
+                btnText="MORE PICK"
+              />
             </div>
           </section>
           <section className="mainBottom">
             <div className="cardBorderTop">
-              <div className="bottomCard">
-                <div className="cardBorder">
-                  <div className="cardLeft">
-                    <p className="cardTitle">
-                      유니크한 숙소 공간을
-                      <br />
-                      추천해주세요.
-                    </p>
-                    <p className="cardDesc">
-                      스테이폴리오는 여행자와 창작자 사이에서 <br />
-                      혁신적인 스테이 모델을 지속적으로 소개하고 있습니다.
-                    </p>
-                  </div>
-                  <button className="cardBtn">CONTACT US</button>
-                </div>
-              </div>
-              <div className="bottomCard">
-                <div className="cardBorder">
-                  <div className="cardLeft">
-                    <p className="cardTitle">
-                      FINE STAY AGENCY
-                      <br />
-                      STAYFOLIO
-                    </p>
-                    <p className="cardDesc">
-                      콘텐츠 제작, 마케팅 전략 수립, 예약 시스템
-                      <br />
-                      비즈니스 모델의 경쟁력을 높이는 호스트 솔루션을
-                      만나보세요.
-                    </p>
-                  </div>
-                  <button className="cardBtn">SHOP NOW</button>
-                </div>
-              </div>
+              <MainBottomCard
+                cardTitleTop="유니크한 숙소 공간을"
+                cardTitleBottom="추천해주세요."
+                cardDescTop="스테이폴리오는 여행자와 창작자 사이에서"
+                cardDescBottom="혁신적인 스테이 모델을 지속적으로 소개하고 있습니다."
+                cardBtnTxt="CONTACT US"
+              />
+              <MainBottomCard
+                cardTitleTop="FINE STAY AGENCY"
+                cardTitleBottom="STAYFOLIO"
+                cardDescTop="콘텐츠 제작, 마케팅 전략 수립, 예약 시스템"
+                cardDescBottom="비즈니스 모델의 경쟁력을 높이는 호스트 솔루션을 만나보세요."
+                cardBtnTxt="SHOW NOW"
+              />
             </div>
           </section>
         </div>

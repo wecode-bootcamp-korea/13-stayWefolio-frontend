@@ -24,9 +24,9 @@ export class MainMagazine extends Component {
   render() {
     const { magazineList } = this.state;
     return (
-      <div className="mainMagazine">
+      <div className="MainMagazine">
         <div classname="magazineContainer">
-          {magazineList.map((mag) => (
+          {magazineList.map((magazinedata) => (
             <section className="magazineContainer">
               <div className="magazineLeft">
                 <div className="imgLabel">
@@ -36,7 +36,11 @@ export class MainMagazine extends Component {
                     <span className="labelSpan">09W1</span>
                   </p>
                 </div>
-                <img className="magazineImg" src={mag.image} alt="magazine" />
+                <img
+                  className="magazineImg"
+                  src={magazinedata.image}
+                  alt="magazine"
+                />
                 <button className="hoverView">
                   <i className="fas fa-search"></i>
                   <p className="viewTxt">VIEW</p>
@@ -45,18 +49,17 @@ export class MainMagazine extends Component {
               <div className="magazineRight">
                 <div className="magazineTextContainer">
                   <div className="textTop">
-                    <a className="magHotelName">{mag.hotelName}</a>
+                    <a className="magHotelName">{magazinedata.hotelName}</a>
                     <p className="magTopTxt magType">
-                      {mag.type}
+                      {magazinedata.type}
                       <span className="magTopTxt magLocation">
-                        {"ㅣ"}
-                        {mag.location}
+                        ㅣ{magazinedata.location}
                       </span>
                     </p>
                   </div>
                   <div className="textBottom">
-                    <p className="descTitle">{mag.descTitle}</p>
-                    <p className="desc">{mag.desc}</p>
+                    <p className="descTitle">{magazinedata.descTitle}</p>
+                    <p className="desc">{magazinedata.desc}</p>
                     <p className="magBtn">SHOW MORE +</p>
                   </div>
                 </div>
