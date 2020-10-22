@@ -34,9 +34,11 @@ $color-line: rgb(71, 71, 71);
   background-color: rgb(34, 34, 34);
   @include flex-center;
   flex-direction: column;
+
   .menus {
     width: 100%;
     @include flex-center;
+
     li {
       padding: 0 10px;
       @include infoStyle;
@@ -51,7 +53,8 @@ $color-line: rgb(71, 71, 71);
     padding-top: 20px;
     padding-left: 15px;
     padding-right: 15px;
-    border-top: 1px solid rgb(71, 71, 71);
+    border-top: 1px solid $color-line;
+
     .personalInfos {
       margin-bottom: 10px;
       @include flex-center;
@@ -61,6 +64,7 @@ $color-line: rgb(71, 71, 71);
         color: rgb(102, 102, 102);
         font-size: 12px;
       }
+
       span:first-child::after {
         content: "|";
         padding-left: 4px;
@@ -70,6 +74,7 @@ $color-line: rgb(71, 71, 71);
     .officeInfos {
       @include flex-center;
       flex-direction: column;
+
       span {
         @include descriptionStyle;
       }
@@ -78,9 +83,11 @@ $color-line: rgb(71, 71, 71);
     .copyRightInfos {
       @include flex-center;
       flex-direction: column;
+
       span {
         @include descriptionStyle;
       }
+
       .copyRightInfo {
         padding: 10px 0;
         font-size: 14px;
