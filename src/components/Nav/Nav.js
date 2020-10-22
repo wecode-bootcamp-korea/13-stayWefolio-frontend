@@ -4,6 +4,53 @@ import "./Nav.scss";
 
 const API = "http://localhost:3000/data/navdata/navdata.json";
 
+const brandLogos = [
+  {
+    id: "1",
+    href: "https://www.facebook.com/",
+    src: "./images/facebookimg.png",
+    alt: "facebooklogo",
+  },
+  {
+    id: "2",
+    href: "https://www.instagram.com/",
+    src: "./images/instaimg.png",
+    alt: "instagramlogo",
+  },
+  {
+    id: "3",
+    href: "https://www.naver.com/",
+    src: "./images/naverimg.png",
+    alt: "naverlogo",
+  },
+  {
+    id: "4",
+    href: "https://brunch.co.kr/",
+    src: "./images/branchimg.png",
+    alt: "branchlogo",
+  },
+  {
+    id: "5",
+    href: "https://www.youtube.com/",
+    src: "./images/youtubeimg.png",
+    alt: "youtubelogo",
+  },
+];
+
+const menus = [
+  { id: "1", path: "/careby", classname: "careByLink", menu: "CARE BY" },
+  { id: "2", path: "/magazine", classname: "magazineLink", menu: "MAGAZINE" },
+  { id: "3", path: "/pick", classname: "pickLink", menu: "PICK" },
+  {
+    id: "4",
+    path: "/promotion",
+    classname: "promotionLink",
+    menu: "PROMOTION",
+  },
+  { id: "5", path: "/preorder", classname: "preorderLink", menu: "PRE-ORDER" },
+  { id: "6", path: "/booking", classname: "bookingLink", menu: "BOOKING" },
+];
+
 class Nav extends Component {
   constructor() {
     super();
@@ -42,6 +89,8 @@ class Nav extends Component {
         if (isIncludeLocation || isIncludeTag) {
           return hotel;
         }
+
+        return null;
       });
       this.setState({ result: searchFilter });
     }
@@ -53,7 +102,6 @@ class Nav extends Component {
 
   render() {
     const { searchValue } = this.state;
-    console.log(this.state.result);
     return (
       <nav className="Nav">
         <div className="container">
@@ -83,35 +131,15 @@ class Nav extends Component {
               </form>
               <div className="mediaIconsWrap">
                 <ul className="mediaIcons">
-                  <li className="facebook">
-                    <a href="https://www.facebook.com/">
-                      <i className="fab fa-facebook-f"></i>
-                    </a>
-                  </li>
-                  <li className="instagram">
-                    <a href="https://www.instagram.com/">
-                      <i className="fab fa-instagram"></i>
-                    </a>
-                  </li>
-                  <li className="naver">
-                    <img
-                      className="naverLogo"
-                      src="./images/naverimg.png"
-                      alt="naverlogo"
-                    />
-                  </li>
-                  <li className="branch">
-                    <img
-                      className="branchLogo"
-                      src="./images/branchimg.png"
-                      alt="branchlogo"
-                    />
-                  </li>
-                  <li className="youtube">
-                    <a href="https://www.youtube.com/">
-                      <i className="fab fa-youtube"></i>
-                    </a>
-                  </li>
+                  {brandLogos.map((logo) => {
+                    return (
+                      <li key={logo.id}>
+                        <a href={logo.href}>
+                          <img src={logo.src} alt={logo.alt} />
+                        </a>
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
               <div className="loginWrap">
@@ -125,26 +153,15 @@ class Nav extends Component {
               </div>
             </div>
             <ul className="bottomLineWrap">
-              <li className="careby">
-                <span className="carebyLink">CARE BY</span>
-              </li>
-              <li className="magazine">
-                <span className="magazineLink">MAGAZINE</span>
-              </li>
-              <li className="pick">
-                <Link to="/pick" className="pickLink">
-                  PICK
-                </Link>
-              </li>
-              <li className="promotion">
-                <span className="promotionLink">PROMOTION</span>
-              </li>
-              <li className="preOrder">
-                <span className="preOrderLink">PRE-ORDER</span>
-              </li>
-              <li className="booking">
-                <span className="bookingLink">BOOKING</span>
-              </li>
+              {menus.map((menu) => {
+                return (
+                  <li key={menu.id}>
+                    <Link path={menu.path} className={menu.classname}>
+                      {menu.menu}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </div>
