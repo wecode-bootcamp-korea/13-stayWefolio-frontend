@@ -56,14 +56,14 @@ $color-line: rgb(71, 71, 71);
       margin-bottom: 10px;
       @include flex-center;
 
-      .personalInfo {
+      span {
+        padding: 0 3px;
         color: rgb(102, 102, 102);
         font-size: 12px;
       }
-
-      .termInfo {
-        color: rgb(102, 102, 102);
-        font-size: 12px;
+      span:first-child::after {
+        content: "|";
+        padding-left: 4px;
       }
     }
 
