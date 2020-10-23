@@ -13,10 +13,8 @@ $color-info-gray: rgb(149, 149, 160);
 //   align-items: center;
 // }
 
-@mixin flex($justify-content, $center: center, $between: space-between) {
+@mixin flex($justify-content: center, $align-item: center) {
   display: flex;
-  align-items: center;
-  justify-content: {
-    justify-content: $;
-  }
+  justify-content: $justify-content;
+  align-items: $align-item;
 }
