@@ -9,7 +9,7 @@ $color-line: rgb(71, 71, 71);
 }
 @mixin descriptionStyle {
   padding: 2px 0;
-  color: rgb(71, 71, 71);
+  color: $color-line;
   font-size: 12px;
 }
 
@@ -31,13 +31,12 @@ $color-line: rgb(71, 71, 71);
 
 .Footer {
   padding: 40px 0;
-  background-color: rgb(34, 34, 34);
-  @include flex-center;
+  background-color: $color-black;
+  @include flex;
   flex-direction: column;
 
   .menus {
-    width: 100%;
-    @include flex-center;
+    @include flex;
 
     li {
       padding: 0 10px;
@@ -47,17 +46,13 @@ $color-line: rgb(71, 71, 71);
 
   .footerInfos {
     width: 1170px;
-    margin-top: 30px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 20px;
-    padding-left: 15px;
-    padding-right: 15px;
+    margin: 30px auto 0;
+    padding: 20px 15px 0;
     border-top: 1px solid $color-line;
 
     .personalInfos {
       margin-bottom: 10px;
-      @include flex-center;
+      @include flex;
 
       span {
         padding: 0 3px;
@@ -72,7 +67,7 @@ $color-line: rgb(71, 71, 71);
     }
 
     .officeInfos {
-      @include flex-center;
+      @include flex;
       flex-direction: column;
 
       span {
@@ -81,14 +76,13 @@ $color-line: rgb(71, 71, 71);
     }
 
     .copyRightInfos {
-      @include flex-center;
+      @include flex;
       flex-direction: column;
 
-      span {
+      .copyRights {
         @include descriptionStyle;
       }
-
-      .copyRightInfo {
+      .eng {
         padding: 10px 0;
         font-size: 14px;
       }
