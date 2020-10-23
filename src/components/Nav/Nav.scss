@@ -38,6 +38,7 @@ $icon-gray: rgb(138, 138, 138);
     .navContainer {
       max-width: 584px;
       padding: 0 10px;
+
       .topLineWrap {
         max-width: 570px;
         height: 51px;
@@ -82,6 +83,7 @@ $icon-gray: rgb(138, 138, 138);
 
             li {
               padding: 0 11px;
+
               a {
                 margin: 20px 0px;
               }
@@ -115,16 +117,19 @@ $icon-gray: rgb(138, 138, 138);
 
         li {
           @include flex;
+
           .menuLink {
             color: $color-title-black;
             font-size: 13px;
             font-weight: 700;
           }
+
           .booking {
             padding: 7px 8px;
             background-color: $color-title-black;
             color: $color-white;
           }
+
           &:active {
             padding-top: 3px;
             border-bottom: 3px solid black;
