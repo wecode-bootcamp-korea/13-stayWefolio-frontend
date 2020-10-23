@@ -7,14 +7,14 @@ $color-title-black: rgb(51, 51, 51);
 $color-content-gray: rgb(119, 119, 119);
 $color-info-gray: rgb(149, 149, 160);
 
-@mixin flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+// @mixin flex-center {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// }
 
-@mixin mQ($arg) {
-  @media only screen and (max-width: $arg) {
-    @content;
-  }
+@mixin flex($justify-content: center, $align-item: center) {
+  display: flex;
+  justify-content: $justify-content;
+  align-items: $align-item;
 }
