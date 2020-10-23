@@ -1,0 +1,13 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "roomName": "가든 풀 빌라",
+      "roomType": "기본형",
+      "checkTime": "체크인 15:00 / 체크아웃 12:00",
+      "numOfPeople": "기준 인원 2 / 최대 인원 3",
+      "roomWidth": "객실면적 154m2",
+      "roomBed": "킹사이즈 베드1"
+    }
+  ]
+}

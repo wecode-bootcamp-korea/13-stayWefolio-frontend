@@ -49,7 +49,7 @@
 
   .container {
     border: 1px solid cornflowerblue;
-    max-width: 1170px;
+    max-width: 1140px;
     margin: 0 auto;
 
     .rooms {
@@ -80,11 +80,6 @@
         }
       }
 
-      .roomsContainer {
-        border: 2px solid green;
-        height: 590px;
-      }
-
       .roomsInfoContainer {
         border-top: 4px solid #222;
         border-bottom: 4px solid #222;
@@ -97,13 +92,13 @@
         .infoLeft {
           width: 292.5px;
           border: 2px solid orange;
+          letter-spacing: -0.5px;
 
           .roomTitle {
             font-size: 24px;
             font-weight: 500;
             color: #363636;
             line-height: 34px;
-            letter-spacing: -0.5;
           }
 
           .roomType {
@@ -112,12 +107,63 @@
             line-height: 18.5px;
             color: #7c7c7c;
             margin-bottom: 20px;
+            height: 50px;
+          }
+
+          .leftBottom {
+            margin-top: 25px;
+            color: #717171;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 20px;
           }
         }
 
         .infoRight {
           width: 877.5px;
-          border: 2px solid green;
+
+          .roomDesc {
+            height: 51px;
+            padding-bottom: 30px;
+            color: #363636;
+            line-height: 21px;
+            font-size: 15px;
+            font-weight: 500;
+            text-overflow: ellipsis;
+            overflow: hidden;
+          }
+
+          .rightBottom {
+            height: 477px;
+            padding: 10px 0;
+
+            .infoTitleLeft {
+              font-size: 13px;
+              font-weight: bold;
+              line-height: 18.5px;
+              color: #333333;
+            }
+
+            .rightContainer1 {
+              height: 112px;
+              padding: 20px 0;
+              border-top: 1px solid #e3e3e3;
+            }
+
+            .rightContainer2 {
+              height: 71px;
+              padding: 20px 0;
+
+              border-top: 1px solid #e3e3e3;
+            }
+
+            .rightContainer3 {
+              height: 91px;
+              padding: 20px 0;
+
+              border-top: 1px solid #e3e3e3;
+            }
+          }
         }
       }
 

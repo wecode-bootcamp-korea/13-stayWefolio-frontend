@@ -1,0 +1,112 @@
+@import url("https://use.fontawesome.com/releases/v5.13.0/css/all.css");
+
+.RoomImgSlider {
+  .roomsImgContainer {
+    border: 2px solid orange;
+    width: 780px;
+    height: 520px;
+    overflow: hidden;
+
+    .roomsImg {
+      min-width: 100%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .imgSliderContainer {
+      height: 520px;
+      position: relative;
+
+      .slickContainer {
+        width: 100%;
+      }
+
+      .slick-slider {
+        line-height: 0;
+      }
+      .slick-slide {
+        div {
+          position: relative;
+          height: 520px;
+        }
+      }
+
+      .slick-prev,
+      .slick-next {
+        font-size: 0;
+        position: absolute;
+        bottom: 20px;
+        color: white;
+        border: 0;
+        background: none;
+        z-index: 1;
+      }
+
+      .slick .slick-prev::before {
+        content: "\f0a8";
+        font-family: "Font Awesome 5 Free";
+        border: 1px solid #000;
+      }
+      .slick .slick-next::before {
+        content: "\f0a9";
+        font-family: "Font Awesome 5 Free";
+      }
+      .slick-prev {
+        left: 20px;
+      }
+
+      .slick-prev:after {
+        content: "";
+        font-family: "\f104";
+        font-size: 22px;
+      }
+
+      .slick-next {
+        right: 20px;
+        text-align: right;
+      }
+
+      .slick-next:after {
+        content: "\f105";
+        font: 40px/1 "FontAwesome";
+      }
+
+      .slick-prev:hover:after,
+      .slick-next:hover:after {
+        color: #7e7e7e;
+      }
+
+      .slick-dots {
+        position: absolute;
+        bottom: 14px;
+        margin: auto;
+        list-style-type: none;
+        z-index: 10;
+
+        li {
+          margin: 0 -3.1px;
+        }
+
+        button {
+          display: flex;
+          justify-content: center;
+          width: 8px;
+          height: 8px;
+          padding: 0;
+          border: none;
+          border-radius: 100%;
+          background-color: white;
+          opacity: 0.7;
+          text-indent: -9999px;
+        }
+
+        li.slick-active button {
+          background-color: white;
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
