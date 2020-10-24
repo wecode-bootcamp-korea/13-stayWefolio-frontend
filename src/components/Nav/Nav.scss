@@ -17,7 +17,6 @@ $icon-gray: rgb(138, 138, 138);
   left: 0;
   right: 0;
   z-index: 999;
-  @include flex;
 
   .container {
     padding: 0 15px;
@@ -108,8 +107,7 @@ $icon-gray: rgb(138, 138, 138);
         height: 50px;
         padding: 0 12px;
         border: 1px solid $border-gray;
-        display: flex;
-        justify-content: space-around;
+        @include flex(space-around);
 
         li {
           @include flex;
