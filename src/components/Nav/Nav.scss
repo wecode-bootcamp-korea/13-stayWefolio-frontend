@@ -22,26 +22,22 @@ $icon-gray: rgb(138, 138, 138);
   .container {
     padding: 0 15px;
     margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
+    @include flex(space-between);
 
     .logoWrap {
       min-width: 556px;
-      display: flex;
-      align-items: center;
+      @include flex(flex-start, center);
 
       .logo {
         width: 90px;
-        height: 37.8px;
       }
     }
 
     .navContainer {
-      max-width: 584px;
+      max-width: 585px;
       padding: 0 10px;
 
       .topLineWrap {
-        max-width: 570px;
         height: 51px;
         @include flex;
 
@@ -83,7 +79,7 @@ $icon-gray: rgb(138, 138, 138);
             @include flex;
 
             li {
-              padding: 0 11px;
+              padding: 18px 11px;
 
               a {
                 margin: 20px 0px;
@@ -109,9 +105,8 @@ $icon-gray: rgb(138, 138, 138);
       }
 
       .bottomLineWrap {
-        max-width: 570px;
         height: 50px;
-        padding: 0 2px;
+        padding: 0 12px;
         border: 1px solid $border-gray;
         display: flex;
         justify-content: space-around;

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./Nav.scss";
 
-const API = "http://localhost:3000/data/dataSSY/navdata.json";
+const API = "/data/dataSSY/navdata.json";
 
 class Nav extends Component {
   constructor() {
@@ -30,7 +30,11 @@ class Nav extends Component {
       <nav className="Nav">
         <div className="container">
           <div className="logoWrap">
-            <img src="./images/logo.png" alt="logo" className="logo" />
+            <img
+              src="./images/staywefolio_logo.png"
+              alt="logo"
+              className="logo"
+            />
           </div>
           <div className="navContainer">
             <div className="topLineWrap">
