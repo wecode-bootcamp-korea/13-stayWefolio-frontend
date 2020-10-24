@@ -1,0 +1,26 @@
+@import "../../../styles/common.scss";
+
+$border-gray: rgb(229, 229, 229);
+
+.NavLogin {
+  padding: 10px 30px;
+  border-right: 1px solid $border-gray;
+  @include flex;
+
+  .loginLink,
+  .loginAnd,
+  .signupLink {
+    margin: auto 2px;
+    color: $color-title-black;
+    font-size: 11px;
+    line-height: 50px;
+  }
+
+  .myPage,
+  .logout {
+    margin: auto 2px;
+    color: $color-title-black;
+    font-size: 11px;
+    line-height: 50px;
+  }
+}

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import NavLogin from "./navLogin/NavLogin";
 import "./Nav.scss";
 
 const API = "/data/dataSSY/navdata.json";
@@ -101,15 +102,7 @@ class Nav extends Component {
                   })}
                 </ul>
               </div>
-              <div className="loginWrap">
-                <Link className="loginLink" to="/login">
-                  LOGIN
-                </Link>
-                <span className="loginAnd">or</span>
-                <Link className="signupLink" to="/signup">
-                  REGISTER
-                </Link>
-              </div>
+              <NavLogin />
             </div>
             <ul className="bottomLineWrap">
               {menus.map((menu) => {
