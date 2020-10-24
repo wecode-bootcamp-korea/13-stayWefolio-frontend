@@ -32,8 +32,7 @@ $color-line: rgb(71, 71, 71);
 .Footer {
   padding: 40px 0;
   background-color: $color-black;
-  @include flex;
-  flex-direction: column;
+  @include flex(center, center, column);
 
   .menus {
     @include flex;
@@ -67,8 +66,7 @@ $color-line: rgb(71, 71, 71);
     }
 
     .officeInfos {
-      @include flex;
-      flex-direction: column;
+      @include flex(center, center, column);
 
       span {
         @include descriptionStyle;
@@ -76,8 +74,7 @@ $color-line: rgb(71, 71, 71);
     }
 
     .copyRightInfos {
-      @include flex;
-      flex-direction: column;
+      @include flex(center, center, column);
 
       .copyRights {
         @include descriptionStyle;
