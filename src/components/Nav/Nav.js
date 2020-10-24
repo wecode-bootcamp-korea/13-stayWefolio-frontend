@@ -1,29 +1,9 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import "./Nav.scss";
 
 const API = "/data/dataSSY/navdata.json";
 
 class Nav extends Component {
-  constructor() {
-    super();
-    this.state = {
-      brandLogos: [],
-      menus: [],
-    };
-  }
-
-  componentDidMount() {
-    fetch(API)
-      .then((res) => res.json())
-      .then((res) => {
-        this.setState({
-          brandLogos: res.brandLogos,
-          menus: res.menus,
-        });
-      });
-  }
-
   render() {
     const { brandLogos, menus } = this.state;
     return (
