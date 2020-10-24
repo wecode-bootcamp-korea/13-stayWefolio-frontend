@@ -1,26 +1,43 @@
 import React, { Component } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 //import "@fortawesome/fontawesome-free/js/all.js";
 
 import "./PickArticle.scss"
 
 export class PickArticle extends Component {
+
+  handleStars = () => {
+    const { tags } =this.props;
+    const newTags = tags.join(", ");
+    if(newTags.length > 15){
+      return newTags.substring(0, 15)+"..."
+    } else{
+      return newTags
+    }
+  }
+
   render() {
-    const { name, engName, desc, mainImg, location, type, minPrice, maxPrice, stars} = this.props;
-    console.log(stars)
+    const { name, engName, desc, mainImg, location, type, minPrice, maxPrice, tags } = this.props;
+    const newTags = tags.join(", ");
+
     return (
       <article className="PickArticle">
-        <a href="/">
-        <img alt="mainimg" src={mainImg} />
-        </a>
+        <div className="imgCon">
+         
+          <img alt="mainimg" src={mainImg} />
+          <div className="viewBox">
+            <i className="fas fa-search"></i>
+            <span>VIEW</span>
+          </div>     
+       </div>
         <div className="articleInfo">
           <div className="hotelName">
-            <h4><a href>{name}</a></h4>
+            <h4><a href="/">{name}</a></h4>
             <span className="eng">{engName}</span>
           </div>
           <div className="bookingLink">
-            <a href="/">BOOKING NOW</a>
+            <a href="true">BOOKING NOW</a>
           </div>
           <span>{desc}</span>
     
@@ -32,20 +49,20 @@ export class PickArticle extends Component {
                 <span className="centerLine">|</span>
               </div>
               <div className="con">
-                <i class="fas fa-home"></i>
+                <i className="fas fa-home"></i>
                 <span>{type}</span>  
               </div>
             </div>
 
             <div className="infoLine">
               <div className="con">
-                <i class="fas fa-coins"></i>
+                <i className="fas fa-coins"></i>
                 <span>{minPrice}~{maxPrice}</span>
                 <span className="centerLine">|</span>
               </div>
               <div className="con">
-                <i class="fas fa-star"></i>
-                <span>{stars.map((star)=>(star))}</span>  
+                <i className="fas fa-star"></i>
+                <span>{newTags.length > 14? newTags.substring(0,14)+"..." : newTags}</span>  
               </div>
             </div>
           </div>

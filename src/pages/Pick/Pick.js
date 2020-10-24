@@ -1,103 +1,177 @@
 import React, { Component } from "react";
 import PickArticle from "./PickArticle/PickArticle";
+import SearchFilter from "./SearchFilter/SearchFilter";
+import PageButton from "./PageButton/PageButton";
 
-import "./Pick.scss"
+import "./Pick.scss";
 
+const SEARCH_FILTER = [
+  { id: 0, type: "타입전체" },
+  { id: 1, type: "지역전체" },
+  { id: 2, type: "금액전체" },
+];
+
+// const API ="http://10.58.1.45:8000/main/picks"
 
 export class Pick extends Component {
-  constructor () {
+  constructor() {
     super();
     this.state = {
-      hotelData : [],
+      hotels: [],
+      searchedHotel: [],
+      handleSearch: "",
+      filterList:[],
+      pageArr: ["<<", "<", 1, 2, 3, 4, 5, 6, 7, ">", ">>"],
+      clickedPageArr: ["PageButton","PageButton", "PageButton clicked", "PageButton", "PageButton", 
+       "PageButton", "PageButton", "PageButton", "PageButton","PageButton", "PageButton"]
     };
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/data/pick_data.json', {
-      method: 'GET'
+    // fetch(API) 
+    //   .then((res) => res.json())
+    //   .then((res) => {
+    //     console.log("haha");
+    //     this.setState({
+    //       //hotels: res.hotels,
+    //       searchedHotel: res.hotels
+    //     });
+    //   });
+
+    fetch("/data/pickData/hotels_data.json", {
+      method: "GET"
     })
-      .then(res => res.json())
-      .then(res => {
+      .then((res) => res.json())
+      .then((res) => {
         this.setState({
-          hotelData: res.pick_data
+          hotels: res.hotels,
+          searchedHotel: res.hotels
         });
       });
+
+    fetch("/data/pickData/filterList_data.json", {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        this.setState({
+          filterList: res.filterList,
+        });
+      });  
+  }
+
+  searchHotel = (searchValue) => {
+    const { hotels, handleSearch, searchedHotel } = this.state;
+    this.setState({ handleSearch: searchValue });
+    if (searchValue.includes("전체")) {
+      return this.setState({ searchedHotel: hotels });
+    } else {
+      let searchedHotel = hotels.filter((hotel) => {
+        if (hotel.category.includes(searchValue)) {
+          return hotel;
+        }
+      });
+      return this.setState({ searchedHotel });
+    }
+  };
+
+  handlePage = (targetPage) => {
+    let newPageArr = ["<<", "<", 1, 2, 3, 4, 5, 6, 7, ">", ">>"];
+    let defaultColor = ["PageButton","PageButton", "PageButton", "PageButton", "PageButton", 
+    "PageButton", "PageButton", "PageButton", "PageButton","PageButton", "PageButton"];
+  
+    if (targetPage >= 4){
+      newPageArr = [
+        "<<", "<", targetPage-3, targetPage-2, targetPage-1,
+        +targetPage, +targetPage+1, +targetPage+2, +targetPage+3, ">", ">>"
+      ];
+      defaultColor.splice(5, 1, "PageButton clicked");
+    } else if(Number(targetPage) === 3){
+      defaultColor.splice(4, 1, "PageButton clicked")
+    } else if(Number(targetPage) === 2){
+      defaultColor.splice(3, 1, "PageButton clicked");
+    } else if (targetPage === 1 || "<<"){
+      defaultColor.splice(2, 1, "PageButton clicked");
+    }  
+    
+    if (targetPage ===  "<"){
+      console.log(defaultColor)
+      const beforePageArr = this.state.pageArr.slice(2,9).map((num)=>(Number(num)-1));
+      newPageArr= ["<<", "<", ...beforePageArr, ">", ">>"];
+      defaultColor =["PageButton","PageButton", "PageButton", "PageButton", "PageButton", 
+      "PageButton", "PageButton", "PageButton", "PageButton","PageButton", "PageButton"];
+      defaultColor.splice(5, 1, "PageButton clicked");
+      //console.log(nextPageArr)
+    } else if (targetPage === ">"){
+      const nextPageArr = this.state.pageArr.slice(2,9).map((num)=>(Number(num)+1));
+      newPageArr=["<<", "<", ...nextPageArr, ">", ">>"]
+      defaultColor =["PageButton","PageButton", "PageButton", "PageButton", "PageButton", 
+      "PageButton", "PageButton", "PageButton", "PageButton","PageButton", "PageButton"];
+      defaultColor.splice(5, 1, "PageButton clicked");
+    }  else if(targetPage === ">>"){
+      newPageArr= ["<<", "<", 4, 5, 6, 7, 8, 9, 10, ">", ">>"]
+      defaultColor =["PageButton","PageButton", "PageButton", "PageButton", "PageButton", 
+      "PageButton", "PageButton", "PageButton", "PageButton","PageButton", "PageButton"];
+      defaultColor.splice(8, 1, "PageButton clicked");
+    }  
+    this.setState({ clickedPageArr: defaultColor })
+    this.setState({ pageArr : newPageArr })
   }
 
   render() {
-    const { hotelData } = this.state;
+   // console.log(this.state.clickedPageArr);
+    const { searchedHotel, filterList, pageArr, clickedPageArr } = this.state;
+
     return (
       <div className="Pick">
         <div className="container">
-
           <section>
-            <div className="titleInfo">
-              <span className="title">PICK</span><br></br>
-              <span className="titleInfo">매일 하루 한번! 스테이폴리오가 추천합니다</span>  
+            <div>
+              <span className="title">PICK</span>
+              <br></br>
+              <span className="titleDesc">
+                매일 하루 한번! 스테이폴리오가 추천합니다
+              </span>
             </div>
-            <div className="searchContainer">
-              <div className="searchfilter">
-                <span>타입전체</span>
-                <div className="point"></div>
-              </div>
-              <div className="searchfilter">
-                <span>지역전체</span>
-              </div>
-              <div className="searchfilter">
-                <span>금액전체</span>
-              </div>
+            <div className="searchFilterCon">
+              {filterList.map((filter) => (
+                <SearchFilter
+                  event={this.searchHotel}
+                  key={filter.id}
+                  data={filter}
+                  id={filter.id}
+                  //name={filter.type}
+                />
+              ))}
             </div>
           </section>
           <div className="articleCon">
-            {hotelData.map((hotel) => (
-              <PickArticle 
-                name={hotel.name} 
-                engName={hotel.engName} 
-                desc={hotel.desc} 
-                mainImg={hotel.mainImg} 
-                location={hotel.location} 
-                type={hotel.type} 
-                minPrice={hotel.minPrice} 
-                maxPrice={hotel.maxPrice} 
-                stars={hotel.stars} 
+            {searchedHotel.map((hotel) => (
+              <PickArticle
+                key={hotel.id}
+                name={hotel.name}
+                engName={hotel.english_name}
+                desc={hotel.introduction}
+                mainImg={hotel.thumbnail_url}
+                location={hotel.location}
+                type={hotel.category}
+                minPrice={hotel.min_price}
+                maxPrice={hotel.max_price}
+                tags={hotel.tags}
               />
             ))}
           </div>
           <div className="pagination">
             <ul>
-              <li>
-                <a href="/">&#60;&#60;</a>
-              </li>
-              <li>
-                <a href="/">&#60;</a>
-              </li>
-              <li>
-                <a href="/">1</a>
-              </li>
-              <li>
-                <a href="/">2</a>
-              </li>
-              <li>
-                <a href="/">3</a>
-              </li>
-              <li>
-                <a href="/">4</a>
-              </li>
-              <li>
-                <a href="/">5</a>
-              </li>
-              <li>
-                <a href="/">6</a>
-              </li>
-              <li>
-                <a href="/">7</a>
-              </li>
-              <li>
-                <a href="/">&#62;</a>
-              </li>
-              <li>
-                <a href="/">&#62;&#62;</a>
-              </li>
+              {pageArr.map((page, idx) => (
+                <PageButton
+                  id={idx}
+                  key={idx}
+                  clicked={clickedPageArr[idx]}
+                  getPageNum={this.handlePage}
+                  pageNum={page} 
+                />
+              ))}
             </ul>
           </div>
         </div>
