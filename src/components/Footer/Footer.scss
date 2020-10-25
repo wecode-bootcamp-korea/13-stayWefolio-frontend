@@ -1,1 +1,88 @@
-*
+@import "./../../styles/common.scss";
+
+$color-line: rgb(71, 71, 71);
+
+@mixin infoStyle {
+  color: rgb(153, 153, 153);
+  font-size: 14px;
+  line-height: 20px;
+}
+@mixin descriptionStyle {
+  padding: 2px 0;
+  color: $color-line;
+  font-size: 12px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+.Footer {
+  padding: 40px 0;
+  background-color: $color-black;
+  @include flex(center, center, column);
+
+  .menus {
+    @include flex;
+
+    li {
+      padding: 0 10px;
+      @include infoStyle;
+    }
+  }
+
+  .footerInfos {
+    width: 1170px;
+    margin: 30px auto 0;
+    padding: 20px 15px 0;
+    border-top: 1px solid $color-line;
+
+    .personalInfos {
+      margin-bottom: 10px;
+      @include flex;
+
+      span {
+        padding: 0 3px;
+        color: rgb(102, 102, 102);
+        font-size: 12px;
+      }
+
+      span:first-child::after {
+        content: "|";
+        padding-left: 4px;
+      }
+    }
+
+    .officeInfos {
+      @include flex(center, center, column);
+
+      span {
+        @include descriptionStyle;
+      }
+    }
+
+    .copyRightInfos {
+      @include flex(center, center, column);
+
+      .copyRights {
+        @include descriptionStyle;
+      }
+      .eng {
+        padding: 10px 0;
+        font-size: 14px;
+      }
+    }
+  }
+}

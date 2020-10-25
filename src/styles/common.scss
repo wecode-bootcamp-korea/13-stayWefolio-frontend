@@ -13,7 +13,7 @@ $color-info-gray: rgb(149, 149, 160);
   align-items: center;
 }
 
-@mixin flex(
+@mixin flex (
   $justify-content: center,
   $align-item: center,
   $flex-direction: row
