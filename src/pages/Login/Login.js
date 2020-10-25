@@ -19,34 +19,31 @@ export class Login extends Component {
     });
   };
 
-  // goToMain = () => {
-  //   this.props.history.push("/");
-  // };
-
   goToSignUp = () => {
     this.props.history.push("/signup");
   };
-  // handleLogin = (e) => {
-  //   e.preventDefault();
-  //   fetch(API, {
-  //     method: "POST",
-  //     body: JSON.stringify({
-  //       email: this.state.email,
-  //       password: this.state.password,
-  //     }),
-  //   })
-  //     // 비동기 처리
-  //     .then((response) => response.json())
-  //     .then((result) => console.log("결과: ", result));
-  //   // .then((result) => {
-  //   //   console.log("=============");
-  //   //   console.log("백엔드 응답 메세지 :", result);
-  //   //   if (result.MESSAGE === "SUCCESS") {
-  //   //     localStorage.setItem("token", result);
-  //   // this.props.history.push("/");
-  //   //   }
-  //   // });
-  // };
+
+  handleLogin = (e) => {
+    // e.preventDefault();
+    // fetch(API, {
+    //   method: "POST",
+    //   body: JSON.stringify({
+    //     email: this.state.email,
+    //     password: this.state.password,
+    //   }),
+    // });
+    // 비동기 처리
+    // .then((response) => response.json())
+    // .then((result) => console.log("결과: ", result));
+    // .then((result) => {
+    //   console.log("=============");
+    //   console.log("백엔드 응답 메세지 :", result);
+    //   if (result.MESSAGE === "SUCCESS") {
+    //     localStorage.setItem("token", result);
+    // this.props.history.push("/");
+    //   }
+    // });
+  };
 
   render() {
     return (
@@ -76,7 +73,7 @@ export class Login extends Component {
                   className="emailInput"
                   required
                   placeholder="Email Address"
-                ></input>
+                />
                 <span
                   name="inputSign"
                   className={
@@ -94,7 +91,7 @@ export class Login extends Component {
                   className="passwordInput"
                   required
                   placeholder="Password"
-                ></input>
+                />
                 <span
                   className={
                     this.state.password.length > 7

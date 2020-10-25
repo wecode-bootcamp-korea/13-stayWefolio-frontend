@@ -2,15 +2,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@200&family=Roboto:wght@100;300&display=swap");
 @import "../../styles/common.scss";
 
-// main
-$color-background: rgb(238, 238, 238);
-$color-black: rgb(34, 34, 34);
-$color-white: rgb(255, 255, 255);
-// content font-color
-$color-title-black: rgb(51, 51, 51);
-$color-content-gray: rgb(119, 119, 119);
-$color-info-gray: rgb(149, 149, 160);
-
 @mixin flex-center {
   display: flex;
   justify-content: center;
@@ -34,13 +25,11 @@ $color-info-gray: rgb(149, 149, 160);
       background-color: $color-white;
     }
   }
-
   .loginContainer {
     @include flex-center;
     margin: 50px 0;
     .loginBoard {
       width: 555px;
-      //height: 566px;
       background-color: $color-white;
       display: flex;
       flex-direction: column;
@@ -50,8 +39,7 @@ $color-info-gray: rgb(149, 149, 160);
         width: 555px;
         height: 114px;
         display: flex;
-        flex-direction: row-reverse;
-        justify-content: start;
+        justify-content: flex-end;
         align-items: center;
         span {
           font-size: 51px;
@@ -107,10 +95,6 @@ $color-info-gray: rgb(149, 149, 160);
       .inputSection {
         padding: 20px 20px 10px 20px;
         width: 555px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
         .emailInput,
         .passwordInput {
           padding: 0 20px;
@@ -133,9 +117,6 @@ $color-info-gray: rgb(149, 149, 160);
         .passwordMessage {
           display: none;
         }
-        // .passwordInput {
-        // margin-top: 6px;
-        // }
         .falseBtn {
           margin-top: 15px;
           width: 515px;
