@@ -8,7 +8,7 @@ import MainBottomCard from "./MainComponent/MainBottomCard/MainBottomCard";
 
 import "./Main.scss";
 
-const API = "http://10.58.1.45:8000/main/banner";
+const API = "http://localhost:3000/data/mainData/mainBannerData.json";
 
 const bannerSettings = {
   dots: true,
@@ -42,7 +42,7 @@ export class Main extends Component {
     const { bannerList } = this.state;
 
     return (
-      <div className="Main">
+      <main className="Main">
         <Slider {...bannerSettings} className="slick-container">
           {bannerList.map((banner) => (
             <div className="mainBanner">
@@ -95,7 +95,7 @@ export class Main extends Component {
             </div>
           </section>
         </div>
-      </div>
+      </main>
     );
   }
 }

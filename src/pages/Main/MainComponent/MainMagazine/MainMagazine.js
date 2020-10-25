@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import "./MainMagazine.scss";
 
-const API = "http://10.58.1.45:8000/main/magazine";
-
+const API = "http://localhost:3000/data/mainData/mainMagazineData.json";
 export class MainMagazine extends Component {
   constructor() {
     super();
@@ -12,9 +11,7 @@ export class MainMagazine extends Component {
   }
 
   componentDidMount() {
-    fetch(API, {
-      method: "GET",
-    })
+    fetch(API)
       .then((res) => res.json())
       .then((res) => {
         this.setState({

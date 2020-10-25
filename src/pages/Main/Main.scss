@@ -79,7 +79,7 @@
     overflow: hidden;
     position: relative;
     line-height: normal;
-    @include flex-center;
+    @include flex;
 
     .bannerImage {
       min-width: 100%;
@@ -97,9 +97,7 @@
       background-color: rgba(0, 0, 0, 0.65);
       z-index: 999;
       padding: 30px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      @include flex(center, center, column);
       position: relative;
       margin: 0 auto;
       margin-top: 40px;
@@ -148,34 +146,27 @@
   }
 
   .magazine {
-    height: 1119px;
     padding-top: 60px;
     display: flex;
     justify-content: center;
   }
 
   .pickContainer {
+    margin-top: 35px;
     height: 1164px;
     display: flex;
     justify-content: center;
-
-    .pickContent {
-      width: 1140px;
-      border: 1px black solid;
-    }
   }
 
   .mainBottom {
     height: 306px;
-    @include flex-center;
+    @include flex;
 
     .cardBorderTop {
       width: 1140px;
       height: 306px;
       border-top: 1px solid #d0d0d0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      @include flex(space-between, center);
     }
   }
 }

@@ -1,6 +1,22 @@
 @import "../../../../styles/common.scss";
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap");
 
+@media (min-width: 768px) {
+  .magazineContainer {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .magazineContainer {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .magazineContainer {
+    width: 1170px;
+  }
+}
+
 .MainMagazine {
   .magazineContainer {
     background-color: white;
@@ -71,7 +87,7 @@
         top: 47%;
         left: 46%;
         z-index: 10;
-        @include flex-center;
+        @include flex;
         display: none;
         cursor: pointer;
         pointer-events: none;
@@ -100,7 +116,7 @@
       width: 380px;
       height: 415px;
       padding: 30px;
-      @include flex-center;
+      @include flex;
 
       .magazineTextContainer {
         width: 320px;
