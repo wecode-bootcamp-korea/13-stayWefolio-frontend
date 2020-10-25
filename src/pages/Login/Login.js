@@ -1,7 +1,41 @@
 import React, { Component } from "react";
 import "../Login/Login.scss";
+import Modal from "./ModalComponent/Modal";
 
-export class Login extends Component {
+const API = "http://10.58.1.45:8000/user/login";
+export class Login extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      email: "",
+      password: "",
+    };
+  }
+  handleInput = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+  };
+  // handleLogin = (e) => {
+  //   e.preventDefault();
+  //   fetch(API, {
+  //     method: "POST",
+  //     body: JSON.stringify({
+  //       email: this.state.email,
+  //       password: this.state.password,
+  //     }),
+  //   })
+  //     // 비동기 처리
+  //     .then((response) => response.json())
+  //     .then((result) => console.log("결과: ", result));
+  //   // .then((result) => {
+  //   //   console.log("=============");
+  //   //   console.log("백엔드 응답 메세지 :", result);
+  //   //   if (result.MESSAGE === "SUCCESS") {
+  //   //     localStorage.setItem("token", result);
+  //   //   }
+  //   // });
+  // };
   render() {
     return (
       <div className="loginWrap">
@@ -24,11 +58,34 @@ export class Login extends Component {
             <section className="inputSection">
               <form>
                 <input
+                  name="email"
+                  onChange={this.handleInput}
+                  type="text"
                   className="emailInput"
+                  required
                   placeholder="Email Address"
                 ></input>
-                <input className="passwordInput" placeholder="Password"></input>
-                <button className="loginBtn">Login</button>
+
+                <input
+                  name="password"
+                  onChange={this.handleInput}
+                  type="password"
+                  className="passwordInput"
+                  required
+                  placeholder="Password"
+                ></input>
+
+                <button
+                  onClick={this.handleLogin}
+                  className={
+                    this.state.email.includes("@") &&
+                    this.state.password.length > 7
+                      ? "falseBtn loginBtn"
+                      : "loginBtn"
+                  }
+                >
+                  Login
+                </button>
               </form>
             </section>
             <section className="signupSection">
