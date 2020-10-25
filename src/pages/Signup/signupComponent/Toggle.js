@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../Signup.scss";
+import "../signupComponent/Vehicles.scss";
 
 class Toggle extends React.Component {
   constructor(props) {
@@ -24,17 +25,13 @@ class Toggle extends React.Component {
     return (
       <div
         className={
-          this.state.opened
-            ? "moreInfoContent clickedBtn"
-            : "moreInfoContent hideBtn"
-          // opened가 true 면 moreInfoContent만 보여주고,
-          // opened가 false 면 moreInfoContent hideBtn 보여준다.
+          this.state.opened ? "Toggle clickedToggle" : "Toggle hideToggle"
         }
       >
         {" "}
         <div className="moreTextBox">
           <button className="moreBtn" onClick={this.toggleBox}>
-            <span className="moreTitle clicked">자세히보기</span>
+            <span className="moreTitle">자세히보기</span>
             <i className="fas fa-angle-down"></i>
             {opened && <div>{children}</div>}
           </button>

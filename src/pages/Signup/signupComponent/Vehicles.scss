@@ -3,10 +3,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200;300;400;500;600;700&family=Nanum+Gothic:wght@400;700&display=swap");
 @import "../../../styles/common.scss";
 
-.moreInfoContent {
+.Toggle {
   padding-top: 10px;
   height: 190px;
-  //   border-bottom: 1px solid rgb(244, 244, 244);
   .AgrInfoContainer {
     line-height: 22px;
     width: inherit;
@@ -28,6 +27,9 @@
     background: none;
     cursor: pointer;
     font-size: 14px;
+    .fas .fa-angle-down {
+      color: red;
+    }
     .moreTitle {
       background: none;
       padding: 0;
@@ -36,12 +38,12 @@
     .moreTitle .clicked {
       margin-top: 30px;
     }
-    .clickedBtn {
+    .clickedToggle {
       position: absolute;
       transform: rotate(180deg);
     }
   }
 }
-.hideBtn {
+.hideToggle {
   height: 30px;
 }

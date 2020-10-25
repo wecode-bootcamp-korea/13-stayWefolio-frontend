@@ -3,7 +3,7 @@ import "../Signup/Signup.scss";
 import Toggle from "../Signup/signupComponent/Toggle";
 import Vehicles from "../Signup/signupComponent/Vehicles";
 
-const API = "http://10.58.1.45:8000/user/signup";
+// const API = "http://10.58.1.45:8000/user/signup";
 
 export class Signup extends Component {
   constructor() {
@@ -12,61 +12,22 @@ export class Signup extends Component {
       email: "@",
       name: "ab",
       password: "12345678",
+      inputSign: false,
       allCheck: false,
       firstCheck: false,
       secondCheck: false,
       thirdCheck: false,
-      inputSign: false,
     };
   }
 
   handleInput = (e) => {
     e.preventDefault();
-    this.setState(
-      {
-        [e.target.name]: e.target.value,
-      },
-      () => this.handleInputSign()
-    );
-    // this.handleInputSign(e);
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
   };
 
-  // handleInputSign = () => {
-  //   let emailTarget = document.querySelector(".emailInput");
-  //   let nameTarget = document.querySelector(".nameInput");
-  //   let passwordTarget = document.querySelector(".passwordInput");
-  //   let warningTarget = document.querySelectorAll(".checkInput");
-  //   if (
-  //     emailTarget.length > 1 &&
-  //     nameTarget.length > 1 &&
-  //     passwordTarget.length > 1
-  //   ) {
-  //     this.setState({ inputSign: true });
-  //     return;
-  //   } else {
-  //     this.setState({ inputSign: false });
-  //   }
-  // };
-
-  // 3개의 체크박스에 onClick으로 들어가있음
-  // true or false  값을 판별해주기 위해서 만든 조건식임
-  // checkBoxOnClick = (e) => {
-  //   this.setState({
-  //     [e.target.name]: !this.state[e.target.name],
-  //   });
-  //   const { firstCheck, secondCheck, thirdCheck } = this.state;
-
-  //   if (firstCheck && secondCheck && thirdCheck) {
-  //     this.setState({ allCheck: true });
-  //     return;
-  //   } else {
-  //     this.setState({ allCheck: false });
-  //   }
-  // };
-
-  // 전체동의 동시 클릭 가능하게 하는 함수
   selectAll = async (e) => {
-    //let allCheckBox = document.querySelector(".checkBox");
     let targets = document.querySelectorAll(".checkedBox");
     console.log(targets);
     await this.setState({ allCheck: !this.state.allCheck });
@@ -76,9 +37,6 @@ export class Signup extends Component {
     }
   };
 
-  // 전체동의 체크박스를 누르면 나머지 체크박스도 동시에 체크 유무를 조절할 수 있는 조건식
-  // 3개의 체크박스를 전부 클릭하면 전체 동의 체크박스도 체크되게끔 함.
-  // 3개의 체크박스에 onChange로 들ㅇ거ㅏ있음.
   checkValidationOfSelectAll = () => {
     let targets = document.querySelectorAll(".checkedBox");
     for (let i = 0; i < targets.length; i++) {
@@ -95,42 +53,38 @@ export class Signup extends Component {
     target.checked = this.state.allCheck ? true : false;
   }
 
-  handleLogin = (e) => {
-    e.preventDefault();
-    fetch(API, {
-      method: "POST",
-      body: JSON.stringify({
-        email: this.state.email,
-        password: this.state.password,
-      }),
-    })
-      // 비동기 처리
-      .then((response) => response.json())
-      .then((result) => console.log("결과: ", result));
-    // .then((result) => {
-    //   console.log("=============");
-    //   console.log("백엔드 응답 메세지 :", result);
-    //   if (result.MESSAGE === "SUCCESS") {
-    //     localStorage.setItem("token", result);
-    // this.props.history.push("/");
-    //   }
-    // });
-  };
+  // handleLogin = (e) => {
+  //   e.preventDefault();
+  //   fetch(API, {
+  //     method: "POST",
+  //     body: JSON.stringify({
+  //       email: this.state.email,
+  //       password: this.state.password,
+  //     }),
+  //   })
+  //     .then((response) => response.json())
+  //     .then((result) => console.log("결과: ", result));
+  // .then((result) => {
+  //   console.log("=============");
+  //   console.log("백엔드 응답 메세지 :", result);
+  //   if (result.MESSAGE === "SUCCESS") {
+  //     localStorage.setItem("token", result);
+  // this.props.history.push("/");
+  //   }
+  // });
+  // };
 
   render() {
-    console.log(this.state.allCheck);
-    console.log(this.state.inputSign);
     return (
-      <div className="signupWrap">
-        <div className="navWrap">
+      <div className="Signup">
+        {/* <div className="navWrap">
           <nav></nav>
-        </div>
+        </div> */}
         <div className="signupContainer">
           <div className="signupBoard">
             <header>
               <span>Sign up</span>
             </header>
-
             <div className="joinInfoBoard">
               <section className="inputSection">
                 <form>
@@ -141,7 +95,7 @@ export class Signup extends Component {
                     className="emailInput"
                     required
                     placeholder="Email Address"
-                  ></input>
+                  />
                   <span
                     name="inputSign"
                     className={
@@ -159,7 +113,7 @@ export class Signup extends Component {
                     className="nameInput"
                     required
                     placeholder="Name"
-                  ></input>
+                  />
                   <span
                     className={
                       this.state.name.length > 1
@@ -176,7 +130,7 @@ export class Signup extends Component {
                     className="passwordInput"
                     required
                     placeholder="Password"
-                  ></input>
+                  />
                   <span
                     className={
                       this.state.password.length > 7
@@ -214,7 +168,7 @@ export class Signup extends Component {
                           type="checkbox"
                           className="checkedBox"
                           onChange={this.checkValidationOfSelectAll}
-                        ></input>
+                        />
                       </span>
                     </div>
                   </div>
@@ -240,12 +194,11 @@ export class Signup extends Component {
                             type="checkbox"
                             className="checkedBox"
                             onChange={this.checkValidationOfSelectAll}
-                          ></input>
+                          />
                         </span>
                       </div>
                     </div>
                   </div>
-
                   <div className="secondAgrForm">
                     <Toggle>
                       <Vehicles
@@ -268,7 +221,7 @@ export class Signup extends Component {
                             type="checkbox"
                             className="checkedBox"
                             onChange={this.checkValidationOfSelectAll}
-                          ></input>
+                          />
                         </span>
                       </div>
                     </div>
@@ -287,12 +240,10 @@ export class Signup extends Component {
                   </div>
                   <div className="signupBtnWrap">
                     <button
-                      // active (기본 false 인 boolean 속성)
-                      value="inputSign"
                       onClick={this.handleLogin}
                       className={
-                        this.state.email.includes("@") &&
                         this.state.allCheck === true &&
+                        this.state.email.includes("@") &&
                         this.state.name.length > 1 &&
                         this.state.password.length > 7
                           ? "falseBtn signupBtn"
@@ -307,10 +258,9 @@ export class Signup extends Component {
             </div>
           </div>
         </div>
-
-        <div className="footerWrap">
+        {/* <div className="footerWrap">
           <footer></footer>
-        </div>
+        </div> */}
       </div>
     );
   }
