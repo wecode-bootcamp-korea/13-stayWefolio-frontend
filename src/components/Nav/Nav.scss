@@ -87,6 +87,21 @@ $icon-gray: rgb(138, 138, 138);
             }
           }
         }
+
+        .loginWrap {
+          padding: 10px 30px;
+          border-right: 1px solid $border-gray;
+          @include flex;
+
+          .loginLink,
+          .loginAnd,
+          .signupLink {
+            margin: auto 2px;
+            color: $color-title-black;
+            font-size: 11px;
+            line-height: 50px;
+          }
+        }
       }
 
       .bottomLineWrap {
