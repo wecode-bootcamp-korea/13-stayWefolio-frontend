@@ -47,14 +47,11 @@ export class Login extends Component {
 
   render() {
     return (
-      <div className="loginWrap">
+      <div className="Login">
         <div className="navWrap">
           <nav></nav>
         </div>
         <div className="loginContainer">
-          <div className="navWrap">
-            <nav></nav>
-          </div>
           <div className="loginBoard">
             <header>
               <span>Login</span>
