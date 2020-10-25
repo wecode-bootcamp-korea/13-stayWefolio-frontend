@@ -3,31 +3,48 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./RoomImgSlider.scss";
-import "@fortawesome/fontawesome-free/js/all.js";
+
+function Arrow(props) {
+  let className = props.type === "next" ? "nextArrow" : "prevArrow";
+  className += " arrow";
+  const char =
+    props.type === "next" ? (
+      <i class="fas fa-angle-right"></i>
+    ) : (
+      <i class="fas fa-angle-left"></i>
+    );
+  return (
+    <span className={className} onClick={props.onClick}>
+      {char}
+    </span>
+  );
+}
 
 const roomsImgSettings = {
   dots: true,
   infinite: true,
-  speed: 0,
+  speed: 300,
   slidesToShow: 1,
-  arrows: (
-    <button type="button" class="slick-prev pull-left">
-      <i class="fa fa-angle-left" aria-hidden="true"></i>
-    </button>
-  ),
-  nextArrow: (
-    <button type="button" class="slick-next pull-right">
-      <i class="fa fa-angle-right" aria-hidden="true"></i>
-    </button>
-  ),
+  arrows: true,
+  autoplay: false,
 };
 
 export class RoomImgSlider extends Component {
   render() {
     return (
       <section className="RoomImgSlider">
+        <link
+          rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"
+        />
+
         <div className="roomsImgContainer">
-          <Slider {...roomsImgSettings} className="imgSliderContainer">
+          <Slider
+            {...roomsImgSettings}
+            className="imgSliderContainer"
+            nextArrow={<Arrow type="next" />}
+            prevArrow={<Arrow type="prev" />}
+          >
             <img
               className="roomsImg"
               src="https://images.unsplash.com/photo-1551286923-c82d6a8ae079?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2098&q=80"

@@ -2,7 +2,6 @@
 
 .RoomImgSlider {
   .roomsImgContainer {
-    border: 2px solid orange;
     width: 780px;
     height: 520px;
     overflow: hidden;
@@ -25,6 +24,7 @@
 
       .slick-slider {
         line-height: 0;
+        position: relative;
       }
       .slick-slide {
         div {
@@ -33,49 +33,34 @@
         }
       }
 
-      .slick-prev,
-      .slick-next {
-        font-size: 0;
+      .nextArrow {
         position: absolute;
-        bottom: 20px;
+        top: 46%;
+        left: 95%;
+        z-index: 99;
         color: white;
-        border: 0;
-        background: none;
-        z-index: 1;
+        font-size: 35px;
+        cursor: pointer;
+        opacity: 0.6;
+
+        &:hover {
+          opacity: 1;
+        }
       }
 
-      .slick .slick-prev::before {
-        content: "\f0a8";
-        font-family: "Font Awesome 5 Free";
-        border: 1px solid #000;
-      }
-      .slick .slick-next::before {
-        content: "\f0a9";
-        font-family: "Font Awesome 5 Free";
-      }
-      .slick-prev {
-        left: 20px;
-      }
+      .prevArrow {
+        position: absolute;
+        top: 46%;
+        right: 95%;
+        z-index: 99;
+        color: white;
+        font-size: 35px;
+        cursor: pointer;
+        opacity: 0.7;
 
-      .slick-prev:after {
-        content: "";
-        font-family: "\f104";
-        font-size: 22px;
-      }
-
-      .slick-next {
-        right: 20px;
-        text-align: right;
-      }
-
-      .slick-next:after {
-        content: "\f105";
-        font: 40px/1 "FontAwesome";
-      }
-
-      .slick-prev:hover:after,
-      .slick-next:hover:after {
-        color: #7e7e7e;
+        &:hover {
+          opacity: 1;
+        }
       }
 
       .slick-dots {

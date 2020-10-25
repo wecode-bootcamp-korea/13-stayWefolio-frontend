@@ -80,6 +80,55 @@
         }
       }
 
+      .roomsContainer {
+        height: 590px;
+
+        .roomsTop {
+          width: 1140px;
+          height: 50px;
+          margin-bottom: 20px;
+          background: #222;
+          display: flex;
+          justify-content: space-between;
+
+          .roomsTopLeft {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            width: 285px;
+            padding: 0 15px;
+            color: #999999;
+            font-size: 14px;
+            line-height: 50px;
+
+            .fa-circle {
+              font-size: 8px;
+              color: white;
+              margin-right: 5px;
+            }
+          }
+        }
+
+        .roomsTopTitle {
+          margin: 0 auto;
+          font-family: "Noto Sans KR", sans-serif;
+          font-size: 17px;
+          font-weight: 700;
+          line-height: 50px;
+          color: white;
+        }
+
+        .roomsTopRight {
+          border: 1px solid white;
+          width: 285px;
+          padding: 0 15px;
+        }
+
+        .hi {
+          border: 2px solid red;
+        }
+      }
+
       .roomsInfoContainer {
         border-top: 4px solid #222;
         border-bottom: 4px solid #222;
@@ -91,7 +140,6 @@
 
         .infoLeft {
           width: 292.5px;
-          border: 2px solid orange;
           letter-spacing: -0.5px;
 
           .roomTitle {
@@ -138,30 +186,60 @@
             padding: 10px 0;
 
             .infoTitleLeft {
+              width: 130px;
               font-size: 13px;
               font-weight: bold;
               line-height: 18.5px;
               color: #333333;
             }
 
-            .rightContainer1 {
-              height: 112px;
+            .rightContainer {
               padding: 20px 0;
               border-top: 1px solid #e3e3e3;
-            }
+              display: flex;
 
-            .rightContainer2 {
-              height: 71px;
-              padding: 20px 0;
+              .iconList {
+                display: flex;
+                justify-content: flex-start;
 
-              border-top: 1px solid #e3e3e3;
-            }
+                .infoIconContainer {
+                  width: 78px;
+                  height: 61px;
+                  margin-bottom: 10px;
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                }
 
-            .rightContainer3 {
-              height: 91px;
-              padding: 20px 0;
+                .iconStyle {
+                  width: 50px;
+                  height: 33px;
+                  margin: 0 14px 10px;
+                  opacity: 0.6;
+                }
 
-              border-top: 1px solid #e3e3e3;
+                .iconDesc {
+                  width: 78px;
+                  text-align: center;
+                  color: #666;
+                  font-size: 13px;
+                  letter-spacing: -1px;
+                  margin-bottom: 10px;
+                  font-weight: 500;
+                }
+              }
+
+              .textListUl {
+                display: flex;
+
+                .textList {
+                  font-size: 14px;
+                  font-weight: 500;
+                  text-align: left;
+                  color: #363636;
+                  margin: 0 10px 10px 0;
+                }
+              }
             }
           }
         }

@@ -5,14 +5,36 @@ import "slick-carousel/slick/slick-theme.css";
 import "./BookingDetail.scss";
 import RoomsSlider from "./BookingDetailComponent/RoomsSlider/RoomsSlider";
 
-const slickSettings = {
-  dots: true,
+const slickRoomsSettings = {
   infinite: true,
   speed: 0,
   slidesToShow: 1,
-  autoplay: true,
+  autoplay: false,
   autoplaySpeed: 2500,
   arrows: false,
+  draggable: false,
+  dots: true,
+  appendDots: (dots) => (
+    <div className="hi" style={{}}>
+      <ul style={{ margin: "0" }}> {dots} </ul>
+    </div>
+  ),
+  customPaging: (i) => (
+    <div
+      style={{
+        width: "30px",
+        border: "1px white solid",
+        color: "#FFF",
+        position: "absolute",
+        bottom: "583px",
+        left: "490px",
+        width: "7px",
+        height: "7px",
+        margin: "0 -3.6px",
+        borderRadius: "100%",
+      }}
+    ></div>
+  ),
 };
 
 export class BookingDetail extends Component {
@@ -30,7 +52,7 @@ export class BookingDetail extends Component {
           </div>
         </section>
 
-        <section className="calender"></section>
+        {/* <section className="calender"></section> */}
         <div className="container">
           <section className="rooms">
             <header className="roomsHeader">
@@ -42,9 +64,22 @@ export class BookingDetail extends Component {
               </p>
             </header>
 
-            <Slider {...slickSettings} className="sliderContainer">
-              <RoomsSlider />
-            </Slider>
+            <div className="roomsContainer">
+              <div className="roomsTop">
+                <div className="roomsTopLeft">
+                  <i className="fas fa-circle"></i>
+                  <p>총 5개 룸</p>
+                </div>
+                <p className="roomsTopTitle">더블 그랜드 풀 빌라</p>
+                <div className="roomsTopRight"></div>
+              </div>
+              <Slider {...slickRoomsSettings} className="sliderWrapper">
+                <RoomsSlider />
+                <RoomsSlider />
+                <RoomsSlider />
+                <RoomsSlider />
+              </Slider>
+            </div>
 
             <div className="roomsInfoContainer">
               <div className="infoLeft">
@@ -66,20 +101,89 @@ export class BookingDetail extends Component {
                   편리하다.
                 </div>
                 <div className="rightBottom">
-                  <div className="rightContainer1">
+                  <div className="rightContainer">
                     <p className="infoTitleLeft">FACILITY</p>
+                    <ul className="iconList">
+                      <li className="infoIconContainer">
+                        <img
+                          className="iconStyle"
+                          src="https://www.flaticon.com/svg/static/icons/svg/963/963890.svg"
+                          alt="facility icon"
+                        />
+                        <p className="iconDesc">야외가구</p>
+                      </li>
+                      <li className="infoIconContainer">
+                        <img
+                          className="iconStyle"
+                          src="https://www.flaticon.com/premium-icon/icons/svg/3183/3183239.svg"
+                          alt="facility icon"
+                        />
+                        <p className="iconDesc">정원</p>
+                      </li>
+                      <li className="infoIconContainer">
+                        <img
+                          className="iconStyle"
+                          src="https://www.flaticon.com/svg/static/icons/svg/515/515056.svg"
+                          alt="facility icon"
+                        />
+                        <p className="iconDesc">테라스</p>
+                      </li>
+                      <li className="infoIconContainer">
+                        <img
+                          className="iconStyle"
+                          src="https://www.flaticon.com/svg/static/icons/svg/1606/1606657.svg"
+                          alt="facility icon"
+                        />
+                        <p className="iconDesc">독립키친</p>
+                      </li>
+                      <li className="infoIconContainer">
+                        <img
+                          className="iconStyle"
+                          src="https://www.flaticon.com/svg/static/icons/svg/995/995072.svg"
+                          alt="facility icon"
+                        />
+                        <p className="iconDesc">독립화장실</p>
+                      </li>
+                    </ul>
                   </div>
-                  <div className="rightContainer1">
+                  <div className="rightContainer">
                     <p className="infoTitleLeft">SERVICE</p>
+                    <ul className="iconList">
+                      <li className="infoIconContainer">
+                        <img
+                          className="iconStyle"
+                          src="https://www.flaticon.com/svg/static/icons/svg/884/884903.svg"
+                          alt="facility icon"
+                        />
+                        <p className="iconDesc">주차</p>
+                      </li>
+                    </ul>
                   </div>
-                  <div className="rightContainer2">
+                  <div className="rightContainer">
                     <p className="infoTitleLeft">AMENITY</p>
+                    <ul className="textListUl">
+                      <li className="textList">배스가운</li>
+                      <li className="textList">타올</li>
+                      <li className="textList">슬리퍼</li>
+                    </ul>
                   </div>
-                  <div className="rightContainer3">
+                  <div className="rightContainer">
                     <p className="infoTitleLeft">EQUIPMENT</p>
+                    <ul className="textListUl">
+                      <li className="textList">WIFI</li>
+                      <li className="textList">컨디셔너</li>
+                      <li className="textList">바디워시</li>
+                      <li className="textList">헤어드라이어</li>
+                      <li className="textList">핸드워시</li>
+                    </ul>
                   </div>
-                  <div className="rightContainer2">
+                  <div className="rightContainer">
                     <p className="infoTitleLeft">OPTIONS</p>
+                    <ul className="textListUl">
+                      <li className="textList">인원규정</li>
+                      <li className="textList">변상안내</li>
+                      <li className="textList">금연안내</li>
+                    </ul>
                   </div>
                 </div>
               </div>

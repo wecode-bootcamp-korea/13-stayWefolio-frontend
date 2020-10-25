@@ -1,114 +1,104 @@
 .RoomsSlider {
-  .roomsContainer {
-    border: 2px solid green;
-    height: 590px;
+  .roomsContent {
+    display: flex;
+    justify-content: space-between;
 
-    .roomsTop {
-      width: 1140px;
-      height: 50px;
-      margin-bottom: 20px;
-      background: #222;
+    .roomsRight {
+      max-width: 310px;
+      height: 427px;
     }
 
-    .roomsContent {
-      display: flex;
-      justify-content: space-between;
-
-      .roomsRight {
-        border: 2px solid skyblue;
-        max-width: 310px;
-        height: 427px;
+    .roomsRightTop {
+      height: 365px;
+      border-top: 3px solid #222;
+      border-bottom: 3px solid #222;
+      padding: 20px 0;
+      p {
+        user-select: text;
+      }
+      .topTitle {
+        font-size: 28px;
+        font-weight: bold;
+        line-height: 40px;
+        color: #333333;
+        padding-right: 65px;
+        // cursor: pointer;
       }
 
-      .roomsRightTop {
-        height: 365px;
-        border-top: 3px solid #222;
-        border-bottom: 3px solid #222;
-        padding: 20px 0;
+      .topType {
+        height: 18px;
+        font-size: 13px;
+        color: #7c7c7c;
+        margin-top: 5px;
+      }
 
-        .topTitle {
-          font-size: 28px;
-          font-weight: bold;
-          line-height: 40px;
-          color: #333333;
-          padding-right: 65px;
-        }
+      .topDesc {
+        margin-top: 10px;
+        height: 78px;
+        overflow: hidden;
+        font-size: 14px;
+        line-height: 20px;
+      }
 
-        .topType {
-          height: 18px;
-          font-size: 13px;
-          color: #7c7c7c;
-          margin-top: 5px;
-        }
+      .topBottom {
+        height: 80px;
+        margin-top: 20px;
+        display: flex;
 
-        .topDesc {
-          margin-top: 10px;
-          height: 78px;
-          overflow: hidden;
+        .bottomLeft {
+          width: 185px;
+          height: 80px;
+          list-style: none;
+          border-right: 1px dashed #d1d1d1;
+          color: #9595a0;
           font-size: 14px;
+          font-weight: 500;
           line-height: 20px;
         }
 
-        .topBottom {
+        .bottomRight {
+          width: 125px;
           height: 80px;
-          margin-top: 20px;
           display: flex;
+          flex-direction: column;
+          align-items: flex-start;
 
-          .bottomLeft {
-            width: 185px;
-            height: 80px;
-            list-style: none;
-            border-right: 1px dashed #d1d1d1;
-            color: #9595a0;
+          .featureBox {
+            display: inline-block;
+            background-color: #d1d1d1;
+            color: white;
+            margin: 0 0 3px 21px;
+            padding: 2px 5px;
             font-size: 14px;
-            font-weight: 500;
+            font-weight: 600;
             line-height: 20px;
           }
-
-          .bottomRight {
-            width: 125px;
-            height: 80px;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-
-            .featureBox {
-              display: inline-block;
-              background-color: #d1d1d1;
-              color: white;
-              margin: 0 0 3px 21px;
-              padding: 2px 5px;
-              font-size: 14px;
-              font-weight: 600;
-              line-height: 20px;
-            }
-          }
-        }
-        .roomPrice {
-          width: 310px;
-          margin-top: 10px;
-          padding-top: 20px;
-          border-top: 1px solid #d1d1d1;
-          font-size: 26px;
-          font-weight: 800;
-          line-height: 37px;
-          text-align: center;
-          color: #333333;
         }
       }
-
-      .roomsRightBtn {
+      .roomPrice {
         width: 310px;
-        height: 44px;
-        margin-top: 18px;
-        background-color: #222;
-        color: #fff;
-        line-height: 44px;
-        font-size: 14px;
-        font-weight: 600;
-        font-family: "Open-sans";
-        cursor: pointer;
+        margin-top: 10px;
+        padding-top: 20px;
+        border-top: 1px solid #d1d1d1;
+        font-size: 26px;
+        font-weight: 800;
+        line-height: 37px;
+        text-align: center;
+        color: #333333;
       }
+    }
+
+    .roomsRightBtn {
+      width: 310px;
+      height: 44px;
+      margin-top: 18px;
+      background-color: #222;
+      color: #fff;
+      line-height: 44px;
+      font-size: 14px;
+      font-weight: 600;
+      font-family: "Open-sans";
+      cursor: pointer;
     }
   }
 }
