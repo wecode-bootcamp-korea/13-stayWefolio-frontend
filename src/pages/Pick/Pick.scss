@@ -3,23 +3,14 @@
 @include mQ;
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
-// @import url("spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css");
-@import url("//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css");
-@import url("//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-jp.css");
-
 
 .Pick{
   background-color: $color-background;
   display: flex;
   justify-content: center;
-  // font-family: 'Nanum Gothic', sans-serif;
-  //font-family: 'Spoqa Han Sans', 'Sans-serif';
-
 
   .container{
-    // border: 1px solid red;
-    //width: 1140px;
-    margin: 150px auto;
+    margin: 102px auto;
     padding: 0 15px 0 15px;
 
     section {
@@ -49,24 +40,18 @@
     }
 
     .articleCon {
-      //border: 1px solid yellowgreen;
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
-      //font-family: 'Nanum Gothic', sans-serif;
       //margin: 10px -15px 0 -15px;
     }
 
     .pagination {
-      //border: 1px solid red;
       display: flex;
       justify-content: center;
 
       ul {
-        // border: 1px solid yellow;
         display: flex;
-        //width: 510px;
-        //height: 37px;
         margin: 20px 0 60px;
       }
     }

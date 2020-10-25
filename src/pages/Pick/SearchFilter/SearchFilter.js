@@ -14,35 +14,30 @@ export class SearchFilter extends Component {
   }
 
   componentDidMount() {
-    this.setState({ searchFilterTitle: this.props.data.options[0].optionValue })
+    this.setState({ searchFilterTitle: this.props.data.options[0]})
   }
 
   handleSearchFilter = () => {
     const { displayMode } = this.state;
     const { data } = this.props;
     this.setState({ displayMode: !displayMode });
-    //console.log(e.currentTarget.id)
-    //const filterId = e.currentTarget.id;
     let filterOptions = data.options;
-    //let filterOptions = this.state.filterList[filterId].options;
     this.setState({ filterOptions });
   };
 
   getFilterValue = (searchValue) => {
+    console.log(searchValue)
     this.setState({ searchFilterTitle: searchValue });
-    // this.props.event(searchValue);
   };
 
   handleBlur = () => {
-    console.log("haha");
     const { displayMode } = this.state;
     this.setState({ displayMode: !displayMode });
   };
 
   render() {
-    const { data, id } = this.props;
+    const { id } = this.props;
     const {
-      filterList,
       filterOptions,
       searchFilterTitle,
       displayMode,
@@ -64,10 +59,10 @@ export class SearchFilter extends Component {
           className={displayMode ? "optionBox" : "optionBox displayMode"}
         >
           {filterOptions &&
-            filterOptions.map((option) => (
+            filterOptions.map((option, idx) => (
             <SearchFilterOption
-              key={option.id}
-              option={option.optionValue}
+              key={idx}
+              option={option}
               getFilterValue={this.getFilterValue}
             />
           ))}

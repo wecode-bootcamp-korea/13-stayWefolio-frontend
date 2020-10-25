@@ -2,15 +2,11 @@ import React, { Component } from "react";
 import PickArticle from "./PickArticle/PickArticle";
 import SearchFilter from "./SearchFilter/SearchFilter";
 import PageButton from "./PageButton/PageButton";
+import Nav from "../../components/Nav/Nav"
 
 import "./Pick.scss";
 
-const SEARCH_FILTER = [
-  { id: 0, type: "타입전체" },
-  { id: 1, type: "지역전체" },
-  { id: 2, type: "금액전체" },
-];
-
+const LIMIT = 12;
 // const API ="http://10.58.1.45:8000/main/picks"
 
 export class Pick extends Component {
@@ -23,17 +19,19 @@ export class Pick extends Component {
       filterList:[],
       pageArr: ["<<", "<", 1, 2, 3, 4, 5, 6, 7, ">", ">>"],
       clickedPageArr: ["PageButton","PageButton", "PageButton clicked", "PageButton", "PageButton", 
-       "PageButton", "PageButton", "PageButton", "PageButton","PageButton", "PageButton"]
+       "PageButton", "PageButton", "PageButton", "PageButton","PageButton", "PageButton"],
+      currentOffset: 0,
     };
   }
 
   componentDidMount() {
-    // fetch(API) 
+    //  서버와 통신할 때 실제 사용하는 코드
+    // fetch(`http://10.58.1.45:8000/main/picks?limit=12&offset=0`) 
     //   .then((res) => res.json())
     //   .then((res) => {
-    //     console.log("haha");
+    //     console.log("comdima");
     //     this.setState({
-    //       //hotels: res.hotels,
+    //       // hotels: res.hotels,
     //       searchedHotel: res.hotels
     //     });
     //   });
@@ -44,87 +42,106 @@ export class Pick extends Component {
       .then((res) => res.json())
       .then((res) => {
         this.setState({
-          hotels: res.hotels,
           searchedHotel: res.hotels
         });
       });
-
-    fetch("/data/pickData/filterList_data.json", {
-      method: "GET",
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        this.setState({
-          filterList: res.filterList,
-        });
-      });  
   }
 
-  searchHotel = (searchValue) => {
-    const { hotels, handleSearch, searchedHotel } = this.state;
-    this.setState({ handleSearch: searchValue });
-    if (searchValue.includes("전체")) {
-      return this.setState({ searchedHotel: hotels });
-    } else {
-      let searchedHotel = hotels.filter((hotel) => {
-        if (hotel.category.includes(searchValue)) {
-          return hotel;
-        }
-      });
-      return this.setState({ searchedHotel });
-    }
-  };
+  // 서버와 pagination 하는 function  
+  // componentDidUpdate(prevPros, prevState) {
+  //   const { currentOffset }= this.state;
+  //   if (prevState.currentOffset !== this.state.currentOffset){
+  //      this.paging(currentOffset);
+  //     }
+  // }
+
+  pagingNum = (targetPage) => {
+    const { currentOffset } = this.state;
+
+    if( targetPage === "<<" ){
+      targetPage = 1;
+    } else if ( targetPage === "<" ){
+     console.log("currentOffset", currentOffset)
+      targetPage = (currentOffset/12) -1;
+    } else if ( targetPage === ">" ){
+      targetPage = (currentOffset/12) +1
+    } else if (targetPage === ">>"){
+      targetPage = 10;
+    } 
+
+    this.setState({ currentOffset: ((targetPage - 1) * 12)})
+  }
+
+  paging = (offset) => {
+    fetch(`http://10.58.1.45:8000/main/picks?limit=${LIMIT}&offset=${offset}`)
+      .then((res) => res.json())
+      .then((res) => this.setState({ searchedHotel: res.hotels }))
+  }
+
+  // front에서 검색필터 처리하는 함수 
+  // searchHotel = (searchValue) => {
+  //   const { hotels } = this.state;
+  //   this.setState({ handleSearch: searchValue });
+  //   if (searchValue.includes("전체")) {
+  //     return this.setState({ searchedHotel: hotels });
+  //   } else {
+  //     let searchedHotel = hotels.filter((hotel) => {
+  //       if (hotel.category.includes(searchValue)) {
+  //         return hotel;
+  //       }
+  //     });
+  //     return this.setState({ searchedHotel });
+  //   }
+  // };
 
   handlePage = (targetPage) => {
     let newPageArr = ["<<", "<", 1, 2, 3, 4, 5, 6, 7, ">", ">>"];
-    let defaultColor = ["PageButton","PageButton", "PageButton", "PageButton", "PageButton", 
+    const resetColor= ["PageButton","PageButton", "PageButton", "PageButton", "PageButton", 
     "PageButton", "PageButton", "PageButton", "PageButton","PageButton", "PageButton"];
-  
+    let pageIdxBtnColor = ["PageButton","PageButton", "PageButton", "PageButton", "PageButton", 
+    "PageButton", "PageButton", "PageButton", "PageButton","PageButton", "PageButton"];
+
     if (targetPage >= 4){
       newPageArr = [
         "<<", "<", targetPage-3, targetPage-2, targetPage-1,
         +targetPage, +targetPage+1, +targetPage+2, +targetPage+3, ">", ">>"
       ];
-      defaultColor.splice(5, 1, "PageButton clicked");
+      pageIdxBtnColor.splice(5, 1, "PageButton clicked");
     } else if(Number(targetPage) === 3){
-      defaultColor.splice(4, 1, "PageButton clicked")
+      pageIdxBtnColor.splice(4, 1, "PageButton clicked")
     } else if(Number(targetPage) === 2){
-      defaultColor.splice(3, 1, "PageButton clicked");
+      pageIdxBtnColor.splice(3, 1, "PageButton clicked");
     } else if (targetPage === 1 || "<<"){
-      defaultColor.splice(2, 1, "PageButton clicked");
+      pageIdxBtnColor.splice(2, 1, "PageButton clicked");
     }  
     
     if (targetPage ===  "<"){
-      console.log(defaultColor)
+      //console.log(defaultColor)
       const beforePageArr = this.state.pageArr.slice(2,9).map((num)=>(Number(num)-1));
       newPageArr= ["<<", "<", ...beforePageArr, ">", ">>"];
-      defaultColor =["PageButton","PageButton", "PageButton", "PageButton", "PageButton", 
-      "PageButton", "PageButton", "PageButton", "PageButton","PageButton", "PageButton"];
-      defaultColor.splice(5, 1, "PageButton clicked");
-      //console.log(nextPageArr)
+      pageIdxBtnColor = resetColor;
+      pageIdxBtnColor.splice(5, 1, "PageButton clicked");
     } else if (targetPage === ">"){
       const nextPageArr = this.state.pageArr.slice(2,9).map((num)=>(Number(num)+1));
       newPageArr=["<<", "<", ...nextPageArr, ">", ">>"]
-      defaultColor =["PageButton","PageButton", "PageButton", "PageButton", "PageButton", 
-      "PageButton", "PageButton", "PageButton", "PageButton","PageButton", "PageButton"];
-      defaultColor.splice(5, 1, "PageButton clicked");
+      pageIdxBtnColor = resetColor;
+      pageIdxBtnColor.splice(5, 1, "PageButton clicked");
     }  else if(targetPage === ">>"){
       newPageArr= ["<<", "<", 4, 5, 6, 7, 8, 9, 10, ">", ">>"]
-      defaultColor =["PageButton","PageButton", "PageButton", "PageButton", "PageButton", 
-      "PageButton", "PageButton", "PageButton", "PageButton","PageButton", "PageButton"];
-      defaultColor.splice(8, 1, "PageButton clicked");
+      pageIdxBtnColor = resetColor;
+      pageIdxBtnColor.splice(8, 1, "PageButton clicked");
     }  
-    this.setState({ clickedPageArr: defaultColor })
+    this.setState({ clickedPageArr: pageIdxBtnColor })
     this.setState({ pageArr : newPageArr })
   }
 
   render() {
-   // console.log(this.state.clickedPageArr);
-    const { searchedHotel, filterList, pageArr, clickedPageArr } = this.state;
+    const { searchedHotel, pageArr, clickedPageArr } = this.state;
 
     return (
       <div className="Pick">
         <div className="container">
+          <Nav></Nav>
           <section>
             <div>
               <span className="title">PICK</span>
@@ -134,19 +151,18 @@ export class Pick extends Component {
               </span>
             </div>
             <div className="searchFilterCon">
-              {filterList.map((filter) => (
+              {searchedHotel[0]?.filters?.map((filter, idx) => (
                 <SearchFilter
                   event={this.searchHotel}
-                  key={filter.id}
+                  key={idx}
                   data={filter}
-                  id={filter.id}
-                  //name={filter.type}
+                  id={idx}
                 />
               ))}
             </div>
           </section>
           <div className="articleCon">
-            {searchedHotel.map((hotel) => (
+            {searchedHotel[1]?.picks.map((hotel) => (
               <PickArticle
                 key={hotel.id}
                 name={hotel.name}
@@ -168,6 +184,7 @@ export class Pick extends Component {
                   id={idx}
                   key={idx}
                   clicked={clickedPageArr[idx]}
+                  pagingNum={this.pagingNum}
                   getPageNum={this.handlePage}
                   pageNum={page} 
                 />

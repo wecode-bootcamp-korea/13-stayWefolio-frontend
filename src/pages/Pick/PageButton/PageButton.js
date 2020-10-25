@@ -5,8 +5,8 @@ import "./PageButton.scss"
 export class PageButton extends Component {
  
   getTargetPage = () => {
-    //console.log(this.targetPage.innerText)
     this.props.getPageNum(this.targetPage.innerText);
+    this.props.pagingNum(this.targetPage.innerText);
   }
 
   render() {

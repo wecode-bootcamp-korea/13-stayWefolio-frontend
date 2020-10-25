@@ -10,6 +10,7 @@ $border-gray: rgb(229, 229, 229);
 $icon-gray: rgb(138, 138, 138);
 
 .Nav {
+  background-color: white;
   height: 102px;
   position: fixed;
   top: 0;
@@ -19,10 +20,10 @@ $icon-gray: rgb(138, 138, 138);
   @include flex;
 
   .container {
-    max-width: 1140px;
     padding: 0 15px;
     margin: 0 auto;
-    @include flex;
+    display: flex;
+    justify-content: space-between;
 
     .logoWrap {
       min-width: 556px;
@@ -37,7 +38,7 @@ $icon-gray: rgb(138, 138, 138);
 
     .navContainer {
       max-width: 584px;
-      padding: 0 10px;
+      // padding: 0 10px;
       .topLineWrap {
         max-width: 570px;
         height: 51px;
@@ -134,3 +135,4 @@ $icon-gray: rgb(138, 138, 138);
     }
   }
 }
+

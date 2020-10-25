@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./Nav.scss";
 
-const API = "http://localhost:3000/data/dataSSY/navdata.json";
+const API = "/data/dataSSY/navdata.json";
 
 class Nav extends Component {
   constructor() {
@@ -37,7 +37,7 @@ class Nav extends Component {
               <form className="searchBarWrap">
                 <input className="searchBar" type="text" placeholder="Search" />
                 <button className="searchBarBtn">
-                  <i class="fas fa-search"></i>
+                  <i className="fas fa-search"></i>
                 </button>
               </form>
               <div className="mediaIconsWrap">
