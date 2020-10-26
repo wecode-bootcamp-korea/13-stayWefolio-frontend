@@ -87,10 +87,10 @@
           position: relative;
 
           .slick-dots:nth-child(2) {
-            border: 2px solid red;
+            //border: 2px solid red;
             position: absolute;
-            bottom: 545px;
-            left: 93.5%;
+            bottom: 548px;
+            right: 1%;
             margin: auto;
             list-style-type: none;
             z-index: 10;

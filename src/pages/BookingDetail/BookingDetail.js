@@ -65,6 +65,16 @@ export class BookingDetail extends Component {
                   roomType="기본형"
                   roomDesc="파타야의 황홀한 오션뷰를 감상할 수 있는 비치사이드 오션뷰 풀 빌라에는 넓은 침실과 리빙룸이 갖춰져있어 로맨틱한 시간을 즐길 수 있다."
                 />
+                <RoomsSlider
+                  roomName="비치프론트 그랜드 풀 빌라"
+                  roomType="기본형"
+                  roomDesc="리조트 단지의 가장 앞 부분에 위치하여 환상적인 오션뷰를 감상할 수 있다. 침실이 바다를 마주 보고, 50평형대의 규모로 프라이빗 한 휴식을 마음껏 즐길 수 있다."
+                />
+                <RoomsSlider
+                  roomName="더블 그랜드 풀 빌라"
+                  roomType="기본형"
+                  roomDesc="단층 구조로 4인 규모의 투숙객이 편안히 시간을 보낼 수 있도록 꾸며졌다. 2개의 마스터 베드룸에는 각각 욕조와 화장실이 갖춰져있고, 공동으로 사용하는 리빙룸이 있다."
+                />
               </Slider>
             </div>
 
