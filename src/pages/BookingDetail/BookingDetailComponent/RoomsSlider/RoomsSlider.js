@@ -7,12 +7,20 @@ export class RoomsSlider extends Component {
   render() {
     return (
       <section className="RoomsSlider">
+        <div className="roomsTop">
+          <div className="roomsTopLeft">
+            <i className="fas fa-circle"></i>
+            <p>총 5개 룸</p>
+          </div>
+          <p className="roomsTopTitle">{this.props.roomName}</p>
+          <div className="roomsTopRight"></div>
+        </div>
         <div className="roomsContent">
           <RoomImgSlider />
           <div className="roomsRight">
             <div className="roomsRightTop">
-              <p className="topTitle">가든 풀 빌라</p>
-              <p className="topType">기본형</p>
+              <p className="topTitle">{this.props.roomName}</p>
+              <p className="topType">{this.props.roomType}</p>
               <p className="topDesc">
                 자연과 어우러진 가든 풀 빌라에는 해수 풀과 자쿠지, 선 베드가
                 마련되어 있고, 해변 산책로에 근접해 있어 바닷가로 접근이

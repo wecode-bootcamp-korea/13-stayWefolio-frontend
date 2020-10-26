@@ -83,8 +83,42 @@
       .roomsContainer {
         height: 590px;
 
+        .sliderWrapper {
+          position: relative;
+
+          .slick-dots:nth-child(2) {
+            border: 2px solid red;
+            position: absolute;
+            bottom: 545px;
+            left: 93.5%;
+            margin: auto;
+            list-style-type: none;
+            z-index: 10;
+            max-width: fit-content;
+
+            li {
+              margin: 0 -4px;
+            }
+
+            button {
+              width: 7px;
+              height: 7px;
+              padding: 0;
+              border: none;
+              border-radius: 100%;
+              background-color: white;
+              opacity: 0.3;
+              text-indent: -9999px;
+            }
+
+            li.slick-active button {
+              background-color: white;
+              opacity: 1;
+            }
+          }
+        }
         .roomsTop {
-          width: 1140px;
+          max-width: 1140px;
           height: 50px;
           margin-bottom: 20px;
           background: #222;
@@ -119,7 +153,6 @@
         }
 
         .roomsTopRight {
-          border: 1px solid white;
           width: 285px;
           padding: 0 15px;
         }

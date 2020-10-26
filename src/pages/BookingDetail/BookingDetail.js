@@ -14,30 +14,14 @@ const slickRoomsSettings = {
   arrows: false,
   draggable: false,
   dots: true,
-  appendDots: (dots) => (
-    <div className="hi" style={{}}>
-      <ul style={{ margin: "0" }}> {dots} </ul>
-    </div>
-  ),
-  customPaging: (i) => (
-    <div
-      style={{
-        width: "30px",
-        border: "1px white solid",
-        color: "#FFF",
-        position: "absolute",
-        bottom: "583px",
-        left: "490px",
-        width: "7px",
-        height: "7px",
-        margin: "0 -3.6px",
-        borderRadius: "100%",
-      }}
-    ></div>
-  ),
 };
 
 export class BookingDetail extends Component {
+  constructor() {
+    super();
+    this.state = {};
+  }
+
   render() {
     return (
       <div className="BookingDetail">
@@ -65,19 +49,22 @@ export class BookingDetail extends Component {
             </header>
 
             <div className="roomsContainer">
-              <div className="roomsTop">
-                <div className="roomsTopLeft">
-                  <i className="fas fa-circle"></i>
-                  <p>총 5개 룸</p>
-                </div>
-                <p className="roomsTopTitle">더블 그랜드 풀 빌라</p>
-                <div className="roomsTopRight"></div>
-              </div>
               <Slider {...slickRoomsSettings} className="sliderWrapper">
-                <RoomsSlider />
-                <RoomsSlider />
-                <RoomsSlider />
-                <RoomsSlider />
+                <RoomsSlider
+                  roomName="가든 풀 빌라"
+                  roomType="기본형"
+                  roomDesc="자연과 어우러진 가든 풀 빌라에는 해수 풀과 자쿠지, 선 베드가 마련되어 있고, 해변 산책로에 근접해 있어 바닷가로 접근이 편리하다."
+                />
+                <RoomsSlider
+                  roomName="듀플렉스 그랜드 풀 빌라"
+                  roomType="기본형"
+                  roomDesc="환상적인 오션뷰와 더불어 넓은 공간을 선호하는 이들에게 최적이다. 2층 규모의 빌라는 아래층에 리빙룸, 위층에는 침실로 구성되어 있다."
+                />
+                <RoomsSlider
+                  roomName="비치사이드 오션뷰 풀 빌라"
+                  roomType="기본형"
+                  roomDesc="파타야의 황홀한 오션뷰를 감상할 수 있는 비치사이드 오션뷰 풀 빌라에는 넓은 침실과 리빙룸이 갖춰져있어 로맨틱한 시간을 즐길 수 있다."
+                />
               </Slider>
             </div>
 
@@ -115,7 +102,7 @@ export class BookingDetail extends Component {
                       <li className="infoIconContainer">
                         <img
                           className="iconStyle"
-                          src="https://www.flaticon.com/premium-icon/icons/svg/3183/3183239.svg"
+                          src="https://www.flaticon.com/svg/static/icons/svg/427/427584.svg"
                           alt="facility icon"
                         />
                         <p className="iconDesc">정원</p>
@@ -165,16 +152,24 @@ export class BookingDetail extends Component {
                       <li className="textList">배스가운</li>
                       <li className="textList">타올</li>
                       <li className="textList">슬리퍼</li>
+                      <li className="textList">치약</li>
+                      <li className="textList">헤어드라이어</li>
+                      <li className="textList">바디워시</li>
+                      <li className="textList">핸드워시</li>
+                      <li className="textList">샴푸</li>
+                      <li className="textList">컨디셔너</li>
                     </ul>
                   </div>
                   <div className="rightContainer">
                     <p className="infoTitleLeft">EQUIPMENT</p>
                     <ul className="textListUl">
                       <li className="textList">WIFI</li>
-                      <li className="textList">컨디셔너</li>
-                      <li className="textList">바디워시</li>
-                      <li className="textList">헤어드라이어</li>
-                      <li className="textList">핸드워시</li>
+                      <li className="textList">TV</li>
+                      <li className="textList">블루투스 스피커</li>
+                      <li className="textList">냉난방</li>
+                      <li className="textList">냉장고</li>
+                      <li className="textList">식기</li>
+                      <li className="textList">조리도구</li>
                     </ul>
                   </div>
                   <div className="rightContainer">
