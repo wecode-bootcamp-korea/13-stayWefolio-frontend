@@ -21,39 +21,42 @@ export class Pick extends Component {
       clickedPageArr: ["PageButton","PageButton", "PageButton clicked", "PageButton", "PageButton", 
        "PageButton", "PageButton", "PageButton", "PageButton","PageButton", "PageButton"],
       currentOffset: 0,
+      searchedType: "",
+      searchedLocation: "",
+      searchedPrice:""
     };
   }
 
   componentDidMount() {
     //  서버와 통신할 때 실제 사용하는 코드
-    // fetch(`http://10.58.1.45:8000/main/picks?limit=12&offset=0`) 
-    //   .then((res) => res.json())
-    //   .then((res) => {
-    //     console.log("comdima");
-    //     this.setState({
-    //       // hotels: res.hotels,
-    //       searchedHotel: res.hotels
-    //     });
-    //   });
-
-    fetch("/data/pickData/hotels_data.json", {
-      method: "GET"
-    })
+    fetch(`http://10.58.1.45:8000/main/picks?limit=12&offset=0`) 
       .then((res) => res.json())
       .then((res) => {
+      console.log("통신확인")
         this.setState({
+          // hotels: res.hotels,
           searchedHotel: res.hotels
         });
       });
+
+    // fetch("/data/pickData/hotels_data.json", {
+    //   method: "GET"
+    // })
+    //   .then((res) => res.json())
+    //   .then((res) => {
+    //     this.setState({
+    //       searchedHotel: res.hotels
+    //     });
+    //   });
   }
 
   // 서버와 pagination 하는 function  
-  // componentDidUpdate(prevPros, prevState) {
-  //   const { currentOffset }= this.state;
-  //   if (prevState.currentOffset !== this.state.currentOffset){
-  //      this.paging(currentOffset);
-  //     }
-  // }
+  componentDidUpdate(prevPros, prevState) {
+    const { currentOffset }= this.state;
+    if (prevState.currentOffset !== this.state.currentOffset){
+       this.paging(currentOffset);
+      }
+  }
 
   pagingNum = (targetPage) => {
     const { currentOffset } = this.state;
@@ -61,7 +64,7 @@ export class Pick extends Component {
     if( targetPage === "<<" ){
       targetPage = 1;
     } else if ( targetPage === "<" ){
-     console.log("currentOffset", currentOffset)
+    //  console.log("currentOffset", currentOffset)
       targetPage = (currentOffset/12) -1;
     } else if ( targetPage === ">" ){
       targetPage = (currentOffset/12) +1
@@ -73,9 +76,48 @@ export class Pick extends Component {
   }
 
   paging = (offset) => {
+    const { searchedType, searchedLocation, searchedPrice } = this.state;
     fetch(`http://10.58.1.45:8000/main/picks?limit=${LIMIT}&offset=${offset}`)
+    
+    // let type = {searchedType? `category=${searchedType}+&`: "" }
+    // let location = {searchedLocation? `location=${searchedLocation}`: "" }
+    // let price = { }
+
+
+
+    // fetch(`http://10.58.1.45:8000/main/picks?&limit=${LIMIT}&offset=${offset}&`
+    //   {searchedType? `category=${searchedType}&` : "" }
+    //   {searchedLocation? `location=${searchedLocation}&`: "" }
+    //   {searchedPrice? `price=${searchedPrice}&`:""}
+    //   )
+
       .then((res) => res.json())
       .then((res) => this.setState({ searchedHotel: res.hotels }))
+  }
+
+  filtering = (searchValue) => {
+    const { searchedHotel } = this.state;
+    // console.log(searchedHotel[0].filters[0].options.includes(searchValue))
+
+    if(searchedHotel[0].filters[0].options.includes(searchValue)){
+      this.setState(
+        searchValue.includes("전체")
+        ? { searchedType: "" }
+        : { searchedType: searchValue }
+      )
+    } else if (searchedHotel[0].filters[1].options.includes(searchValue)){
+      this.setState(
+        searchValue.includes("전체")
+        ? { searchedLocation: "" }
+        : { searchedLocation: searchValue }
+      )
+    } else if (searchedHotel[0].filters[2].options.includes(searchValue)){
+      this.setState(
+        searchValue.includes("전체")
+        ? { searchedPrice: "" }
+        : { searchedPrice: searchValue }
+      )
+    }
   }
 
   // front에서 검색필터 처리하는 함수 
@@ -116,7 +158,6 @@ export class Pick extends Component {
     }  
     
     if (targetPage ===  "<"){
-      //console.log(defaultColor)
       const beforePageArr = this.state.pageArr.slice(2,9).map((num)=>(Number(num)-1));
       newPageArr= ["<<", "<", ...beforePageArr, ">", ">>"];
       pageIdxBtnColor = resetColor;
@@ -136,6 +177,8 @@ export class Pick extends Component {
   }
 
   render() {
+    const { searchedType, searchedLocation, searchedPrice } = this.state;
+    console.log(searchedType, searchedLocation, searchedPrice);
     const { searchedHotel, pageArr, clickedPageArr } = this.state;
 
     return (
@@ -154,6 +197,7 @@ export class Pick extends Component {
               {searchedHotel[0]?.filters?.map((filter, idx) => (
                 <SearchFilter
                   event={this.searchHotel}
+                  filtering={this.filtering}
                   key={idx}
                   data={filter}
                   id={idx}

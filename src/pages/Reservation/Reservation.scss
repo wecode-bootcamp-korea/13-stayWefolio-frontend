@@ -1,0 +1,134 @@
+@import "../../styles/common.scss";
+
+.Reservation {
+  background-color: $color-background;
+  width: 100%;
+  height: 100%;
+
+  .container {
+    border: 1px solid red;
+    margin: 102px auto;
+    padding: 0 15px 0 15px;
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      border-top: 7px solid black;
+      margin: 60px 0 10px 0;
+      padding: 30px 0 40px 0;
+      font-family: 'Open Sans', sans-serif;
+
+      .title {
+        font-size: 32px;
+        font-weight: 700;
+        color: #333333;
+      }
+      
+      .titleDesc {
+        font-size: 14px;
+        color: #797979;
+        margin-top: 10px;
+      }
+    }
+
+    .reservationCon {
+      border: 1px solid red;
+      background-color: white;
+      padding: 30px;
+
+      .outLine {
+        border: 1px solid purple;
+        padding: 3px;
+
+        .content {
+          border: 1px solid gray;
+          padding: 40px;
+  
+          .reservationDesc {
+            text-align: center;
+          }
+  
+          .calender {
+            height: 200px;
+            border-top: 2px solid black;
+            border-bottom: 2px solid black;
+          }
+  
+          .date {
+            border: 1px solid gray;
+            padding: 10px 0 10px 0;
+          }
+  
+          .name {
+            border: 1px solid gray;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0 10px 0;
+          }
+  
+          .contactNum {
+            border: 1px solid gray;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0 10px 0;
+          }
+  
+          .email {
+            border: 1px solid gray;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0 10px 0;
+          }
+  
+          .people {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0 10px 0;
+          }
+  
+          .option {
+            border: 1px solid gray;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0 10px 0;
+  
+            .miniOption {
+              border: 1px solid gray;
+              width: 465px;
+              height: 600px; 
+            }
+          }
+  
+          .request {
+            border: 1px solid gray;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0 10px 0;
+          }
+  
+          .price {
+            border: 1px solid gray;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0 10px 0;
+  
+            .totalDetail {
+  
+            }
+          }
+  
+          .payTool {
+            border: 1px solid gray;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0 10px 0;
+  
+            .toolOption {
+              display: flex;
+            }
+          }
+        }
+      }
+    }
+  }
+}
