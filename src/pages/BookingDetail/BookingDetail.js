@@ -19,10 +19,26 @@ const slickRoomsSettings = {
 export class BookingDetail extends Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      roomInfoList: [],
+    };
+  }
+
+  componentDidMount() {
+    fetch("http://localhost:3000/data/bookingDetailData/roomInfoData.json", {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        this.setState({
+          roomInfoList: res.detail,
+        });
+      });
   }
 
   render() {
+    const { roomInfoList } = this.state;
+
     return (
       <div className="BookingDetail">
         <section className="banner">
@@ -32,7 +48,10 @@ export class BookingDetail extends Component {
             src="https://images.unsplash.com/photo-1553653924-39b70295f8da?ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80"
           />
           <div className="bannerTitle">
-            <p className="titleText">Mason Pattaya</p>
+            <p className="titleText">
+              {roomInfoList[0] &&
+                roomInfoList[0].common_info.hotel_english_name}
+            </p>
           </div>
         </section>
 
@@ -44,14 +63,17 @@ export class BookingDetail extends Component {
                 <span className="titleSpan">OUR</span> ROOMS
               </p>
               <p className="titleBottom">
-                조용한 휴식이 필요하다면 찾게 되는 곳
+                {roomInfoList[0] &&
+                  roomInfoList[0].common_info.hotel_introduction}
               </p>
             </header>
 
             <div className="roomsContainer">
               <Slider {...slickRoomsSettings} className="sliderWrapper">
                 <RoomsSlider
-                  roomName="가든 풀 빌라"
+                  roomName={
+                    roomInfoList[1] && roomInfoList[1].rooms[0].room_name
+                  }
                   roomType="기본형"
                   roomDesc="자연과 어우러진 가든 풀 빌라에는 해수 풀과 자쿠지, 선 베드가 마련되어 있고, 해변 산책로에 근접해 있어 바닷가로 접근이 편리하다."
                 />
