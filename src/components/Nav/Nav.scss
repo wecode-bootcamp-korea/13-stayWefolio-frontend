@@ -1,0 +1,138 @@
+@import "../../styles/common.scss";
+
+* {
+  font-family: "Apple SD Gothic Neo", "Nanum Gothic", "나눔고딕",
+    "Malgun Gothic", "맑은고딕", Dotum, "돋움", Gulim, "굴림", "Helvetica Neue",
+    Helvetica, Arial, sans-serif;
+}
+
+$border-gray: rgb(229, 229, 229);
+$icon-gray: rgb(138, 138, 138);
+
+.Nav {
+  background-color: white;
+  height: 102px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  @include flex;
+
+  .container {
+    padding: 0 15px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+
+    .logoWrap {
+      min-width: 556px;
+      display: flex;
+      align-items: center;
+
+      .logo {
+        width: 90px;
+        height: 37.8px;
+      }
+    }
+
+    .navContainer {
+      max-width: 584px;
+      // padding: 0 10px;
+      .topLineWrap {
+        max-width: 570px;
+        height: 51px;
+        @include flex;
+
+        .searchBarWrap {
+          padding: 12px 12px 12px 17px;
+          border-left: 1px solid $border-gray;
+          display: flex;
+
+          .searchBar {
+            width: 178px;
+            margin: 0 11px;
+            border: none;
+            line-height: 25px;
+            &:focus {
+              outline: none;
+            }
+          }
+
+          .searchBar[placeholder] {
+            font-size: 13px;
+          }
+
+          .searchBarBtn {
+            margin-left: -25px;
+            background-color: $color-white;
+
+            .fa-search {
+              background-color: $color-white;
+              color: $icon-gray;
+            }
+          }
+        }
+
+        .mediaIconsWrap {
+          border-left: 1px solid $border-gray;
+          border-right: 1px solid $border-gray;
+
+          .mediaIcons {
+            @include flex;
+
+            li {
+              padding: 0 11px;
+              a {
+                margin: 20px 0px;
+              }
+            }
+          }
+        }
+
+        .loginWrap {
+          padding: 10px 30px;
+          border-right: 1px solid $border-gray;
+          @include flex;
+
+          .loginLink,
+          .loginAnd,
+          .signupLink {
+            margin: auto 2px;
+            color: $color-title-black;
+            font-size: 11px;
+            line-height: 50px;
+          }
+        }
+      }
+
+      .bottomLineWrap {
+        max-width: 570px;
+        height: 50px;
+        padding: 0 2px;
+        border: 1px solid $border-gray;
+        display: flex;
+        justify-content: space-around;
+
+        li {
+          @include flex;
+          .menuLink {
+            color: $color-title-black;
+            font-size: 13px;
+            font-weight: 700;
+          }
+          .booking {
+            padding: 7px 8px;
+            background-color: $color-title-black;
+            color: $color-white;
+          }
+          &:active {
+            padding-top: 3px;
+            border-bottom: 3px solid black;
+          }
+        }
+      }
+    }
+  }
+}
+
