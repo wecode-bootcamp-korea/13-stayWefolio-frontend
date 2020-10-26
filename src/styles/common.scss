@@ -17,9 +17,3 @@ $color-info-gray: rgb(149, 149, 160);
   align-items: $align-item;
   flex-direction: $flex-direction;
 }
-
-@mixin mQ($arg) {
-  @media only screen and (max-width: $arg) {
-    @content;
-  }
-}
