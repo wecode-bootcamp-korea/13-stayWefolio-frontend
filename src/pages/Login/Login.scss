@@ -2,15 +2,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@200&family=Roboto:wght@100;300&display=swap");
 @import "../../styles/common.scss";
 
-// main
-$color-background: rgb(238, 238, 238);
-$color-black: rgb(34, 34, 34);
-$color-white: rgb(255, 255, 255);
-// content font-color
-$color-title-black: rgb(51, 51, 51);
-$color-content-gray: rgb(119, 119, 119);
-$color-info-gray: rgb(149, 149, 160);
-
 @mixin flex-center {
   display: flex;
   justify-content: center;
@@ -23,7 +14,7 @@ $color-info-gray: rgb(149, 149, 160);
   }
 }
 
-.loginWrap {
+.Login {
   width: 100vw;
   position: relative;
   background-color: rgb(244, 244, 244);
@@ -36,21 +27,19 @@ $color-info-gray: rgb(149, 149, 160);
   }
   .loginContainer {
     @include flex-center;
+    margin: 50px 0;
     .loginBoard {
-      margin: 50px 0;
       width: 555px;
-      height: 566px;
       background-color: $color-white;
       display: flex;
       flex-direction: column;
       align-items: center;
       header {
-        padding: 0 20px;
+        padding: 20px 20px;
         width: 555px;
         height: 114px;
         display: flex;
-        flex-direction: row-reverse;
-        justify-content: start;
+        justify-content: flex-end;
         align-items: center;
         span {
           font-size: 51px;
@@ -61,7 +50,7 @@ $color-info-gray: rgb(149, 149, 160);
       }
       .btnSection {
         padding: 30px 20px;
-        width: inherit;
+        width: 555px;
         height: 205px;
         display: flex;
         flex-direction: column;
@@ -76,6 +65,7 @@ $color-info-gray: rgb(149, 149, 160);
           background-color: rgb(62, 175, 12);
           font-size: 15px;
           font-weight: 300;
+          cursor: pointer;
         }
         .facebookLogin {
           width: 515px;
@@ -85,6 +75,7 @@ $color-info-gray: rgb(149, 149, 160);
           background-color: rgb(55, 104, 185);
           font-size: 15px;
           font-weight: 300;
+          cursor: pointer;
         }
         .guestLogin {
           width: 515px;
@@ -94,6 +85,7 @@ $color-info-gray: rgb(149, 149, 160);
           background-color: rgb(128, 128, 128);
           font-size: 15px;
           font-weight: 300;
+          cursor: pointer;
         }
         .facebookLogin,
         .guestLogin {
@@ -103,11 +95,6 @@ $color-info-gray: rgb(149, 149, 160);
       .inputSection {
         padding: 20px 20px 10px 20px;
         width: 555px;
-        height: 195px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
         .emailInput,
         .passwordInput {
           padding: 0 20px;
@@ -120,8 +107,18 @@ $color-info-gray: rgb(149, 149, 160);
         .passwordInput {
           margin-top: 6px;
         }
-        .loginBtn {
-          margin-top: 10px;
+        .warningMessage {
+          display: block;
+          margin: 6px 0 0 2px;
+          font-size: 13px;
+          color: red;
+        }
+        .emailMessage,
+        .passwordMessage {
+          display: none;
+        }
+        .falseBtn {
+          margin-top: 15px;
           width: 515px;
           height: 45px;
           border-radius: 45px;
@@ -130,14 +127,14 @@ $color-info-gray: rgb(149, 149, 160);
           font-size: 18px;
           background-color: rgb(46, 48, 57);
         }
-        .falseBtn {
+        .loginBtn {
           cursor: pointer;
         }
       }
       .signupSection {
-        width: inherit;
-        height: 50px;
+        width: 555px;
         padding: 0 20px 10px 20px;
+        margin: 11px 0;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -148,6 +145,7 @@ $color-info-gray: rgb(149, 149, 160);
             outline: none;
             background: none;
             color: rgb(128, 128, 128);
+            cursor: pointer;
           }
         }
         .blockLine {
@@ -162,6 +160,7 @@ $color-info-gray: rgb(149, 149, 160);
             outline: none;
             background: none;
             color: rgb(128, 128, 128);
+            cursor: pointer;
           }
         }
       }

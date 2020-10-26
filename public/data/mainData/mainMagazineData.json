@@ -1,0 +1,22 @@
+{
+  "data": [
+    {
+      "index": 1,
+      "hotelName": "탈로서울",
+      "type": "렌탈하우스",
+      "location": "서울/강남구",
+      "descTitle": "취향을 찾아가는 공간",
+      "desc": "다양한 상점과 관광객으로 가득 찬 가로수길. 그 안쪽 조용한 골목 한편, 30년 된 빌라에 탈로서울이 자리하고 있다. 탈로(talo)는 핀란드어로 ‘집’이라는 의미로 ‘서울에서 경험할 수 있는 핀란드 집’으로도 해석할 수 있다. 이곳은 복잡한 서울에서 북유럽의 공간과 생활 문화를 온전히 경험하게 하기 위한 탈로서울 대표의 취향과 바람이 집적된 공간이다.…",
+      "image": "https://images.unsplash.com/photo-1582719508461-905c673771fd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1825&q=80"
+    },
+    {
+      "index": 1,
+      "hotelName": "썸웨어",
+      "type": "렌탈하우스",
+      "location": "서울/종로구",
+      "descTitle": "시간이 흐르는 집",
+      "desc": "서촌, 수성동 계곡 물길 근처에는 세월을 머금은 채 과거로부터 축적된 공간이 있다. 회색빛 벽 너머로 들어서면 깊숙한 숲속, 산장의 분위기를 한 썸웨어(somewhere)와 마주하게 된다. 1930년대에 지어진 이 집은, 겪어 온 시간을 고스란히 담고 있으며 근대 과도기를 거쳐 지금의 모습을 하게 되었다. 과거와 현대의 모습이 공존하는 이 공간은, ...",
+      "image": "https://images.unsplash.com/photo-1549294413-26f195200c16?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80"
+    }
+  ]
+}
