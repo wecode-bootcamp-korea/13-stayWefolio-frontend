@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "../Login/Login.scss";
-import Modal from "./ModalComponent/Modal";
 
 const API = "http://10.58.1.45:8000/user/login";
 export class Login extends React.Component {
