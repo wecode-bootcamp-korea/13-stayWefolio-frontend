@@ -25,9 +25,12 @@ export class BookingDetail extends Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:3000/data/bookingDetailData/roomInfoData.json", {
-      method: "GET",
-    })
+    fetch(
+      `http://localhost:3000/data/bookingDetailData/roomInfoData.json/${this.state.match.params.id}`,
+      {
+        method: "GET",
+      }
+    )
       .then((res) => res.json())
       .then((res) => {
         this.setState({
