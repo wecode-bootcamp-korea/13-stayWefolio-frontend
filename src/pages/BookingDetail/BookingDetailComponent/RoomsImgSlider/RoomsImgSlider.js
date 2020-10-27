@@ -31,6 +31,7 @@ const roomsImgSettings = {
 
 export class RoomImgSlider extends Component {
   render() {
+    const { roomInfoList, roomImg } = this.props;
     return (
       <section className="RoomImgSlider">
         <link
@@ -45,21 +46,12 @@ export class RoomImgSlider extends Component {
             nextArrow={<Arrow type="next" />}
             prevArrow={<Arrow type="prev" />}
           >
-            <img
-              className="roomsImg"
-              src="https://images.unsplash.com/photo-1551286923-c82d6a8ae079?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2098&q=80"
-              alt="room"
-            ></img>
-            <img
-              className="roomsImg"
-              src="https://images.unsplash.com/photo-1581974206967-93856b25aa13?ixlib=rb-1.2.1&auto=format&fit=crop&w=2072&q=80"
-              alt="room"
-            ></img>
-            <img
-              className="roomsImg"
-              src="https://images.unsplash.com/photo-1455587734955-081b22074882?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&q=80"
-              alt="room"
-            ></img>
+            {roomImg.length &&
+              roomImg.map((roomImage) => {
+                return (
+                  <img className="roomsImg" src={roomImage} alt="room"></img>
+                );
+              })}
           </Slider>
         </div>
       </section>

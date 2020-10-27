@@ -21,7 +21,6 @@
         line-height: 40px;
         color: #333333;
         padding-right: 65px;
-        // cursor: pointer;
       }
 
       .topType {
@@ -32,21 +31,20 @@
       }
 
       .topDesc {
+        padding-right: 5px;
         margin-top: 10px;
-        height: 78px;
+        margin-bottom: 23px;
         overflow: hidden;
         font-size: 14px;
-        line-height: 20px;
+        line-height: 21px;
       }
 
       .topBottom {
-        height: 80px;
         margin-top: 20px;
         display: flex;
 
         .bottomLeft {
           width: 185px;
-          height: 80px;
           list-style: none;
           border-right: 1px dashed #d1d1d1;
           color: #9595a0;
@@ -98,6 +96,124 @@
       font-weight: 600;
       font-family: "Open-sans";
       cursor: pointer;
+    }
+  }
+  .roomsInfoContainer {
+    border-top: 4px solid #222;
+    border-bottom: 4px solid #222;
+    height: 576px;
+    margin: 30px 0 110px 0;
+    padding: 25px 0;
+    display: flex;
+    justify-content: flex-start;
+
+    .infoLeft {
+      width: 292.5px;
+      letter-spacing: -0.5px;
+
+      .roomTitle {
+        font-size: 24px;
+        font-weight: 500;
+        color: #363636;
+        line-height: 34px;
+      }
+
+      .roomType {
+        font-size: 13px;
+        font-weight: 500;
+        line-height: 18.5px;
+        color: #7c7c7c;
+        margin-bottom: 20px;
+        height: 50px;
+      }
+
+      .leftBottom {
+        margin-top: 25px;
+        color: #717171;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 20px;
+
+        li {
+          margin-bottom: 1px;
+        }
+      }
+    }
+
+    .infoRight {
+      width: 877.5px;
+
+      .roomDesc {
+        padding-bottom: 30px;
+        color: #363636;
+        line-height: 21px;
+        font-size: 15px;
+        font-weight: 500;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+
+      .rightBottom {
+        height: 477px;
+        padding: 10px 0;
+
+        .infoTitleLeft {
+          width: 130px;
+          font-size: 13px;
+          font-weight: bold;
+          line-height: 18.5px;
+          color: #333333;
+        }
+
+        .rightContainer {
+          padding: 20px 0;
+          border-top: 1px solid #e3e3e3;
+          display: flex;
+
+          .iconList {
+            display: flex;
+            justify-content: flex-start;
+
+            .infoIconContainer {
+              width: 78px;
+              height: 61px;
+              margin-bottom: 10px;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+            }
+
+            .iconStyle {
+              width: 50px;
+              height: 33px;
+              margin: 0 14px 10px;
+              opacity: 0.6;
+            }
+
+            .iconDesc {
+              width: 78px;
+              text-align: center;
+              color: #666;
+              font-size: 13px;
+              letter-spacing: -1px;
+              margin-bottom: 10px;
+              font-weight: 500;
+            }
+          }
+
+          .textListUl {
+            display: flex;
+
+            .textList {
+              font-size: 14px;
+              font-weight: 500;
+              text-align: left;
+              color: #363636;
+              margin: 0 10px 10px 0;
+            }
+          }
+        }
+      }
     }
   }
 }

@@ -1,19 +1,33 @@
 {
   "detail": [
     {
-      "id": 1,
       "common_info": {
+        "room_count": "2",
         "hotel_name": "낙산 테라스",
         "hotel_english_name": "Naksan Terrace",
-        "hotel_introduction": "탁 트인 발코니에서 서울을 내려다보다"
+        "hotel_introduction": "탁 트인 발코니에서 서울을 내려다보다",
+        "hotel_image_url": "https://images.unsplash.com/photo-1585549070837-ba9bbbe1537b?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9"
       },
       "rooms": [
         {
+          "room_id": 1,
+          "room_image": [
+            "https://images.unsplash.com/photo-1592965046687-1acdbcdb5642?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9",
+            "https://images.unsplash.com/photo-1595673029181-c07c388858a3?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9",
+            "https://images.unsplash.com/photo-1458699633555-403528e5ac1e?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9",
+            "https://images.unsplash.com/photo-1458699633555-403528e5ac1e?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9",
+            "https://images.unsplash.com/photo-1583270423776-391f5d70576b?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9",
+            "https://images.unsplash.com/photo-1587242778887-79dacd896635?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9",
+            "https://images.unsplash.com/photo-1601104735451-43c8fc886491?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9",
+            "https://images.unsplash.com/photo-1599722585837-c1cb8eea32ff?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9",
+            "https://images.unsplash.com/photo-1546458525-9f2e2d8da6cb?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9",
+            "https://images.unsplash.com/photo-1564689648924-d1427d642f61?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9"
+          ],
           "room_name": "Rocamadour",
           "room_type": "기본형",
           "room_introduction": "서울의 과거와 현재를 여러겹의 레이어로 내려다 볼 수 있는 특별한 공간입니다. 낙산공원 정상 옆에 위치한 이 곳에서는 거실이나 개인 발코니에 앉아 남산부터 종로, 한양도성까지 조망할 수 있습니다.",
-          "checkin_time": "15:00:00",
-          "checkout_time": "11:00:00",
+          "checkin_time": "15:00",
+          "checkout_time": "11:00",
           "min_people": 2,
           "max_people": 6,
           "area": "95㎡",
@@ -59,11 +73,24 @@
           ]
         },
         {
+          "room_id": 2,
+          "room_image": [
+            "https://images.unsplash.com/photo-1550274191-c185b733bb9f?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9",
+            "https://images.unsplash.com/photo-1588151146356-5631cd02e500?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9",
+            "https://images.unsplash.com/photo-1602040068556-bc4da94cf2d2?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9",
+            "https://images.unsplash.com/photo-1579509361643-4e0a2965e6d5?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9",
+            "https://images.unsplash.com/photo-1567624928242-f97fa84bf25c?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9",
+            "https://images.unsplash.com/photo-1596178060810-72f53ce9a65c?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9",
+            "https://images.unsplash.com/photo-1597480552972-de9b150b5b43?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9",
+            "https://images.unsplash.com/photo-1589550427256-5a2d3646ed50?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9",
+            "https://images.unsplash.com/photo-1583682841649-552bb52c3fe5?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9",
+            "https://images.unsplash.com/photo-1592367611762-507beba16835?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9"
+          ],
           "room_name": "Shanghai",
           "room_type": "독채형",
           "room_introduction": "낙산발코니 201호에 위치한 상하이 컨셉 룸으로, 큰 창으로 지는 해를 바라 볼 수 있습니다. 도심이 한 눈에 들어오는 멋진 야경을 독립 테라스에서 즐겨보세요.",
-          "checkin_time": "15:00:00",
-          "checkout_time": "11:00:00",
+          "checkin_time": "15:00",
+          "checkout_time": "11:00",
           "min_people": 2,
           "max_people": 3,
           "area": "33㎡",
@@ -79,376 +106,6 @@
           ],
           "tags": ["도심속휴식", "새로운영감"],
           "price": "₩84,189~",
-          "facility": [
-            {
-              "name": "야외가구",
-              "icon_url": "https://www.flaticon.com/svg/static/icons/svg/963/963890.svg"
-            },
-            {
-              "name": "정원",
-              "icon_url": "https://www.flaticon.com/premium-icon/icons/svg/3183/3183239.svg"
-            },
-            {
-              "name": "테라스",
-              "icon_url": "https://www.flaticon.com/svg/static/icons/svg/515/515056.svg"
-            },
-            {
-              "name": "독립키친",
-              "icon_url": "https://www.flaticon.com/svg/static/icons/svg/1606/1606657.svg"
-            },
-            {
-              "name": "독립화장실",
-              "icon_url": "https://www.flaticon.com/svg/static/icons/svg/995/995072.svg"
-            }
-          ],
-          "service": [
-            {
-              "name": "주차",
-              "icon_url": "https://www.flaticon.com/svg/static/icons/svg/884/884903.svg"
-            }
-          ]
-        },
-        {
-          "room_name": "Paris",
-          "room_type": "원룸형",
-          "room_introduction": "낙산발코니 202호에 위치한 파리 컨셉 룸으로, 낙산공원 정상 옆에 자리하고 있습니다. 거실로 이어진 개인 발코니에서 서울 성곽과 이화마을, 종로가 보입니다.",
-          "checkin_time": "15:00:00",
-          "checkout_time": "11:00:00",
-          "min_people": 1,
-          "max_people": 5,
-          "area": "55㎡",
-          "bed": [
-            {
-              "bed_type": "퀸사이즈베드",
-              "number_of_beds": 2
-            },
-            {
-              "bed_type": "싱글베드",
-              "number_of_beds": 2
-            }
-          ],
-          "tags": ["도심속휴식", "새로운영감"],
-          "price": "₩105,380~",
-          "facility": [
-            {
-              "name": "야외가구",
-              "icon_url": "https://www.flaticon.com/svg/static/icons/svg/963/963890.svg"
-            },
-            {
-              "name": "정원",
-              "icon_url": "https://www.flaticon.com/premium-icon/icons/svg/3183/3183239.svg"
-            },
-            {
-              "name": "테라스",
-              "icon_url": "https://www.flaticon.com/svg/static/icons/svg/515/515056.svg"
-            },
-            {
-              "name": "독립키친",
-              "icon_url": "https://www.flaticon.com/svg/static/icons/svg/1606/1606657.svg"
-            },
-            {
-              "name": "독립화장실",
-              "icon_url": "https://www.flaticon.com/svg/static/icons/svg/995/995072.svg"
-            }
-          ],
-          "service": [
-            {
-              "name": "주차",
-              "icon_url": "https://www.flaticon.com/svg/static/icons/svg/884/884903.svg"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "common_info": {
-        "hotel_name": "낙산 테라스",
-        "hotel_english_name": "Naksan Terrace",
-        "hotel_introduction": "탁 트인 발코니에서 서울을 내려다보다"
-      },
-      "rooms": [
-        {
-          "room_name": "Rocamadour",
-          "room_type": "기본형",
-          "room_introduction": "서울의 과거와 현재를 여러겹의 레이어로 내려다 볼 수 있는 특별한 공간입니다. 낙산공원 정상 옆에 위치한 이 곳에서는 거실이나 개인 발코니에 앉아 남산부터 종로, 한양도성까지 조망할 수 있습니다.",
-          "checkin_time": "15:00:00",
-          "checkout_time": "11:00:00",
-          "min_people": 2,
-          "max_people": 6,
-          "area": "95㎡",
-          "bed": [
-            {
-              "bed_type": "퀸사이즈베드",
-              "number_of_beds": 2
-            },
-            {
-              "bed_type": "싱글베드",
-              "number_of_beds": 2
-            }
-          ],
-          "tags": ["도심속휴식", "새로운영감"],
-          "price": "₩228,045~",
-          "facility": [
-            {
-              "name": "야외가구",
-              "icon_url": "https://www.flaticon.com/svg/static/icons/svg/963/963890.svg"
-            },
-            {
-              "name": "정원",
-              "icon_url": "https://www.flaticon.com/premium-icon/icons/svg/3183/3183239.svg"
-            },
-            {
-              "name": "테라스",
-              "icon_url": "https://www.flaticon.com/svg/static/icons/svg/515/515056.svg"
-            },
-            {
-              "name": "독립키친",
-              "icon_url": "https://www.flaticon.com/svg/static/icons/svg/1606/1606657.svg"
-            },
-            {
-              "name": "독립화장실",
-              "icon_url": "https://www.flaticon.com/svg/static/icons/svg/995/995072.svg"
-            }
-          ],
-          "service": [
-            {
-              "name": "주차",
-              "icon_url": "https://www.flaticon.com/svg/static/icons/svg/884/884903.svg"
-            }
-          ]
-        },
-        {
-          "room_name": "Shanghai",
-          "room_type": "독채형",
-          "room_introduction": "낙산발코니 201호에 위치한 상하이 컨셉 룸으로, 큰 창으로 지는 해를 바라 볼 수 있습니다. 도심이 한 눈에 들어오는 멋진 야경을 독립 테라스에서 즐겨보세요.",
-          "checkin_time": "15:00:00",
-          "checkout_time": "11:00:00",
-          "min_people": 2,
-          "max_people": 3,
-          "area": "33㎡",
-          "bed": [
-            {
-              "bed_type": "퀸사이즈베드",
-              "number_of_beds": 2
-            },
-            {
-              "bed_type": "싱글베드",
-              "number_of_beds": 2
-            }
-          ],
-          "tags": ["도심속휴식", "새로운영감"],
-          "price": "₩84,189~",
-          "facility": [
-            {
-              "name": "야외가구",
-              "icon_url": "https://www.flaticon.com/svg/static/icons/svg/963/963890.svg"
-            },
-            {
-              "name": "정원",
-              "icon_url": "https://www.flaticon.com/premium-icon/icons/svg/3183/3183239.svg"
-            },
-            {
-              "name": "테라스",
-              "icon_url": "https://www.flaticon.com/svg/static/icons/svg/515/515056.svg"
-            },
-            {
-              "name": "독립키친",
-              "icon_url": "https://www.flaticon.com/svg/static/icons/svg/1606/1606657.svg"
-            },
-            {
-              "name": "독립화장실",
-              "icon_url": "https://www.flaticon.com/svg/static/icons/svg/995/995072.svg"
-            }
-          ],
-          "service": [
-            {
-              "name": "주차",
-              "icon_url": "https://www.flaticon.com/svg/static/icons/svg/884/884903.svg"
-            }
-          ]
-        },
-        {
-          "room_name": "Paris",
-          "room_type": "원룸형",
-          "room_introduction": "낙산발코니 202호에 위치한 파리 컨셉 룸으로, 낙산공원 정상 옆에 자리하고 있습니다. 거실로 이어진 개인 발코니에서 서울 성곽과 이화마을, 종로가 보입니다.",
-          "checkin_time": "15:00:00",
-          "checkout_time": "11:00:00",
-          "min_people": 1,
-          "max_people": 5,
-          "area": "55㎡",
-          "bed": [
-            {
-              "bed_type": "퀸사이즈베드",
-              "number_of_beds": 2
-            },
-            {
-              "bed_type": "싱글베드",
-              "number_of_beds": 2
-            }
-          ],
-          "tags": ["도심속휴식", "새로운영감"],
-          "price": "₩105,380~",
-          "facility": [
-            {
-              "name": "야외가구",
-              "icon_url": "https://www.flaticon.com/svg/static/icons/svg/963/963890.svg"
-            },
-            {
-              "name": "정원",
-              "icon_url": "https://www.flaticon.com/premium-icon/icons/svg/3183/3183239.svg"
-            },
-            {
-              "name": "테라스",
-              "icon_url": "https://www.flaticon.com/svg/static/icons/svg/515/515056.svg"
-            },
-            {
-              "name": "독립키친",
-              "icon_url": "https://www.flaticon.com/svg/static/icons/svg/1606/1606657.svg"
-            },
-            {
-              "name": "독립화장실",
-              "icon_url": "https://www.flaticon.com/svg/static/icons/svg/995/995072.svg"
-            }
-          ],
-          "service": [
-            {
-              "name": "주차",
-              "icon_url": "https://www.flaticon.com/svg/static/icons/svg/884/884903.svg"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": 3,
-      "common_info": {
-        "hotel_name": "낙산 테라스",
-        "hotel_english_name": "Naksan Terrace",
-        "hotel_introduction": "탁 트인 발코니에서 서울을 내려다보다"
-      },
-      "rooms": [
-        {
-          "room_name": "Rocamadour",
-          "room_type": "기본형",
-          "room_introduction": "서울의 과거와 현재를 여러겹의 레이어로 내려다 볼 수 있는 특별한 공간입니다. 낙산공원 정상 옆에 위치한 이 곳에서는 거실이나 개인 발코니에 앉아 남산부터 종로, 한양도성까지 조망할 수 있습니다.",
-          "checkin_time": "15:00:00",
-          "checkout_time": "11:00:00",
-          "min_people": 2,
-          "max_people": 6,
-          "area": "95㎡",
-          "bed": [
-            {
-              "bed_type": "퀸사이즈베드",
-              "number_of_beds": 2
-            },
-            {
-              "bed_type": "싱글베드",
-              "number_of_beds": 2
-            }
-          ],
-          "tags": ["도심속휴식", "새로운영감"],
-          "price": "₩228,045~",
-          "facility": [
-            {
-              "name": "야외가구",
-              "icon_url": "https://www.flaticon.com/svg/static/icons/svg/963/963890.svg"
-            },
-            {
-              "name": "정원",
-              "icon_url": "https://www.flaticon.com/premium-icon/icons/svg/3183/3183239.svg"
-            },
-            {
-              "name": "테라스",
-              "icon_url": "https://www.flaticon.com/svg/static/icons/svg/515/515056.svg"
-            },
-            {
-              "name": "독립키친",
-              "icon_url": "https://www.flaticon.com/svg/static/icons/svg/1606/1606657.svg"
-            },
-            {
-              "name": "독립화장실",
-              "icon_url": "https://www.flaticon.com/svg/static/icons/svg/995/995072.svg"
-            }
-          ],
-          "service": [
-            {
-              "name": "주차",
-              "icon_url": "https://www.flaticon.com/svg/static/icons/svg/884/884903.svg"
-            }
-          ]
-        },
-        {
-          "room_name": "Shanghai",
-          "room_type": "독채형",
-          "room_introduction": "낙산발코니 201호에 위치한 상하이 컨셉 룸으로, 큰 창으로 지는 해를 바라 볼 수 있습니다. 도심이 한 눈에 들어오는 멋진 야경을 독립 테라스에서 즐겨보세요.",
-          "checkin_time": "15:00:00",
-          "checkout_time": "11:00:00",
-          "min_people": 2,
-          "max_people": 3,
-          "area": "33㎡",
-          "bed": [
-            {
-              "bed_type": "퀸사이즈베드",
-              "number_of_beds": 2
-            },
-            {
-              "bed_type": "싱글베드",
-              "number_of_beds": 2
-            }
-          ],
-          "tags": ["도심속휴식", "새로운영감"],
-          "price": "₩84,189~",
-          "facility": [
-            {
-              "name": "야외가구",
-              "icon_url": "https://www.flaticon.com/svg/static/icons/svg/963/963890.svg"
-            },
-            {
-              "name": "정원",
-              "icon_url": "https://www.flaticon.com/premium-icon/icons/svg/3183/3183239.svg"
-            },
-            {
-              "name": "테라스",
-              "icon_url": "https://www.flaticon.com/svg/static/icons/svg/515/515056.svg"
-            },
-            {
-              "name": "독립키친",
-              "icon_url": "https://www.flaticon.com/svg/static/icons/svg/1606/1606657.svg"
-            },
-            {
-              "name": "독립화장실",
-              "icon_url": "https://www.flaticon.com/svg/static/icons/svg/995/995072.svg"
-            }
-          ],
-          "service": [
-            {
-              "name": "주차",
-              "icon_url": "https://www.flaticon.com/svg/static/icons/svg/884/884903.svg"
-            }
-          ]
-        },
-        {
-          "room_name": "Paris",
-          "room_type": "원룸형",
-          "room_introduction": "낙산발코니 202호에 위치한 파리 컨셉 룸으로, 낙산공원 정상 옆에 자리하고 있습니다. 거실로 이어진 개인 발코니에서 서울 성곽과 이화마을, 종로가 보입니다.",
-          "checkin_time": "15:00:00",
-          "checkout_time": "11:00:00",
-          "min_people": 1,
-          "max_people": 5,
-          "area": "55㎡",
-          "bed": [
-            {
-              "bed_type": "퀸사이즈베드",
-              "number_of_beds": 2
-            },
-            {
-              "bed_type": "싱글베드",
-              "number_of_beds": 2
-            }
-          ],
-          "tags": ["도심속휴식", "새로운영감"],
-          "price": "₩105,380~",
           "facility": [
             {
               "name": "야외가구",
