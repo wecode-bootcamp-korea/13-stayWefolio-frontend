@@ -1,0 +1,15 @@
+{
+  "booking_info": [
+    {
+      "name": "위코드",
+      "hotel_image": "https://images.unsplash.com/photo-1540541338287-41700207dee6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80",
+      "hotel_name": "낙산 테라스",
+      "room_name": "Rocamadour",
+      "adult": "2",
+      "child": "0",
+      "infant": "2",
+      "date_from": "2020-11-21",
+      "date_to": "2020-11-22"
+    }
+  ]
+}
