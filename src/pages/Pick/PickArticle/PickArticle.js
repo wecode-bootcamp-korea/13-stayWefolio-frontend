@@ -15,12 +15,12 @@ export class PickArticle extends Component {
   }
 
   render() {
-    const { name, engName, desc, mainImg, location, type, minPrice, maxPrice, tags } = this.props;
+    const { name, engName, desc, mainImg, location, type, minPrice, maxPrice, tags, id } = this.props;
     const newTags = tags?.join(", ");
 
     return (
       <article className="PickArticle">
-        <div className="imgCon">
+        <div className="imgCon" onClick={() => this.props.history.push(`/main/places/${id}`)}>
          
           <img alt="mainimg" src={mainImg} />
           <div className="viewBox">

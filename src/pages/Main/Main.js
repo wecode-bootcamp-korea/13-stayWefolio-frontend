@@ -8,7 +8,7 @@ import MainBottomCard from "./MainComponent/MainBottomCard/MainBottomCard";
 
 import "./Main.scss";
 
-const API = "http://localhost:3000/data/mainData/mainBannerData.json";
+const API = "/data/mainData/mainBannerData.json";
 
 const bannerSettings = {
   dots: true,

@@ -7,7 +7,7 @@ import Nav from "../../components/Nav/Nav"
 import "./Pick.scss";
 
 const LIMIT = 12;
-// const API ="http://10.58.1.45:8000/main/picks"
+const API ="http://10.58.1.45:8000/main/picks"
 
 export class Pick extends Component {
   constructor() {
@@ -17,19 +17,32 @@ export class Pick extends Component {
       searchedHotel: [],
       handleSearch: "",
       filterList:[],
-      pageArr: ["<<", "<", 1, 2, 3, 4, 5, 6, 7, ">", ">>"],
-      clickedPageArr: ["PageButton","PageButton", "PageButton clicked", "PageButton", "PageButton", 
-       "PageButton", "PageButton", "PageButton", "PageButton","PageButton", "PageButton"],
-      currentOffset: 0,
-      searchedType: "",
-      searchedLocation: "",
-      searchedPrice:""
+      pageHandling : {
+        pages: [
+          {value: 1, current: true},
+          {value: 2, current: false},
+          {value: 3, current: false},
+          {value: 4, current: false},
+          {value: 5, current: false},
+          {value: 6, current: false},
+          {value: 7, current: false},
+        ],
+        prev: null,
+        next: 8,
+      },
+      qS : {
+        limit: 12,
+        offset: 0,
+        location: "",
+        category: "",
+        price: ""
+      }
     };
   }
 
   componentDidMount() {
     //  서버와 통신할 때 실제 사용하는 코드
-    fetch(`http://10.58.1.45:8000/main/picks?limit=12&offset=0`) 
+    fetch(`${API}?limit=12&offset=0`) 
       .then((res) => res.json())
       .then((res) => {
       console.log("통신확인")
@@ -52,133 +65,156 @@ export class Pick extends Component {
 
   // 서버와 pagination 하는 function  
   componentDidUpdate(prevPros, prevState) {
-    const { currentOffset }= this.state;
-    if (prevState.currentOffset !== this.state.currentOffset){
-       this.paging(currentOffset);
+    const { qS }= this.state;
+    if (prevState.qS.offset !== qS.offset
+      || prevState.qS.category !== qS.category
+      || prevState.qS.location !== qS.location
+      || prevState.qS.price !== qS.price){
+       this.paging(qS);
+    }
+  }
+
+  paging = (queryS) => {
+    for (let key in queryS){
+      if (queryS[key]=== ""){
+        delete queryS[key] 
       }
-  }
+    }
 
-  pagingNum = (targetPage) => {
-    const { currentOffset } = this.state;
+    console.log(queryS)
+    const queryString = "?" + Object.entries(queryS).map(e => "&" + e.join("=")).join("");
+    console.log(queryString)
 
-    if( targetPage === "<<" ){
-      targetPage = 1;
-    } else if ( targetPage === "<" ){
-    //  console.log("currentOffset", currentOffset)
-      targetPage = (currentOffset/12) -1;
-    } else if ( targetPage === ">" ){
-      targetPage = (currentOffset/12) +1
-    } else if (targetPage === ">>"){
-      targetPage = 10;
-    } 
-
-    this.setState({ currentOffset: ((targetPage - 1) * 12)})
-  }
-
-  paging = (offset) => {
-    const { searchedType, searchedLocation, searchedPrice } = this.state;
-    fetch(`http://10.58.1.45:8000/main/picks?limit=${LIMIT}&offset=${offset}`)
-    
-    // let type = {searchedType? `category=${searchedType}+&`: "" }
-    // let location = {searchedLocation? `location=${searchedLocation}`: "" }
-    // let price = { }
-
-
-
-    // fetch(`http://10.58.1.45:8000/main/picks?&limit=${LIMIT}&offset=${offset}&`
-    //   {searchedType? `category=${searchedType}&` : "" }
-    //   {searchedLocation? `location=${searchedLocation}&`: "" }
-    //   {searchedPrice? `price=${searchedPrice}&`:""}
-    //   )
-
+    // fetch(`${API}?limit=${LIMIT}&offset=${offset}`)
+    fetch(`${API}${queryString}`)
       .then((res) => res.json())
       .then((res) => this.setState({ searchedHotel: res.hotels }))
   }
 
+  setQS = (targetPage) => {
+    const newOffset = (targetPage-1) * 12;
+
+    this.setState(prevState => ({
+      qS: {
+        ...prevState.qS,
+        offset: newOffset,
+      }
+    }))
+  }
+
   filtering = (searchValue) => {
     const { searchedHotel } = this.state;
+    const initPageHandling = {
+      pages: [
+        {value: 1, current: true},
+        {value: 2, current: false},
+        {value: 3, current: false},
+        {value: 4, current: false},
+        {value: 5, current: false},
+        {value: 6, current: false},
+        {value: 7, current: false},
+      ],
+      prev: null,
+      next: 8,
+    }
     // console.log(searchedHotel[0].filters[0].options.includes(searchValue))
+    let searchType = "";
+    let searchLocation = "";
+    let searchPrice = "";
 
-    if(searchedHotel[0].filters[0].options.includes(searchValue)){
-      this.setState(
+    if(searchedHotel[0].filters[0].options.includes(searchValue)){  
         searchValue.includes("전체")
-        ? { searchedType: "" }
-        : { searchedType: searchValue }
-      )
+        ? searchType = "" 
+        : searchType = searchValue 
+        this.setState(prevState => ({
+          qS: {
+            ...prevState.qS,
+            category: searchType,
+          },
+          pageHandling: {
+            ...prevState.qS,
+            ...initPageHandling
+          }
+        }),() => this.setQS(1))  
     } else if (searchedHotel[0].filters[1].options.includes(searchValue)){
-      this.setState(
         searchValue.includes("전체")
-        ? { searchedLocation: "" }
-        : { searchedLocation: searchValue }
-      )
+        ? searchLocation= "" 
+        : searchLocation= searchValue 
+        this.setState(prevState => ({
+          qS: {
+            ...prevState.qS,
+            location: searchLocation,
+          },
+          pageHandling: {
+            ...prevState.qS,
+            ...initPageHandling
+          }
+        }),() => this.setQS(1))
     } else if (searchedHotel[0].filters[2].options.includes(searchValue)){
-      this.setState(
         searchValue.includes("전체")
-        ? { searchedPrice: "" }
-        : { searchedPrice: searchValue }
-      )
+        ? searchPrice= "" 
+        : searchPrice= searchValue 
+        this.setState(prevState => ({
+          qS: {
+            ...prevState.qS,
+            price: searchPrice
+          },
+          pageHandling: {
+            ...prevState.qS,
+            ...initPageHandling
+          }
+        }),()=> this.setQS())
     }
   }
 
-  // front에서 검색필터 처리하는 함수 
-  // searchHotel = (searchValue) => {
-  //   const { hotels } = this.state;
-  //   this.setState({ handleSearch: searchValue });
-  //   if (searchValue.includes("전체")) {
-  //     return this.setState({ searchedHotel: hotels });
-  //   } else {
-  //     let searchedHotel = hotels.filter((hotel) => {
-  //       if (hotel.category.includes(searchValue)) {
-  //         return hotel;
-  //       }
-  //     });
-  //     return this.setState({ searchedHotel });
-  //   }
-  // };
-
-  handlePage = (targetPage) => {
-    let newPageArr = ["<<", "<", 1, 2, 3, 4, 5, 6, 7, ">", ">>"];
-    const resetColor= ["PageButton","PageButton", "PageButton", "PageButton", "PageButton", 
-    "PageButton", "PageButton", "PageButton", "PageButton","PageButton", "PageButton"];
-    let pageIdxBtnColor = ["PageButton","PageButton", "PageButton", "PageButton", "PageButton", 
-    "PageButton", "PageButton", "PageButton", "PageButton","PageButton", "PageButton"];
-
-    if (targetPage >= 4){
-      newPageArr = [
-        "<<", "<", targetPage-3, targetPage-2, targetPage-1,
-        +targetPage, +targetPage+1, +targetPage+2, +targetPage+3, ">", ">>"
-      ];
-      pageIdxBtnColor.splice(5, 1, "PageButton clicked");
-    } else if(Number(targetPage) === 3){
-      pageIdxBtnColor.splice(4, 1, "PageButton clicked")
-    } else if(Number(targetPage) === 2){
-      pageIdxBtnColor.splice(3, 1, "PageButton clicked");
-    } else if (targetPage === 1 || "<<"){
-      pageIdxBtnColor.splice(2, 1, "PageButton clicked");
-    }  
+  handlePageBtns = (targetPage) => {
+    console.log(targetPage)
+    const condition = {
+      currentPage : targetPage,
+      totalPage : 10,
+      itemPerPage: 12,
+      limit: 7,
+    }
     
-    if (targetPage ===  "<"){
-      const beforePageArr = this.state.pageArr.slice(2,9).map((num)=>(Number(num)-1));
-      newPageArr= ["<<", "<", ...beforePageArr, ">", ">>"];
-      pageIdxBtnColor = resetColor;
-      pageIdxBtnColor.splice(5, 1, "PageButton clicked");
-    } else if (targetPage === ">"){
-      const nextPageArr = this.state.pageArr.slice(2,9).map((num)=>(Number(num)+1));
-      newPageArr=["<<", "<", ...nextPageArr, ">", ">>"]
-      pageIdxBtnColor = resetColor;
-      pageIdxBtnColor.splice(5, 1, "PageButton clicked");
-    }  else if(targetPage === ">>"){
-      newPageArr= ["<<", "<", 4, 5, 6, 7, 8, 9, 10, ">", ">>"]
-      pageIdxBtnColor = resetColor;
-      pageIdxBtnColor.splice(8, 1, "PageButton clicked");
-    }  
-    this.setState({ clickedPageArr: pageIdxBtnColor })
-    this.setState({ pageArr : newPageArr })
-  }
+    const isClicked = (page, currentPage) => ({
+     value: page,
+     current: currentPage == page? true: false,
+    })
+    
+    const paging = ({ currentPage, totalPage, itemPerPage, limit }) => {
+     let newPages = [];
+     if(currentPage < 4){
+       newPages = [1, 2, 3, 4, 5, 6, 7]
+     } else{
+       newPages = [currentPage-3, currentPage-2, currentPage-1, currentPage,
+     +currentPage+1, +currentPage+2, +currentPage+3]
+     }
+     
+     const clickedArr= newPages.map((page) => isClicked(page, currentPage))
+     const prevPage = currentPage -1;
+     const nextPage = +currentPage +1;
+    // console.log("nextPage", nextPage <= 10)
+     
+      return {
+       pages: clickedArr,
+       prev: prevPage > 0 ? prevPage : null,
+       next: nextPage <= 10 ? nextPage : null
+     }
+    }
+    const changed = paging(condition);
+
+    this.setState(prevState => ({
+      pageHandling: {
+        ...prevState.pageHandling,
+        pages : changed.pages,
+        prev : changed.prev,
+        next: changed.next   
+    }})
+  )
+}
 
   render() {
-    const { searchedType, searchedLocation, searchedPrice } = this.state;
-    console.log(searchedType, searchedLocation, searchedPrice);
+    const { qS } = this.state;
     const { searchedHotel, pageArr, clickedPageArr } = this.state;
 
     return (
@@ -194,7 +230,7 @@ export class Pick extends Component {
               </span>
             </div>
             <div className="searchFilterCon">
-              {searchedHotel[0]?.filters?.map((filter, idx) => (
+              {searchedHotel&& searchedHotel[0]?.filters?.map((filter, idx) => (
                 <SearchFilter
                   event={this.searchHotel}
                   filtering={this.filtering}
@@ -206,9 +242,10 @@ export class Pick extends Component {
             </div>
           </section>
           <div className="articleCon">
-            {searchedHotel[1]?.picks.map((hotel) => (
+            {searchedHotel&& searchedHotel[1]?.picks.map((hotel) => (
               <PickArticle
                 key={hotel.id}
+                id={hotel.id}
                 name={hotel.name}
                 engName={hotel.english_name}
                 desc={hotel.introduction}
@@ -223,7 +260,14 @@ export class Pick extends Component {
           </div>
           <div className="pagination">
             <ul>
-              {pageArr.map((page, idx) => (
+              <PageButton 
+                pages={this.state.pageHandling.pages}
+                prev={this.state.pageHandling.prev} 
+                next={this.state.pageHandling.next}
+                clickEvent={this.handlePageBtns}
+                setQS={this.setQS}
+              />
+              {/* {pageArr.map((page, idx) => (
                 <PageButton
                   id={idx}
                   key={idx}
@@ -232,7 +276,7 @@ export class Pick extends Component {
                   getPageNum={this.handlePage}
                   pageNum={page} 
                 />
-              ))}
+              ))} */}
             </ul>
           </div>
         </div>
