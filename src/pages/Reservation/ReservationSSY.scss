@@ -1,28 +1,39 @@
 @import "../../styles/common.scss";
 
-$color-font: rgb(145, 145, 145);
+$color-gray: rgb(145, 145, 145);
 
 @mixin listSize {
   width: 765px;
   height: 61px;
 }
 
+@mixin listStyle {
+  border-bottom: 1px solid rgb(204, 204, 204);
+}
+
 @mixin titleStyle {
-  width: 100px;
-  padding: 10px 0;
-  color: $color-font;
+  width: 110px;
+  padding: 20px 0;
+  color: $color-gray;
   float: left;
 }
 
 @mixin inputStyle {
   width: 465px;
-  height: 38px;
-  margin-left: 200px;
+  margin-left: 190px;
   margin-top: 10px;
   margin-bottom: 10px;
   padding: 8px 12px;
-  border: 1px solid $color-font;
+  border: 1px solid $color-gray;
   border-radius: 3px;
+  &:hover {
+    border: 1px solid rgb(93, 169, 255);
+    outline: none;
+  }
+  &:focus {
+    border: 1px solid rgb(93, 169, 255);
+    outline: none;
+  }
 }
 
 @mixin selectStyle {
@@ -39,13 +50,16 @@ $color-font: rgb(145, 145, 145);
 @mixin selectWrap {
   width: 138px;
   height: 40px;
-  color: $color-font;
+  margin: 0 auto;
+  color: $color-gray;
   display: inline-flex;
   align-items: center;
 }
 
 @mixin selectTitle {
-  margin: 0 10px 0 10px;
+  margin: auto 10px;
+  padding: 20px 0;
+  font-size: 14px;
   line-height: 20px;
 }
 
@@ -109,27 +123,34 @@ $color-font: rgb(145, 145, 145);
             border-top: 2px solid #000;
 
             .date {
-              border: 1px solid gray;
-              padding: 10px 0 10px 0;
+              // border: 1px solid gray;
+              @include listStyle;
               display: flex;
               align-items: center;
               .title {
                 @include titleStyle;
               }
               .checkDatesWrap {
+                margin-left: 190px;
                 margin-top: 10px;
                 margin-bottom: 10px;
-                margin-left: 300px;
+                color: $color-gray;
                 display: flex;
+                font-size: 14px;
                 .checkIn {
                 }
+                .checkInDate {
+                }
                 .checkOut {
+                }
+                .checkOutDate {
                 }
               }
             }
 
             .name {
-              border: 1px solid gray;
+              // border: 1px solid gray;
+              @include listStyle;
               display: flex;
               justify-content: space-between;
               // padding: 10px 0 10px 0;
@@ -142,7 +163,8 @@ $color-font: rgb(145, 145, 145);
             }
 
             .contactNum {
-              border: 1px solid gray;
+              @include listStyle;
+              // border: 1px solid gray;
               display: flex;
               justify-content: space-between;
               // padding: 10px 0 10px 0;
@@ -155,7 +177,8 @@ $color-font: rgb(145, 145, 145);
             }
 
             .email {
-              border: 1px solid gray;
+              @include listStyle;
+              // border: 1px solid gray;
               display: flex;
               justify-content: space-between;
               // padding: 10px 0 10px 0;
@@ -168,6 +191,8 @@ $color-font: rgb(145, 145, 145);
             }
 
             .people {
+              @include listStyle;
+
               display: flex;
               justify-content: space-between;
               // padding: 10px 0 10px 0;
@@ -177,31 +202,20 @@ $color-font: rgb(145, 145, 145);
 
               .selectWrap {
                 @include selectWrap;
-                @include inputStyle;
-                .adultWrap {
-                  @include selectWrap;
-                  span {
-                    @include selectTitle;
-                  }
-                  select {
-                    @include selectStyle;
-                  }
-                }
-
-                .childWrap {
-                  @include selectWrap;
-                  span {
-                    @include selectTitle;
-                  }
-                  select {
-                    @include selectStyle;
-                  }
-                }
-
+                // @include inputStyle;
+                width: 465px;
+                height: 38px;
+                margin-left: 200px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                padding: 8px 12px;
+                border: none;
+                .adultWrap,
+                .childWrap,
                 .toddlerWrap {
                   @include selectWrap;
                   span {
-                    @include selectTitle;
+                    margin: 0 auto;
                   }
                   select {
                     @include selectStyle;
@@ -211,7 +225,8 @@ $color-font: rgb(145, 145, 145);
             }
 
             .option {
-              border: 1px solid gray;
+              @include listStyle;
+              // border: 1px solid gray;
               display: flex;
               justify-content: space-between;
               // padding: 10px 0 10px 0;
@@ -219,14 +234,64 @@ $color-font: rgb(145, 145, 145);
                 @include titleStyle;
               }
               .miniOption {
-                border: 1px solid gray;
+                // border: 1px solid gray;
                 width: 465px;
                 height: 600px;
+                padding: 20px 0;
+                .breakfastWrap {
+                  margin-bottom: 20px;
+
+                  .breakfastTitleWrap {
+                    @include flex(space-between);
+                    .title {
+                      font-size: 22px;
+                    }
+                    .breakfastPrice {
+                      font-size: 18px;
+                    }
+                  }
+                  p {
+                    padding: 5px 0;
+                    color: $color-gray;
+                    font-size: 14px;
+                    line-height: 20px;
+                  }
+                  .countWrap {
+                    .minus,
+                    .plus {
+                      display: block;
+                      width: 30px;
+                      height: 30px;
+                      line-height: 30px;
+                      text-align: center;
+                      .fa-minus,
+                      .fa-plus {
+                      }
+                    }
+                    span {
+                    }
+                  }
+                }
+                .pickUpWrap {
+                  .pickUpTitleWrap {
+                    .title {
+                    }
+                  }
+                  p {
+                  }
+                  .pickUpCheckBox {
+                    .check {
+                      input {
+                      }
+                    }
+                  }
+                }
               }
             }
 
             .request {
-              border: 1px solid gray;
+              @include listStyle;
+              // border: 1px solid gray;
               display: flex;
               justify-content: space-between;
               // padding: 10px 0 10px 0;
@@ -242,6 +307,7 @@ $color-font: rgb(145, 145, 145);
               display: flex;
               justify-content: space-between;
               // padding: 10px 0 10px 0;
+              @include listStyle;
 
               .title {
                 .totalDetail {

@@ -28,8 +28,10 @@ class Reservation extends React.Component {
                   <div className="date">
                     <span className="title">예약일</span>
                     <div className="checkDatesWrap">
-                      <div className="checkIn">체크인</div>
-                      <div className="checkOut">체크아웃</div>
+                      <p className="checkIn">Check in</p>
+                      <span className="checkInDate"> - (Check in Date)</span>
+                      <p className="checkOut">Check out</p>
+                      <span className="checkOutDate"> - (Check out Date)</span>
                     </div>
                   </div>
                   <div className="name">
@@ -38,7 +40,7 @@ class Reservation extends React.Component {
                   </div>
                   <div className="contactNum">
                     <span className="title">연락처</span>
-                    <input type="text"></input>
+                    <input type="number"></input>
                   </div>
                   <div className="email">
                     <span className="title">이메일</span>
@@ -80,7 +82,50 @@ class Reservation extends React.Component {
                   </div>
                   <div className="option">
                     <span className="title">추가/옵션 선택</span>
-                    <div className="miniOption">조식, 픽업</div>
+                    <div className="miniOption">
+                      <div className="breakfastWrap">
+                        <div className="breakfastTitleWrap">
+                          <span className="title">조식</span>
+                          <span className="breakfastPrice">5,000원</span>
+                        </div>
+                        <p>
+                          1인당 추가 7,000원입니다. 인원과 일 수에 맞게
+                          입력해주세요. 건강한 호밀빵, 무농약 샐러드, 제철채소와
+                          과일, 무항생제 제주소세지로 구성되었습니다.
+                        </p>
+                        <div className="countWrap">
+                          <button className="minus" type="button">
+                            <i class="fas fa-minus"></i>
+                          </button>
+                          <span>0</span>
+                          <button className="plus" type="button">
+                            <i class="fas fa-plus"></i>
+                          </button>
+                        </div>
+                      </div>
+                      <div className="pickUpWrap">
+                        <div className="pickUpTitleWrap">
+                          <span className="title">픽업 서비스(필수선택)</span>
+                        </div>
+                        <p>
+                          - 하루 2회 서울 시내권 픽업차량이 순회중이오니,
+                          픽업서비스가 필요하신 게스트는 예약 시 미리
+                          신청해주세요 <br />- 신청자가 없는 경우 차량을
+                          운행하지 않으니 필요하실 경우 꼭 미리 선택해주세요.
+                        </p>
+                        <div className="pickUpCheckBox">
+                          (필수)
+                          <label className="check" htmlFor="check">
+                            <input type="checkbox" />
+                            선택
+                          </label>
+                          <label className="check" htmlFor="uncheck">
+                            <input type="checkbox" />
+                            선택하지 않음
+                          </label>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                   <div className="request">
                     <span className="title">요청사항</span>
