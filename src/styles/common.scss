@@ -13,8 +13,33 @@ $color-info-gray: rgb(149, 149, 160);
   align-items: center;
 }
 
-@mixin mQ($arg) {
-  @media only screen and (max-width: $arg) {
-    @content;
+@mixin flex (
+  $justify-content: center,
+  $align-item: center,
+  $flex-direction: row
+) {
+  display: flex;
+  justify-content: $justify-content;
+  align-items: $align-item;
+  flex-direction: $flex-direction;
+}
+
+@mixin mQ {
+  @media (min-width: 768px) {
+    .container {
+      width: 750px;
+    } 
+  }
+  
+  @media (min-width: 992px) {
+    .container {
+      width: 970px;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .container {
+      width: 1170px;
+    }
   }
 }

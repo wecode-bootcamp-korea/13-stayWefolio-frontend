@@ -1,0 +1,105 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "location": "서울",
+      "tags": ["정적인 영감"]
+    },
+    {
+      "id": 2,
+      "location": "제주/제주시",
+      "tags": ["휴식", "자연", "히하"]
+    },
+    {
+      "id": 3,
+      "location": "서울",
+      "tags": ["영감", "안녕"]
+    },
+    {
+      "id": 4,
+      "location": "전라",
+      "tags": ["게스트하우스"]
+    },
+    {
+      "id": 5,
+      "location": "경상",
+      "tags": ["서핑", "로컬투어", "자연"]
+    },
+    {
+      "id": 6,
+      "location": "대만",
+      "tags": ["풀빌라"]
+    },
+    {
+      "id": 7,
+      "location": "태국",
+      "tags": ["풀빌라"]
+    }
+  ],
+  "brandLogos": [
+    {
+      "id": 1,
+      "href": "https://www.facebook.com/",
+      "src": "./images/facebookimg.png",
+      "alt": "facebooklogo"
+    },
+    {
+      "id": 2,
+      "href": "https://www.instagram.com/",
+      "src": "./images/instaimg.png",
+      "alt": "instagramlogo"
+    },
+    {
+      "id": 3,
+      "href": "https://www.naver.com/",
+      "src": "./images/naverimg.png",
+      "alt": "naverlogo"
+    },
+    {
+      "id": 4,
+      "href": "https://brunch.co.kr/",
+      "src": "./images/branchimg.png",
+      "alt": "branchlogo"
+    },
+    {
+      "id": 5,
+      "href": "https://www.youtube.com/",
+      "src": "./images/youtubeimg.png",
+      "alt": "youtubelogo"
+    }
+  ],
+
+  "menus": [
+    {
+      "id": 1,
+      "path": "/careby",
+      "classname": "careByLink",
+      "menu": "CARE BY"
+    },
+    {
+      "id": 2,
+      "path": "/magazine",
+      "classname": "magazineLink",
+      "menu": "MAGAZINE"
+    },
+    { "id": 3, "path": "/pick", "classname": "pickLink", "menu": "PICK" },
+    {
+      "id": 4,
+      "path": "/promotion",
+      "classname": "promotionLink",
+      "menu": "PROMOTION"
+    },
+    {
+      "id": 5,
+      "path": "/preorder",
+      "classname": "preorderLink",
+      "menu": "PRE-ORDER"
+    },
+    {
+      "id": 6,
+      "path": "/booking",
+      "classname": "bookingLink",
+      "menu": "BOOKING"
+    }
+  ]
+}
