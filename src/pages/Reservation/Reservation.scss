@@ -1,9 +1,83 @@
 @import "../../styles/common.scss";
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+$color-gray: rgb(145, 145, 145);
+
+
+@mixin listSize {
+  width: 765px;
+  height: 61px;
+}
+
+@mixin listStyle {
+  border-bottom: 1px solid rgb(204, 204, 204);
+}
+
+@mixin titleStyle {
+  width: 110px;
+  padding: 20px 0;
+  color: $color-gray;
+  float: left;
+  font-size: 14px;
+}
+
+@mixin inputStyle {
+  width: 465px;
+  margin-left: 190px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 8px 12px;
+  border: 1px solid $color-gray;
+  border-radius: 3px;
+  &:hover {
+    border: 1px solid rgb(93, 169, 255);
+    outline: none;
+  }
+  &:focus {
+    border: 1px solid rgb(93, 169, 255);
+    outline: none;
+  }
+}
+
+@mixin selectStyle {
+  width: 78px;
+  height: 38px;
+  border-radius: 3px;
+  display: block;
+  position: relative;
+  left: 0;
+  top: 0;
+  font-size: 14px;
+}
+
+@mixin selectWrap {
+  width: 138px;
+  height: 40px;
+  margin: 0 auto;
+  color: $color-gray;
+  display: inline-flex;
+  align-items: center;
+}
+
+@mixin selectTitle {
+  margin: auto 10px;
+  padding: 20px 0;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+@mixin pickUpDescription {
+  padding: 5px 0;
+  color: $color-gray;
+  font-size: 14px;
+  line-height: 20px;
+}
 
 .Reservation {
   background-color: $color-background;
   width: 100%;
   height: 100%;
+  font-family: 'Open Sans', sans-serif;
 
   .container {
     border: 1px solid red;
@@ -18,7 +92,7 @@
       padding: 30px 0 40px 0;
       font-family: 'Open Sans', sans-serif;
 
-      .title {
+      .mainTitle {
         font-size: 32px;
         font-weight: 700;
         color: #333333;
@@ -31,6 +105,11 @@
       }
     }
 
+    // .title {
+    //   font-size: 14px;
+    //   color: #919191;
+    // }
+
     .reservationCon {
       border: 1px solid red;
       background-color: white;
@@ -42,89 +121,335 @@
 
         .content {
           border: 1px solid gray;
-          padding: 40px;
+          padding: 70px;
   
           .reservationDesc {
             text-align: center;
-          }
-  
-          .calender {
-            height: 200px;
-            border-top: 2px solid black;
-            border-bottom: 2px solid black;
-          }
-  
-          .date {
-            border: 1px solid gray;
-            padding: 10px 0 10px 0;
-          }
-  
-          .name {
-            border: 1px solid gray;
-            display: flex;
-            justify-content: space-between;
-            padding: 10px 0 10px 0;
-          }
-  
-          .contactNum {
-            border: 1px solid gray;
-            display: flex;
-            justify-content: space-between;
-            padding: 10px 0 10px 0;
-          }
-  
-          .email {
-            border: 1px solid gray;
-            display: flex;
-            justify-content: space-between;
-            padding: 10px 0 10px 0;
-          }
-  
-          .people {
-            display: flex;
-            justify-content: space-between;
-            padding: 10px 0 10px 0;
-          }
-  
-          .option {
-            border: 1px solid gray;
-            display: flex;
-            justify-content: space-between;
-            padding: 10px 0 10px 0;
-  
-            .miniOption {
-              border: 1px solid gray;
-              width: 465px;
-              height: 600px; 
+            margin-bottom: 15px;
+
+            h1 {
+              font-size: 36px;
+              font-weight: 700;
+              text-align: bottom;
+            }
+
+            span {
+              font-family: 'Open Sans', sans-serif;
+              font-size: 14px;
+              color: #797988;
             }
           }
-  
-          .request {
-            border: 1px solid gray;
-            display: flex;
-            justify-content: space-between;
-            padding: 10px 0 10px 0;
-          }
-  
-          .price {
-            border: 1px solid gray;
-            display: flex;
-            justify-content: space-between;
-            padding: 10px 0 10px 0;
-  
-            .totalDetail {
-  
-            }
-          }
-  
-          .payTool {
-            border: 1px solid gray;
-            display: flex;
-            justify-content: space-between;
-            padding: 10px 0 10px 0;
-  
-            .toolOption {
+
+          .reserveInfo {
+            border: 1px solid orange;
+            width: 765px;
+            margin: 0 auto;
+
+            .hotelImg {
+              padding: 20px 0 20px 0;
+              border-top: 2px solid black;
+              border-bottom: 2px solid black;
               display: flex;
+              justify-content: center;
+  
+              img {
+                width: 100%;
+                height: 400px;
+              }
+            }
+    
+            .date {
+              // @include listStyle;
+              border: 1px solid gray;
+              padding: 15px;
+              display: flex;
+              justify-content: space-between;
+  
+              .form-control {
+                width: 200px;
+                text-align: center;
+              }
+  
+              .dateRange {
+                margin: 0 20px 0 10px;
+                font-size: 14px;
+                color: #919191;
+              }
+            }
+    
+            .name {
+              @include listStyle;
+              border: 1px solid gray;
+              display: flex;
+              justify-content: space-between;
+              // padding: 10px 0 10px 0;
+              .title {
+                @include titleStyle;
+              }
+              input {
+                @include inputStyle;
+              }
+            }
+    
+            .contactNum {
+              // border: 1px solid gray;
+              @include listStyle;
+              display: flex;
+              justify-content: space-between;
+              // padding: 10px 0 10px 0;
+              .title {
+                @include titleStyle;
+              }
+              input {
+                @include inputStyle;
+              }
+            }
+    
+            .email {
+              // border: 1px solid gray;
+              @include listStyle;
+              display: flex;
+              justify-content: space-between;
+              // padding: 10px 0 10px 0;
+              .title {
+                @include titleStyle;
+              }
+              input {
+                @include inputStyle;
+              }
+            }
+    
+            .people {
+              @include listStyle;
+              display: flex;
+              justify-content: space-between;
+              // padding: 10px 0 10px 0;
+
+              .title {
+                @include titleStyle;
+              }
+
+              .selectWrap {
+                @include selectWrap;
+                width: 465px;
+                height: 38px;
+                margin-left: 200px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                padding: 8px 12px;
+                border: none;
+                .adultWrap,
+                .childWrap,
+                .infantWrap {
+                  @include selectWrap;
+                  span {
+                    margin: 0 auto;
+                  }
+                  select {
+                    @include selectStyle;
+                  }
+                }
+              }
+            }
+    
+            .option {
+              @include listStyle;
+              // border: 1px solid gray;
+              display: flex;
+              justify-content: space-between;
+              // padding: 10px 0 10px 0;
+
+              .optionTitle {
+                @include titleStyle;
+              }
+    
+              .miniOption {
+                // border: 1px solid gray;
+                width: 465px;
+                width: 465px;
+                margin-left: 190px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                padding: 20px 0;
+
+                .breakfastWrap {
+                  margin-bottom: 20px;
+
+                  .breakfastTitleWrap {
+                    @include flex(space-between);
+                    .breackfastTitle {
+                      font-size: 22px;
+                      line-height: 30px;
+                    }
+                    .breakfastPrice {
+                      font-size: 18px;
+                    }
+                  }
+                  p {
+                    @include pickUpDescription;
+                  }
+
+                  .breakfastCheckBoxes {
+                    margin-bottom: 5px;
+                    margin-left: 15px;
+                    color: $color-black;
+                    .check {
+                      color: $color-gray;
+                      font-size: 14px;
+                      line-height: 20px;
+                      float: right;
+                      input {
+                        margin-right: 10px;
+                        padding: 0 4px;
+                      }
+                    }
+                  }
+                }
+                .pickUpWrap {
+                  .pickUpTitleWrap {
+                    .pickUpTitle {
+                      font-size: 22px;
+                      line-height: 30px;
+                    }
+                  }
+                  p {
+                    @include pickUpDescription;
+                  }
+                  .pickUpCheckBoxs {
+                    color: $color-gray;
+                    font-size: 14px;
+                    line-height: 20px;
+                    float: right;
+
+                    .check {
+                      margin-bottom: 5px;
+                      margin-left: 15px;
+                      color: $color-black;
+                      input {
+                        margin-right: 10px;
+                        padding: 0 4px;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+    
+            .request {
+              // border: 1px solid gray;
+              @include listStyle;
+              display: flex;
+              justify-content: space-between;
+              // padding: 10px 0 10px 0;
+
+              .title {
+                @include titleStyle;
+              }
+              textarea {
+                width: 465px;
+                height: 112px;
+                margin: 10px 0;
+                padding: 8px 12px;
+                font-size: 14px;
+                line-height: 20px;
+                &:hover {
+                  border: 1px solid rgb(93, 169, 255);
+                  outline: none;
+                }
+                &:focus {
+                  border: 1px solid rgb(93, 169, 255);
+                  outline: none;
+                }
+              }
+            }
+    
+            .price {
+              // border: 1px solid gray;
+              @include listStyle;
+              display: flex;
+              // justify-content: space-between;
+              // padding: 10px 0 10px 0;
+
+              .title {
+                width: 110px;
+                padding: 20px 0;
+                color: $color-gray;
+                position: relative;
+                top: 0;
+                font-size: 14px;
+                line-height: 20px;
+              }
+    
+              .totalDetail {
+                width: 465px;
+                margin-left: 190px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                .roomPrice,
+                .optionPrice,
+                .discountPrice,
+                .totalPrice {
+                  padding: 4px 8px;
+                  @include flex(space-between);
+                  .priceTitle {
+                    color: $color-gray;
+                    font-size: 14px;
+                    line-height: 20px;
+                  }
+                  .priceWrap {
+                    .priceCal {
+                      font-size: 18px;
+                    }
+                    .won {
+                      margin-left: 2px;
+                      padding: 0 2px;
+                      color: $color-gray;
+                      font-size: 14px;
+                    }
+                  }
+
+                  .totalPriceWrap {
+                    .priceCal {
+                      font-size: 36px;
+                    }
+                    .won {
+                      margin-left: 2px;
+                      padding: 0 2px;
+                      color: $color-gray;
+                      font-size: 14px;
+                    }
+                  }
+                }
+              }
+            }
+    
+            .payTool {
+              border-bottom: 2px solid rgb(0, 0, 0);
+              // border: 1px solid gray;
+              display: flex;
+              justify-content: space-between;
+              padding: 10px 0;
+
+              .title {
+                @include titleStyle;
+              }
+              
+              .payOptions {
+                width: 465px;
+                margin-left: 190px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                display: flex;
+                align-items: center;
+                label {
+                  padding-right: 0 5px;
+                  font-size: 14px;
+                  line-height: 20px;
+                  input {
+                    margin-right: 10px;
+                  }
+                }
+              }
             }
           }
         }
