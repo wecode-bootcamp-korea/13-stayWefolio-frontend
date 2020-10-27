@@ -16,6 +16,7 @@ $color-gray: rgb(145, 145, 145);
   padding: 20px 0;
   color: $color-gray;
   float: left;
+  font-size: 14px;
 }
 
 @mixin inputStyle {
@@ -130,7 +131,6 @@ $color-gray: rgb(145, 145, 145);
             border-top: 2px solid #000;
 
             .date {
-              // border: 1px solid gray;
               @include listStyle;
               display: flex;
               align-items: center;
@@ -156,11 +156,9 @@ $color-gray: rgb(145, 145, 145);
             }
 
             .name {
-              // border: 1px solid gray;
               @include listStyle;
               display: flex;
               justify-content: space-between;
-              // padding: 10px 0 10px 0;
               .title {
                 @include titleStyle;
               }
@@ -171,10 +169,8 @@ $color-gray: rgb(145, 145, 145);
 
             .contactNum {
               @include listStyle;
-              // border: 1px solid gray;
               display: flex;
               justify-content: space-between;
-              // padding: 10px 0 10px 0;
               .title {
                 @include titleStyle;
               }
@@ -185,10 +181,8 @@ $color-gray: rgb(145, 145, 145);
 
             .email {
               @include listStyle;
-              // border: 1px solid gray;
               display: flex;
               justify-content: space-between;
-              // padding: 10px 0 10px 0;
               .title {
                 @include titleStyle;
               }
@@ -202,14 +196,12 @@ $color-gray: rgb(145, 145, 145);
 
               display: flex;
               justify-content: space-between;
-              // padding: 10px 0 10px 0;
               .title {
                 @include titleStyle;
               }
 
               .selectWrap {
                 @include selectWrap;
-                // @include inputStyle;
                 width: 465px;
                 height: 38px;
                 margin-left: 200px;
@@ -219,7 +211,7 @@ $color-gray: rgb(145, 145, 145);
                 border: none;
                 .adultWrap,
                 .childWrap,
-                .toddlerWrap {
+                .infantWrap {
                   @include selectWrap;
                   span {
                     margin: 0 auto;
@@ -233,11 +225,9 @@ $color-gray: rgb(145, 145, 145);
 
             .option {
               @include listStyle;
-              // border: 1px solid gray;
               display: flex;
               justify-content: space-between;
-              // padding: 10px 0 10px 0;
-              title {
+              .optionTitle {
                 @include titleStyle;
               }
               .miniOption {
@@ -246,13 +236,15 @@ $color-gray: rgb(145, 145, 145);
                 margin-top: 10px;
                 margin-bottom: 10px;
                 padding: 20px 0;
+
                 .breakfastWrap {
                   margin-bottom: 20px;
 
                   .breakfastTitleWrap {
                     @include flex(space-between);
-                    .title {
+                    .breackfastTitle {
                       font-size: 22px;
+                      line-height: 30px;
                     }
                     .breakfastPrice {
                       font-size: 18px;
@@ -261,45 +253,27 @@ $color-gray: rgb(145, 145, 145);
                   p {
                     @include pickUpDescription;
                   }
-                  .countWrap {
-                    display: inline-flex;
-                    float: right;
-                    .minus,
-                    .plus {
-                      width: 30px;
-                      height: 30px;
-                      border: 1px solid rgb(204, 204, 204);
-                      background-color: rgb(255, 255, 255);
-                      line-height: 30px;
-                      text-align: center;
-                      .fa-minus,
-                      .fa-plus {
-                        color: $color-gray;
-                        font-size: 14px;
-                        line-height: 14px;
-                      }
-                      &:hover {
-                        cursor: pointer;
-                      }
-                    }
-                    span {
-                      height: 30px;
-                      padding: 0 24px;
-                      border-top: 1px solid rgb(204, 204, 204);
-                      border-bottom: 1px solid rgb(204, 204, 204);
+
+                  .breakfastCheckBoxes {
+                    margin-bottom: 5px;
+                    margin-left: 15px;
+                    color: $color-black;
+                    .check {
                       color: $color-gray;
                       font-size: 14px;
-                      text-align: center;
-                      line-height: 30px;
+                      line-height: 20px;
+                      float: right;
+                      input {
+                        margin-right: 10px;
+                        padding: 0 4px;
+                      }
                     }
                   }
                 }
                 .pickUpWrap {
                   .pickUpTitleWrap {
-                    .title {
-                      color: $color-black;
+                    .pickUpTitle {
                       font-size: 22px;
-                      text-align: center;
                       line-height: 30px;
                     }
                   }
@@ -315,6 +289,7 @@ $color-gray: rgb(145, 145, 145);
                     .check {
                       margin-bottom: 5px;
                       margin-left: 15px;
+                      color: $color-black;
                       input {
                         margin-right: 10px;
                         padding: 0 4px;
@@ -327,10 +302,8 @@ $color-gray: rgb(145, 145, 145);
 
             .request {
               @include listStyle;
-              // border: 1px solid gray;
               display: flex;
               justify-content: space-between;
-              // padding: 10px 0 10px 0;
 
               .title {
                 @include titleStyle;
@@ -340,7 +313,6 @@ $color-gray: rgb(145, 145, 145);
                 height: 112px;
                 margin: 10px 0;
                 padding: 8px 12px;
-                // float: right;
                 font-size: 14px;
                 line-height: 20px;
                 &:hover {
@@ -355,32 +327,55 @@ $color-gray: rgb(145, 145, 145);
             }
 
             .price {
-              border: 1px solid gray;
-              display: flex;
-              justify-content: space-between;
-              // padding: 10px 0 10px 0;
               @include listStyle;
+              display: flex;
 
               .title {
-                .totalDetail {
-                  .roomPrice,
-                  .optionPrice,
-                  .discountPrice {
-                    .priceTitle {
-                      @include titleStyle;
-                    }
-                    .price {
+                width: 110px;
+                padding: 20px 0;
+                color: $color-gray;
+                position: relative;
+                top: 0;
+                font-size: 14px;
+                line-height: 20px;
+              }
+              .totalDetail {
+                width: 465px;
+                margin-left: 190px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                .roomPrice,
+                .optionPrice,
+                .discountPrice,
+                .totalPrice {
+                  padding: 4px 8px;
+                  @include flex(space-between);
+                  .priceTitle {
+                    color: $color-gray;
+                    font-size: 14px;
+                    line-height: 20px;
+                  }
+                  .priceWrap {
+                    .priceCal {
+                      font-size: 18px;
                     }
                     .won {
+                      margin-left: 2px;
+                      padding: 0 2px;
+                      color: $color-gray;
+                      font-size: 14px;
                     }
                   }
 
-                  .totalPrice {
-                    .priceTitle {
-                    }
-                    .price {
+                  .totalPriceWrap {
+                    .priceCal {
+                      font-size: 36px;
                     }
                     .won {
+                      margin-left: 2px;
+                      padding: 0 2px;
+                      color: $color-gray;
+                      font-size: 14px;
                     }
                   }
                 }
@@ -388,14 +383,28 @@ $color-gray: rgb(145, 145, 145);
             }
 
             .payTool {
-              border: 1px solid gray;
+              border-bottom: 2px solid rgb(0, 0, 0);
               display: flex;
               justify-content: space-between;
-              padding: 10px 0 10px 0;
+              padding: 10px 0;
               .title {
+                @include titleStyle;
               }
-              .toolOption {
+              .payOptions {
+                width: 465px;
+                margin-left: 190px;
+                margin-top: 10px;
+                margin-bottom: 10px;
                 display: flex;
+                align-items: center;
+                label {
+                  padding-right: 0 5px;
+                  font-size: 14px;
+                  line-height: 20px;
+                  input {
+                    margin-right: 10px;
+                  }
+                }
               }
             }
           }
