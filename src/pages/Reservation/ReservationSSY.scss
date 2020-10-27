@@ -63,6 +63,13 @@ $color-gray: rgb(145, 145, 145);
   line-height: 20px;
 }
 
+@mixin pickUpDescription {
+  padding: 5px 0;
+  color: $color-gray;
+  font-size: 14px;
+  line-height: 20px;
+}
+
 .Reservation {
   background-color: $color-background;
   width: 100%;
@@ -234,9 +241,10 @@ $color-gray: rgb(145, 145, 145);
                 @include titleStyle;
               }
               .miniOption {
-                // border: 1px solid gray;
                 width: 465px;
-                height: 600px;
+                margin-left: 190px;
+                margin-top: 10px;
+                margin-bottom: 10px;
                 padding: 20px 0;
                 .breakfastWrap {
                   margin-bottom: 20px;
@@ -251,37 +259,65 @@ $color-gray: rgb(145, 145, 145);
                     }
                   }
                   p {
-                    padding: 5px 0;
-                    color: $color-gray;
-                    font-size: 14px;
-                    line-height: 20px;
+                    @include pickUpDescription;
                   }
                   .countWrap {
+                    display: inline-flex;
+                    float: right;
                     .minus,
                     .plus {
-                      display: block;
                       width: 30px;
                       height: 30px;
+                      border: 1px solid rgb(204, 204, 204);
+                      background-color: rgb(255, 255, 255);
                       line-height: 30px;
                       text-align: center;
                       .fa-minus,
                       .fa-plus {
+                        color: $color-gray;
+                        font-size: 14px;
+                        line-height: 14px;
+                      }
+                      &:hover {
+                        cursor: pointer;
                       }
                     }
                     span {
+                      height: 30px;
+                      padding: 0 24px;
+                      border-top: 1px solid rgb(204, 204, 204);
+                      border-bottom: 1px solid rgb(204, 204, 204);
+                      color: $color-gray;
+                      font-size: 14px;
+                      text-align: center;
+                      line-height: 30px;
                     }
                   }
                 }
                 .pickUpWrap {
                   .pickUpTitleWrap {
                     .title {
+                      color: $color-black;
+                      font-size: 22px;
+                      text-align: center;
+                      line-height: 30px;
                     }
                   }
                   p {
+                    @include pickUpDescription;
                   }
-                  .pickUpCheckBox {
+                  .pickUpCheckBoxs {
+                    color: $color-gray;
+                    font-size: 14px;
+                    line-height: 20px;
+                    float: right;
+
                     .check {
+                      margin-bottom: 5px;
+                      margin-left: 15px;
                       input {
+                        margin-right: 10px;
+                        padding: 0 4px;
                       }
                     }
                   }
@@ -295,10 +331,26 @@ $color-gray: rgb(145, 145, 145);
               display: flex;
               justify-content: space-between;
               // padding: 10px 0 10px 0;
+
               .title {
                 @include titleStyle;
               }
               textarea {
+                width: 465px;
+                height: 112px;
+                margin: 10px 0;
+                padding: 8px 12px;
+                // float: right;
+                font-size: 14px;
+                line-height: 20px;
+                &:hover {
+                  border: 1px solid rgb(93, 169, 255);
+                  outline: none;
+                }
+                &:focus {
+                  border: 1px solid rgb(93, 169, 255);
+                  outline: none;
+                }
               }
             }
 
@@ -311,26 +363,11 @@ $color-gray: rgb(145, 145, 145);
 
               .title {
                 .totalDetail {
-                  .roomPrice {
-                    .priceTitle {
-                    }
-                    .price {
-                    }
-                    .won {
-                    }
-                  }
-
-                  .optionPrice {
-                    .priceTitle {
-                    }
-                    .price {
-                    }
-                    .won {
-                    }
-                  }
-
+                  .roomPrice,
+                  .optionPrice,
                   .discountPrice {
                     .priceTitle {
+                      @include titleStyle;
                     }
                     .price {
                     }

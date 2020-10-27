@@ -113,14 +113,14 @@ class Reservation extends React.Component {
                           신청해주세요 <br />- 신청자가 없는 경우 차량을
                           운행하지 않으니 필요하실 경우 꼭 미리 선택해주세요.
                         </p>
-                        <div className="pickUpCheckBox">
+                        <div className="pickUpCheckBoxs">
                           (필수)
                           <label className="check" htmlFor="check">
-                            <input type="checkbox" />
+                            <input type="radio" />
                             선택
                           </label>
                           <label className="check" htmlFor="uncheck">
-                            <input type="checkbox" />
+                            <input type="radio" />
                             선택하지 않음
                           </label>
                         </div>
@@ -134,6 +134,7 @@ class Reservation extends React.Component {
 
                   <div className="price">
                     <span className="title">Total</span>
+
                     <div className="totalDetail">
                       <div className="roomPrice">
                         <span className="priceTitle">객실요금</span>
