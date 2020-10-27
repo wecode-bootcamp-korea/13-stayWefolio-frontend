@@ -12,7 +12,7 @@ $color-line: rgb(71, 71, 71);
   color: $color-line;
   font-size: 12px;
 }
-
+//media query
 @media (min-width: 768px) {
   .container {
     width: 750px;
