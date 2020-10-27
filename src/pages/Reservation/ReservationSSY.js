@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./Reservation.scss";
+import "./ReservationSSY.scss";
 
 class Reservation extends React.Component {
   render() {
@@ -46,6 +46,37 @@ class Reservation extends React.Component {
                   </div>
                   <div className="people">
                     <span className="title">인원(최대 2명)</span>
+                    <div className="selectWrap">
+                      <div className="adultWrap">
+                        <span>성인</span>
+                        <select name="adult" className="adult">
+                          <option value="0명">0명</option>
+                          <option value="1명">1명</option>
+                          <option value="2명">2명</option>
+                        </select>
+                      </div>
+                      <div className="childWrap">
+                        <span>소아</span>
+                        <select name="child" className="child">
+                          <option value="0명">0명</option>
+                          <option value="1명">1명</option>
+                          <option value="2명">2명</option>
+                        </select>
+                      </div>
+                      <div className="toddlerWrap">
+                        <span
+                          className="toddler
+                        "
+                        >
+                          유아
+                        </span>
+                        <select name="toddler" className="toddler">
+                          <option value="0명">0명</option>
+                          <option value="1명">1명</option>
+                          <option value="2명">2명</option>
+                        </select>
+                      </div>
+                    </div>
                   </div>
                   <div className="option">
                     <span className="title">추가/옵션 선택</span>
@@ -91,7 +122,6 @@ class Reservation extends React.Component {
                     </div>
                   </div>
                 </div>
-                <InfosContainer />
               </div>
             </div>
           </div>
