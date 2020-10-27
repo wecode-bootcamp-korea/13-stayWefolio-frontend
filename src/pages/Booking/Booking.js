@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import BookingBanner from "../Booking/BookingComponent/BookingBanner";
 import "../Booking/Booking.scss";
-import { faBorderNone } from "@fortawesome/free-solid-svg-icons";
 
 const API = "http://localhost:3000/data/mainData/mainBannerData.json";
 const style = {
