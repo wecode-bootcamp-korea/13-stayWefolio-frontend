@@ -4,10 +4,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200;300;400;500;600;700&family=Nanum+Gothic:wght@400;700&display=swap");
 
 .Reservation {
-  width: 100%;
-  height: 100%;
-
   .info {
+    margin-top: 101px;
     width: 100%;
     border: 1px solid gray;
     display: flex;
@@ -36,16 +34,17 @@
           }
         }
         .agreement {
-          width: 100%;
           display: flex;
           justify-content: space-between;
           font-size: 14px;
           font-weight: bold;
           border-bottom: 1px solid rgb(244, 244, 244);
           padding-bottom: 8px;
+
           .keyAgreement {
             margin-top: 32px;
           }
+
           .valueAgreement {
             margin-top: 32px;
             span {
@@ -54,6 +53,7 @@
               align-items: center;
               input {
                 outline: none;
+                margin: 0 0 2px 7px;
                 margin-top: 0;
                 margin-bottom: 2px;
                 margin-left: 7px;
@@ -62,14 +62,17 @@
           }
         }
       }
+
       .agrForm {
         font-size: 13px;
         line-height: 20px;
       }
+
       .lineAgrForm {
         border-bottom: 1px solid rgb(244, 244, 244);
         width: 100%;
       }
+
       .lastAgrForm {
         ::-webkit-scrollbar {
           display: none;

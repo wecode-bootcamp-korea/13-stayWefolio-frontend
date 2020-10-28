@@ -25,11 +25,7 @@ class ReservationInfoToggle extends React.Component {
     const { opened } = this.state;
 
     return (
-      <div
-        className={
-          this.state.opened ? "Toggle clickedToggle" : "Toggle hideToggle"
-        }
-      >
+      <div className={opened ? "Toggle clickedToggle" : "Toggle hideToggle"}>
         {" "}
         <div className="moreTextBox">
           <button className="moreBtn" onClick={this.toggleBox}>

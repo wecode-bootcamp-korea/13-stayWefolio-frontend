@@ -6,15 +6,16 @@ import "../ReservationInfoComponent/ReservationInfoVehicles.scss";
 
 class ReservationInfoVehicles extends Component {
   render() {
+    const { infoTitle, first, second, third, fourth, fifth } = this.props;
     return (
       <div className="AgrInfoContainer">
-        <p>{this.props.infoTitle}</p>
+        <p>{infoTitle}</p>
         <ol>
-          <li>{this.props.first}</li>
-          <li>{this.props.second}</li>
-          <li>{this.props.third}</li>
-          <li>{this.props.fourth}</li>
-          <li>{this.props.fifth}</li>
+          <li>{first}</li>
+          <li>{second}</li>
+          <li>{third}</li>
+          <li>{fourth}</li>
+          <li>{fifth}</li>
         </ol>
       </div>
     );
