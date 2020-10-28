@@ -26,7 +26,6 @@ export class SearchFilter extends Component {
   };
 
   getFilterValue = (searchValue) => {
-    //  console.log(searchValue)
     this.setState({ searchFilterTitle: searchValue });
     this.props.filtering(searchValue);
   };

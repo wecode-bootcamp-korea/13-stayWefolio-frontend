@@ -70,10 +70,10 @@
     .hotelName {
       height: 34px;
       margin: 10px 0 10px 0;
-      //color: black;
+      color: black;
 
-      a {
-        color: black;
+      h4:hover {
+        cursor: pointer;
       }
 
       .eng {
@@ -94,7 +94,7 @@
       background-size: cover;
       text-align: center;
 
-      a {
+      .text {
         color: white;
         font-size: 12px;
         font-weight: 500;

@@ -30,11 +30,11 @@ export class PickArticle extends Component {
        </div>
         <div className="articleInfo">
           <div className="hotelName">
-            <h4><a href="/">{name}</a></h4>
+            <h4 onClick={() => this.props.history.push(`/main/places/${id}`)}>{name}</h4>
             <span className="eng">{engName}</span>
           </div>
           <div className="bookingLink">
-            <a href="true">BOOKING NOW</a>
+            <span className="text">BOOKING NOW</span>
           </div>
           <span>{desc}</span>
     

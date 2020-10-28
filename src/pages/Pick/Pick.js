@@ -2,11 +2,9 @@ import React, { Component } from "react";
 import PickArticle from "./PickArticle/PickArticle";
 import SearchFilter from "./SearchFilter/SearchFilter";
 import PageButton from "./PageButton/PageButton";
-import Nav from "../../components/Nav/Nav"
 
 import "./Pick.scss";
 
-const LIMIT = 12;
 const API ="http://10.58.1.45:8000/main/picks"
 
 export class Pick extends Component {
@@ -81,11 +79,10 @@ export class Pick extends Component {
       }
     }
 
-    console.log(queryS)
+    // console.log(queryS)
     const queryString = "?" + Object.entries(queryS).map(e => "&" + e.join("=")).join("");
-    console.log(queryString)
+    // console.log(queryString)
 
-    // fetch(`${API}?limit=${LIMIT}&offset=${offset}`)
     fetch(`${API}${queryString}`)
       .then((res) => res.json())
       .then((res) => this.setState({ searchedHotel: res.hotels }))
@@ -117,7 +114,7 @@ export class Pick extends Component {
       prev: null,
       next: 8,
     }
-    // console.log(searchedHotel[0].filters[0].options.includes(searchValue))
+
     let searchType = "";
     let searchLocation = "";
     let searchPrice = "";
@@ -163,7 +160,7 @@ export class Pick extends Component {
             ...prevState.qS,
             ...initPageHandling
           }
-        }),()=> this.setQS())
+        }),()=> this.setQS(1))
     }
   }
 
@@ -193,7 +190,6 @@ export class Pick extends Component {
      const clickedArr= newPages.map((page) => isClicked(page, currentPage))
      const prevPage = currentPage -1;
      const nextPage = +currentPage +1;
-    // console.log("nextPage", nextPage <= 10)
      
       return {
        pages: clickedArr,
@@ -214,13 +210,11 @@ export class Pick extends Component {
 }
 
   render() {
-    const { qS } = this.state;
-    const { searchedHotel, pageArr, clickedPageArr } = this.state;
+    const { searchedHotel } = this.state;
 
     return (
       <div className="Pick">
         <div className="container">
-          <Nav></Nav>
           <section>
             <div>
               <span className="title">PICK</span>
@@ -267,16 +261,6 @@ export class Pick extends Component {
                 clickEvent={this.handlePageBtns}
                 setQS={this.setQS}
               />
-              {/* {pageArr.map((page, idx) => (
-                <PageButton
-                  id={idx}
-                  key={idx}
-                  clicked={clickedPageArr[idx]}
-                  pagingNum={this.pagingNum}
-                  getPageNum={this.handlePage}
-                  pageNum={page} 
-                />
-              ))} */}
             </ul>
           </div>
         </div>

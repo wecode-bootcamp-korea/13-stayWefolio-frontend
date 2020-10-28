@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./MainMagazine.scss";
 
-const API = "http://localhost:3000/data/mainData/mainMagazineData.json";
+const API = "/data/mainData/mainMagazineData.json";
 export class MainMagazine extends Component {
   constructor() {
     super();
