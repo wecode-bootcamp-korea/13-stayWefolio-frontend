@@ -5,6 +5,8 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 // import "react-calendar/dist/Calendar.css";
 import "./Reservation.scss";
 // import "react-calendar/dist/Calendar.css";
+import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap-daterangepicker/daterangepicker.css";
 
 const TODAY = new Date();
 const OPTIONS = [
@@ -12,6 +14,8 @@ const OPTIONS = [
   { id: 2, value: 1, description: "1명" },
   { id: 3, value: 2, description: "2명" },
 ];
+// const API = 'http://localhost:3000/booking?start=${checkInDate}&end=${checkOutDate}';
+const API = "“http://10.58.1.45:8000/booking/1";
 
 class Reservation extends React.Component {
   constructor() {
@@ -32,47 +36,61 @@ class Reservation extends React.Component {
       discount: 0,
       total: 0,
       paymentId: 0,
+      bookingInfo: [],
     };
   }
 
-  // componentDidMount() {
-  //   const API = "";
-  //   fetch(API)
-  //     .then((res) => res.json())
-  //     .then((res) => {
-  //       method: 'POST',
-  //       body: JSON.stringify({
-  //         checkInDate: this.state.checkInDate,
-  //         checkOutDate: this.state.checkOutDate,
-  //         name: this.state.name,
-  //         phoneNumber:this.state.phoneNumber,
-  //         email: thie,
-  //         adult: 0,
-  //         child: 0,
-  //         infant: 0,
-  //         optionBreakfast: false,
-  //         optionPickUp: false,
-  //         demand: "",
-  //         price: 0,
-  //         discount: 0,
-  //         total: 0,
-  //         paymentId: 0,
-  //       })
-  //     });
-  // }
+  componentDidUpdate(prevPros, prevState) {
+    const { checkInDate, checkOutDate } = this.state;
+    if (
+      prevState.checkInDate !== checkInDate ||
+      prevState.checkOutDate !== checkOutDate
+    ) {
+      this.getPrice(checkInDate, checkOutDate);
+      console.log(checkInDate, checkOutDate);
+    }
+  }
+
+  getPrice = (checkInDate, checkOutDate) => {
+    fetch(`${API}?start=${checkInDate}&end=${checkOutDate}`, {
+      headers: {
+        Authorization:
+          "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.tm2qQm17jEeWhj-0zvLh7jt0xhk284HJpD74HqI_Z-A",
+      },
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        this.setState({
+          bookingInfo: res.booking_info,
+        });
+      });
+  };
 
   getValue = (event, picker) => {
-    // console.log(event.target.value);
     const bookingDate = event.target.value;
     const checkIn = bookingDate.split("-")[0].slice(0, 10).split("/");
     const checkOut = bookingDate.split("-")[1].slice(1, 11).split("/");
+    console.log(checkIn, checkOut);
+    this.setState({
+      checkInDate: `${checkIn[2]}-${checkIn[0]}-${checkIn[1]}`,
+      checkOutDate: `${checkOut[2]}-${checkOut[0]}-${checkOut[1]}`,
+    });
+  };
 
-    this.setState({
-      checkInDate: checkIn[2] + "-" + checkIn[0] + "-" + checkIn[1],
-    });
-    this.setState({
-      checkInDate: checkOut[2] + "-" + checkOut[0] + "-" + checkOut[1],
-    });
+  getNightsAndDays = () => {
+    const { checkInDate, checkOutDate } = this.state;
+
+    // const days = nights + 1
+    // const nights =
+
+    // return `${nights}박 ${days}일`;
+
+    // console.log(
+    //   "checkindates : ",
+    //   checkInDate,
+    //   "checkoutdates : ",
+    //   checkOutDate
+    // );
   };
 
   handleInput = (event) => {
@@ -105,10 +123,16 @@ class Reservation extends React.Component {
       optionBreakfast,
       optionPickUp,
       demand,
+      price,
+      discount,
+      total,
       paymentId,
+      bookingInfo,
     } = this.state;
     console.log(
+      "checkInDate :",
       checkInDate,
+      "checkOutDate :",
       checkOutDate,
       name,
       phoneNumber,
@@ -119,7 +143,14 @@ class Reservation extends React.Component {
       optionBreakfast,
       optionPickUp,
       demand,
-      paymentId
+      "price :",
+      price,
+      "discount :",
+      discount,
+      "total :",
+      total,
+      paymentId,
+      bookingInfo
     );
 
     return (
@@ -158,7 +189,7 @@ class Reservation extends React.Component {
                       >
                         <input type="text" className="form-control" />
                       </DateRangePicker>
-                      <span className="dateRange">2박 3일</span>
+                      <span className="dateRange">{this.getNightsAndDays}</span>
                     </div>
                   </div>
                   <div className="name">

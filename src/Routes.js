@@ -7,7 +7,7 @@ import Signup from "./pages/Signup/Signup";
 import Pick from "./pages/Pick/Pick";
 import Footer from "./components/Footer/Footer";
 import Nav from "./components/Nav/Nav";
-import Reservation from "./pages/Reservation/Reservation";
+import Reservation from "./pages/Reservation/ReservationSSY";
 
 class Routes extends React.Component {
   render() {
