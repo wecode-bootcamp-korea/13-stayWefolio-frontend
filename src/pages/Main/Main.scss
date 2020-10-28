@@ -156,6 +156,14 @@
     height: 1164px;
     display: flex;
     justify-content: center;
+
+    .pickArticle {
+      height: 928px;
+      overflow: hidden;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
   }
 
   .mainBottom {
