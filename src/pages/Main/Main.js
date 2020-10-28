@@ -1,14 +1,19 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import MainMagazine from "./MainComponent/MainMagazine/MainMagazine";
 import MainHeader from "./MainComponent/MainHeader/MainHeader";
 import MainBottomCard from "./MainComponent/MainBottomCard/MainBottomCard";
-
+import PickArticle from "../Pick/PickArticle/PickArticle";
+import { API } from "../../config";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import "./Main.scss";
 
-const API = "/data/mainData/mainBannerData.json";
+const bannerLIMIT = 10;
+const LIMIT = 12;
+const bannerAPI = `${API}/main/banner?banners=${bannerLIMIT}`;
+const pickAPI = `${API}/main/picks?limit=12&offset=0`;
 
 const bannerSettings = {
   dots: true,
@@ -25,32 +30,49 @@ export class Main extends Component {
     super();
     this.state = {
       bannerList: [],
+      searchedHotel: [],
     };
   }
 
+  goTobookingDetail = () => {
+    this.props.history.push("/bookingDetail");
+  };
+
   componentDidMount() {
-    fetch(API)
+    fetch(bannerAPI)
       .then((res) => res.json())
       .then((res) => {
         this.setState({
           bannerList: res.data,
         });
       });
+
+    fetch(pickAPI)
+      .then((res) => res.json())
+      .then((res) => {
+        this.setState({
+          searchedHotel: res.hotels,
+        });
+      });
   }
 
   render() {
-    const { bannerList } = this.state;
+    const { bannerList, searchedHotel } = this.state;
 
     return (
       <main className="Main">
         <Slider {...bannerSettings} className="slick-container">
-          {bannerList.map((banner) => (
-            <div className="mainBanner">
-              <img className="bannerImage" src={banner.image} alt="banner" />
+          {bannerList.map((banner, index) => (
+            <div className="mainBanner" key={index}>
+              <img
+                className="bannerImage"
+                src={banner.thumbnail_url}
+                alt="banner"
+              />
               <div className="bannerTextContainer">
                 <p className="bannerTopText">LAUNCHING EVENT</p>
-                <p className="bannerTitle">{banner.hotelName}</p>
-                <p className="bannerDesc">{banner.desc}</p>
+                <p className="bannerTitle">{banner.name}</p>
+                <p className="bannerDesc">{banner.introduction}</p>
                 <button className="bannerBtn">SHOW NOW</button>
               </div>
             </div>
@@ -74,6 +96,22 @@ export class Main extends Component {
                 headerDesc="매일 하루 한번! 스테이폴리오가 추천합니다!"
                 btnText="MORE PICK"
               />
+              <div className="pickArticleContainer">
+                {searchedHotel[1]?.picks.map((hotel) => (
+                  <PickArticle
+                    key={hotel.id}
+                    name={hotel.name}
+                    engName={hotel.english_name}
+                    desc={hotel.introduction}
+                    mainImg={hotel.thumbnail_url}
+                    location={hotel.location}
+                    type={hotel.category}
+                    minPrice={hotel.min_price}
+                    maxPrice={hotel.max_price}
+                    tags={hotel.tags}
+                  />
+                ))}
+              </div>
             </div>
           </section>
           <section className="mainBottom">

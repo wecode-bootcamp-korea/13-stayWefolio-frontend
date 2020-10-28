@@ -118,7 +118,7 @@ class Nav extends Component {
                 return (
                   <li key={menu.id}>
                     <Link
-                      path={menu.path}
+                      to={menu.path}
                       className={
                         menu.menu.includes("BOOKING")
                           ? "menuLink booking"

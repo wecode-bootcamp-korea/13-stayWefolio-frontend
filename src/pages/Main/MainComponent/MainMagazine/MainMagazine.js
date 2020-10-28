@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./MainMagazine.scss";
 
-const API = "/data/mainData/mainMagazineData.json";
+const API = "http://10.58.1.45:8000/main/magazine";
 export class MainMagazine extends Component {
   constructor() {
     super();
@@ -37,7 +37,7 @@ export class MainMagazine extends Component {
                 </div>
                 <img
                   className="magazineImg"
-                  src={magazinedata.image}
+                  src={magazinedata.thumbnail_url}
                   alt="magazine"
                 />
                 <button className="hoverView">
@@ -48,17 +48,19 @@ export class MainMagazine extends Component {
               <div className="magazineRight">
                 <div className="magazineTextContainer">
                   <div className="textTop">
-                    <a className="magHotelName">{magazinedata.hotelName}</a>
+                    <a className="magHotelName">{magazinedata.name}</a>
                     <p className="magTopTxt magType">
-                      {magazinedata.type}
+                      {magazinedata.category}
                       <span className="magTopTxt magLocation">
                         ㅣ{magazinedata.location}
                       </span>
                     </p>
                   </div>
                   <div className="textBottom">
-                    <p className="descTitle">{magazinedata.descTitle}</p>
-                    <p className="desc">{magazinedata.desc}</p>
+                    <p className="descTitle">
+                      {magazinedata.description_title}
+                    </p>
+                    <p className="desc">{magazinedata.description_first}</p>
                     <p className="magBtn">SHOW MORE +</p>
                   </div>
                 </div>
