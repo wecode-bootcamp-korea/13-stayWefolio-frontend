@@ -94,7 +94,6 @@ export class Main extends Component {
               <div className="pickArticleContainer">
                 {searchedHotel[1]?.picks.map((hotel) => (
                   <PickArticle
-                    className="pickArticle"
                     key={hotel.id}
                     name={hotel.name}
                     engName={hotel.english_name}
