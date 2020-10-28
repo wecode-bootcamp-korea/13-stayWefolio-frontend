@@ -1,6 +1,6 @@
 import React from "react";
 import DateRangePicker from "react-bootstrap-daterangepicker";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faSearch, faTextHeight } from "@fortawesome/free-solid-svg-icons";
 
 // import "react-calendar/dist/Calendar.css";
 import "./Reservation.scss";
@@ -31,14 +31,14 @@ class Reservation extends React.Component {
       optionBreakfast: false,
       optionPickUp: false,
       demand: "",
-      price: 0,
-      discount: 0,
+      price: 200000,
+      discount: 20000,
+      optionTotal: 0,
       total: 0,
       paymentId: 0,
       allCheck: false,
       bookingInfo: [],
       roomImg: "",
-      optionTotal: 0,
     };
   }
 
@@ -59,6 +59,10 @@ class Reservation extends React.Component {
       prevState.checkOutDate !== checkOutDate
     ) {
       this.getPrice(checkInDate, checkOutDate);
+    }
+
+    if (prevState.optionTotal !== this.state.optionTotal) {
+      this.getTotal();
     }
   }
 
@@ -136,6 +140,13 @@ class Reservation extends React.Component {
     this.setState({ optionTotal: breakFastCost });
   };
 
+  getTotal = () => {
+    const { price, discount, optionTotal } = this.state;
+    const total = price - discount + optionTotal;
+    console.log(total);
+    this.setState({ total: total });
+  };
+
   render() {
     const {
       checkInDate,
@@ -158,6 +169,17 @@ class Reservation extends React.Component {
       breakfastPrice,
       optionTotal,
     } = this.state;
+
+    console.log(
+      "객실 가격 : ",
+      price,
+      "할인가격 : ",
+      discount,
+      "추가 옵션 가격 : ",
+      optionTotal,
+      "최종가격 : ",
+      total
+    );
     return (
       <div className="Reservation">
         <div className="container">
@@ -399,7 +421,7 @@ class Reservation extends React.Component {
                       <div className="totalPriceCon">
                         <span className="priceCategory">총 결제금액</span>
                         <div className="">
-                          <span className="totalPrice">1,863,000</span>
+                          <span className="totalPrice">{total}</span>
                           <span className="won">원</span>
                         </div>
                       </div>
