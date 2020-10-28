@@ -21,6 +21,15 @@ export class Booking extends Component {
         });
       });
   };
+
+  fetchBtn = (e) => {
+    const LIMIT = 10;
+    const offset = e.target.dataset.image;
+
+    fetch(`http://10.58.1.45:8000/main/banner?banner=${LIMIT}&offset=${offset}`)
+      .then((res) => res.json())
+      .then((res) => this.setState({ bookingBannerList: res.data }));
+  };
   render() {
     const { bookingBannerList } = this.state;
 
@@ -46,6 +55,9 @@ export class Booking extends Component {
               </div>
             </div>
           ))}
+          {/* <button className="paginationBtn" onClick={this.fetchBtn}>
+            버튼이유
+          </button> */}
         </div>
         {/* <div className="footerWrap">
           <footer></footer>
