@@ -91,9 +91,10 @@ export class Main extends Component {
                 headerDesc="매일 하루 한번! 스테이폴리오가 추천합니다!"
                 btnText="MORE PICK"
               />
-              <div className="pickArticle">
+              <div className="pickArticleContainer">
                 {searchedHotel[1]?.picks.map((hotel) => (
                   <PickArticle
+                    className="pickArticle"
                     key={hotel.id}
                     name={hotel.name}
                     engName={hotel.english_name}
