@@ -105,11 +105,13 @@ class Nav extends Component {
               </div>
               <div className="loginWrap">
                 <Link className="loginLink" to="/login">
-                  LOGIN
+                  {localStorage.getItem("token") ? "MyPage" : "LOGIN"}
                 </Link>
-                <span className="loginAnd">or</span>
+                <span className="loginAnd">
+                  {localStorage.getItem("token") ? "/" : "or"}
+                </span>
                 <Link className="signupLink" to="/signup">
-                  REGISTER
+                  {localStorage.getItem("token") ? "Logout" : "REGISTER"}
                 </Link>
               </div>
             </div>
