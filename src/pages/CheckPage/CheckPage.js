@@ -4,7 +4,7 @@ import Nav from "../../components/Nav/Nav";
 import { withRouter } from "react-router-dom";
 import "./CheckPage.scss";
 
-const API = "http://localhost:3000/data/checkPageData/bookingData.json";
+const API = "/data/checkPageData/bookingData.json";
 
 class CheckPage extends Component {
   constructor() {
