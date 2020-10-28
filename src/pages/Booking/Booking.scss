@@ -47,12 +47,9 @@
         margin: 0 auto;
         cursor: pointer;
         position: absolute;
-        // margin-top: 40px;
         transition: all 0.5s ease-in-out;
 
         &:hover {
-          width: 100vw;
-          height: 500px;
           background-color: rgba(0, 0, 0, 0.65);
           z-index: 999;
           position: absolute;
@@ -63,8 +60,7 @@
           font-weight: 700;
           text-align: center;
           color: #ffffff;
-          margin-top: 20px;
-          margin-bottom: 27px;
+          margin: 20px 0 27px 0;
           letter-spacing: 2px;
           display: flex;
         }
@@ -80,20 +76,20 @@
           display: block;
         }
         &:hover > .bannerBtn {
+          display: block;
           height: 35px;
-          background: none;
-          border: 1px solid #fff;
           padding: 8px 30px;
           margin-top: 34px;
+          background: none;
           color: #ffffff;
           font-size: 13px;
           letter-spacing: -0.1px;
+          border: 1px solid #fff;
           cursor: pointer;
-          display: block;
         }
       }
 
-      .bannerTopText {
+      .noneStyle {
         display: none;
       }
 
@@ -106,13 +102,6 @@
         z-index: 999;
       }
 
-      .bannerDesc {
-        display: none;
-      }
-
-      .bannerBtn {
-        display: none;
-      }
       .bannerImage {
         min-width: 100%;
         position: absolute;
@@ -125,6 +114,7 @@
     }
   }
 }
+
 .navWrap {
   width: inherit;
   nav {
@@ -132,11 +122,13 @@
     background-color: $color-white;
   }
 }
+
 header {
   width: inherit;
   height: 50px;
   background-color: $color-black;
 }
+
 .footerWrap {
   display: flex;
   flex-direction: column;
