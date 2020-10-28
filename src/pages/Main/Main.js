@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -32,6 +33,10 @@ export class Main extends Component {
       searchedHotel: [],
     };
   }
+
+  goTobookingDetail = () => {
+    this.props.history.push("/bookingDetail");
+  };
 
   componentDidMount() {
     fetch(API)

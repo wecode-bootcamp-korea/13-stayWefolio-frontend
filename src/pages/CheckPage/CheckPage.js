@@ -42,7 +42,6 @@ class CheckPage extends Component {
 
     return (
       <section className="CheckPage">
-        <Nav />
         <div
           className="checkContainer"
           style={{
@@ -77,7 +76,6 @@ class CheckPage extends Component {
             </button>
           </div>
         </div>
-        <Footer />
       </section>
     );
   }
