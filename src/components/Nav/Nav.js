@@ -1,3 +1,4 @@
+import { faIgloo } from "@fortawesome/free-solid-svg-icons";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./Nav.scss";
@@ -59,6 +60,7 @@ class Nav extends Component {
 
   render() {
     const { searchValue, brandLogos, menus } = this.state;
+
     return (
       <nav className="Nav">
         <div className="container">
