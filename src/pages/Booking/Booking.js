@@ -26,9 +26,9 @@ export class Booking extends Component {
 
     return (
       <div className="Booking">
-        <div className="navWrap">
+        {/* <div className="navWrap">
           <nav></nav>
-        </div>
+        </div> */}
         <header></header>
         <div className="bookingBoard">
           {bookingBannerList.map((banner) => (
@@ -47,9 +47,9 @@ export class Booking extends Component {
             </div>
           ))}
         </div>
-        <div className="footerWrap">
+        {/* <div className="footerWrap">
           <footer></footer>
-        </div>
+        </div> */}
       </div>
     );
   }
