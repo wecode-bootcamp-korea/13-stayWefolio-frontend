@@ -28,12 +28,12 @@
   .bookingBoard {
     /* props 데이터의 제일 큰 박스를 감싸는 wrap container 역할 */
     width: 100vw;
-    height: 400px;
+    height: 500px;
 
     /* props 데이터 받아오는 map 시작 부분 */
     .bannerBox {
       width: 100vw;
-      height: 400px;
+      height: 500px;
       overflow: hidden;
       position: relative;
       line-height: normal;
@@ -41,7 +41,7 @@
 
       .bannerTextContainer {
         width: 100vw;
-        height: 400px;
+        height: 500px;
         padding: 30px;
         @include flex(center, center, column);
         margin: 0 auto;
@@ -52,7 +52,7 @@
 
         &:hover {
           width: 100vw;
-          height: 400px;
+          height: 500px;
           background-color: rgba(0, 0, 0, 0.65);
           z-index: 999;
           position: absolute;
