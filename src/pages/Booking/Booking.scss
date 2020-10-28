@@ -20,10 +20,164 @@
 }
 
 .Booking {
+  margin-top: 101px;
   width: 100vw;
   position: relative;
   background-color: rgb(244, 244, 244);
   font-family: "Gothic A1", sans-serif;
+
+  /* header */
+  header {
+    position: fixed;
+    width: inherit;
+    height: 50px;
+    background-color: $color-black;
+    z-index: 505;
+    @include flex;
+    .headerBox {
+      padding: 0 15px;
+      margin: 0 auto;
+      @include flex(space-between);
+      z-index: 506;
+
+      .headerLeft {
+        min-width: 556px;
+        @include flex(flex-start, center);
+        font-weight: bolder;
+        font-size: 12px;
+        color: $color-white;
+        border-left: 1px solid rgb(128, 128, 128);
+        .switchTitle {
+          font-size: 12px;
+          margin-right: 8px;
+          margin-top: 10px;
+        }
+        .switchOff {
+          font-size: 10px;
+          margin-left: 8px;
+        }
+        .switchBtn {
+          position: relative;
+          display: inline-block;
+          width: 30px;
+          height: 15px;
+        }
+        /* switch checkbox */
+        .switchBtn input {
+          opacity: 0;
+          width: 0;
+          height: 0;
+        }
+
+        .slider {
+          position: absolute;
+          cursor: pointer;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: #ccc;
+          -webkit-transition: 0.4s;
+          transition: 0.4s;
+        }
+
+        .slider:before {
+          position: absolute;
+          content: "";
+          height: 11px;
+          width: 11px;
+          left: 2px;
+          bottom: 2px;
+          background-color: white;
+          -webkit-transition: 0.4s;
+          transition: 0.4s;
+        }
+
+        input:checked + .slider {
+          background-color: #2196f3;
+        }
+
+        input:focus + .slider {
+          box-shadow: 0 0 1px #2196f3;
+        }
+
+        input:checked + .slider:before {
+          -webkit-transform: translateX(14px);
+          -ms-transform: translateX(14px);
+          transform: translateX(14px);
+        }
+
+        .slider.round {
+          border-radius: 34px;
+        }
+
+        .slider.round:before {
+          border-radius: 50%;
+        }
+      }
+
+      /* headerLeft */
+      .headerRight {
+        max-width: 585px;
+        height: inherit;
+        //margin: 0 16px;
+        padding: 0 10px;
+        color: rgb(128, 128, 128);
+        font-weight: 500;
+        font-size: 12px;
+        border-left: 1px solid rgb(128, 128, 128);
+        border-right: 1px solid rgb(128, 128, 128);
+
+        .headerRightContainer {
+          width: 543px;
+          padding: 12px 12px 12px 17px;
+          height: inherit;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          font-size: 13px;
+          font-weight: 700;
+          .searchSpan {
+            width: 80px;
+            font-weight: bolder;
+            color: $color-white;
+          }
+          .hBar {
+            width: 0;
+            height: 10px;
+            border-left: 1px solid rgb(128, 128, 128);
+          }
+          .wBar {
+            width: 5px;
+            border: 1px solid rgb(128, 128, 128);
+          }
+          .checkInOutBox {
+            width: 230px;
+            height: inherit;
+            margin: 0 35px 0 35px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .checkInBox {
+              span {
+                margin-left: 8px;
+              }
+            }
+            .checkOutBox {
+              span {
+                margin-left: 8px;
+              }
+            }
+          }
+
+          .planeIconBox {
+            font-size: 20px;
+            color: $color-white;
+          }
+        }
+      }
+    }
+  }
 
   .bookingBoard {
     /* props 데이터의 제일 큰 박스를 감싸는 wrap container 역할 */
@@ -51,7 +205,7 @@
 
         &:hover {
           background-color: rgba(0, 0, 0, 0.65);
-          z-index: 999;
+          z-index: 400;
           position: absolute;
         }
         &:hover > .bannerTopText {
@@ -99,7 +253,7 @@
         font-weight: 800;
         color: #ffffff;
         margin-bottom: 20px;
-        z-index: 999;
+        z-index: 500;
       }
 
       .bannerImage {
@@ -112,9 +266,6 @@
         margin: auto;
       }
     }
-    // .paginationBtn {
-    //   cursor: pointer;
-    // }
   }
 }
 
@@ -124,12 +275,6 @@
     height: 102px;
     background-color: $color-white;
   }
-}
-
-header {
-  width: inherit;
-  height: 50px;
-  background-color: $color-black;
 }
 
 .footerWrap {

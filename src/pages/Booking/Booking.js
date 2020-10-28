@@ -38,10 +38,47 @@ export class Booking extends Component {
         {/* <div className="navWrap">
           <nav></nav>
         </div> */}
-        <header></header>
+
+        <header>
+          <div className="headerBox">
+            <div className="headerLeft">
+              <span className="switchTitle">MAP MODE</span>
+              <label className="switchBtn">
+                <input type="checkbox" />
+                <span className="slider round"></span>
+              </label>
+              <span className="switchOff">OFF</span>
+            </div>
+
+            <div className="headerRight">
+              <div className="headerRightContainer">
+                <div className="searchSpan">
+                  <span>SEARCH</span>
+                </div>
+                <div className="hBar"></div>
+                <div className="checkInOutBox">
+                  <div className="checkInBox">
+                    <i class="far fa-calendar-alt"></i>
+                    <span>Check In</span>
+                  </div>
+                  <div className="wBar"></div>
+                  <div className="checkOutBox">
+                    <i class="far fa-calendar-alt"></i>
+                    <span>Check Out</span>
+                  </div>
+                </div>
+
+                <div className="hBar"></div>
+                <div className="planeIconBox">
+                  <i class="far fa-paper-plane"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
         <div className="bookingBoard">
-          {bookingBannerList.map((banner) => (
-            <div className="bannerBox">
+          {bookingBannerList.map((banner, idx) => (
+            <div className="bannerBox" key={idx}>
               <img
                 className="bannerImage"
                 src={banner.thumbnail_url}
