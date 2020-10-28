@@ -73,6 +73,7 @@ class Reservation extends React.Component {
         this.setState({
           bookingInfo: res.booking_info,
           price: res.booking_info[0]?.total,
+          discount: Math.floor(res.booking_info[0]?.total * 0.1),
         });
       });
   };
@@ -86,6 +87,34 @@ class Reservation extends React.Component {
       checkInDate: `${checkIn[2]}-${checkIn[0]}-${checkIn[1]}`,
       checkOutDate: `${checkOut[2]}-${checkOut[0]}-${checkOut[1]}`,
     });
+  };
+
+  getNightsAndDays = () => {
+    const { checkInDate, checkOutDate } = this.state;
+    const checkInMonth = +checkInDate.split("-")[1];
+    const checkOutMonth = +checkOutDate.split("-")[1];
+    const checkInDays = +checkInDate.split("-")[2];
+    const checkOutDays = +checkOutDate.split("-")[2];
+
+    if (checkInMonth === checkOutMonth) {
+      const days = checkOutDays - checkInDays;
+      return `${days}박 ${days + 1}일`;
+    } else {
+      if (checkInMonth % 2 === 0) {
+        const days = 31 - checkInDays + checkOutDays;
+        return `${days - 1}박 ${days}일`;
+      } else if (checkInMonth % 2 !== 0) {
+        const days = 30 - checkInDays + checkOutDays;
+        return `${days - 1}박 ${days}일`;
+      }
+    }
+  };
+
+  getOptionPrice = () => {
+    const { optionBreakfast } = this.state;
+    if (optionBreakfast) {
+      return 5000;
+    }
   };
 
   handleInput = (event) => {
@@ -125,7 +154,8 @@ class Reservation extends React.Component {
       paymentId,
       bookingInfo,
     } = this.state;
-    console.log("bookingInfo :", bookingInfo);
+    console.log("할인 가격 : ", discount);
+    console.log("가격 : ", price);
     return (
       <div className="Reservation">
         <div className="container">
@@ -164,7 +194,7 @@ class Reservation extends React.Component {
                       >
                         <input type="text" className="form-control" />
                       </DateRangePicker>
-                      <span className="dateRange">2박 3일</span>
+                      <span className="dateRange">{this.getNightsAndDays}</span>
                     </div>
                   </div>
 
@@ -343,7 +373,7 @@ class Reservation extends React.Component {
                       <div className="priceCon">
                         <span className="priceCategory">객실요금</span>
                         <div className="priceWon">
-                          <span className="priceNum">0</span>
+                          <span className="priceNum">{price}</span>
                           <span className="won">원</span>
                         </div>
                       </div>
@@ -359,7 +389,7 @@ class Reservation extends React.Component {
                       <div className="priceCon">
                         <span className="priceCategory">할인금액</span>
                         <div className="priceWon">
-                          <span className="priceNum">0</span>
+                          <span className="priceNum">{discount}</span>
                           <span className="won">원</span>
                         </div>
                       </div>
