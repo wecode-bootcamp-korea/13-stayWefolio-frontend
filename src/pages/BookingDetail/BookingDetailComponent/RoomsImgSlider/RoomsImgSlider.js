@@ -5,13 +5,16 @@ import "slick-carousel/slick/slick-theme.css";
 import "./RoomImgSlider.scss";
 
 function Arrow(props) {
-  let className = props.type === "next" ? "nextArrow" : "prevArrow";
+  let className =
+    props.type === "next"
+      ? "nextArrowRight arrowHover"
+      : "prevArrowLeft arrowHover";
   className += " arrow";
   const char =
     props.type === "next" ? (
-      <i class="fas fa-angle-right"></i>
+      <i className="fas fa-angle-right"></i>
     ) : (
-      <i class="fas fa-angle-left"></i>
+      <i className="fas fa-angle-left"></i>
     );
   return (
     <span className={className} onClick={props.onClick}>
@@ -47,9 +50,14 @@ export class RoomImgSlider extends Component {
             prevArrow={<Arrow type="prev" />}
           >
             {roomImg.length &&
-              roomImg.map((roomImage) => {
+              roomImg.map((roomImage, idx) => {
                 return (
-                  <img className="roomsImg" src={roomImage} alt="room"></img>
+                  <img
+                    className="roomsImg"
+                    src={roomImage}
+                    alt="room"
+                    key={idx}
+                  />
                 );
               })}
           </Slider>

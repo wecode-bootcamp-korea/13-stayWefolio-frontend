@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./BookingDetail.scss";
 import RoomsSlider from "./BookingDetailComponent/RoomsSlider/RoomsSlider";
+import { API } from "../../../src/config";
 
 const slickRoomsSettings = {
   infinite: true,
@@ -26,11 +27,7 @@ export class BookingDetail extends Component {
   }
 
   componentDidMount() {
-    fetch(
-      //`${API}/main/places/${this.props.match.params.id}`, // 동적 데이터 (수정 예정)
-      "http://localhost:3000/data/bookingDetailData/roomInfoData.json"
-      //"http://10.58.1.45:8000/main/places/1" //백 API 주소
-    )
+    fetch(`${API}/main/places/1`)
       .then((res) => res.json())
       .then((res) => {
         this.setState({
@@ -41,7 +38,6 @@ export class BookingDetail extends Component {
 
   render() {
     const { roomInfoList, bottomInfoList } = this.state;
-    console.log("룸 카운트", roomInfoList.room_count);
 
     return (
       <div className="BookingDetail">
@@ -72,10 +68,11 @@ export class BookingDetail extends Component {
             <div className="roomsContainer">
               <Slider {...slickRoomsSettings} className="sliderWrapper">
                 {roomInfoList.length &&
-                  roomInfoList[0].rooms.map((roomInfo) => {
+                  roomInfoList[0].rooms.map((roomInfo, idx) => {
                     return (
                       <RoomsSlider
                         {...this.state}
+                        key={idx}
                         roomCount={roomInfo.room_count}
                         roomName={roomInfo.room_name}
                         roomType={roomInfo.room_type}

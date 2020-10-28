@@ -76,9 +76,9 @@ export class RoomsSlider extends Component {
                     <li>객실면적 {area}</li>
 
                     {roomInfoList?.length &&
-                      roomInfoList[0].rooms[0].bed.map((bed) => {
+                      roomInfoList[0].rooms[0].bed.map((bed, idx) => {
                         return (
-                          <li>
+                          <li key={idx}>
                             {bed.bed_type} {bed.number_of_beds}
                           </li>
                         );
@@ -87,8 +87,12 @@ export class RoomsSlider extends Component {
                 </div>
                 <div className="bottomRight">
                   {roomTag.length &&
-                    roomTag.map((tag) => {
-                      return <div className="featureBox">{tag}</div>;
+                    roomTag.map((tag, idx) => {
+                      return (
+                        <div className="featureBox" key={idx}>
+                          {tag}
+                        </div>
+                      );
                     })}
                 </div>
               </div>
@@ -114,9 +118,9 @@ export class RoomsSlider extends Component {
               <li className="roomWidth">객실면적 {area}</li>
 
               {roomInfoList.length &&
-                roomBed.map((bed) => {
+                roomBed.map((bed, idx) => {
                   return (
-                    <li className="roomBed">
+                    <li className="roomBed" key={idx}>
                       {bed.bed_type} {bed.number_of_beds}
                     </li>
                   );
@@ -130,9 +134,9 @@ export class RoomsSlider extends Component {
                 <p className="infoTitleLeft">FACILITY</p>
                 <ul className="iconList">
                   {roomFacility.length &&
-                    roomFacility.map((_facility) => {
+                    roomFacility.map((_facility, idx) => {
                       return (
-                        <li className="infoIconContainer">
+                        <li className="infoIconContainer" key={idx}>
                           <img
                             className="iconStyle"
                             src={_facility.icon_url}
@@ -148,9 +152,9 @@ export class RoomsSlider extends Component {
                 <p className="infoTitleLeft">SERVICE</p>
                 <ul className="iconList">
                   {roomService.length &&
-                    roomService.map((_service) => {
+                    roomService.map((_service, idx) => {
                       return (
-                        <li className="infoIconContainer">
+                        <li className="infoIconContainer" key={idx}>
                           <img
                             className="iconStyle"
                             src={_service.icon_url}
@@ -166,8 +170,12 @@ export class RoomsSlider extends Component {
                 <p className="infoTitleLeft">AMENITY</p>
                 <ul className="textListUl">
                   {bottomInfoList.length &&
-                    bottomInfoList[0].amenity.map((amenity) => {
-                      return <li className="textList">{amenity}</li>;
+                    bottomInfoList[0].amenity.map((amenity, idx) => {
+                      return (
+                        <li className="textList" key={idx}>
+                          {amenity}
+                        </li>
+                      );
                     })}
                 </ul>
               </div>
@@ -175,8 +183,12 @@ export class RoomsSlider extends Component {
                 <p className="infoTitleLeft">EQUIPMENT</p>
                 <ul className="textListUl">
                   {bottomInfoList.length &&
-                    bottomInfoList[0].equipment.map((equipment) => {
-                      return <li className="textList">{equipment}</li>;
+                    bottomInfoList[0].equipment.map((equipment, idx) => {
+                      return (
+                        <li className="textList" key={idx}>
+                          {equipment}
+                        </li>
+                      );
                     })}
                 </ul>
               </div>
