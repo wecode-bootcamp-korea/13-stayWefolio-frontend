@@ -1,19 +1,19 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import MainMagazine from "./MainComponent/MainMagazine/MainMagazine";
 import MainHeader from "./MainComponent/MainHeader/MainHeader";
 import MainBottomCard from "./MainComponent/MainBottomCard/MainBottomCard";
 import PickArticle from "../Pick/PickArticle/PickArticle";
-
+import { API } from "../../config";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import "./Main.scss";
 
 const bannerLIMIT = 10;
 const LIMIT = 12;
-const API = `http://10.58.1.45:8000/main/banner?banners=${bannerLIMIT}`;
-const pickAPI = `http://10.58.1.45:8000/main/picks?limit=12&offset=0`;
+const bannerAPI = `${API}/main/banner?banners=${bannerLIMIT}`;
+const pickAPI = `${API}/main/picks?limit=12&offset=0`;
 
 const bannerSettings = {
   dots: true,
@@ -39,7 +39,7 @@ export class Main extends Component {
   };
 
   componentDidMount() {
-    fetch(API)
+    fetch(bannerAPI)
       .then((res) => res.json())
       .then((res) => {
         this.setState({
@@ -62,8 +62,8 @@ export class Main extends Component {
     return (
       <main className="Main">
         <Slider {...bannerSettings} className="slick-container">
-          {bannerList.map((banner) => (
-            <div className="mainBanner">
+          {bannerList.map((banner, index) => (
+            <div className="mainBanner" key={index}>
               <img
                 className="bannerImage"
                 src={banner.thumbnail_url}

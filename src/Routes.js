@@ -14,16 +14,16 @@ class Routes extends React.Component {
   render() {
     return (
       <Router>
+        <Nav />
         <Switch>
           <Route exact path="/" component={Main} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/pick" component={Pick} />
-          <Route exact path="/footer" component={Footer} />
-          <Route exact path="/nav" component={Nav} />
           <Route exact path="/reservation" component={Reservation} />
           <Route exact path="/checkPage" component={CheckPage} />
         </Switch>
+        <Footer />
       </Router>
     );
   }

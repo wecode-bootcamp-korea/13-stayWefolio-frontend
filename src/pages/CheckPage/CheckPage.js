@@ -3,8 +3,7 @@ import Footer from "../../components/Footer/Footer";
 import Nav from "../../components/Nav/Nav";
 import { withRouter } from "react-router-dom";
 import "./CheckPage.scss";
-
-const API = "/data/checkPageData/bookingData.json";
+import { API } from "../../../src/config";
 
 class CheckPage extends Component {
   constructor() {
@@ -22,7 +21,10 @@ class CheckPage extends Component {
   };
 
   componentDidMount() {
-    fetch(API)
+    fetch(
+      //`${API}/`
+      "http://localhost:3000/data/checkPageData/bookingData.json"
+    )
       .then((res) => res.json())
       .then((res) => {
         const { booking_info } = res;
@@ -38,7 +40,6 @@ class CheckPage extends Component {
 
   render() {
     const { bookingInfo, adultCount, childCount, infantCount } = this.state;
-    console.log(this.state.childCount);
 
     return (
       <section className="CheckPage">
