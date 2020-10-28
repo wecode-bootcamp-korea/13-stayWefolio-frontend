@@ -4,9 +4,9 @@ import ReservationInfoVehicles from "../ReservationInfo/ReservationInfoComponent
 // import ReservationToggle from "../Reservation/ReservationJYcomponent/ReservationToggle";
 // import ReservationVehicles from "../Reservation/ReservationJYcomponent/ReservationVehicles";
 
-import "./ReservationJY.scss";
+import "../ReservationInfo/ReservationInfo.scss";
 
-class ReservationJY extends React.Component {
+class ReservationInfo extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -172,4 +172,4 @@ class ReservationJY extends React.Component {
   }
 }
 
-export default ReservationJY;
+export default ReservationInfo;

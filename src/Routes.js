@@ -8,7 +8,7 @@ import Pick from "./pages/Pick/Pick";
 import Footer from "./components/Footer/Footer";
 import Nav from "./components/Nav/Nav";
 import Reservation from "./pages/Reservation/Reservation";
-import ReservationINFO from "./pages/Reservation/ReservationInfo/ReservationInfo";
+import ReservationInfo from "./pages/Reservation/ReservationInfo/ReservationInfo";
 
 class Routes extends React.Component {
   render() {
@@ -21,6 +21,7 @@ class Routes extends React.Component {
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/pick" component={Pick} />
           <Route exact path="/reservation" component={Reservation} />
+          <Route exact path="/reservationInfo" component={ReservationInfo} />
         </Switch>
         <Footer />
       </Router>
