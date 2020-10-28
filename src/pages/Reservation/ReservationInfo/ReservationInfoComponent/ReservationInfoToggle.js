@@ -1,8 +1,10 @@
 import React, { Component } from "react";
-import "../ReservationJY.scss";
-import "../ReservationJYcomponent/ReservationVehicles.scss";
+import "../ReservationInfo.scss";
+import "../ReservationInfoComponent/ReservationInfoVehicles.scss";
+// import "../ReservationJY.scss";
+// import "../ReservationJYcomponent/ReservationVehicles.scss";
 
-class ReservationToggle extends React.Component {
+class ReservationInfoToggle extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -41,4 +43,4 @@ class ReservationToggle extends React.Component {
   }
 }
 
-export default ReservationToggle;
+export default ReservationInfoToggle;
