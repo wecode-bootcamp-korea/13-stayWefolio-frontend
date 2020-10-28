@@ -116,18 +116,10 @@ class Reservation extends React.Component {
     this.setState({ [name]: value });
   };
 
-  // handleOption = (event) => {
-  //   const { name } = event.target;
-  //   const isChecked = event.currentTarget.value === "true" ? true : false;
-  //   this.setState({ [name]: isChecked });
-  // };
-
   handleOption = (event) => {
     const { name } = event.target;
-    const { optionBreakfast } = this.state;
-    const isChecked = event.currentTarget.value === "true" ? true : false;
-
     this.setState({ [name]: !this.state[name] }, () => {
+      const { optionBreakfast } = this.state;
       const breakFastCost = optionBreakfast ? 5000 : 0;
       this.setState({ optionTotal: breakFastCost });
     });
@@ -139,7 +131,7 @@ class Reservation extends React.Component {
     this.setState({ [name]: isPayment });
   };
 
-  getTotal = () => {
+  getOptionTotal = () => {
     const breakFastCost = this.state.optionBreakfast ? 5000 : 0;
     this.setState({ optionTotal: breakFastCost });
   };
@@ -164,6 +156,7 @@ class Reservation extends React.Component {
       paymentId,
       bookingInfo,
       breakfastPrice,
+      optionTotal,
     } = this.state;
     return (
       <div className="Reservation">
@@ -390,9 +383,7 @@ class Reservation extends React.Component {
                       <div className="priceCon">
                         <span className="priceCategory">추가옵션</span>
                         <div className="priceWon">
-                          <span className="priceNum">
-                            {this.state.optionTotal}
-                          </span>
+                          <span className="priceNum">{optionTotal}</span>
                           <span className="won">원</span>
                         </div>
                       </div>
