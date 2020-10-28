@@ -38,6 +38,7 @@ class Reservation extends React.Component {
       allCheck: false,
       bookingInfo: [],
       roomImg: "",
+      optionTotal: 0,
     };
   }
 
@@ -110,22 +111,26 @@ class Reservation extends React.Component {
     }
   };
 
-  getOptionPrice = () => {
-    const { optionBreakfast } = this.state;
-    if (optionBreakfast) {
-      return 5000;
-    }
-  };
-
   handleInput = (event) => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   };
 
+  // handleOption = (event) => {
+  //   const { name } = event.target;
+  //   const isChecked = event.currentTarget.value === "true" ? true : false;
+  //   this.setState({ [name]: isChecked });
+  // };
+
   handleOption = (event) => {
     const { name } = event.target;
+    const { optionBreakfast } = this.state;
     const isChecked = event.currentTarget.value === "true" ? true : false;
-    this.setState({ [name]: isChecked });
+
+    this.setState({ [name]: !this.state[name] }, () => {
+      const breakFastCost = optionBreakfast ? 5000 : 0;
+      this.setState({ optionTotal: breakFastCost });
+    });
   };
 
   handlePayTool = (event) => {
@@ -134,8 +139,12 @@ class Reservation extends React.Component {
     this.setState({ [name]: isPayment });
   };
 
+  getTotal = () => {
+    const breakFastCost = this.state.optionBreakfast ? 5000 : 0;
+    this.setState({ optionTotal: breakFastCost });
+  };
+
   render() {
-    console.log("render bookinginfo >>> ", this.state.bookingInfo);
     const {
       checkInDate,
       checkOutDate,
@@ -149,13 +158,13 @@ class Reservation extends React.Component {
       optionPickUp,
       demand,
       price,
+      optionPrice,
       discount,
       total,
       paymentId,
       bookingInfo,
+      breakfastPrice,
     } = this.state;
-    console.log("할인 가격 : ", discount);
-    console.log("가격 : ", price);
     return (
       <div className="Reservation">
         <div className="container">
@@ -381,7 +390,9 @@ class Reservation extends React.Component {
                       <div className="priceCon">
                         <span className="priceCategory">추가옵션</span>
                         <div className="priceWon">
-                          <span className="priceNum">0</span>
+                          <span className="priceNum">
+                            {this.state.optionTotal}
+                          </span>
                           <span className="won">원</span>
                         </div>
                       </div>
