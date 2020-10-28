@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import "../Booking/Booking.scss";
 
-const API = "http://localhost:3000/data/mainData/mainBannerData.json";
+const API = "http://10.58.1.45:8000/main/banner";
+
 const style = {
   height: 400,
 };
@@ -15,14 +16,6 @@ export class Booking extends Component {
       // items: Array.from({ length: 3 }),
     };
   }
-
-  // fetchMoreData = () => {
-  //   setTimeout(() => {
-  //     this.setState({
-  //       items: this.state.items.concat(Array.from({})),
-  //     });
-  //   }, 1500);
-  // };
 
   componentDidMount = () => {
     // e.preventDefault();
@@ -47,11 +40,15 @@ export class Booking extends Component {
           {/*...bannerSettings */}
           {bookingBannerList.map((banner) => (
             <div className="bannerBox">
-              <img className="bannerImage" src={banner.image} alt="banner" />
+              <img
+                className="bannerImage"
+                src={banner.thumbnail_url}
+                alt="banner"
+              />
               <div className="bannerTextContainer">
                 <p className="bannerTopText hoverStyle">LAUNCHING EVENT</p>
-                <p className="bannerTitle">{banner.hotelName}</p>
-                <p className="bannerDesc hoverStyle">{banner.desc}</p>
+                <p className="bannerTitle">{banner.name}</p>
+                <p className="bannerDesc hoverStyle">{banner.introduction}</p>
                 <button className="bannerBtn hoverStyle">SHOW NOW</button>
               </div>
             </div>
