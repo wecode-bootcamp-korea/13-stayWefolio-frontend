@@ -38,7 +38,7 @@ $icon-gray: rgb(138, 138, 138);
       padding: 0 10px;
 
       .topLineWrap {
-        height: 52px;
+        height: 51px;
         @include flex;
 
         .searchBarWrap {
@@ -126,6 +126,7 @@ $icon-gray: rgb(138, 138, 138);
             font-size: 13px;
             font-weight: 700;
           }
+
           .booking {
             height: 26px;
             padding: 7px 8px;
