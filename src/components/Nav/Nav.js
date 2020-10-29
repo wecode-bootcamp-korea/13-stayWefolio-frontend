@@ -1,10 +1,8 @@
-import { faIgloo } from "@fortawesome/free-solid-svg-icons";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./Nav.scss";
 
 const API = "/data/dataSSY/navdata.json";
-// const API = "http://10.58.1.45:8000/main/picks";
 
 class Nav extends Component {
   constructor() {
@@ -84,11 +82,13 @@ class Nav extends Component {
       <nav className="Nav">
         <div className="container">
           <div className="logoWrap">
-            <img
-              src="./images/staywefolio_logo.png"
-              alt="logo"
-              className="logo"
-            />
+            <Link to="/">
+              <img
+                src="./images/staywefolio_logo.png"
+                alt="logo"
+                className="logo"
+              />
+            </Link>
           </div>
           <div className="navContainer">
             <div className="topLineWrap">
