@@ -1,0 +1,41 @@
+{
+  "picks_detail": [
+    {
+      "id": 1,
+      "name": "낙산 테라스",
+      "english_name": "Naksan Terrace",
+      "address": " 서울특별시 종로구 창신12길 14 (창신동)",
+      "introduction": "탁 트인 발코니에서 서울을 내려다보다",
+      "image_url": [
+        "https://images.unsplash.com/photo-1590074072786-a66914d668f1?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9",
+        "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9",
+        "https://images.unsplash.com/photo-1496417263034-38ec4f0b665a?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9",
+        "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9",
+        "https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9",
+        "https://images.unsplash.com/photo-1495365200479-c4ed1d35e1aa?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9",
+        "https://images.unsplash.com/photo-1517840901100-8179e982acb7?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9",
+        "https://images.unsplash.com/photo-1445991842772-097fea258e7b?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9",
+        "https://images.unsplash.com/photo-1553653924-39b70295f8da?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9",
+        "https://images.unsplash.com/photo-1540541338287-41700207dee6?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9"
+      ],
+      "category": "게스트하우스",
+      "min_people": 2,
+      "max_people": 6,
+      "room_count": 3,
+      "min_price": 84189,
+      "max_price": 300108,
+      "checkin_time": "15:00:00",
+      "checkout_time": "11:00:00",
+      "location": "서울/종로구",
+      "tags": ["도심속휴식", "새로운영감"],
+      "email": "naksanbalcony@gmail.com",
+      "phone_number": "0504-0904-2439",
+      "description_title": "도시 서울이 가진 다층적 레이어",
+      "description_first": "서로 다른 배경을 가진 프랑스인과 한국인 부부는 한국으로 이주해 거주할 곳을 찾던 중 숨겨진 보석 같은 공간을 발견했다. 오랜 시간 찾아 헤맸기에 호스트는 ‘낙산발코니’를 마주한 순간 한눈에 ‘우리 집’이 될 것을 직감했다. 거실과 발코니에서는 남산과 종로 시내, 한양도성이 한눈에 가득 담기고, 루프탑에서는 서울이 파노라마로 펼쳐진다. 서울을 한눈에 내려다본 그 순간의 감동을 잊지 못한 부부는 그 감동을 함께 나누고자 스테이를 열었다.",
+      "description_second": "낙산발코니는 오래된 붉은 벽돌집 원형을 유지하고 내부는 1970년대 배관까지 모두 리모델링해 독특한 매력으로 재탄생 된 공간이다. 3개의 다른 구조를 가진 유닛으로 구성되며 각각의 방들은 호스트에게 영향을 준 도시의 테마를 기본으로 하고 있다. 방마다 놓인 개성 있는 핸드메이드 가구와 소품들은 호스트가 직접 디자인해 제작하거나 수집한 제품으로 부부만의 감성을 엿볼 수 있다. 방마다 있는 개인 발코니와 높은 층고, 큰 창을 통해 들어오는 풍부한 채광은 머무는 경험을 극대화 한다. 모든 방에서는 한양도성과 서울 시내를 조망할 수 있어 서울의 과거와 현재를 여러 겹의 레이어로 내려다 볼 수 있다.",
+      "description_third": "복잡한 서울 도심을 느끼면서도 도시에서 한 발 벗어난 조용한 휴식을 누릴 수 있다. 360도 파노라마 뷰가 펼쳐지는 루프탑에서는 책을 읽거나 음악을 들으며 서울을 조망할 수도 있다. 주변에 큰 도로가 없어 밤이 되면 마치 숲속에 있는 것과 같지만 10분만 걸으면 서울 최대 번화가도 마주할 수 있어 도시 서울의 현재를 다채롭게 경험할 수 있다. 서울의 한 가운데서 서울을 느낄 수 있는 곳, 낙산공원 성곽길을 걸으며 과거를 바라보고 현재를 느껴보는 것은 어떨까.",
+      "longitude": "127.0100460",
+      "latitude": "37.5791410"
+    }
+  ]
+}
