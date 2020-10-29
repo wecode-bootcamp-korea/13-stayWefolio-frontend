@@ -1,8 +1,6 @@
 import React from "react";
 import DateRangePicker from "react-bootstrap-daterangepicker";
 import { faSearch, faTextHeight } from "@fortawesome/free-solid-svg-icons";
-
-// import "react-calendar/dist/Calendar.css";
 import "./Reservation.scss";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-daterangepicker/daterangepicker.css";
@@ -123,8 +121,10 @@ class Reservation extends React.Component {
   handleOption = (event) => {
     const { name } = event.target;
     this.setState({ [name]: !this.state[name] }, () => {
-      const { optionBreakfast } = this.state;
-      const breakFastCost = optionBreakfast ? 5000 : 0;
+      const { optionBreakfast, adult, child, infant } = this.state;
+      const breakFastCost = optionBreakfast
+        ? 5000 * (adult + child + infant)
+        : 0;
       this.setState({ optionTotal: breakFastCost });
     });
   };
