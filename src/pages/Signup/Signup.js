@@ -3,7 +3,7 @@ import "../Signup/Signup.scss";
 import Toggle from "../Signup/signupComponent/Toggle";
 import Vehicles from "../Signup/signupComponent/Vehicles";
 
-// const API = "http://10.58.1.45:8000/user/signup";
+const API = "http://10.58.1.45:8000/user/signup";
 
 export class Signup extends Component {
   constructor() {
@@ -53,28 +53,30 @@ export class Signup extends Component {
     target.checked = this.state.allCheck ? true : false;
   }
 
-  // handleLogin = (e) => {
-  //   e.preventDefault();
-  //   fetch(API, {
-  //     method: "POST",
-  //     body: JSON.stringify({
-  //       email: this.state.email,
-  //       password: this.state.password,
-  //     }),
-  //   })
-  //     .then((response) => response.json())
-  //     .then((result) => console.log("결과: ", result));
-  // .then((result) => {
-  //   console.log("=============");
-  //   console.log("백엔드 응답 메세지 :", result);
-  //   if (result.MESSAGE === "SUCCESS") {
-  //     localStorage.setItem("token", result);
-  // this.props.history.push("/");
-  //   }
-  // });
-  // };
+  handleLogin = (e) => {
+    e.preventDefault();
+    fetch(API, {
+      method: "POST",
+      body: JSON.stringify({
+        name: this.state.name,
+        email: this.state.email,
+        password: this.state.password,
+      }),
+    })
+      .then((response) => response.json())
+      // .then((result) => console.log("결과: ", result));
+  .then((result) => {
+    console.log("=============");
+    console.log("백엔드 응답 메세지 :", result);
+    if (result.MESSAGE === "SUCCESS") {
+      localStorage.setItem("token", result);
+  this.props.history.push("/");
+    }
+  });
+  };
 
   render() {
+    console.log(this.state.name)
     return (
       <div className="Signup">
         {/* <div className="navWrap">

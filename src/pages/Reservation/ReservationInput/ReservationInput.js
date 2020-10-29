@@ -9,15 +9,16 @@ class ReservationInput extends Component {
   };
   
   render() {
-    const { name, title } = this.props;
+    const { name, title, value } = this.props;
     return (
         <div className="ReservationInput">
           <span className="title">{title}</span>
           <input
             type="text"
             name={name}
+            value={value}
             onChange={this.handleInput}
-          ></input>
+          />
         </div>
     );
   }

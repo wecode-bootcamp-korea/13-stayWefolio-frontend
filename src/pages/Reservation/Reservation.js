@@ -5,6 +5,7 @@ import ReservationInput from "./ReservationInput/ReservationInput";
 import PeopleOption from "./PeopleOption/PeopleOption";
 import AdditionalOption from "./AdditionalOption/AdditionalOption";
 import { API } from "../../config";
+import { withRouter } from "react-router-dom";
 import RESERVATION_DATA from "./reservationData";
 import "./Reservation.scss";
 import "bootstrap-daterangepicker/daterangepicker.css";
@@ -43,24 +44,33 @@ class Reservation extends React.Component {
       nightAndDay: "2박 3일",
       optionTotal: 0,
       bookingId: 0,
+      TOKEN:localStorage.getItem("token"),
+      roomId:0
     };
   }
 
-  componentDidMount() {
-    fetch(`${API}/booking/1?start=2020-10-29&end=2020-10-31`, {
+  componentDidMount () {
+    const { TOKEN } = this.state;
+
+    fetch(`${API}/booking/${this.props.match.params.id}?start=2020-10-29&end=2020-10-31`, {
       headers: {
         Authorization: TOKEN,
       },
     })
-      .then((res) => res.json())
-      .then((res) => {
-        console.log("확인");
-        this.setState({
-          bookingInfo: res.booking_info,
-          price: res.booking_info[0]?.total,
-          discount: Math.floor(res.booking_info[0]?.total * 0.1),
-        });
+    .then((res) => res.json())
+    .then((res) => {
+      console.log("확인")
+      this.setState({
+        bookingInfo : res.booking_info,
+        price: res.booking_info[0]?.total,
+        discount: Math.floor(res.booking_info[0]?.total*0.1),
+        name: res.booking_info[0]?.user.name,
+        email: res.booking_info[0]?.user.email,
+        roomId: res.booking_info[0]?.room_id
       });
+    });
+
+
   }
 
   componentDidUpdate(prevPros, prevState) {
@@ -89,7 +99,8 @@ class Reservation extends React.Component {
   }
 
   getPrice = (checkInDate, checkOutDate) => {
-    fetch(`${API}/booking/1?start=${checkInDate}&end=${checkOutDate}`, {
+    const { TOKEN } = this.state;
+    fetch(`${API}/booking/${this.props.match.params.id}?start=${checkInDate}&end=${checkOutDate}`, {
       headers: {
         Authorization: TOKEN,
       },
@@ -164,29 +175,11 @@ class Reservation extends React.Component {
   };
 
   postReservationInfo = () => {
-    const {
-      checkInDate,
-      checkOutDate,
-      name,
-      phoneNumber,
-      email,
-      adult,
-      child,
-      infant,
-      discount,
-      optionBreakfast,
-      optionPickUp,
-      demand,
-      price,
-      total,
-      paymentId,
-      termCollection,
-      termThirdParty,
-      termRefund,
-      termMarketing,
+    const { checkInDate, checkOutDate, name, phoneNumber, email, adult, child, infant, discount, TOKEN, roomId,
+      optionBreakfast, optionPickUp, demand, price, total, paymentId, termCollection, termThirdParty, termRefund, termMarketing
     } = this.state;
 
-    fetch(API, {
+      fetch(`${API}/booking/${roomId}`, {  
       method: "POST",
       headers: {
         Authorization: TOKEN,
@@ -216,13 +209,16 @@ class Reservation extends React.Component {
       .then((response) => response.json())
       .then((result) => {
         console.log("==================================");
-        console.log(
-          "백엔드에서 오는 응답메세지: ",
-          this.setState({ bookingId: result.booking_id })
-        );
-      });
-    // this.props.history.push("/main-eunsun");
-  };
+        console.log("백엔드에서 오는 응답메세지: ", result.booking_id)
+      
+      if(result.booking_id){
+        this.props.history.push({
+          pathname: "/checkPage",
+          data : result.booking_id
+        })
+      }
+    });
+  }
 
   handleOptionPrice = (name) => {
     const { adult, child, infant } = this.state;
@@ -264,6 +260,7 @@ class Reservation extends React.Component {
       nightAndDay,
       optionTotal,
       bookingInfo,
+      TOKEN
     } = this.state;
 
     return (
@@ -310,10 +307,10 @@ class Reservation extends React.Component {
                   {RESERVATION_DATA.INPUT_INFO.map((input, idx) => (
                     <ReservationInput
                       key={idx}
-                      title={input.title}
-                      name={input.name}
-                      event={this.getInputValue}
-                    />
+                      title={input.title} 
+                      name={input.name} 
+                      value={this.state[input.name]}
+                      event={this.getInputValue} />
                   ))}
 
                   <div className="people">
@@ -444,4 +441,4 @@ class Reservation extends React.Component {
   }
 }
 
-export default Reservation;
+export default withRouter(Reservation);

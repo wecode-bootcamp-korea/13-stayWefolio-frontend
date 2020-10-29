@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
 import Slider from "react-slick";
+import { withRouter } from "react-router-dom";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./BookingDetail.scss";
@@ -43,6 +44,7 @@ export class BookingDetail extends Component {
   }
 
   render() {
+    console.log(this.state.roomInfoList)
     const { roomInfoList, bottomInfoList } = this.state;
 
     return (
@@ -93,11 +95,13 @@ export class BookingDetail extends Component {
                         minPeople={roomInfo.min_people}
                         maxPeople={roomInfo.max_people}
                         area={roomInfo.area}
+                        roomId={roomInfo.room_id}
                         roomImg={roomInfo.room_image}
                         roomBed={roomInfo.bed}
                         roomTag={roomInfo.tags}
                         roomFacility={roomInfo.facility}
                         roomService={roomInfo.service}
+                        history={this.props.history}
                       />
                     );
                   })}
@@ -116,4 +120,4 @@ export class BookingDetail extends Component {
   }
 }
 
-export default BookingDetail;
+export default withRouter(BookingDetail);

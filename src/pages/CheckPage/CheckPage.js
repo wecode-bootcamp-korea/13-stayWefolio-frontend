@@ -5,6 +5,7 @@ import { withRouter } from "react-router-dom";
 import "./CheckPage.scss";
 import { API } from "../../../src/config";
 
+
 class CheckPage extends Component {
   constructor() {
     super();
@@ -13,6 +14,7 @@ class CheckPage extends Component {
       adultCount: 0,
       childCount: 0,
       InfantCount: 0,
+      TOKEN:localStorage.getItem("token")
     };
   }
 
@@ -21,12 +23,19 @@ class CheckPage extends Component {
   };
 
   componentDidMount() {
+    const { data } = this.props.location;
+    const { TOKEN } = this.state;
+    console.log(data)
     fetch(
-      //`${API}/`
-      "http://localhost:3000/data/checkPageData/bookingData.json"
-    )
+      // "http://localhost:3000/data/checkPageData/bookingData.json"
+      `${API}/booking/confirmation?booking_id=${data}`, {
+        headers: {
+          Authorization: TOKEN
+        },
+      })
       .then((res) => res.json())
       .then((res) => {
+        console.log("ghddd")
         const { booking_info } = res;
 
         this.setState({
@@ -39,6 +48,7 @@ class CheckPage extends Component {
   }
 
   render() {
+    console.log()
     const { bookingInfo, adultCount, childCount, infantCount } = this.state;
 
     return (

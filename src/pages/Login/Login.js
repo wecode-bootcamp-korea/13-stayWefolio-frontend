@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "../Login/Login.scss";
 import { withRouter } from "react-router-dom";
+import { API } from "../../config"
 
 export class Login extends Component {
   constructor() {
@@ -25,24 +26,24 @@ export class Login extends Component {
 
   handleLogin = (e) => {
     e.preventDefault();
-    fetch("http://10.58.1.45:8000/user/login", {
+    fetch(`${API}/user/login`, {
       method: "POST",
       body: JSON.stringify({
         email: this.state.email,
         password: this.state.password,
       }),
     })
-      //비동기 처리
-      .then((response) => response.json())
-      // .then((result) => console.log("결과: ", result));
-      .then((result) => {
-        console.log("=============");
-        console.log("백엔드 응답 메세지 :", result);
-        if (result.TOKEN) {
-          localStorage.setItem("token", result);
-          this.props.history.push("/");
-        }
-      });
+    // 비동기 처리
+    .then((response) => response.json())
+    // .then((result) => console.log("결과: ", result));
+    .then((result) => {
+      console.log("=============");
+      console.log("백엔드 응답 메세지 :", result);
+      if (result.TOKEN) {
+        localStorage.setItem("token", result.TOKEN);
+    this.props.history.push("/");
+      }
+    });
   };
 
   render() {
