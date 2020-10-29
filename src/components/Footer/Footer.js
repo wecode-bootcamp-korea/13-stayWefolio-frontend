@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./Footer.scss";
 
-const API = "http://localhost:3000/data/dataSSY/footer.json";
+const API = "/data/dataSSY/footer.json";
 
 class Footer extends Component {
   constructor() {

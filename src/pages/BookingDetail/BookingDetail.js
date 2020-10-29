@@ -27,7 +27,7 @@ export class BookingDetail extends Component {
   }
 
   componentDidMount() {
-    fetch(`${API}/main/places/1`)
+    fetch(`${API}/main/places/${this.props.match.params.id}`)
       .then((res) => res.json())
       .then((res) => {
         this.setState({

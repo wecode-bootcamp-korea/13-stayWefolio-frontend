@@ -82,7 +82,7 @@
       "classname": "magazineLink",
       "menu": "MAGAZINE"
     },
-    { "id": 3, "path": "/pick", "classname": "pickLink", "menu": "PICK" },
+    { "id": 3, "path": "/picks", "classname": "pickLink", "menu": "PICK" },
     {
       "id": 4,
       "path": "/promotion",
