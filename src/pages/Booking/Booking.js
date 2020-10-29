@@ -22,6 +22,7 @@ export class Booking extends Component {
       });
   };
 
+  /* 구현 예정 */
   fetchBtn = (e) => {
     const LIMIT = 10;
     const offset = e.target.dataset.image;
@@ -30,26 +31,24 @@ export class Booking extends Component {
       .then((res) => res.json())
       .then((res) => this.setState({ bookingBannerList: res.data }));
   };
+
   render() {
     const { bookingBannerList } = this.state;
 
     return (
       <div className="Booking">
-        {/* <div className="navWrap">
-          <nav></nav>
-        </div> */}
-
         <header>
           <div className="headerBox contentContainer">
             <div className="headerLeft">
-              <span className="switchTitle">MAP MODE</span>
-              <label className="switchBtn">
-                <input type="checkbox" />
-                <span className="slider round"></span>
-              </label>
-              <span className="switchOff">OFF</span>
+              <div className="headerLeftContainer">
+                <span className="switchTitle">MAP MODE</span>
+                <label className="switchBtn">
+                  <input type="checkbox" />
+                  <span className="slider round"></span>
+                </label>
+                <span className="switchOff">OFF</span>
+              </div>
             </div>
-
             <div className="headerRight">
               <div className="headerRightContainer">
                 <div className="searchSpan">
@@ -67,7 +66,7 @@ export class Booking extends Component {
                     <span>Check Out</span>
                   </div>
                 </div>
-
+                {/* <div>뱅기, 바</div> */}
                 <div className="hBar"></div>
                 <div className="planeIconBox">
                   <i class="far fa-paper-plane"></i>
@@ -93,12 +92,9 @@ export class Booking extends Component {
             </div>
           ))}
           {/* <button className="paginationBtn" onClick={this.fetchBtn}>
-            버튼이유
+            페이지네이션 구현할 자리
           </button> */}
         </div>
-        {/* <div className="footerWrap">
-          <footer></footer>
-        </div> */}
       </div>
     );
   }
