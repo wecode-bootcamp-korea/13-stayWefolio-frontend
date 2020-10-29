@@ -33,7 +33,7 @@ export class BookingDetail extends Component {
 
   //`${API}/main/places/1`
   componentDidMount() {
-    fetch(mockAPI)
+    fetch(`${API}/main/places/${this.props.match.params.id}`)
       .then((res) => res.json())
       .then((res) => {
         this.setState({
@@ -51,11 +51,14 @@ export class BookingDetail extends Component {
           <img
             className="bannerImg"
             alt="hotel"
-            src={roomInfoList[0] && roomInfoList[0].common_info.hotel_image_url}
+            src={
+              roomInfoList.length > 0 &&
+              roomInfoList[0].common_info.hotel_image_url
+            }
           />
           <div className="bannerTitle">
             <p className="titleText">
-              {roomInfoList[0] &&
+              {roomInfoList.length > 0 &&
                 roomInfoList[0].common_info.hotel_english_name}
             </p>
           </div>
@@ -67,7 +70,7 @@ export class BookingDetail extends Component {
                 <span className="titleSpan">OUR</span> ROOMS
               </p>
               <p className="titleBottom">
-                {roomInfoList[0] &&
+                {roomInfoList.length > 0 &&
                   roomInfoList[0].common_info.hotel_introduction}
               </p>
             </header>
@@ -78,6 +81,7 @@ export class BookingDetail extends Component {
                     return (
                       <RoomsSlider
                         {...this.state}
+                        roomInfo={roomInfo}
                         key={idx}
                         roomCount={roomInfo.room_count}
                         roomName={roomInfo.room_name}
@@ -103,7 +107,7 @@ export class BookingDetail extends Component {
           <div className="mapContainer">
             <p className="mapTitle">LOCATION</p>
             <div className="mapContent">
-              <MapContent />
+              <MapContent id={this.props.match.params.id} />
             </div>
           </div>
         </div>

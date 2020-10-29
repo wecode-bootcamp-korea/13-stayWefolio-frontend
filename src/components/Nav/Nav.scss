@@ -111,24 +111,28 @@ $icon-gray: rgb(138, 138, 138);
         @include flex(space-around);
 
         li {
-          @include flex;
+          height: 100%;
+
+          &:hover {
+            padding-top: 3px;
+            border-bottom: 3px solid black;
+          }
 
           .menuLink {
+            display: block;
+            height: 100%;
             color: $color-title-black;
+            @include flex(center, center);
             font-size: 13px;
             font-weight: 700;
           }
 
           .booking {
+            height: 26px;
             padding: 7px 8px;
             background-color: $color-title-black;
             color: $color-white;
-          }
-
-          &:active {
-            padding-top: 3px;
-            border-bottom: 3px solid black;
-          }
+          }       
         }
       }
     }

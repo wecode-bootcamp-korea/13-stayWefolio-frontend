@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
+import { API } from "../../../../config";
 import "./MapContent.scss";
 
 export class MapContent extends Component {
@@ -11,21 +12,21 @@ export class MapContent extends Component {
         lat: 0,
         lng: 0,
       },
-      markerText: "Hotel name",
     };
   }
 
   renderMarkers = (map, maps) => {
+    const { markerPosition } = this.state;
     let marker = new maps.Marker({
-      position: this.state.markerPosition,
+      position: markerPosition,
       map,
-      text: this.state.markerText,
     });
     return marker;
   };
 
   componentDidMount() {
-    fetch("/data/bookingDetailData/mapLocationData.json")
+    const { id } = this.props;
+    fetch(`${API}/main/picks/${id}`)
       .then((res) => res.json())
       .then((res) => {
         this.setState((prevState) => ({
@@ -44,16 +45,18 @@ export class MapContent extends Component {
       height: "100%",
     };
 
+    const { markerPosition } = this.state;
+
     return (
       <Map
         google={this.props.google}
         zoom={10}
         style={mapStyles}
-        center={this.state.markerPosition}
+        center={markerPosition}
         onGoogleApiLoaded={({ map, maps }) => this.renderMarkers(map, maps)}
         containerStyle={{ maxWidth: "1090px", height: "500px" }}
       >
-        <Marker position={this.state.markerPosition} />
+        <Marker position={markerPosition} />
       </Map>
     );
   }
