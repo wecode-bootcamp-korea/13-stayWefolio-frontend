@@ -29,7 +29,7 @@ class Routes extends React.Component {
           <Route exact path="/bookingDetail" component={BookingDetail} />
           <Route exact path="/bookingDetail/:id" component={BookingDetail} />
         </Switch>
-        <Footer/>
+        <Footer />
       </Router>
     );
   }

@@ -80,12 +80,18 @@ class Nav extends Component {
   render() {
     const { searchValue, brandLogos, menus, isToken } = this.state;
 
+    console.log(this.props.location.pathname);
+
     return (
       <nav className="Nav">
         <div className="container">
           <div className="logoWrap">
             <img
-              src="./images/staywefolio_logo.png"
+              src={
+                this.props.location.pathname.includes("bookingDetail")
+                  ? "../images/staywefolio_logo.png"
+                  : "./images/staywefolio_logo.png"
+              }
               alt="logo"
               className="logo"
             />
@@ -117,7 +123,16 @@ class Nav extends Component {
                     return (
                       <li key={logo.id}>
                         <a href={logo.href}>
-                          <img src={logo.src} alt={logo.alt} />
+                          <img
+                            src={
+                              this.props.location.pathname.includes(
+                                "bookingDetail"
+                              )
+                                ? `.${logo.src}`
+                                : `${logo.src}`
+                            }
+                            alt={logo.alt}
+                          />
                         </a>
                       </li>
                     );
