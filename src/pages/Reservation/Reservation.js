@@ -7,16 +7,14 @@ import AdditionalOption from "./AdditionalOption/AdditionalOption";
 import { API } from "../../config";
 import { withRouter } from "react-router-dom";
 import RESERVATION_DATA from "./reservationData";
-
-
-import "react-calendar/dist/Calendar.css";
 import "./Reservation.scss";
-import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-daterangepicker/daterangepicker.css";
+import "bootstrap/dist/css/bootstrap.css";
 
-// const TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.tm2qQm17jEeWhj-0zvLh7jt0xhk284HJpD74HqI_Z-A";
+const TOKEN =
+  "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.tm2qQm17jEeWhj-0zvLh7jt0xhk284HJpD74HqI_Z-A";
 const TODAY = new Date();
-const END_DATE = TODAY.setDate(TODAY.getDate()+2);
+const END_DATE = TODAY.setDate(TODAY.getDate() + 2);
 
 class Reservation extends React.Component {
   constructor() {
@@ -40,10 +38,10 @@ class Reservation extends React.Component {
       termCollection: false,
       termThirdParty: false,
       termRefund: false,
-      termMarketing: false, 
+      termMarketing: false,
       allCheck: false,
       bookingInfo: {},
-      nightAndDay:"2박 3일",
+      nightAndDay: "2박 3일",
       optionTotal: 0,
       bookingId: 0,
       TOKEN:localStorage.getItem("token"),
@@ -56,7 +54,7 @@ class Reservation extends React.Component {
 
     fetch(`${API}/booking/${this.props.match.params.id}?start=2020-10-29&end=2020-10-31`, {
       headers: {
-        Authorization: TOKEN
+        Authorization: TOKEN,
       },
     })
     .then((res) => res.json())
@@ -84,25 +82,27 @@ class Reservation extends React.Component {
       this.getPrice(checkInDate, checkOutDate);
     }
 
-    if (prevState.optionTotal !== this.state.optionTotal
-      || prevState.price !== this.state.price
+    if (
+      prevState.optionTotal !== this.state.optionTotal ||
+      prevState.price !== this.state.price
     ) {
       this.getTotal();
     }
 
-    if(prevState.optionBreakfast !== this.state.optionBreakfast
-      || prevState.adult + prevState.child + prevState.infant 
-      !== adult + child + infant
-      ){
-        this.handleOptionPrice();
-      }
+    if (
+      prevState.optionBreakfast !== this.state.optionBreakfast ||
+      prevState.adult + prevState.child + prevState.infant !==
+        adult + child + infant
+    ) {
+      this.handleOptionPrice();
+    }
   }
 
   getPrice = (checkInDate, checkOutDate) => {
     const { TOKEN } = this.state;
     fetch(`${API}/booking/${this.props.match.params.id}?start=${checkInDate}&end=${checkOutDate}`, {
       headers: {
-        Authorization: TOKEN
+        Authorization: TOKEN,
       },
     })
       .then((res) => res.json())
@@ -110,7 +110,7 @@ class Reservation extends React.Component {
         this.setState({
           bookingInfo: res.booking_info,
           price: res.booking_info[0]?.total,
-          discount: Math.floor(res.booking_info[0]?.total*0.1)
+          discount: Math.floor(res.booking_info[0]?.total * 0.1),
         });
       });
   };
@@ -119,7 +119,7 @@ class Reservation extends React.Component {
     const { price, discount, optionTotal } = this.state;
     const total = price - discount + optionTotal;
     this.setState({ total: total });
-  }
+  };
 
   getDateValue = (event, picker) => {
     const bookingDate = event.target.value;
@@ -131,22 +131,22 @@ class Reservation extends React.Component {
       checkOutDate: `${checkOut[2]}-${checkOut[0]}-${checkOut[1]}`,
     });
 
-  const getNightsAndDays = (checkIn, checkOut) => {
-      const checkInMonth = +checkIn[0]
-      const checkOutMonth = +checkOut[0]
-      const checkInDays = +checkIn[1]
-      const checkOutDays = +checkOut[1]
-  
+    const getNightsAndDays = (checkIn, checkOut) => {
+      const checkInMonth = +checkIn[0];
+      const checkOutMonth = +checkOut[0];
+      const checkInDays = +checkIn[1];
+      const checkOutDays = +checkOut[1];
+
       if (checkInMonth === checkOutMonth) {
         const days = checkOutDays - checkInDays;
-        this.setState({ nightAndDay:`${days}박 ${days + 1}일` });
+        this.setState({ nightAndDay: `${days}박 ${days + 1}일` });
       } else {
         if (checkInMonth % 2 === 0) {
           const days = 31 - checkInDays + checkOutDays;
-          this.setState({ nightAndDay: `${days - 1}박 ${days}일`});
+          this.setState({ nightAndDay: `${days - 1}박 ${days}일` });
         } else if (checkInMonth % 2 !== 0) {
           const days = 30 - checkInDays + checkOutDays;
-          this.setState({ nightAndDay: `${days - 1}박 ${days}일`});
+          this.setState({ nightAndDay: `${days - 1}박 ${days}일` });
         }
       }
     };
@@ -160,13 +160,13 @@ class Reservation extends React.Component {
 
   getInputValue = (name, value) => {
     this.setState({ [name]: value });
-  }
+  };
 
   getOptionValue = (name, value) => {
-    console.log(name, value)
+    console.log(name, value);
     const isChecked = value === "true" ? true : false;
     this.setState({ [name]: isChecked });
-  }
+  };
 
   handlePayTool = (event) => {
     const { name } = event.target;
@@ -182,7 +182,7 @@ class Reservation extends React.Component {
       fetch(`${API}/booking/${roomId}`, {  
       method: "POST",
       headers: {
-        Authorization: TOKEN
+        Authorization: TOKEN,
       },
       body: JSON.stringify({
         start: checkInDate,
@@ -190,7 +190,7 @@ class Reservation extends React.Component {
         name: name,
         phone_number: phoneNumber,
         email: email,
-        adult: adult, 
+        adult: adult,
         child: child,
         infant: infant,
         breakfast: optionBreakfast,
@@ -198,12 +198,12 @@ class Reservation extends React.Component {
         demand: demand,
         price: price,
         discount: discount,
-        total: total, 
+        total: total,
         payment_id: paymentId,
         term1: termCollection,
         term2: termThirdParty,
         term3: termRefund,
-        term4: termMarketing 
+        term4: termMarketing,
       }),
     })
       .then((response) => response.json())
@@ -222,19 +222,25 @@ class Reservation extends React.Component {
 
   handleOptionPrice = (name) => {
     const { adult, child, infant } = this.state;
-    this.setState({ [name]: !this.state[name] }, () => {
-      const { optionBreakfast } = this.state;
-      const breakFastCost = optionBreakfast ? 5000 * (Number(adult) + Number(child)+ Number(infant)) : 0;
-      this.setState({ optionTotal: breakFastCost });
-    },()=>(typeof this.state.optionBreakfast));
+    this.setState(
+      { [name]: !this.state[name] },
+      () => {
+        const { optionBreakfast } = this.state;
+        const breakFastCost = optionBreakfast
+          ? 5000 * (Number(adult) + Number(child) + Number(infant))
+          : 0;
+        this.setState({ optionTotal: breakFastCost });
+      },
+      () => typeof this.state.optionBreakfast
+    );
   };
 
   numberFormat = (inputNumber) => {
     return inputNumber.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
- }
+  };
 
   render() {
-    console.log(this.state.bookingInfo)
+    console.log(this.state.bookingInfo);
     const {
       checkInDate,
       checkOutDate,
@@ -299,7 +305,7 @@ class Reservation extends React.Component {
                   </div>
 
                   {RESERVATION_DATA.INPUT_INFO.map((input, idx) => (
-                    <ReservationInput 
+                    <ReservationInput
                       key={idx}
                       title={input.title} 
                       name={input.name} 
@@ -311,10 +317,10 @@ class Reservation extends React.Component {
                     <span className="title">인원(최대 2명)</span>
                     <div className="selectWrap">
                       {RESERVATION_DATA.PEOPLE_OPTIONS.map((option, idx) => (
-                        <PeopleOption 
+                        <PeopleOption
                           key={idx}
-                          age={option.age} 
-                          name={option.name} 
+                          age={option.age}
+                          name={option.name}
                           event={this.getInputValue}
                         />
                       ))}
@@ -324,17 +330,19 @@ class Reservation extends React.Component {
                   <div className="option">
                     <span className="optionTitle">추가/옵션 선택</span>
                     <div className="miniOption">
-                      {RESERVATION_DATA.ADDITIONAL_OPTIONS.map((option, idx) => (
-                        <AdditionalOption 
-                          key={idx}
-                          img={option.img} 
-                          title={option.title} 
-                          info={option.info} 
-                          desc={option.desc} 
-                          name={option.name}
-                          event={this.handleOptionPrice}
-                        />
-                      ))} 
+                      {RESERVATION_DATA.ADDITIONAL_OPTIONS.map(
+                        (option, idx) => (
+                          <AdditionalOption
+                            key={idx}
+                            img={option.img}
+                            title={option.title}
+                            info={option.info}
+                            desc={option.desc}
+                            name={option.name}
+                            event={this.handleOptionPrice}
+                          />
+                        )
+                      )}
                     </div>
                   </div>
 
@@ -349,11 +357,12 @@ class Reservation extends React.Component {
                   <div className="price">
                     <span className="title">Total</span>
                     <div className="totalDetail">
-
                       <div className="priceCon">
                         <span className="priceCategory">객실요금</span>
                         <div className="priceWon">
-                      <span className="priceNum">{this.numberFormat(price)}</span>
+                          <span className="priceNum">
+                            {this.numberFormat(price)}
+                          </span>
                           <span className="won">원</span>
                         </div>
                       </div>
@@ -361,7 +370,9 @@ class Reservation extends React.Component {
                       <div className="priceCon">
                         <span className="priceCategory">추가옵션</span>
                         <div className="priceWon">
-                      <span className="priceNum">{this.numberFormat(optionTotal)}</span>
+                          <span className="priceNum">
+                            {this.numberFormat(optionTotal)}
+                          </span>
                           <span className="won">원</span>
                         </div>
                       </div>
@@ -369,7 +380,9 @@ class Reservation extends React.Component {
                       <div className="priceCon">
                         <span className="priceCategory">할인금액</span>
                         <div className="priceWon">
-                          <span className="priceNum">{this.numberFormat(discount)}</span>
+                          <span className="priceNum">
+                            {this.numberFormat(discount)}
+                          </span>
                           <span className="won">원</span>
                         </div>
                       </div>
@@ -377,11 +390,12 @@ class Reservation extends React.Component {
                       <div className="totalPriceCon">
                         <span className="priceCategory">총 결제금액</span>
                         <div className="">
-                      <span className="totalPrice">{this.numberFormat(total)}</span>
+                          <span className="totalPrice">
+                            {this.numberFormat(total)}
+                          </span>
                           <span className="won">원</span>
                         </div>
                       </div>
-
                     </div>
                   </div>
 
@@ -409,11 +423,11 @@ class Reservation extends React.Component {
                     </div>
                   </div>
                   <div className="btnCon">
-                    <button 
+                    <button
                       className="meaningBtn"
                       onClick={this.postReservationInfo}
                     >
-                        예약하기
+                      예약하기
                     </button>
                   </div>
                 </div>
