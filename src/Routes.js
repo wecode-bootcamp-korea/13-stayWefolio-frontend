@@ -12,7 +12,7 @@ import Booking from "./pages/Booking/Booking";
 import Reservation from "./pages/Reservation/Reservation";
 import CheckPage from "./pages/CheckPage/CheckPage";
 import BookingDetail from "./pages/BookingDetail/BookingDetail";
-
+import ReservationInfo from "./pages/Reservation/ReservationInfo/ReservationInfo";
 class Routes extends React.Component {
   render() {
     return (
