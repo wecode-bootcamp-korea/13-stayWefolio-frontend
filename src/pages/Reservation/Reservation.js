@@ -5,14 +5,16 @@ import ReservationInput from "./ReservationInput/ReservationInput";
 import PeopleOption from "./PeopleOption/PeopleOption";
 import AdditionalOption from "./AdditionalOption/AdditionalOption";
 import { API } from "../../config";
+import { withRouter } from "react-router-dom";
 import RESERVATION_DATA from "./reservationData";
+
 
 import "react-calendar/dist/Calendar.css";
 import "./Reservation.scss";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-daterangepicker/daterangepicker.css";
 
-const TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.tm2qQm17jEeWhj-0zvLh7jt0xhk284HJpD74HqI_Z-A";
+// const TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.tm2qQm17jEeWhj-0zvLh7jt0xhk284HJpD74HqI_Z-A";
 const TODAY = new Date();
 const END_DATE = TODAY.setDate(TODAY.getDate()+2);
 
@@ -44,11 +46,15 @@ class Reservation extends React.Component {
       nightAndDay:"2박 3일",
       optionTotal: 0,
       bookingId: 0,
+      TOKEN:localStorage.getItem("token"),
+      roomId:0
     };
   }
 
   componentDidMount () {
-    fetch(`${API}/booking/1?start=2020-10-29&end=2020-10-31`, {
+    const { TOKEN } = this.state;
+
+    fetch(`${API}/booking/${this.props.match.params.id}?start=2020-10-29&end=2020-10-31`, {
       headers: {
         Authorization: TOKEN
       },
@@ -59,9 +65,14 @@ class Reservation extends React.Component {
       this.setState({
         bookingInfo : res.booking_info,
         price: res.booking_info[0]?.total,
-        discount: Math.floor(res.booking_info[0]?.total*0.1)
+        discount: Math.floor(res.booking_info[0]?.total*0.1),
+        name: res.booking_info[0]?.user.name,
+        email: res.booking_info[0]?.user.email,
+        roomId: res.booking_info[0]?.room_id
       });
     });
+
+
   }
 
   componentDidUpdate(prevPros, prevState) {
@@ -88,7 +99,8 @@ class Reservation extends React.Component {
   }
 
   getPrice = (checkInDate, checkOutDate) => {
-    fetch(`${API}/booking/1?start=${checkInDate}&end=${checkOutDate}`, {
+    const { TOKEN } = this.state;
+    fetch(`${API}/booking/${this.props.match.params.id}?start=${checkInDate}&end=${checkOutDate}`, {
       headers: {
         Authorization: TOKEN
       },
@@ -163,11 +175,11 @@ class Reservation extends React.Component {
   };
 
   postReservationInfo = () => {
-    const { checkInDate, checkOutDate, name, phoneNumber, email, adult, child, infant, discount,
+    const { checkInDate, checkOutDate, name, phoneNumber, email, adult, child, infant, discount, TOKEN, roomId,
       optionBreakfast, optionPickUp, demand, price, total, paymentId, termCollection, termThirdParty, termRefund, termMarketing
     } = this.state;
 
-      fetch(API, {  
+      fetch(`${API}/booking/${roomId}`, {  
       method: "POST",
       headers: {
         Authorization: TOKEN
@@ -197,9 +209,15 @@ class Reservation extends React.Component {
       .then((response) => response.json())
       .then((result) => {
         console.log("==================================");
-        console.log("백엔드에서 오는 응답메세지: ",  this.setState({ bookingId: result.booking_id })
-      )});
-    // this.props.history.push("/main-eunsun");
+        console.log("백엔드에서 오는 응답메세지: ", result.booking_id)
+      
+      if(result.booking_id){
+        this.props.history.push({
+          pathname: "/checkPage",
+          data : result.booking_id
+        })
+      }
+    });
   }
 
   handleOptionPrice = (name) => {
@@ -235,7 +253,8 @@ class Reservation extends React.Component {
       price,
       nightAndDay,
       optionTotal,
-      bookingInfo
+      bookingInfo,
+      TOKEN
     } = this.state;
 
     return (
@@ -284,6 +303,7 @@ class Reservation extends React.Component {
                       key={idx}
                       title={input.title} 
                       name={input.name} 
+                      value={this.state[input.name]}
                       event={this.getInputValue} />
                   ))}
 
@@ -407,4 +427,4 @@ class Reservation extends React.Component {
   }
 }
 
-export default Reservation;
+export default withRouter(Reservation);

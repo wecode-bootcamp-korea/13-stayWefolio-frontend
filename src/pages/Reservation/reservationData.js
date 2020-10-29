@@ -5,7 +5,7 @@ const RESERVATION_DATA= {
     { age: "유아", name: "infant" }
   ],
   INPUT_INFO : [
-    {  title: "이름", name: "name" },
+    { title: "이름", name: "name" },
     { title: "연락처", name: "phoneNumber" },
     { title: "이메일", name: "email" }
   ],

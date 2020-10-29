@@ -42,6 +42,8 @@ export class RoomsSlider extends Component {
       roomFacility,
       roomService,
       bottomInfo,
+      roomId,
+      history
     } = this.props;
 
     return (
@@ -98,7 +100,9 @@ export class RoomsSlider extends Component {
               </div>
               <div className="roomPrice">{price}</div>
             </div>
-            <button className="roomsRightBtn">Booking</button>
+            <button 
+              className="roomsRightBtn" 
+              onClick={() => history.push(`/reservation/${roomId}`)}>Booking</button>
           </div>
         </div>
 
