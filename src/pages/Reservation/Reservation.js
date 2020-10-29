@@ -6,11 +6,9 @@ import PeopleOption from "./PeopleOption/PeopleOption";
 import AdditionalOption from "./AdditionalOption/AdditionalOption";
 import { API } from "../../config";
 import RESERVATION_DATA from "./reservationData";
-
-//import "react-calendar/dist/Calendar.css";
 import "./Reservation.scss";
-import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-daterangepicker/daterangepicker.css";
+import "bootstrap/dist/css/bootstrap.css";
 
 const TOKEN =
   "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.tm2qQm17jEeWhj-0zvLh7jt0xhk284HJpD74HqI_Z-A";
