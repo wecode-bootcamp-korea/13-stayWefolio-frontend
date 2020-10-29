@@ -45,6 +45,7 @@ export class Main extends Component {
       .then((res) => {
         this.setState({
           bannerList: res.data,
+          id: res.data[0].hotel_id,
         });
       });
 
@@ -53,7 +54,6 @@ export class Main extends Component {
       .then((res) => {
         this.setState({
           searchedHotel: res.hotels,
-          id: res.hotels[0].id,
         });
       });
   }
@@ -78,7 +78,9 @@ export class Main extends Component {
                 <button
                   className="bannerBtn"
                   onClick={() =>
-                    this.props.history.push(`/bookingDetail/${id}`)
+                    this.props.history.push(
+                      `/bookingDetail/${bannerList[0].hotel_id}`
+                    )
                   }
                 >
                   SHOW NOW
