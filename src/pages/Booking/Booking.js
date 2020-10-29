@@ -20,24 +20,14 @@ export class Booking extends Component {
       .then((res) => {
         this.setState({
           bookingBannerList: res.data,
-          id: res.data[0].hotel_id,
+          id: res.data[1].hotel_id,
         });
       });
   };
 
-  /* 구현 예정 */
-  // fetchBtn = (e) => {
-  //   const LIMIT = 10;
-  //   const offset = e.target.dataset.image;
-
-  //   fetch(`http://10.58.1.45:8000/main/banner?banner=${LIMIT}&offset=${offset}`)
-  //     .then((res) => res.json())
-  //     .then((res) => this.setState({ bookingBannerList: res.data }));
-  // };
-
   render() {
-    console.log(this.state.bookingBannerList);
     const { bookingBannerList, id } = this.state;
+    console.log(bookingBannerList)
 
     return (
       <div className="Booking">
@@ -70,7 +60,6 @@ export class Booking extends Component {
                     <span>Check Out</span>
                   </div>
                 </div>
-                {/* <div>뱅기, 바</div> */}
                 <div className="hBar"></div>
                 <div className="planeIconBox">
                   <i className="far fa-paper-plane"></i>
@@ -99,9 +88,6 @@ export class Booking extends Component {
               </div>
             </div>
           ))}
-          {/* <button className="paginationBtn" onClick={this.fetchBtn}>
-            페이지네이션 구현할 자리
-          </button> */}
         </div>
       </div>
     );

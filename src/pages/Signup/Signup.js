@@ -64,13 +64,11 @@ export class Signup extends Component {
       }),
     })
       .then((response) => response.json())
-      // .then((result) => console.log("결과: ", result));
-  .then((result) => {
+      .then((result) => {
     console.log("=============");
     console.log("백엔드 응답 메세지 :", result);
-    if (result.MESSAGE === "SUCCESS") {
-      localStorage.setItem("token", result);
-  this.props.history.push("/");
+    if (result.message === "SUCCESS") {
+      this.props.history.push("/");
     }
   });
   };
@@ -79,9 +77,6 @@ export class Signup extends Component {
     console.log(this.state.name)
     return (
       <div className="Signup">
-        {/* <div className="navWrap">
-          <nav></nav>
-        </div> */}
         <div className="signupContainer">
           <div className="signupBoard">
             <header>
@@ -260,9 +255,6 @@ export class Signup extends Component {
             </div>
           </div>
         </div>
-        {/* <div className="footerWrap">
-          <footer></footer>
-        </div> */}
       </div>
     );
   }

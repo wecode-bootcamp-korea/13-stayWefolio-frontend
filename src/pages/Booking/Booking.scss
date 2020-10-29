@@ -47,14 +47,13 @@
         height: inherit;
         font-size: 12px;
         font-weight: bolder;
-        border-left: 1px solid rgb(128, 128, 128);
         color: $color-white;
 
         .headerLeftContainer {
           @include flex(flex-start, center, center);
           height: inherit;
           width: 550px;
-          padding-left: 17px;
+          
 
           .switchTitle {
             margin: 1px 8px 0 0;
@@ -137,7 +136,7 @@
           display: flex;
           justify-content: space-between;
           align-items: center;
-          width: 558px;
+          width: 546px;
           height: inherit;
           padding: 12px 12px 12px 17px;
           font-size: 13px;

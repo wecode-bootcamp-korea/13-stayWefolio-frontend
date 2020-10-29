@@ -7,12 +7,13 @@ import AdditionalOption from "./AdditionalOption/AdditionalOption";
 import { API } from "../../config";
 import { withRouter } from "react-router-dom";
 import RESERVATION_DATA from "./reservationData";
+import ReservationInfo from "./ReservationInfo/ReservationInfo"
 import "./Reservation.scss";
 import "bootstrap-daterangepicker/daterangepicker.css";
 import "bootstrap/dist/css/bootstrap.css";
 
-const TOKEN =
-  "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.tm2qQm17jEeWhj-0zvLh7jt0xhk284HJpD74HqI_Z-A";
+// const TOKEN =
+  // "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.tm2qQm17jEeWhj-0zvLh7jt0xhk284HJpD74HqI_Z-A";
 const TODAY = new Date();
 const END_DATE = TODAY.setDate(TODAY.getDate() + 2);
 
@@ -44,33 +45,34 @@ class Reservation extends React.Component {
       nightAndDay: "2박 3일",
       optionTotal: 0,
       bookingId: 0,
-      TOKEN:localStorage.getItem("token"),
-      roomId:0
+      TOKEN: localStorage.getItem("token"),
+      roomId: 0,
     };
   }
 
-  componentDidMount () {
+  componentDidMount() {
     const { TOKEN } = this.state;
 
-    fetch(`${API}/booking/${this.props.match.params.id}?start=2020-10-29&end=2020-10-31`, {
-      headers: {
-        Authorization: TOKEN,
-      },
-    })
-    .then((res) => res.json())
-    .then((res) => {
-      console.log("확인")
-      this.setState({
-        bookingInfo : res.booking_info,
-        price: res.booking_info[0]?.total,
-        discount: Math.floor(res.booking_info[0]?.total*0.1),
-        name: res.booking_info[0]?.user.name,
-        email: res.booking_info[0]?.user.email,
-        roomId: res.booking_info[0]?.room_id
+    fetch(
+      `${API}/booking/${this.props.match.params.id}?start=2020-10-29&end=2020-10-31`,
+      {
+        headers: {
+          Authorization: TOKEN,
+        },
+      }
+    )
+      .then((res) => res.json())
+      .then((res) => {
+        console.log("확인");
+        this.setState({
+          bookingInfo: res.booking_info,
+          price: res.booking_info[0]?.total,
+          discount: Math.floor(res.booking_info[0]?.total * 0.1),
+          name: res.booking_info[0]?.user.name,
+          email: res.booking_info[0]?.user.email,
+          roomId: res.booking_info[0]?.room_id,
+        });
       });
-    });
-
-
   }
 
   componentDidUpdate(prevPros, prevState) {
@@ -100,11 +102,14 @@ class Reservation extends React.Component {
 
   getPrice = (checkInDate, checkOutDate) => {
     const { TOKEN } = this.state;
-    fetch(`${API}/booking/${this.props.match.params.id}?start=${checkInDate}&end=${checkOutDate}`, {
-      headers: {
-        Authorization: TOKEN,
-      },
-    })
+    fetch(
+      `${API}/booking/${this.props.match.params.id}?start=${checkInDate}&end=${checkOutDate}`,
+      {
+        headers: {
+          Authorization: TOKEN,
+        },
+      }
+    )
       .then((res) => res.json())
       .then((res) => {
         this.setState({
@@ -175,11 +180,31 @@ class Reservation extends React.Component {
   };
 
   postReservationInfo = () => {
-    const { checkInDate, checkOutDate, name, phoneNumber, email, adult, child, infant, discount, TOKEN, roomId,
-      optionBreakfast, optionPickUp, demand, price, total, paymentId, termCollection, termThirdParty, termRefund, termMarketing
+    const {
+      checkInDate,
+      checkOutDate,
+      name,
+      phoneNumber,
+      email,
+      adult,
+      child,
+      infant,
+      discount,
+      TOKEN,
+      roomId,
+      optionBreakfast,
+      optionPickUp,
+      demand,
+      price,
+      total,
+      paymentId,
+      termCollection,
+      termThirdParty,
+      termRefund,
+      termMarketing,
     } = this.state;
 
-      fetch(`${API}/booking/${roomId}`, {  
+    fetch(`${API}/booking/${roomId}`, {
       method: "POST",
       headers: {
         Authorization: TOKEN,
@@ -209,16 +234,16 @@ class Reservation extends React.Component {
       .then((response) => response.json())
       .then((result) => {
         console.log("==================================");
-        console.log("백엔드에서 오는 응답메세지: ", result.booking_id)
-      
-      if(result.booking_id){
-        this.props.history.push({
-          pathname: "/checkPage",
-          data : result.booking_id
-        })
-      }
-    });
-  }
+        console.log("백엔드에서 오는 응답메세지: ", result.booking_id);
+
+        if (result.booking_id) {
+          this.props.history.push({
+            pathname: "/checkPage",
+            data: result.booking_id,
+          });
+        }
+      });
+  };
 
   handleOptionPrice = (name) => {
     const { adult, child, infant } = this.state;
@@ -260,9 +285,9 @@ class Reservation extends React.Component {
       nightAndDay,
       optionTotal,
       bookingInfo,
-      TOKEN
+      TOKEN,
     } = this.state;
-
+    console.log(this.state.roomId);
     return (
       <div className="Reservation">
         <div className="container">
@@ -287,7 +312,6 @@ class Reservation extends React.Component {
                   <div className="hotelImg">
                     <img src={bookingInfo[0]?.room_image} />
                   </div>
-
                   <div className="date">
                     <span className="title">예약일</span>
                     <div className="datePickCon">
@@ -307,10 +331,11 @@ class Reservation extends React.Component {
                   {RESERVATION_DATA.INPUT_INFO.map((input, idx) => (
                     <ReservationInput
                       key={idx}
-                      title={input.title} 
-                      name={input.name} 
+                      title={input.title}
+                      name={input.name}
                       value={this.state[input.name]}
-                      event={this.getInputValue} />
+                      event={this.getInputValue}
+                    />
                   ))}
 
                   <div className="people">
@@ -422,6 +447,7 @@ class Reservation extends React.Component {
                       </label>
                     </div>
                   </div>
+                  <ReservationInfo />
                   <div className="btnCon">
                     <button
                       className="meaningBtn"

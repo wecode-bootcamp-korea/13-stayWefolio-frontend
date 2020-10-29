@@ -84,15 +84,18 @@ class Nav extends Component {
       <nav className="Nav">
         <div className="container">
           <div className="logoWrap">
-            <img
-              src={
-                this.props.location.pathname.includes("bookingDetail")
-                  ? "../images/staywefolio_logo.png"
-                  : "./images/staywefolio_logo.png"
-              }
-              alt="logo"
-              className="logo"
-            />
+            <Link to="/">
+              <img
+                src={
+                  this.props.location.pathname.includes("bookingDetail") ||
+                  this.props.location.pathname.includes("reservation")
+                    ? "../images/staywefolio_logo.png"
+                    : "./images/staywefolio_logo.png"
+                }
+                alt="logo"
+                className="logo"
+              />
+            </Link>
           </div>
           <div className="navContainer">
             <div className="topLineWrap">
@@ -125,6 +128,9 @@ class Nav extends Component {
                             src={
                               this.props.location.pathname.includes(
                                 "bookingDetail"
+                              ) ||
+                              this.props.location.pathname.includes(
+                                "reservation"
                               )
                                 ? `.${logo.src}`
                                 : `${logo.src}`
