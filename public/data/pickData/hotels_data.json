@@ -58,8 +58,8 @@
                   "thumbnail_url": "https://images.unsplash.com/photo-1593909981672-3364df4cabf0?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9",
                   "location": "제주/애월",
                   "category": "민박",
-                  "min_price": "240,000",
-                  "max_price": "340,000",
+                  "min_price": "240000",
+                  "max_price": "340000",
                   "tags": [
                       "자연속의쉼",
                       "가족여행",

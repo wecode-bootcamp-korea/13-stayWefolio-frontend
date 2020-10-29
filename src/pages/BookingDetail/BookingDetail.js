@@ -1,9 +1,12 @@
 import React, { Component } from "react";
+import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
 import Slider from "react-slick";
+import { withRouter } from "react-router-dom";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./BookingDetail.scss";
 import RoomsSlider from "./BookingDetailComponent/RoomsSlider/RoomsSlider";
+import MapContent from "./BookingDetailComponent/Map/MapContent";
 import { API } from "../../../src/config";
 
 const slickRoomsSettings = {
@@ -17,6 +20,9 @@ const slickRoomsSettings = {
   dots: true,
 };
 
+const mockAPI =
+  "http://localhost:3000/data/bookingDetailData/roomInfoData.json";
+
 export class BookingDetail extends Component {
   constructor() {
     super();
@@ -26,8 +32,9 @@ export class BookingDetail extends Component {
     };
   }
 
+  //`${API}/main/places/1`
   componentDidMount() {
-    fetch(`${API}/main/places/1`)
+    fetch(`${API}/main/places/${this.props.match.params.id}`)
       .then((res) => res.json())
       .then((res) => {
         this.setState({
@@ -37,6 +44,7 @@ export class BookingDetail extends Component {
   }
 
   render() {
+    console.log(this.state.roomInfoList)
     const { roomInfoList, bottomInfoList } = this.state;
 
     return (
@@ -45,11 +53,14 @@ export class BookingDetail extends Component {
           <img
             className="bannerImg"
             alt="hotel"
-            src={roomInfoList[0] && roomInfoList[0].common_info.hotel_image_url}
+            src={
+              roomInfoList.length > 0 &&
+              roomInfoList[0].common_info.hotel_image_url
+            }
           />
           <div className="bannerTitle">
             <p className="titleText">
-              {roomInfoList[0] &&
+              {roomInfoList.length > 0 &&
                 roomInfoList[0].common_info.hotel_english_name}
             </p>
           </div>
@@ -61,7 +72,7 @@ export class BookingDetail extends Component {
                 <span className="titleSpan">OUR</span> ROOMS
               </p>
               <p className="titleBottom">
-                {roomInfoList[0] &&
+                {roomInfoList.length > 0 &&
                   roomInfoList[0].common_info.hotel_introduction}
               </p>
             </header>
@@ -72,6 +83,7 @@ export class BookingDetail extends Component {
                     return (
                       <RoomsSlider
                         {...this.state}
+                        roomInfo={roomInfo}
                         key={idx}
                         roomCount={roomInfo.room_count}
                         roomName={roomInfo.room_name}
@@ -83,21 +95,29 @@ export class BookingDetail extends Component {
                         minPeople={roomInfo.min_people}
                         maxPeople={roomInfo.max_people}
                         area={roomInfo.area}
+                        roomId={roomInfo.room_id}
                         roomImg={roomInfo.room_image}
                         roomBed={roomInfo.bed}
                         roomTag={roomInfo.tags}
                         roomFacility={roomInfo.facility}
                         roomService={roomInfo.service}
+                        history={this.props.history}
                       />
                     );
                   })}
               </Slider>
             </div>
           </section>
+          <div className="mapContainer">
+            <p className="mapTitle">LOCATION</p>
+            <div className="mapContent">
+              <MapContent id={this.props.match.params.id} />
+            </div>
+          </div>
         </div>
       </div>
     );
   }
 }
 
-export default BookingDetail;
+export default withRouter(BookingDetail);

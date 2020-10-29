@@ -12,7 +12,7 @@ export class RoomsSlider extends Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:3000/data/bookingDetailData/roomBottomData.json")
+    fetch("/data/bookingDetailData/roomBottomData.json")
       .then((res) => res.json())
       .then((res) => {
         this.setState({
@@ -42,6 +42,8 @@ export class RoomsSlider extends Component {
       roomFacility,
       roomService,
       bottomInfo,
+      roomId,
+      history
     } = this.props;
 
     return (
@@ -98,7 +100,9 @@ export class RoomsSlider extends Component {
               </div>
               <div className="roomPrice">{price}</div>
             </div>
-            <button className="roomsRightBtn">Booking</button>
+            <button 
+              className="roomsRightBtn" 
+              onClick={() => history.push(`/reservation/${roomId}`)}>Booking</button>
           </div>
         </div>
 
