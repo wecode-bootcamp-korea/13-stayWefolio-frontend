@@ -43,7 +43,7 @@
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
-      //margin: 10px -15px 0 -15px;
+      margin: 10px -15px 0 -15px;
     }
 
     .pagination {
@@ -57,17 +57,16 @@
     }
   }
 
-  /*
-  @media (min-width: 768px) {
-    .PickArticle {
-      width: 50%;
-    } 
-  }  
+  
+  // @media (min-width: 768px) {
+  //   .PickArticle {
+  //     width: 100%
+  //   } 
+  // }  
 
-  @media (min-width: 992px) {
-    .PickArticle {
-      width: 33.33333333%;
-    }
-  }  
-  */
+  // @media (min-width: 992px) {
+  //   .PickArticle {
+  //     width: 33.33333333%;
+  //   }
+  // }  
 }

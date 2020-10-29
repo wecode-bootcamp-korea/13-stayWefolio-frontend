@@ -8,10 +8,12 @@ export class PickArticle extends Component {
     const newTags = tags.join(", ");
     if (newTags.length > 15) {
       return newTags.substring(0, 15) + "...";
-    } else {
-      return newTags;
-    }
+    } 
   };
+
+  numberFormat = (inputNumber) => {
+    return inputNumber.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+ }
   render() {
     const {
       name,
@@ -70,7 +72,7 @@ export class PickArticle extends Component {
               <div className="con">
                 <i className="fas fa-coins"></i>
                 <span>
-                  {minPrice}~{maxPrice}
+                  {this.numberFormat(minPrice)}~{this.numberFormat(maxPrice)}
                 </span>
                 <span className="centerLine">|</span>
               </div>

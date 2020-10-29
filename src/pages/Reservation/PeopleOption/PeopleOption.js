@@ -12,7 +12,8 @@ class PeopleOption extends Component {
 
   handleInput = (event) => {
     const { name, value } = event.target;
-    this.props.event(name, value);
+    // console.log(typeof event.target.value)
+    this.props.event(name, Number(value));
   };
 
   render() {

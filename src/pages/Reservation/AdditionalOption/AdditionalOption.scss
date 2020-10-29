@@ -19,6 +19,7 @@ $color-gray: rgb(145, 145, 145);
       margin-left: 10px;
     }
   }
+
   p {
     padding: 5px 0;
     color: $color-gray;
@@ -26,19 +27,23 @@ $color-gray: rgb(145, 145, 145);
     line-height: 20px;
   }
 
-  .checkBoxes {
+  .checkBoxs {
     margin-bottom: 5px;
-    margin-left: 15px;
     color: $color-black;
+    font-size: 14px;
+
+    span {
+      margin-right: 10px;
+    }
 
     .check {
-      color: $color-gray;
       font-size: 14px;
+      font-weight: 500;
       line-height: 20px;
-      float: right;
+      margin-left: 10px;
 
       input {
-        margin-right: 10px;
+        margin-right: 4px;
         padding: 0 4px;
       }
     }

@@ -32,7 +32,7 @@ export class SearchFilter extends Component {
 
   handleBlur = () => {
     const { displayMode } = this.state;
-    this.setState({ displayMode: !displayMode });
+    this.setState({ displayMode: false });
   };
 
   render() {
@@ -49,7 +49,7 @@ export class SearchFilter extends Component {
         id={id}
         tabIndex="0"
         onClick={this.handleSearchFilter}
-        //onBlur={this.handleBlur}
+        onBlur={this.handleBlur}
       >
         <span className="filterTitle">{searchFilterTitle}</span>
         <div className="selector"></div>

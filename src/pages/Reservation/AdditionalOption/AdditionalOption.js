@@ -8,7 +8,8 @@ class AdditionalOption extends Component {
 
     // const { name } = event.target;
     // const isChecked = event.currentTarget.value === "true" ? true : false;
-    this.props.event(name, event.target.value)
+    this.props.event(name)
+    // this.props.event(name, event.target.value)
   };
 
   render() {
@@ -25,7 +26,7 @@ class AdditionalOption extends Component {
           {desc}
         </p>
         <div className="checkBoxs">
-          (필수)
+          <span>(필수)</span>
           <label className="check" htmlFor="check">
             <input
               type="radio"

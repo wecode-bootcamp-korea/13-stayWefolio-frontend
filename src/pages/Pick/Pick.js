@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import PickArticle from "./PickArticle/PickArticle";
 import SearchFilter from "./SearchFilter/SearchFilter";
 import PageButton from "./PageButton/PageButton";
@@ -27,7 +27,7 @@ export class Pick extends Component {
           { value: 7, current: false },
         ],
         prev: null,
-        next: 8,
+        next: 2,
       },
       qS: {
         limit: 12,
@@ -96,6 +96,7 @@ export class Pick extends Component {
   };
 
   setQS = (targetPage) => {
+    console.log("setQS", targetPage)
     const newOffset = (targetPage - 1) * 12;
 
     this.setState((prevState) => ({
@@ -181,7 +182,7 @@ export class Pick extends Component {
   };
 
   handlePageBtns = (targetPage) => {
-    console.log(targetPage);
+    console.log(targetPage)
     const condition = {
       currentPage: targetPage,
       totalPage: 10,
@@ -195,9 +196,30 @@ export class Pick extends Component {
     });
 
     const paging = ({ currentPage, totalPage, itemPerPage, limit }) => {
+      const { pages, prev, next } = this.state.pageHandling;
       let newPages = [];
+
       if (currentPage < 4) {
         newPages = [1, 2, 3, 4, 5, 6, 7];
+      } else if (currentPage === "<" ){
+        if(prev !== null ){
+          newPages = pages.map((btn) => btn.value -1)
+          currentPage = prev; 
+        } else {
+          newPages =[1, 2, 3, 4, 5, 6, 7];
+          currentPage = 1;
+        }
+      } else if (currentPage === ">") {
+        if(pages[3]["value"]+1 < 5){
+          newPages = [1,2,3,4,5,6,7];
+          currentPage = next;
+          console.log(newPages, currentPage)
+        } else {
+          newPages = pages.map((btn)=> +btn.value +1);
+          currentPage = next;
+        }
+        // newPages = pages.map((btn)=> +btn.value +1);
+        // currentPage = pages[3]["value"]+1;
       } else {
         newPages = [
           currentPage - 3,
@@ -233,7 +255,7 @@ export class Pick extends Component {
   };
 
   render() {
-    console.log(this.state.searchedHotel);
+    // console.log(this.state.searchedHotel);
     const { searchedHotel } = this.state;
 
     return (

@@ -7,8 +7,8 @@
   max-width: 360px;
   height: 448px;
   background-color: white;
-  border-bottom: 2px solid gray;
-  //padding: 0 15px 0 15px;
+  border-bottom: 2px solid #E2E3E4;
+  // padding: 0 15px 0 15px;
   margin-bottom: 30px;
 
   .imgCon {
@@ -137,6 +137,7 @@
           .centerLine {
             position: absolute;
             right: -1px;
+            color: #E2E3E4;
           }
   
         }
@@ -144,7 +145,7 @@
     }
   }
 }
-/*
+
 @media (min-width: 768px) {
   .PickArticle {
     width: 50%;
@@ -156,5 +157,5 @@
     width: 33.33333333%;
   }
 }  
-*/
+
 

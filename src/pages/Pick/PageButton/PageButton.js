@@ -16,9 +16,9 @@ function Btn({ value, current, event }) {
 
 export class PageButton extends Component {
   getTargetPage = (e) => {
-    // console.log(e.target.innerHTML);
-    this.props.clickEvent(e.target.innerHTML);
-    this.props.setQS(e.target.innerHTML);
+    console.log(e.target.innerText);
+    this.props.clickEvent(e.target.innerText);
+    this.props.setQS(e.target.innerText);
     // this.props.getPageNum(this.targetPage.innerText);
     // this.props.pagingNum(this.targetPage.innerText);
   };
@@ -28,16 +28,6 @@ export class PageButton extends Component {
     const { pages, prev, next } = this.props;
     // console.log(typeof this.getTargetPage);
     return (
-      // <li
-      //   className={clicked}
-      //   onClick={this.getTargetPage}
-      // >
-      //   <span
-      //     id={id}
-      //     ref={(ref)=>this.targetPage=ref}
-      //   >{pageNum}</span>
-      // </li>
-
       <div className="PageButton">
         <Btn
           type="arrow"
