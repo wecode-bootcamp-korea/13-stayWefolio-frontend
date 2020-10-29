@@ -1,0 +1,25 @@
+$color-gray: rgb(145, 145, 145);
+
+.PeopleOption {
+  width: 138px;
+  height: 40px;
+  margin: 0 auto;
+  color: $color-gray;
+  display: inline-flex;
+  align-items: center;
+
+  span {
+    margin: 0 auto;
+  }
+
+  select {
+    width: 78px;
+    height: 38px;
+    border-radius: 3px;
+    display: block;
+    position: relative;
+    left: 0;
+    top: 0;
+    font-size: 14px;
+  }
+}

@@ -27,7 +27,7 @@
   }
   .loginContainer {
     @include flex-center;
-    margin: 50px 0;
+    padding: 50px 0;
     .loginBoard {
       width: 555px;
       background-color: $color-white;
@@ -64,7 +64,7 @@
           color: $color-white;
           background-color: rgb(62, 175, 12);
           font-size: 15px;
-          font-weight: 300;
+          font-weight: 500;
           cursor: pointer;
         }
         .facebookLogin {
@@ -74,7 +74,7 @@
           color: $color-white;
           background-color: rgb(55, 104, 185);
           font-size: 15px;
-          font-weight: 300;
+          font-weight: 500;
           cursor: pointer;
         }
         .guestLogin {
@@ -84,7 +84,7 @@
           color: $color-white;
           background-color: rgb(128, 128, 128);
           font-size: 15px;
-          font-weight: 300;
+          font-weight: 500;
           cursor: pointer;
         }
         .facebookLogin,
@@ -166,11 +166,10 @@
       }
     }
   }
-  .footerWrap {
-    width: inherit;
-    footer {
-      height: 320px;
-      background-color: $color-black;
-    }
-  }
+  // .footerWrap {
+  //   width: inherit;
+  //   footer {
+  //     background-color: $color-black;
+  //   }
+  // }
 }
