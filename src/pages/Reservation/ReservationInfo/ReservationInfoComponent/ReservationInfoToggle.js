@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import "../ReservationInfo.scss";
 import "../ReservationInfoComponent/ReservationInfoVehicles.scss";
-// import "../ReservationJY.scss";
-// import "../ReservationJYcomponent/ReservationVehicles.scss";
 
 class ReservationInfoToggle extends React.Component {
   constructor(props) {
@@ -21,7 +19,7 @@ class ReservationInfoToggle extends React.Component {
   }
 
   render() {
-    var { title, children } = this.props;
+    var { children } = this.props;
     const { opened } = this.state;
 
     return (

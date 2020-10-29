@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import "../ReservationInfo.scss";
 import "../ReservationInfoComponent/ReservationInfoVehicles.scss";
-// import "../ReservationJY.scss";
-// import "../ReservationJYcomponent/ReservationVehicles.scss";
 
 class ReservationInfoVehicles extends Component {
   render() {

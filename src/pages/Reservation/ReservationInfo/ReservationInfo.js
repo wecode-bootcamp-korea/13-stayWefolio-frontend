@@ -1,8 +1,6 @@
 import React from "react";
 import ReservationInfoToggle from "../ReservationInfo/ReservationInfoComponent/ReservationInfoToggle";
 import ReservationInfoVehicles from "../ReservationInfo/ReservationInfoComponent/ReservationInfoVehicles";
-// import ReservationToggle from "../Reservation/ReservationJYcomponent/ReservationToggle";
-// import ReservationVehicles from "../Reservation/ReservationJYcomponent/ReservationVehicles";
 
 import "../ReservationInfo/ReservationInfo.scss";
 
@@ -14,14 +12,19 @@ class ReservationInfo extends React.Component {
     };
   }
 
-  selectAll = async (e) => {
+  selectAll = () => {
     let targets = document.querySelectorAll(".checkedBox");
-    console.log(targets);
-    await this.setState({ allCheck: !this.state.allCheck });
-    const { allCheck } = this.state;
-    for (let i = 0; i < targets.length; i++) {
-      targets[i].checked = allCheck;
-    }
+    this.setState(
+      {
+        allCheck: !this.state.allCheck,
+      },
+      () => {
+        const { allCheck } = this.state;
+        for (let i = 0; i < targets.length; i++) {
+          targets[i].checked = allCheck;
+        }
+      }
+    );
   };
 
   checkValidationOfSelectAll = () => {
@@ -37,7 +40,7 @@ class ReservationInfo extends React.Component {
 
   componentDidUpdate() {
     let target = document.querySelector(".allCheckBox");
-    target.checked = this.state.allCheck ? true : false;
+    target.checked = this.state.allCheck && true;
   }
 
   render() {
