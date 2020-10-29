@@ -39,11 +39,13 @@ $icon-gray: rgb(138, 138, 138);
 
       .topLineWrap {
         height: 51px;
+        border-bottom: 1px solid $border-gray;
         @include flex;
 
         .searchBarWrap {
           padding: 12px 12px 12px 17px;
           border-left: 1px solid $border-gray;
+          border-right: 1px solid $border-gray;
           display: flex;
 
           .searchBar {
@@ -72,14 +74,11 @@ $icon-gray: rgb(138, 138, 138);
         }
 
         .mediaIconsWrap {
-          border-left: 1px solid $border-gray;
-          border-right: 1px solid $border-gray;
-
           .mediaIcons {
             @include flex;
 
             li {
-              padding: 18px 11px;
+              padding: 16px 11px;
 
               a {
                 margin: 20px 0px;
@@ -89,8 +88,10 @@ $icon-gray: rgb(138, 138, 138);
         }
 
         .loginWrap {
-          padding: 10px 30px;
+          padding: 0 30px;
+          border-left: 1px solid $border-gray;
           border-right: 1px solid $border-gray;
+
           @include flex;
 
           .loginLink,
@@ -107,7 +108,8 @@ $icon-gray: rgb(138, 138, 138);
       .bottomLineWrap {
         height: 50px;
         padding: 0 12px;
-        border: 1px solid $border-gray;
+        border-left: 1px solid $border-gray;
+        border-right: 1px solid $border-gray;
         @include flex(space-around);
 
         li {
@@ -132,7 +134,7 @@ $icon-gray: rgb(138, 138, 138);
             padding: 7px 8px;
             background-color: $color-title-black;
             color: $color-white;
-          }       
+          }
         }
       }
     }
