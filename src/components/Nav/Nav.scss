@@ -20,7 +20,6 @@ $icon-gray: rgb(138, 138, 138);
 
   .container {
     max-width: 1140px;
-    padding: 0 15px;
     margin: 0 auto;
     @include flex(space-between);
 
@@ -35,7 +34,6 @@ $icon-gray: rgb(138, 138, 138);
 
     .navContainer {
       max-width: 585px;
-      padding: 0 10px;
 
       .topLineWrap {
         height: 52px;

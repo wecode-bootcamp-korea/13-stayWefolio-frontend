@@ -9,7 +9,6 @@ export class Login extends Component {
       email: "@",
       name: "ab",
       password: "12345678",
-      tokenState: false,
     };
   }
 
@@ -42,10 +41,6 @@ export class Login extends Component {
         if (result.TOKEN) {
           localStorage.setItem("token", result);
           this.props.history.push("/");
-          this.setState({
-            tokenState: true,
-          });
-          console.log(this.state.tokenState);
         }
       });
   };

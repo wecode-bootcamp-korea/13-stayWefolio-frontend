@@ -3,11 +3,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Roboto:wght@100;300;500;700&display=swap");
 
 .BookingDetail {
-  margin-top: 102px;
+  margin: 102px 0 205px;
 
   .banner {
     min-width: 100%;
-    height: 797px;
+    height: 600px;
     position: relative;
     overflow: hidden;
 
@@ -73,8 +73,7 @@
       }
 
       .roomsContainer {
-        height: 590px;
-        ç .sliderWrapper {
+        .sliderWrapper {
           position: relative;
 
           > .slick-prev {
@@ -179,6 +178,18 @@
           padding: 0 15px;
         }
       }
+    }
+  }
+  .mapContainer {
+    margin: 0 auto;
+    text-align: center;
+
+    .mapTitle {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      color: #333333;
+      margin-bottom: 50px;
     }
   }
 }

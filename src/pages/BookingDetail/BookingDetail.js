@@ -1,9 +1,11 @@
 import React, { Component } from "react";
+import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./BookingDetail.scss";
 import RoomsSlider from "./BookingDetailComponent/RoomsSlider/RoomsSlider";
+import MapContent from "./BookingDetailComponent/Map/MapContent";
 import { API } from "../../../src/config";
 
 const slickRoomsSettings = {
@@ -17,6 +19,9 @@ const slickRoomsSettings = {
   dots: true,
 };
 
+const mockAPI =
+  "http://localhost:3000/data/bookingDetailData/roomInfoData.json";
+
 export class BookingDetail extends Component {
   constructor() {
     super();
@@ -26,8 +31,9 @@ export class BookingDetail extends Component {
     };
   }
 
+  //`${API}/main/places/1`
   componentDidMount() {
-    fetch(`${API}/main/places/1`)
+    fetch(mockAPI)
       .then((res) => res.json())
       .then((res) => {
         this.setState({
@@ -94,6 +100,12 @@ export class BookingDetail extends Component {
               </Slider>
             </div>
           </section>
+          <div className="mapContainer">
+            <p className="mapTitle">LOCATION</p>
+            <div className="mapContent">
+              <MapContent />
+            </div>
+          </div>
         </div>
       </div>
     );

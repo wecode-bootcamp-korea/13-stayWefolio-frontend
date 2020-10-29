@@ -16,10 +16,13 @@ class Nav extends Component {
       result: [],
       brandLogos: [],
       menus: [],
+      isToken: false,
     };
   }
 
   componentDidMount() {
+    const tokenValid = localStorage.getItem("token");
+    this.setState({ isToken: tokenValid });
     fetch(API)
       .then((res) => res.json())
       .then((res) => {
@@ -30,6 +33,22 @@ class Nav extends Component {
         });
       });
   }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.location.pathname !== this.props.location.pathname) {
+      const tokenValid = localStorage.getItem("token");
+      this.setState({ isToken: tokenValid });
+    }
+  }
+
+  logOut = (e) => {
+    const { isToken } = this.state;
+    if (isToken) {
+      localStorage.removeItem("token");
+      this.setState({ isToken: false });
+      e.preventDefault();
+    }
+  };
 
   handleSearchBar = (event) => {
     const { value } = event.target;
@@ -59,7 +78,7 @@ class Nav extends Component {
   }
 
   render() {
-    const { searchValue, brandLogos, menus } = this.state;
+    const { searchValue, brandLogos, menus, isToken } = this.state;
 
     return (
       <nav className="Nav">
@@ -107,13 +126,11 @@ class Nav extends Component {
               </div>
               <div className="loginWrap">
                 <Link className="loginLink" to="/login">
-                  {localStorage.getItem("token") ? "MyPage" : "LOGIN"}
+                  {isToken ? "MyPage" : "LOGIN"}
                 </Link>
-                <span className="loginAnd">
-                  {localStorage.getItem("token") ? "/" : "or"}
-                </span>
-                <Link className="signupLink" to="/signup">
-                  {localStorage.getItem("token") ? "Logout" : "REGISTER"}
+                <span className="loginAnd">{isToken ? "/" : "or"}</span>
+                <Link className="signupLink" to="/signup" onClick={this.logOut}>
+                  {isToken ? "Logout" : "REGISTER"}
                 </Link>
               </div>
             </div>
