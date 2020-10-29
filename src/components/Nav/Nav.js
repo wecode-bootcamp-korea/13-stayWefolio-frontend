@@ -3,11 +3,13 @@ import { Link } from "react-router-dom";
 import "./Nav.scss";
 
 const API = "/data/dataSSY/navdata.json";
+// const API = "http://10.58.1.45:8000/main/picks";
 
 class Nav extends Component {
   constructor() {
     super();
     this.state = {
+      isVisible: false,
       searchValue: "",
       hotelList: [],
       result: [],
@@ -47,7 +49,7 @@ class Nav extends Component {
         }
         return null;
       });
-      this.setState({ result: searchFilter });
+      this.setState({ isVisible: true, result: searchFilter });
     }
   };
 
