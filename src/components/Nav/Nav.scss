@@ -19,11 +19,11 @@ $icon-gray: rgb(138, 138, 138);
   z-index: 999;
 
   .container {
-    // margin: 0 auto;
+    margin: 0 auto;
     @include flex(space-between);
 
     .logoWrap {
-      // min-width: 559px;
+      min-width: 559px;
       @include flex(flex-start, center);
 
       .logo {
@@ -32,7 +32,7 @@ $icon-gray: rgb(138, 138, 138);
     }
 
     .navContainer {
-      // margin: 0 10px;
+      margin: 0 10px;
 
       .topLineWrap {
         height: 51px;
@@ -104,7 +104,7 @@ $icon-gray: rgb(138, 138, 138);
 
       .bottomLineWrap {
         height: 50px;
-        // padding: 0 12px;
+        padding: 0 12px;
         border-left: 1px solid $border-gray;
         border-right: 1px solid $border-gray;
         @include flex(space-around);
@@ -120,6 +120,7 @@ $icon-gray: rgb(138, 138, 138);
             font-size: 13px;
             font-weight: 700;
             text-decoration: none;
+
             &:focus-within {
               box-shadow: inset 0 -3px 0 #000;
             }
@@ -132,7 +133,7 @@ $icon-gray: rgb(138, 138, 138);
             background-color: $color-title-black;
             color: $color-white;
 
-            &:active {
+            &:focus-within {
               padding-top: 7px;
               box-shadow: inset 0 -3px 0 #000;
             }
