@@ -33,6 +33,7 @@
     height: 50px;
     background-color: $color-black;
     z-index: 505;
+
     .headerBox {
       @include flex(space-between);
       width: 1140px;
@@ -40,6 +41,7 @@
       padding: 0 15px;
       margin: 0 auto;
       z-index: 506;
+
       /* headerLeft */
       .headerLeft {
         height: inherit;
@@ -47,31 +49,37 @@
         font-weight: bolder;
         border-left: 1px solid rgb(128, 128, 128);
         color: $color-white;
+
         .headerLeftContainer {
           @include flex(flex-start, center, center);
           height: inherit;
           width: 550px;
           padding-left: 17px;
+
           .switchTitle {
             margin: 1px 8px 0 0;
             font-size: 12px;
           }
+
           .switchOff {
             margin: 2px 0 0 8px;
             font-size: 10px;
           }
+
           .switchBtn {
             position: relative;
             display: inline-block;
             width: 30px;
             height: 15px;
           }
+
           /* switch checkbox */
           .switchBtn input {
             width: 0;
             height: 0;
             opacity: 0;
           }
+
           .slider {
             position: absolute;
             cursor: pointer;
@@ -94,6 +102,7 @@
             -webkit-transition: 0.4s;
             transition: 0.4s;
           }
+
           input:checked + .slider {
             background-color: #2196f3;
           }
@@ -105,6 +114,7 @@
             -ms-transform: translateX(14px);
             transform: translateX(14px);
           }
+
           .slider.round {
             border-radius: 34px;
           }
@@ -132,21 +142,25 @@
           padding: 12px 12px 12px 17px;
           font-size: 13px;
           font-weight: 700;
+
           .searchSpan {
             padding-left: 20px;
             width: 80px;
             font-weight: bolder;
             color: $color-white;
           }
+
           .hBar {
             width: 0;
             height: 10px;
             border-left: 1px solid rgb(128, 128, 128);
           }
+
           .wBar {
             width: 5px;
             border: 1px solid rgb(128, 128, 128);
           }
+
           .checkInOutBox {
             width: 230px;
             height: inherit;
@@ -154,11 +168,13 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+
             .checkInBox {
               span {
                 margin-left: 8px;
               }
             }
+
             .checkOutBox {
               span {
                 margin-left: 8px;
@@ -203,6 +219,7 @@
           z-index: 400;
           position: absolute;
         }
+
         &:hover > .bannerTopText {
           cursor: pointer;
           font-size: 18px;
@@ -213,6 +230,7 @@
           letter-spacing: 2px;
           display: flex;
         }
+
         &:hover > .bannerDesc {
           width: 150px;
           height: 44px;
@@ -224,6 +242,7 @@
           word-break: keep-all;
           display: block;
         }
+
         &:hover > .bannerBtn {
           display: block;
           height: 35px;
@@ -266,6 +285,7 @@
 
 .navWrap {
   width: inherit;
+
   nav {
     height: 102px;
     background-color: $color-white;
@@ -276,6 +296,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+
   footer {
     height: 320px;
     background-color: $color-black;
