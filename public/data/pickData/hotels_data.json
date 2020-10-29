@@ -1,0 +1,248 @@
+{
+  "hotels": [
+      {
+          "filters": [
+              {
+                "options": [
+                  "타입전체",
+                  "게스트하우스",
+                  "민박",
+                  "한옥스테이",
+                  "풀빌라",
+                  "디자인펜션",
+                  "돌집스테이",
+                  "렌탈하우스",
+                  "부띠끄호텔",
+                  "북스테이",
+                  "캠핑&아웃도어",
+                  "리조트"
+              ]
+            },
+            {
+              "options": [
+                "지역전체",
+                "서울",
+                "제주",
+                "경상",
+                "전라",
+                "강원",
+                "경기",
+                "부산",
+                "인천",
+                "충북",
+                "태국",
+                "파리",
+                "베트남"
+              ]
+            },
+            {
+              "options": [
+                "금액전체",
+                "~50,000원",
+                "50,000~100,000원",
+                "100,000~200,000원",
+                "200,000~300,000원",
+                "300,000~400,000원",
+                "500,000원~"
+              ]
+            }
+          ]
+      },
+      {
+          "picks": [
+              {
+                  "id": 26,
+                  "name": "너지요네",
+                  "english_name": "nosillonner",
+                  "introduction": "고요한 풍경이 있는 우리만의 공간",
+                  "thumbnail_url": "https://images.unsplash.com/photo-1593909981672-3364df4cabf0?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9",
+                  "location": "제주/애월",
+                  "category": "민박",
+                  "min_price": "240000",
+                  "max_price": "340000",
+                  "tags": [
+                      "자연속의쉼",
+                      "가족여행",
+                      "휴식"
+                  ]
+              },
+              {
+                  "id": 27,
+                  "name": "니어 빌리지",
+                  "english_name": "NEAR VILLAGE",
+                  "introduction": "조용한 시골 마을에 감성을 입히다",
+                  "thumbnail_url": "https://images.unsplash.com/photo-1553884870-c10d738c389b?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9",
+                  "location": "충북/보은",
+                  "category": "캠핑&아웃도어",
+                  "min_price": "850,000",
+                  "max_price": "990,000",
+                  "tags": [
+                      "사색",
+                      "커플여행",
+                      "도심속휴식"
+                  ]
+              },
+              {
+                  "id": 28,
+                  "name": "북촌영락재",
+                  "english_name": "BukchonYoungrakjae",
+                  "introduction": "영원한 즐거움을 누리는 집",
+                  "thumbnail_url": "https://images.unsplash.com/photo-1562875991-0ccab30f3ce2?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9",
+                  "location": "서울/종로구",
+                  "category": "한옥스테이",
+                  "min_price": "450,000",
+                  "max_price": "550,000",
+                  "tags": [
+                      "새로운영감",
+                      "자연속의쉼",
+                      "사색"
+                  ]
+              },
+              {
+                  "id": 29,
+                  "name": "흩어져집",
+                  "english_name": "hutojyeohous",
+                  "introduction": "너와 나 우리 모두의 집",
+                  "thumbnail_url": "https://images.unsplash.com/photo-1560202212-bb37989863d8?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9",
+                  "location": "서울/서대문구",
+                  "category": "렌탈하우스",
+                  "min_price": "300,000",
+                  "max_price": "400,000",
+                  "tags": [
+                      "커플여행",
+                      "고택체험",
+                      "사색"
+                  ]
+              },
+              {
+                  "id": 30,
+                  "name": "눈뜬고래",
+                  "english_name": "OPENEYEWHALE",
+                  "introduction": "긴 시간 유영을 마친 두 고래가 잠시 쉬어가는 곳",
+                  "thumbnail_url": "https://images.unsplash.com/photo-1562791454-fb9bfae3d7d6?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9",
+                  "location": "제주/제주시",
+                  "category": "돌집스테이",
+                  "min_price": "500,000",
+                  "max_price": "600,000",
+                  "tags": [
+                      "사색",
+                      "자연속의쉼",
+                      "가족여행"
+                  ]
+              },
+              {
+                  "id": 31,
+                  "name": "제주집 한모공",
+                  "english_name": "Hanmogong",
+                  "introduction": "한라산 일출과 바다 일몰을 한눈에 감상할 수 있는 곳",
+                  "thumbnail_url": "https://images.unsplash.com/photo-1590248452261-5e2142a2a22c?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9",
+                  "location": "제주/애월",
+                  "category": "민박",
+                  "min_price": "230,000",
+                  "max_price": "280,000",
+                  "tags": [
+                      "사색",
+                      "정적인휴식",
+                      "새로운영감"
+                  ]
+              },
+              {
+                  "id": 32,
+                  "name": "코딩",
+                  "english_name": "Coding",
+                  "introduction": "자신을 돌아보는 가장 아날로그적인 시간",
+                  "thumbnail_url": "https://images.unsplash.com/photo-1585257546100-20e183bd0f18?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9",
+                  "location": "제주/애월",
+                  "category": "돌집스테이",
+                  "min_price": "228,045",
+                  "max_price": "300,108",
+                  "tags": [
+                      "자연속의쉼",
+                      "가족여행",
+                      "사색"
+                  ]
+              },
+              {
+                  "id": 33,
+                  "name": "이름짓기 힘듦",
+                  "english_name": "Noname",
+                  "introduction": "송당리 오름을 품은 집",
+                  "thumbnail_url": "https://images.unsplash.com/photo-1590508992931-1ee8f953f2f6?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9",
+                  "location": "제주/구좌",
+                  "category": "민박",
+                  "min_price": "84,189",
+                  "max_price": "111,129",
+                  "tags": [
+                      "도심속휴식",
+                      "가족여행",
+                      "고택체험"
+                  ]
+              },
+              {
+                  "id": 34,
+                  "name": "제이슨 파타야",
+                  "english_name": "Jason Pattaya",
+                  "introduction": "조용한 휴식이 필요하다면 찾게 되는 곳",
+                  "thumbnail_url": "https://images.unsplash.com/photo-1585257546151-78041a410c25?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9",
+                  "location": "태국/파타야",
+                  "category": "리조트",
+                  "min_price": "105,380",
+                  "max_price": "138,990",
+                  "tags": [
+                      "정적인휴식",
+                      "가족여행",
+                      "자연속의쉼"
+                  ]
+              },
+              {
+                  "id": 35,
+                  "name": "모네",
+                  "english_name": "MONET",
+                  "introduction": "몽마르뜨에 깃든 예술을 바라보며",
+                  "thumbnail_url": "https://images.unsplash.com/photo-1577953898123-741bed2513c4?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9",
+                  "location": "파리/파리",
+                  "category": "렌탈하우스",
+                  "min_price": "250,000",
+                  "max_price": "300,000",
+                  "tags": [
+                      "사색",
+                      "자연속의쉼",
+                      "고택체험"
+                  ]
+              },
+              {
+                  "id": 36,
+                  "name": "골드랜드 옌 호텔",
+                  "english_name": "Goldland Yen Hotel",
+                  "introduction": "베트남 도심 속 자연을 담은 호텔",
+                  "thumbnail_url": "https://images.unsplash.com/photo-1594904578869-c011783103c7?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9",
+                  "location": "베트남/호치민",
+                  "category": "부띠끄호텔",
+                  "min_price": "150,000",
+                  "max_price": "200,000",
+                  "tags": [
+                      "정적인휴식",
+                      "가족여행",
+                      "새로운영감"
+                  ]
+              },
+              {
+                  "id": 37,
+                  "name": "강최",
+                  "english_name": "Payne-Rios",
+                  "introduction": "탁 트인 발코니에서 서울을 내려다보다",
+                  "thumbnail_url": "https://images.unsplash.com/photo-1585549070837-ba9bbbe1537b?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9",
+                  "location": "부산/부산",
+                  "category": "캠핑&아웃도어",
+                  "min_price": "228,045",
+                  "max_price": "300,108",
+                  "tags": [
+                      "새로운영감",
+                      "사색",
+                      "자연속의쉼"
+                  ]
+              }
+          ]
+      }
+  ]
+}

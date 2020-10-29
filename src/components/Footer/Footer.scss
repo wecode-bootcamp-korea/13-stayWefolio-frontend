@@ -2,6 +2,7 @@
 
 $color-line: rgb(71, 71, 71);
 
+//Mixin
 @mixin infoStyle {
   color: rgb(153, 153, 153);
   font-size: 14px;
@@ -12,7 +13,7 @@ $color-line: rgb(71, 71, 71);
   color: $color-line;
   font-size: 12px;
 }
-
+//media query
 @media (min-width: 768px) {
   .container {
     width: 750px;
