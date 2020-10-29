@@ -40,7 +40,7 @@ export class Booking extends Component {
         </div> */}
 
         <header>
-          <div className="headerBox">
+          <div className="headerBox contentContainer">
             <div className="headerLeft">
               <span className="switchTitle">MAP MODE</span>
               <label className="switchBtn">
