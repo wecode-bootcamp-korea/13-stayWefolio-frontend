@@ -31,6 +31,7 @@ export class Main extends Component {
     this.state = {
       bannerList: [],
       searchedHotel: [],
+      id: 0,
     };
   }
 
@@ -52,13 +53,14 @@ export class Main extends Component {
       .then((res) => {
         this.setState({
           searchedHotel: res.hotels,
+          id: res.hotels[0].id,
         });
       });
   }
 
   render() {
-    const { bannerList, searchedHotel } = this.state;
-
+    const { bannerList, searchedHotel, id } = this.state;
+    console.log(this.state.id);
     return (
       <main className="Main">
         <Slider {...bannerSettings} className="slick-container">
@@ -73,7 +75,14 @@ export class Main extends Component {
                 <p className="bannerTopText">LAUNCHING EVENT</p>
                 <p className="bannerTitle">{banner.name}</p>
                 <p className="bannerDesc">{banner.introduction}</p>
-                <button className="bannerBtn">SHOW NOW</button>
+                <button
+                  className="bannerBtn"
+                  onClick={() =>
+                    this.props.history.push(`/bookingDetail/${id}`)
+                  }
+                >
+                  SHOW NOW
+                </button>
               </div>
             </div>
           ))}
@@ -109,6 +118,8 @@ export class Main extends Component {
                     minPrice={hotel.min_price}
                     maxPrice={hotel.max_price}
                     tags={hotel.tags}
+                    history={this.props.history}
+                    id={hotel.id}
                   />
                 ))}
               </div>
@@ -138,4 +149,4 @@ export class Main extends Component {
   }
 }
 
-export default Main;
+export default withRouter(Main);

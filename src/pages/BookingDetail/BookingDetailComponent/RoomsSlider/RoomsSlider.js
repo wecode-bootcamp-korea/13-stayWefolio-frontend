@@ -12,7 +12,7 @@ export class RoomsSlider extends Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:3000/data/bookingDetailData/roomBottomData.json")
+    fetch("/data/bookingDetailData/roomBottomData.json")
       .then((res) => res.json())
       .then((res) => {
         this.setState({

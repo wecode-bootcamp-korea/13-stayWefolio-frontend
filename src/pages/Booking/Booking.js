@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 import "../Booking/Booking.scss";
 
 const API = "http://10.58.1.45:8000/main/banner";
@@ -9,6 +10,7 @@ export class Booking extends Component {
     this.state = {
       bookingBannerList: [],
       hover: false,
+      id: "",
     };
   }
 
@@ -18,22 +20,24 @@ export class Booking extends Component {
       .then((res) => {
         this.setState({
           bookingBannerList: res.data,
+          id: res.data[0].hotel_id,
         });
       });
   };
 
   /* 구현 예정 */
-  fetchBtn = (e) => {
-    const LIMIT = 10;
-    const offset = e.target.dataset.image;
+  // fetchBtn = (e) => {
+  //   const LIMIT = 10;
+  //   const offset = e.target.dataset.image;
 
-    fetch(`http://10.58.1.45:8000/main/banner?banner=${LIMIT}&offset=${offset}`)
-      .then((res) => res.json())
-      .then((res) => this.setState({ bookingBannerList: res.data }));
-  };
+  //   fetch(`http://10.58.1.45:8000/main/banner?banner=${LIMIT}&offset=${offset}`)
+  //     .then((res) => res.json())
+  //     .then((res) => this.setState({ bookingBannerList: res.data }));
+  // };
 
   render() {
-    const { bookingBannerList } = this.state;
+    console.log(this.state.bookingBannerList);
+    const { bookingBannerList, id } = this.state;
 
     return (
       <div className="Booking">
@@ -57,27 +61,31 @@ export class Booking extends Component {
                 <div className="hBar"></div>
                 <div className="checkInOutBox">
                   <div className="checkInBox">
-                    <i class="far fa-calendar-alt"></i>
+                    <i className="far fa-calendar-alt"></i>
                     <span>Check In</span>
                   </div>
                   <div className="wBar"></div>
                   <div className="checkOutBox">
-                    <i class="far fa-calendar-alt"></i>
+                    <i className="far fa-calendar-alt"></i>
                     <span>Check Out</span>
                   </div>
                 </div>
                 {/* <div>뱅기, 바</div> */}
                 <div className="hBar"></div>
                 <div className="planeIconBox">
-                  <i class="far fa-paper-plane"></i>
+                  <i className="far fa-paper-plane"></i>
                 </div>
               </div>
             </div>
           </div>
         </header>
         <div className="bookingBoard">
-          {bookingBannerList.map((banner, idx) => (
-            <div className="bannerBox" key={idx}>
+          {bookingBannerList?.map((banner, idx) => (
+            <div
+              className="bannerBox"
+              key={idx}
+              onClick={() => this.props.history.push(`/bookingDetail/${id}`)}
+            >
               <img
                 className="bannerImage"
                 src={banner.thumbnail_url}
@@ -99,4 +107,4 @@ export class Booking extends Component {
     );
   }
 }
-export default Booking;
+export default withRouter(Booking);

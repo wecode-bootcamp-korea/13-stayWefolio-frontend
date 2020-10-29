@@ -1,0 +1,51 @@
+@import "../../../styles/common.scss";
+
+$color-gray: rgb(145, 145, 145);
+
+.AdditionalOption {
+  margin-bottom: 40px;
+
+  .optionCon {
+    img  {
+      width: 424px;
+    }
+    .title {
+      font-size: 22px;
+      font-weight: 400;
+      line-height: 30px;
+    }
+    .info {
+      font-size: 14px;
+      margin-left: 10px;
+    }
+  }
+
+  p {
+    padding: 5px 0;
+    color: $color-gray;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .checkBoxs {
+    margin-bottom: 5px;
+    color: $color-black;
+    font-size: 14px;
+
+    span {
+      margin-right: 10px;
+    }
+
+    .check {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 20px;
+      margin-left: 10px;
+
+      input {
+        margin-right: 4px;
+        padding: 0 4px;
+      }
+    }
+  }
+}

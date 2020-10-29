@@ -29,7 +29,8 @@
   // }
   .signupContainer {
     @include flex-center;
-    margin: 50px 0;
+    padding: 50px 0;
+    margin-top:101px;
     .signupBoard {
       width: 555px;
       background-color: $color-white;
