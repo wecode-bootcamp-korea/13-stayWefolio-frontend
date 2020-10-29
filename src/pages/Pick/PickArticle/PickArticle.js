@@ -8,12 +8,12 @@ export class PickArticle extends Component {
     const newTags = tags.join(", ");
     if (newTags.length > 15) {
       return newTags.substring(0, 15) + "...";
-    } 
+    }
   };
 
   numberFormat = (inputNumber) => {
     return inputNumber.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
- }
+  };
   render() {
     const {
       name,
@@ -36,7 +36,7 @@ export class PickArticle extends Component {
           <img
             alt="mainimg"
             src={mainImg}
-            onClick={() => history.push(`/bookingDetail/${id}`)}
+            onClick={() => history?.push(`/bookingDetail/${id}`)}
           />
           <div className="viewBox">
             <i className="fas fa-search"></i>
@@ -45,7 +45,7 @@ export class PickArticle extends Component {
         </div>
         <div className="articleInfo">
           <div className="hotelName">
-            <h4 onClick={() => this.props.history.push(`/bookingDetail/${id}`)}>
+            <h4 onClick={() => history?.push(`/bookingDetail/${id}`)}>
               {name}
             </h4>
             <span className="eng">{engName}</span>

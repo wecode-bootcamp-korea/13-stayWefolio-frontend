@@ -96,7 +96,7 @@ export class Pick extends Component {
   };
 
   setQS = (targetPage) => {
-    console.log("setQS", targetPage)
+    console.log("setQS", targetPage);
     const newOffset = (targetPage - 1) * 12;
 
     this.setState((prevState) => ({
@@ -182,7 +182,7 @@ export class Pick extends Component {
   };
 
   handlePageBtns = (targetPage) => {
-    console.log(targetPage)
+    console.log(targetPage);
     const condition = {
       currentPage: targetPage,
       totalPage: 10,
@@ -201,21 +201,21 @@ export class Pick extends Component {
 
       if (currentPage < 4) {
         newPages = [1, 2, 3, 4, 5, 6, 7];
-      } else if (currentPage === "<" ){
-        if(prev !== null ){
-          newPages = pages.map((btn) => btn.value -1)
-          currentPage = prev; 
+      } else if (currentPage === "<") {
+        if (prev !== null) {
+          newPages = pages.map((btn) => btn.value - 1);
+          currentPage = prev;
         } else {
-          newPages =[1, 2, 3, 4, 5, 6, 7];
+          newPages = [1, 2, 3, 4, 5, 6, 7];
           currentPage = 1;
         }
       } else if (currentPage === ">") {
-        if(pages[3]["value"]+1 < 5){
-          newPages = [1,2,3,4,5,6,7];
+        if (pages[3]["value"] + 1 < 5) {
+          newPages = [1, 2, 3, 4, 5, 6, 7];
           currentPage = next;
-          console.log(newPages, currentPage)
+          console.log(newPages, currentPage);
         } else {
-          newPages = pages.map((btn)=> +btn.value +1);
+          newPages = pages.map((btn) => +btn.value + 1);
           currentPage = next;
         }
         // newPages = pages.map((btn)=> +btn.value +1);
