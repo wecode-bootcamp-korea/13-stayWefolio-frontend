@@ -1,0 +1,68 @@
+@import "../../styles/common.scss";
+
+.CheckPage {
+  margin-top: 102px;
+  letter-spacing: -0.7px;
+
+  .checkContainer {
+    position: relative;
+    width: 100vw;
+    height: 800px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    transform-style: preserve-3d;
+    transition: opacity 2s cubic-bezier(0.25, 0.8, 0.4, 0.95);
+
+    .darken {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.83);
+    }
+
+    .checkText {
+      position: absolute;
+      margin-top: -100px;
+      text-align: center;
+      color: rgba(255, 255, 255, 1);
+      font-size: 28px;
+      left: 0;
+      top: 37%;
+      width: 100%;
+      font-weight: 300;
+      line-height: 39px;
+
+      .bolder2 {
+        font-weight: 700;
+        font-size: 25px;
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      .bolder1 {
+        font-weight: 700;
+        font-size: 27px;
+        color: rgba(255, 255, 255, 0.9);
+      }
+    }
+
+    .goToMainBtn {
+      position: absolute;
+      display: block;
+      font-weight: 600;
+      text-align: center;
+      height: 50px;
+      line-height: 50px;
+      width: 160px;
+      bottom: 155px;
+      left: 50%;
+      margin-left: -80px;
+      color: #fff;
+      border: 1px solid #fff;
+      background-color: rgba(255, 255, 255, 0.1);
+      cursor: pointer;
+    }
+  }
+}

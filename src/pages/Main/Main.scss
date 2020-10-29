@@ -153,9 +153,19 @@
 
   .pickContainer {
     margin-top: 35px;
-    height: 1164px;
+    margin-bottom: 78px;
+    height: 1090px;
     display: flex;
     justify-content: center;
+    overflow-y: hidden;
+
+    .pickArticleContainer {
+      height: 928px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      overflow-x: visible !important;
+    }
   }
 
   .mainBottom {
