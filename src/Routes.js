@@ -12,7 +12,7 @@ import Booking from "./pages/Booking/Booking";
 import Reservation from "./pages/Reservation/Reservation";
 import CheckPage from "./pages/CheckPage/CheckPage";
 import BookingDetail from "./pages/BookingDetail/BookingDetail";
-
+import ReservationInfo from "./pages/Reservation/ReservationInfo/ReservationInfo";
 class Routes extends React.Component {
   render() {
     return (
@@ -25,6 +25,7 @@ class Routes extends React.Component {
           <Route exact path="/pick" component={Pick} />
           <Route exact path="/booking" component={Booking} />
           <Route exact path="/reservation" component={Reservation} />
+          <Route exact path="/reservationInfo" component={ReservationInfo} />
           <Route exact path="/checkPage" component={CheckPage} />
           <Route exact path="/bookingDetail" component={BookingDetail} />
           <Route exact path="/bookingDetail/:id" component={BookingDetail} />

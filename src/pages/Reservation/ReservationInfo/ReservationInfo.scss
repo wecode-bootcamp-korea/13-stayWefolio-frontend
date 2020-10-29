@@ -26,8 +26,7 @@
           height: 40px;
           border-bottom: 1px solid rgb(244, 244, 244);
           .allCheckBox {
-            margin-left: 10px;
-            margin-top: 0;
+            margin: 0 0 0 10px;
           }
           .infoTitle {
             font-size: 16px;
@@ -58,9 +57,6 @@
               input {
                 outline: none;
                 margin: 0 0 2px 7px;
-                margin-top: 0;
-                margin-bottom: 2px;
-                margin-left: 7px;
               }
             }
           }
