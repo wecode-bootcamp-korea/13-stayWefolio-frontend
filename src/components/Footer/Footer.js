@@ -44,7 +44,7 @@ class Footer extends Component {
           </div>
           <div className="officeInfos">
             {officeInfos.map((Infos) => {
-              return <span key="Infos.id">{Infos.officeinfo}</span>;
+              return <span key={Infos.id}>{Infos.officeinfo}</span>;
             })}
           </div>
           <div className="copyRightInfos">

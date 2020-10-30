@@ -20,7 +20,7 @@ class AdditionalOption extends Component {
         <div className="optionCon">
           <img src={img} />
           <span className="title">{title}</span>
-          <span className="info">{info}</span>
+          <span className="optionInfo">{info}</span>
         </div>
         <p>
           {desc}

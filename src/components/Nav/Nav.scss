@@ -12,6 +12,7 @@ $icon-gray: rgb(138, 138, 138);
 .Nav {
   background-color: white;
   height: 101px;
+  border-bottom: 1px solid $border-gray;
   position: fixed;
   top: 0;
   left: 0;

@@ -47,7 +47,7 @@ class ReservationInfo extends React.Component {
   render() {
     console.log(this.state.data);
     return (
-      <div className="Reservation">
+      <div className="ReservationInfo">
         {/* ----------------- 약관 동의 칸  -----------------*/}
         <div className="info">
           <section className="infoSection">
