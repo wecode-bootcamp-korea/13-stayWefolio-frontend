@@ -1,57 +1,112 @@
 # stayWefolio
+![staywefolio_logo (1)](https://user-images.githubusercontent.com/66218824/97653516-4fc1ed00-1aa4-11eb-9566-2defcbfa8405.png)
+- 팀명 : stayWefolio
+- 팀원 : 신은선(Product manager), 김지훈, 민지연, 김보라, 서수연
+
+## 프로젝트 소개
+ 숙박 예약 사이트인 stayfolio의 주요 기능을 구현하였습니다. 
+ 
+### 주요기능 
+- slick slider 라이브러리를 이용한 슬라이더 기능
+- 동적 라우팅을 이용한 페이지 이동 기능
+- 로그인/회원가입 기능
+- 달력 기능 
+- 예약 사항에 따른 금액 계산 기능
+- 예약 및 예약 확인 기능
+- google map API를 이용한 지도 기능
+
+## 기술스택
+### front-end
+- React
+- Javascript
+- HTML, SASS
+- CRA, npm
+- git
+- prettier
+- ESLint
+- trello
+![staywefoliotrello](https://user-images.githubusercontent.com/66218824/97659837-56a42c00-1ab3-11eb-9580-b9c7a41123ca.png)
+
+### back-end
+- Python
+- Django
+- MySQL
+
+### 추가 설치 라이브러리
+- slick
+- react-router
+- node-sass
+- react-daterangepicker
+- google-map-react
+- font-awesome
+
+## 영상
+- 메인 화면
+![staywefolioscreenshot](https://user-images.githubusercontent.com/66218824/97659783-34121300-1ab3-11eb-9c92-80319daab3cf.png)
+- 유튜브
+ : 
 
 ## 멤버소개
 
-1. 신은선 : PM(Project Manager), Pick 페이지 작업
-2. 김보라 : Main 페이지 작업
-3. 민지연 : 로그인/회원가입 페이지 작업
-4. 서수연 : README 작성, Nav바/footer 
-5. **김지훈** : ✨유일무이 백엔드✨
-
-## 각자의 목표
-
 1. 신은선
-
-- 예약, 결제 시스템 구현해보기
-
+- Role : Team Leader
+- Position : Front-end
+- Stack : React / Java Script / Sass / Router 
+- Works : 
+ 1) 라이브러리와 CSS를 이용한 디자인 구현
+ 2) component 구현과 관련 AP! 연결
+ - 상품리스트 나열 페이지 및 예약 페이지 구현
+ - 상품리스트 페이지 - 상품 정보 나열
+ - 검색 필터 기능 - 조건 선택에 따른 필터링 기능
+ - pagination - query string을 이용한 paging 기능
+ - 달력 라이브러리를 이용한 날짜 계산 및 금액 산출 기능
+ - 유동라우터를 이용한 화면 전환 기능
+ 
 2. 김보라
-
-- 레이아웃 만들면서 htm, css 개념 확실히 잡기
-- 리액트 익숙해지기
-- 팀작업 프로세스(git 등) 완벽하게 익히기
-- 백과 여러가지 API 붙여보는 과정 이해하기
-
+- Role : Team Member
+- Position : Front-end
+- Stack : React
+- Works :
+1) 라이브러리와 css를 이용한 디자인 구현
+2) 메인 페이지, booking detail 페이지, 예약 확인 페이지 컴포넌트화 및 API 연결
+3) Main page
+ -  메인 상단 배너 - slick slider 사용하여 배너 이미지 자동 슬라이드 구현
+4) Booking Detail
+ - slick slider 사용하여 각 방 정보 슬라이딩 기능 구현
+ - Google map react API 사용하여 호텔 위치 보여주는 지도 구현
+5) 예약 상세 페이지
+ - 예약이 완료되면 해당 정보가 담긴 API를 받아와 화면에 띄워주는 예약 확인 페이지 구현
+6) 네비게이션바 로그인/로그아웃
+ - 로컬 스토리지에 저장된 토큰의 유무에 따라 로그인/로그아웃 시 네비게이션 바 문구 변경 기능 구현
+ 
 3. 민지연
-
-- 사전 convention 익히기
-- 팀 작업 익히기
-- 그동안 배운 css/html/react 적용해보기
+- Role : Team Member
+- Position : Front-end
+- Stack : React / Javascript / Sass / Router
+- Works : 
+1) 디자인을 바탕으로 Component 설계CSS를 이용한 디자인 구현
+2) Component 구현과 관련 API 연결
+3) 로그인 - 조건식에 따른 경고 메세지 구현, 로그인 활성화 반영
+4) 회원가입 - 조건식에 따른 경고 메세지 구현, toggle 버튼을 이용한 펼치기/숨기기 기능 구현, 전체동의 checkbox 자동 반영
+5) Booking main - API로 받은 이미지, 텍스트 데이터 반영
+6) 예약페이지 약관동의 - contents data로 분리 및 관리, map methods를 사용하여 data 렌더
 
 4. 서수연
-
-- CRA 초기세팅 및 완벽히 익히기
-- 팀 convention 꼼꼼하게 세우고 철저히 지키기
-- 팀으로 할 때 적정 수준의 업무 분담을 어떻게 하는게 좋은지 파악하기
+ - Role : team member
+ - Position : front-end
+ - Stack : React
+ - Works : Navigation, Footer, Resevervation
+1) CRA를 이용한 초기세팅 진행
+2) Layout 및 sass 구현
+3) component 구현과 관련 API 연결
+ - router를 이용한 Link 연결
+ - query string을 이용한 가격 정보 산출 구현
+ - 추가옵션 선택에 따른 가격 총합 산출 변경 구현
+ - 인원 추가에 따른 가격 변경 구현
+ - 체크인, 체크아웃 날짜에 따른 일박 나타내기 구현
 
 5. 김지훈
-
-- 로그인/회원가입API 복습,데이터 모델링 완벽하게 하기
-- 예약 시스템 구현해보기
-- 지도 API 사용해서 지도 불러오기
-- 결제시스템 적용하기
-
-## 우리의 만남😍
-
-![]()
-[20/10/19] 스테위폴리오 첫 만남.
-우리팀만 딱 5명이다. 오붓하니 딱 좋다😁😁
-
-- PM 및 team이름 정하기
-  **stayWefolio** : 뭘 하는지 직관적으로 알 수 있어 모두 좋았지만 강렬하지는 않은 이름! 좀 더 강렬한 이름이 있다면 언제든지 바꾸어봅시다. 😂
-- Trello 생성하기!
-  처음으로 써보는 Trello라 은선님이 초대하시는데 고생하셨다. 한 번 써보면 굉장히 좋다는데... 적극적으로 써보자.
-- stayfolio 탐방하기
-  stayfolio의 여러 기능을 명확하게 알지 못 하는 상태에서 시작하기에 홈페이지가 어떻게 구성되어 있는지, 어떻게 연결되는지, 어떤 기능은 꼭 하고 싶은지를 확인하는 시간을 가졌다.
-- 역할 분담하기 : trello ticket 만들기
-  팀 프로젝트가 처음이라 정확히 어떻게 역할 분담이 있어야 할지 막막한 부분이 있어 우선 구현하고 싶은 것들을 위주로 ticket 작성을 한 후 멘토님께 여쭤보기로 했다.
-- backend와 스케줄 상의하기 : backend이신 지훈님이 모델링에 시간을 투자하고 싶다고 하셨다. 이전 기수의 후기 중 모델링에서 1주일 투자하고 시작해도 좋았다는 후기를 생각하면 백엔드에서 모델링에서 충분한 시간을 가졌으면 좋겠어서 5일~1주일 정도의 시간을 가질 수 있도록 조정했다.
+- Role : team member
+- Position : back-end
+- Stack : Django, Python
+- Works : 
