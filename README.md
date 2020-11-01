@@ -44,7 +44,7 @@
 - 메인 화면
 ![staywefolioscreenshot](https://user-images.githubusercontent.com/66218824/97659783-34121300-1ab3-11eb-9c92-80319daab3cf.png)
 - 유튜브
- : 
+ : https://youtu.be/qz6dKgsI0Ds
 
 ## 멤버소개
 
