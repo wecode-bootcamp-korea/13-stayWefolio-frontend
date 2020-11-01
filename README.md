@@ -61,7 +61,7 @@
  - pagination - query string을 이용한 paging 기능
  - 달력 라이브러리를 이용한 날짜 계산 및 금액 산출 기능
  - 유동라우터를 이용한 화면 전환 기능
- 
+ ---
 2. 김보라
 - Role : Team Member
 - Position : Front-end
@@ -78,7 +78,7 @@
  - 예약이 완료되면 해당 정보가 담긴 API를 받아와 화면에 띄워주는 예약 확인 페이지 구현
 6) 네비게이션바 로그인/로그아웃
  - 로컬 스토리지에 저장된 토큰의 유무에 따라 로그인/로그아웃 시 네비게이션 바 문구 변경 기능 구현
- 
+ ---
 3. 민지연
 - Role : Team Member
 - Position : Front-end
@@ -90,7 +90,7 @@
 4) 회원가입 - 조건식에 따른 경고 메세지 구현, toggle 버튼을 이용한 펼치기/숨기기 기능 구현, 전체동의 checkbox 자동 반영
 5) Booking main - API로 받은 이미지, 텍스트 데이터 반영
 6) 예약페이지 약관동의 - contents data로 분리 및 관리, map methods를 사용하여 data 렌더
-
+---
 4. 서수연
  - Role : team member
  - Position : front-end
@@ -104,7 +104,7 @@
  - 추가옵션 선택에 따른 가격 총합 산출 변경 구현
  - 인원 추가에 따른 가격 변경 구현
  - 체크인, 체크아웃 날짜에 따른 일박 나타내기 구현
-
+---
 5. 김지훈
 - Role : team member
 - Position : back-end
