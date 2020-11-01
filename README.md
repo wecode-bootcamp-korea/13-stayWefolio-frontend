@@ -1,7 +1,7 @@
 # stayWefolio
 ![staywefolio_logo (1)](https://user-images.githubusercontent.com/66218824/97653516-4fc1ed00-1aa4-11eb-9566-2defcbfa8405.png)
 - 팀명 : stayWefolio
-- 팀원 : 신은선(Product manager), 김지훈, 민지연, 김보라, 서수연
+- 팀원 : 신은선(Product Manager), 김지훈, 민지연, 김보라, 서수연
 
 ## 프로젝트 소개
  숙박 예약 사이트인 stayfolio의 주요 기능을 구현하였습니다. 
