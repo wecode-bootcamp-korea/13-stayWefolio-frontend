@@ -119,3 +119,6 @@
 - 예약 페이지 - 프론트엔드에서 준 날짜를 기준으로 그 달의 모든 예약일정과 사용자가 지정한 날짜의 가격 합계를 리턴
 - 예약 확인 페이지 - 예약 후 예약 id를 통해 사용자의 예약 정보를 리턴하여 사용자가 예약을 확인하는 페이지에 띄워줌
 - backend github: https://github.com/wecode-bootcamp-korea/13-stayWefolio-backend
+---
+![Image from iOS](https://user-images.githubusercontent.com/66218824/97805950-7a769600-1c9c-11eb-8981-dea62d98af94.jpg)
+❤stayWefolio팀과 함께해서 너무나 행복했습니다❤
