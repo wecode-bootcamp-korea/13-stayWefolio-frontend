@@ -133,12 +133,12 @@ export class Pick extends Component {
           qS: {
             ...prevState.qS,
             category: searchType,
+            offset: 0
           },
           pageHandling: {
             ...initPageHandling,
           },
         }),
-        () => this.setQS(1)
       );
     } else if (searchedHotel[0].filters[1].options.includes(searchValue)) {
       searchValue.includes("전체")
@@ -149,12 +149,12 @@ export class Pick extends Component {
           qS: {
             ...prevState.qS,
             location: searchLocation,
+            offset: 0
           },
           pageHandling: {
             ...initPageHandling,
           },
         }),
-        () => this.setQS(1)
       );
     } else if (searchedHotel[0].filters[2].options.includes(searchValue)) {
       searchValue.includes("전체")
@@ -165,12 +165,12 @@ export class Pick extends Component {
           qS: {
             ...prevState.qS,
             price: searchPrice,
+            offset: 0
           },
           pageHandling: {
             ...initPageHandling,
           },
         }),
-        () => this.setQS(1)
       );
     }
   };
@@ -183,45 +183,66 @@ export class Pick extends Component {
 
     const paging = (currentPage) => {
       const { pages, prev, next } = this.state.pageHandling;
-      // let newPages = [];
-      let newPages = [1, 2, 3, 4, 5, 6, 7];
+      const maxPage = 15;
+      let newPages = [];
+      const initPages = [1, 2, 3, 4, 5, 6, 7];
+      const lastPages = [maxPage-6, maxPage-5, maxPage-4, maxPage-3, maxPage-2, maxPage-1, maxPage];
 
-      if (currentPage < 4) {
-        newPages = newPages;
-      } else if (currentPage === "<") {
-        if(prev === null) {
-          newPages = [1, 2, 3, 4, 5, 6, 7];
-          currentPage = 1;
-        } else if (prev <= 3){
-          newPages =[1, 2, 3, 4, 5, 6, 7];
-          currentPage = prev;
-        } else {
-          newPages = pages.map((btn) => btn.value -1);
-          currentPage = prev;
-        }
-      } else if (currentPage === ">") {
-        if(next < 5){
-          newPages = [1, 2, 3, 4, 5, 6, 7];
-          currentPage = next;
-        } else if(pages[6]["value"] === 15){
-          newPages = [9, 10, 11, 12, 13, 14, 15];
-          currentPage = next;
-        } else {
-          newPages = pages.map((btn) => +btn.value +1);
-          currentPage = next;
-        }
-      } else if (currentPage > 12){ 
-        newPages = [9, 10, 11, 12, 13, 14, 15]
-      } else {
-        newPages = [
-          currentPage - 3,
-          currentPage - 2,
-          currentPage - 1,
-          currentPage,
-          +currentPage + 1,
-          +currentPage + 2,
-          +currentPage + 3,
-        ];
+      switch(currentPage){
+        case "1":
+        case "2":
+        case "3":
+          newPages = initPages;
+          break;
+
+        case String(maxPage):
+        case String(maxPage-1):
+        case String(maxPage-2):
+          newPages = lastPages;
+          break;
+
+        case "<":
+          if(prev === null) {
+            newPages = initPages;
+            currentPage = 1;
+          } else if (prev <= 3){
+            newPages = initPages;
+            currentPage = prev;
+          } else if (prev > maxPage-4) {
+            newPages = lastPages;
+            currentPage = prev;
+          } else {
+            newPages = pages.map((btn) => btn.value -1);
+            currentPage = prev;
+          }
+          break;
+
+        case ">":
+          if(next === null) {
+            newPages = lastPages;
+            currentPage = maxPage;
+            } else if(next < 5){
+            newPages = initPages;
+            currentPage = next;
+          } else if (next > maxPage-3) {
+            newPages = lastPages;
+            currentPage = next;
+          } else {
+            newPages = pages.map((btn) => +btn.value +1);
+            currentPage = next;
+          }
+          break;
+        
+        default:
+          newPages = [
+            currentPage - 3,
+            currentPage - 2,
+            currentPage - 1,
+            currentPage,
+            +currentPage + 1,
+            +currentPage + 2,
+            +currentPage + 3,
+          ];
       }
 
       const clickedArr = newPages.map((page) => isClicked(page, currentPage));
@@ -231,8 +252,7 @@ export class Pick extends Component {
       return {
         pages: clickedArr,
         prev: prevPage > 0 ? prevPage : null,
-        // next: nextPage <= 10 ? nextPage : null,
-        next: nextPage
+        next: nextPage <= maxPage ? nextPage : null,
       };
     };
     const changed = paging(targetPage);
