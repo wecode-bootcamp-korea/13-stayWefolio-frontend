@@ -41,25 +41,25 @@ export class Pick extends Component {
 
   componentDidMount() {
     //  서버와 통신할 때 실제 사용하는 코드
-    fetch(`${API}?limit=12&offset=0`)
-      .then((res) => res.json())
-      .then((res) => {
-        console.log("통신확인");
-        this.setState({
-          // hotels: res.hotels,
-          searchedHotel: res.hotels,
-        });
-      });
-
-    // fetch("/data/pickData/hotels_data.json", {
-    //   method: "GET"
-    // })
+    // fetch(`${API}?limit=12&offset=0`)
     //   .then((res) => res.json())
     //   .then((res) => {
+    //     console.log("통신확인");
     //     this.setState({
-    //       searchedHotel: res.hotels
+    //       // hotels: res.hotels,
+    //       searchedHotel: res.hotels,
     //     });
     //   });
+
+    fetch("/data/pickData/hotels_data.json", {
+      method: "GET"
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        this.setState({
+          searchedHotel: res.hotels
+        });
+      });
   }
 
   // 서버와 pagination 하는 function
@@ -71,7 +71,7 @@ export class Pick extends Component {
       prevState.qS.location !== qS.location ||
       prevState.qS.price !== qS.price
     ) {
-      this.paging(qS);
+      // this.paging(qS);
     }
   }
 
@@ -82,13 +82,11 @@ export class Pick extends Component {
       }
     }
 
-    // console.log(queryS)
     const queryString =
       "?" +
       Object.entries(queryS)
         .map((e) => "&" + e.join("="))
         .join("");
-    // console.log(queryString)
 
     fetch(`${API}${queryString}`)
       .then((res) => res.json())
@@ -96,7 +94,6 @@ export class Pick extends Component {
   };
 
   setQS = (targetPage) => {
-    console.log("setQS", targetPage);
     const newOffset = (targetPage - 1) * 12;
 
     this.setState((prevState) => ({
@@ -138,7 +135,6 @@ export class Pick extends Component {
             category: searchType,
           },
           pageHandling: {
-            ...prevState.qS,
             ...initPageHandling,
           },
         }),
@@ -155,7 +151,6 @@ export class Pick extends Component {
             location: searchLocation,
           },
           pageHandling: {
-            ...prevState.qS,
             ...initPageHandling,
           },
         }),
@@ -172,7 +167,6 @@ export class Pick extends Component {
             price: searchPrice,
           },
           pageHandling: {
-            ...prevState.qS,
             ...initPageHandling,
           },
         }),
@@ -182,44 +176,42 @@ export class Pick extends Component {
   };
 
   handlePageBtns = (targetPage) => {
-    console.log(targetPage);
-    const condition = {
-      currentPage: targetPage,
-      totalPage: 10,
-      itemPerPage: 12,
-      limit: 7,
-    };
-
     const isClicked = (page, currentPage) => ({
       value: page,
       current: currentPage == page ? true : false,
     });
 
-    const paging = ({ currentPage, totalPage, itemPerPage, limit }) => {
+    const paging = (currentPage) => {
       const { pages, prev, next } = this.state.pageHandling;
-      let newPages = [];
+      // let newPages = [];
+      let newPages = [1, 2, 3, 4, 5, 6, 7];
 
       if (currentPage < 4) {
-        newPages = [1, 2, 3, 4, 5, 6, 7];
+        newPages = newPages;
       } else if (currentPage === "<") {
-        if (prev !== null) {
-          newPages = pages.map((btn) => btn.value - 1);
-          currentPage = prev;
-        } else {
+        if(prev === null) {
           newPages = [1, 2, 3, 4, 5, 6, 7];
           currentPage = 1;
+        } else if (prev <= 3){
+          newPages =[1, 2, 3, 4, 5, 6, 7];
+          currentPage = prev;
+        } else {
+          newPages = pages.map((btn) => btn.value -1);
+          currentPage = prev;
         }
       } else if (currentPage === ">") {
-        if (pages[3]["value"] + 1 < 5) {
+        if(next < 5){
           newPages = [1, 2, 3, 4, 5, 6, 7];
           currentPage = next;
-          console.log(newPages, currentPage);
+        } else if(pages[6]["value"] === 15){
+          newPages = [9, 10, 11, 12, 13, 14, 15];
+          currentPage = next;
         } else {
-          newPages = pages.map((btn) => +btn.value + 1);
+          newPages = pages.map((btn) => +btn.value +1);
           currentPage = next;
         }
-        // newPages = pages.map((btn)=> +btn.value +1);
-        // currentPage = pages[3]["value"]+1;
+      } else if (currentPage > 12){ 
+        newPages = [9, 10, 11, 12, 13, 14, 15]
       } else {
         newPages = [
           currentPage - 3,
@@ -239,10 +231,11 @@ export class Pick extends Component {
       return {
         pages: clickedArr,
         prev: prevPage > 0 ? prevPage : null,
-        next: nextPage <= 10 ? nextPage : null,
+        // next: nextPage <= 10 ? nextPage : null,
+        next: nextPage
       };
     };
-    const changed = paging(condition);
+    const changed = paging(targetPage);
 
     this.setState((prevState) => ({
       pageHandling: {
@@ -255,7 +248,6 @@ export class Pick extends Component {
   };
 
   render() {
-    // console.log(this.state.searchedHotel);
     const { searchedHotel } = this.state;
 
     return (

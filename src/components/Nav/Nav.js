@@ -78,8 +78,6 @@ class Nav extends Component {
   render() {
     const { searchValue, brandLogos, menus, isToken } = this.state;
 
-    console.log(this.props.location.pathname);
-
     return (
       <nav className="Nav">
         <div className="container">
