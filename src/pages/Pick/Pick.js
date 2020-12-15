@@ -106,20 +106,7 @@ export class Pick extends Component {
 
   filtering = (searchValue) => {
     const { searchedHotel } = this.state;
-    const initPageHandling = {
-      pages: [
-        { value: 1, current: true },
-        { value: 2, current: false },
-        { value: 3, current: false },
-        { value: 4, current: false },
-        { value: 5, current: false },
-        { value: 6, current: false },
-        { value: 7, current: false },
-      ],
-      prev: null,
-      next: 8,
-    };
-
+    let newValue = {};
     let searchType = "";
     let searchLocation = "";
     let searchPrice = "";
@@ -128,51 +115,27 @@ export class Pick extends Component {
       searchValue.includes("전체")
         ? (searchType = "")
         : (searchType = searchValue);
-      this.setState(
-        (prevState) => ({
-          qS: {
-            ...prevState.qS,
-            category: searchType,
-            offset: 0
-          },
-          pageHandling: {
-            ...initPageHandling,
-          },
-        }),
-      );
+       newValue = {category: searchType};
     } else if (searchedHotel[0].filters[1].options.includes(searchValue)) {
       searchValue.includes("전체")
         ? (searchLocation = "")
         : (searchLocation = searchValue);
-      this.setState(
-        (prevState) => ({
-          qS: {
-            ...prevState.qS,
-            location: searchLocation,
-            offset: 0
-          },
-          pageHandling: {
-            ...initPageHandling,
-          },
-        }),
-      );
+      newValue = {location: searchLocation};
     } else if (searchedHotel[0].filters[2].options.includes(searchValue)) {
       searchValue.includes("전체")
         ? (searchPrice = "")
         : (searchPrice = searchValue);
-      this.setState(
-        (prevState) => ({
-          qS: {
-            ...prevState.qS,
-            price: searchPrice,
-            offset: 0
-          },
-          pageHandling: {
-            ...initPageHandling,
-          },
-        }),
-      );
+      newValue = {price : searchPrice}
     }
+   
+   return this.setState((prevState) => ({
+     qS: {
+       ...prevState.qS,
+       ...newValue,
+       offset: 0
+     }
+   })),
+   this.handlePageBtns("1");
   };
 
   handlePageBtns = (targetPage) => {
