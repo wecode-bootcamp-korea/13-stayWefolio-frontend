@@ -71,11 +71,11 @@ export class Pick extends Component {
       prevState.qS.location !== qS.location ||
       prevState.qS.price !== qS.price
     ) {
-      // this.paging(qS);
+      // this.QueryString(qS);
     }
   }
 
-  paging = (queryS) => {
+  setQueryString = (queryS) => {
     for (let key in queryS) {
       if (queryS[key] === "") {
         delete queryS[key];
@@ -93,7 +93,7 @@ export class Pick extends Component {
       .then((res) => this.setState({ searchedHotel: res.hotels }));
   };
 
-  setQS = (targetPage) => {
+  setNewOffset = (targetPage) => {
     const newOffset = (targetPage - 1) * 12;
 
     this.setState((prevState) => ({
@@ -104,7 +104,7 @@ export class Pick extends Component {
     }));
   };
 
-  filtering = (searchValue) => {
+  filteringHotel = (searchValue) => {
     const { searchedHotel } = this.state;
     let newValue = {};
     let searchType = "";
@@ -144,9 +144,9 @@ export class Pick extends Component {
       current: currentPage == page ? true : false,
     });
 
-    const paging = (currentPage) => {
+    const setPageBtns = (currentPage) => {
       const { pages, prev, next } = this.state.pageHandling;
-      const maxPage = 15;
+      const maxPage = 20;
       let newPages = [];
       const initPages = [1, 2, 3, 4, 5, 6, 7];
       const lastPages = [maxPage-6, maxPage-5, maxPage-4, maxPage-3, maxPage-2, maxPage-1, maxPage];
@@ -218,7 +218,7 @@ export class Pick extends Component {
         next: nextPage <= maxPage ? nextPage : null,
       };
     };
-    const changed = paging(targetPage);
+    const changed = setPageBtns(targetPage);
 
     this.setState((prevState) => ({
       pageHandling: {
@@ -249,7 +249,7 @@ export class Pick extends Component {
                 searchedHotel[0]?.filters?.map((filter, idx) => (
                   <SearchFilter
                     event={this.searchHotel}
-                    filtering={this.filtering}
+                    filtering={this.filteringHotel}
                     key={idx}
                     data={filter}
                     id={idx}
@@ -283,7 +283,7 @@ export class Pick extends Component {
                 prev={this.state.pageHandling.prev}
                 next={this.state.pageHandling.next}
                 clickEvent={this.handlePageBtns}
-                setQS={this.setQS}
+                setNewOffset={this.setNewOffset}
               />
             </ul>
           </div>

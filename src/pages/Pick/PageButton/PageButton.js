@@ -16,7 +16,7 @@ function Btn({ value, current, event }) {
 export class PageButton extends Component {
   getTargetPage = (e) => {
     this.props.clickEvent(e.target.innerText);
-    this.props.setQS(e.target.innerText);
+    this.props.setNewOffset(e.target.innerText);
   };
 
   render() {
