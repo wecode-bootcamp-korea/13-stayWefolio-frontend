@@ -41,25 +41,25 @@ export class Pick extends Component {
 
   componentDidMount() {
     //  서버와 통신할 때 실제 사용하는 코드
-    fetch(`${API}?limit=12&offset=0`)
-      .then((res) => res.json())
-      .then((res) => {
-        console.log("통신확인");
-        this.setState({
-          // hotels: res.hotels,
-          searchedHotel: res.hotels,
-        });
-      });
-
-    // fetch("/data/pickData/hotels_data.json", {
-    //   method: "GET"
-    // })
+    // fetch(`${API}?limit=12&offset=0`)
     //   .then((res) => res.json())
     //   .then((res) => {
+    //     console.log("통신확인");
     //     this.setState({
-    //       searchedHotel: res.hotels
+    //       // hotels: res.hotels,
+    //       searchedHotel: res.hotels,
     //     });
     //   });
+
+    fetch("/data/pickData/hotels_data.json", {
+      method: "GET"
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        this.setState({
+          searchedHotel: res.hotels
+        });
+      });
   }
 
   // 서버와 pagination 하는 function
@@ -71,32 +71,29 @@ export class Pick extends Component {
       prevState.qS.location !== qS.location ||
       prevState.qS.price !== qS.price
     ) {
-      this.paging(qS);
+      // this.QueryString(qS);
     }
   }
 
-  paging = (queryS) => {
+  setQueryString = (queryS) => {
     for (let key in queryS) {
       if (queryS[key] === "") {
         delete queryS[key];
       }
     }
 
-    // console.log(queryS)
     const queryString =
       "?" +
       Object.entries(queryS)
         .map((e) => "&" + e.join("="))
         .join("");
-    // console.log(queryString)
 
     fetch(`${API}${queryString}`)
       .then((res) => res.json())
       .then((res) => this.setState({ searchedHotel: res.hotels }));
   };
 
-  setQS = (targetPage) => {
-    console.log("setQS", targetPage);
+  setNewOffset = (targetPage) => {
     const newOffset = (targetPage - 1) * 12;
 
     this.setState((prevState) => ({
@@ -107,22 +104,9 @@ export class Pick extends Component {
     }));
   };
 
-  filtering = (searchValue) => {
+  filteringHotel = (searchValue) => {
     const { searchedHotel } = this.state;
-    const initPageHandling = {
-      pages: [
-        { value: 1, current: true },
-        { value: 2, current: false },
-        { value: 3, current: false },
-        { value: 4, current: false },
-        { value: 5, current: false },
-        { value: 6, current: false },
-        { value: 7, current: false },
-      ],
-      prev: null,
-      next: 8,
-    };
-
+    let newValue = {};
     let searchType = "";
     let searchLocation = "";
     let searchPrice = "";
@@ -131,105 +115,97 @@ export class Pick extends Component {
       searchValue.includes("전체")
         ? (searchType = "")
         : (searchType = searchValue);
-      this.setState(
-        (prevState) => ({
-          qS: {
-            ...prevState.qS,
-            category: searchType,
-          },
-          pageHandling: {
-            ...prevState.qS,
-            ...initPageHandling,
-          },
-        }),
-        () => this.setQS(1)
-      );
+       newValue = {category: searchType};
     } else if (searchedHotel[0].filters[1].options.includes(searchValue)) {
       searchValue.includes("전체")
         ? (searchLocation = "")
         : (searchLocation = searchValue);
-      this.setState(
-        (prevState) => ({
-          qS: {
-            ...prevState.qS,
-            location: searchLocation,
-          },
-          pageHandling: {
-            ...prevState.qS,
-            ...initPageHandling,
-          },
-        }),
-        () => this.setQS(1)
-      );
+      newValue = {location: searchLocation};
     } else if (searchedHotel[0].filters[2].options.includes(searchValue)) {
       searchValue.includes("전체")
         ? (searchPrice = "")
         : (searchPrice = searchValue);
-      this.setState(
-        (prevState) => ({
-          qS: {
-            ...prevState.qS,
-            price: searchPrice,
-          },
-          pageHandling: {
-            ...prevState.qS,
-            ...initPageHandling,
-          },
-        }),
-        () => this.setQS(1)
-      );
+      newValue = {price : searchPrice}
     }
+   
+   return this.setState((prevState) => ({
+     qS: {
+       ...prevState.qS,
+       ...newValue,
+       offset: 0
+     }
+   })),
+   this.handlePageBtns("1");
   };
 
   handlePageBtns = (targetPage) => {
-    console.log(targetPage);
-    const condition = {
-      currentPage: targetPage,
-      totalPage: 10,
-      itemPerPage: 12,
-      limit: 7,
-    };
-
     const isClicked = (page, currentPage) => ({
       value: page,
       current: currentPage == page ? true : false,
     });
 
-    const paging = ({ currentPage, totalPage, itemPerPage, limit }) => {
+    const setPageBtns = (currentPage) => {
       const { pages, prev, next } = this.state.pageHandling;
+      const maxPage = 20;
       let newPages = [];
+      const initPages = [1, 2, 3, 4, 5, 6, 7];
+      const lastPages = [maxPage-6, maxPage-5, maxPage-4, maxPage-3, maxPage-2, maxPage-1, maxPage];
 
-      if (currentPage < 4) {
-        newPages = [1, 2, 3, 4, 5, 6, 7];
-      } else if (currentPage === "<") {
-        if (prev !== null) {
-          newPages = pages.map((btn) => btn.value - 1);
-          currentPage = prev;
-        } else {
-          newPages = [1, 2, 3, 4, 5, 6, 7];
-          currentPage = 1;
-        }
-      } else if (currentPage === ">") {
-        if (pages[3]["value"] + 1 < 5) {
-          newPages = [1, 2, 3, 4, 5, 6, 7];
-          currentPage = next;
-          console.log(newPages, currentPage);
-        } else {
-          newPages = pages.map((btn) => +btn.value + 1);
-          currentPage = next;
-        }
-        // newPages = pages.map((btn)=> +btn.value +1);
-        // currentPage = pages[3]["value"]+1;
-      } else {
-        newPages = [
-          currentPage - 3,
-          currentPage - 2,
-          currentPage - 1,
-          currentPage,
-          +currentPage + 1,
-          +currentPage + 2,
-          +currentPage + 3,
-        ];
+      switch(currentPage){
+        case "1":
+        case "2":
+        case "3":
+          newPages = initPages;
+          break;
+
+        case String(maxPage):
+        case String(maxPage-1):
+        case String(maxPage-2):
+          newPages = lastPages;
+          break;
+
+        case "<":
+          if(prev === null) {
+            newPages = initPages;
+            currentPage = 1;
+          } else if (prev <= 3){
+            newPages = initPages;
+            currentPage = prev;
+          } else if (prev > maxPage-4) {
+            newPages = lastPages;
+            currentPage = prev;
+          } else {
+            newPages = pages.map((btn) => btn.value -1);
+            currentPage = prev;
+          }
+          break;
+
+        case ">":
+          if(next === null) {
+            newPages = lastPages;
+            currentPage = maxPage;
+            } else if(next < 5){
+            newPages = initPages;
+            currentPage = next;
+          } else if (next > maxPage-3) {
+            newPages = lastPages;
+            currentPage = next;
+          } else {
+            newPages = pages.map((btn) => +btn.value +1);
+            currentPage = next;
+          }
+          break;
+        
+        default:
+          newPages = [
+            currentPage - 3,
+            currentPage - 2,
+            currentPage - 1,
+            currentPage,
+            +currentPage + 1,
+            +currentPage + 2,
+            +currentPage + 3,
+          ];
       }
 
       const clickedArr = newPages.map((page) => isClicked(page, currentPage));
@@ -239,10 +215,10 @@ export class Pick extends Component {
       return {
         pages: clickedArr,
         prev: prevPage > 0 ? prevPage : null,
-        next: nextPage <= 10 ? nextPage : null,
+        next: nextPage <= maxPage ? nextPage : null,
       };
     };
-    const changed = paging(condition);
+    const changed = setPageBtns(targetPage);
 
     this.setState((prevState) => ({
       pageHandling: {
@@ -255,7 +231,6 @@ export class Pick extends Component {
   };
 
   render() {
-    // console.log(this.state.searchedHotel);
     const { searchedHotel } = this.state;
 
     return (
@@ -274,7 +249,7 @@ export class Pick extends Component {
                 searchedHotel[0]?.filters?.map((filter, idx) => (
                   <SearchFilter
                     event={this.searchHotel}
-                    filtering={this.filtering}
+                    filtering={this.filteringHotel}
                     key={idx}
                     data={filter}
                     id={idx}
@@ -308,7 +283,7 @@ export class Pick extends Component {
                 prev={this.state.pageHandling.prev}
                 next={this.state.pageHandling.next}
                 clickEvent={this.handlePageBtns}
-                setQS={this.setQS}
+                setNewOffset={this.setNewOffset}
               />
             </ul>
           </div>
