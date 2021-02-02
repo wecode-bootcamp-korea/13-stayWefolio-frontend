@@ -90,6 +90,7 @@
 4) 회원가입 - 조건식에 따른 경고 메세지 구현, toggle 버튼을 이용한 펼치기/숨기기 기능 구현, 전체동의 checkbox 자동 반영
 5) Booking main - API로 받은 이미지, 텍스트 데이터 반영
 6) 예약페이지 약관동의 - contents data로 분리 및 관리, map methods를 사용하여 data 렌더
+- [프로젝트 후기](https://velog.io/@ichbinmin2/첫번째팀프로젝트)
 ---
 4. 서수연
  - Role : team member
